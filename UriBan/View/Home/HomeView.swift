@@ -13,6 +13,7 @@ struct HomeView: View {
     // fetch..
     @StateObject var modelData = HomeViewModel()
     
+    
     var columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 2)
     
     @State var showingActionSheet = false
@@ -67,8 +68,8 @@ struct HomeView: View {
 
                         ZStack {
                             VStack {
-                                    NavigationLink(destination: Text(String(home.school))) {
-
+//                                NavigationLink(destination: StudentView(date: home.date)) {
+                                NavigationLink(destination: StudentView(school: home.school)) {
                                         Image(home.image)
                                             .resizable()
                                             .frame(width: 150, height: 100)

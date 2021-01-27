@@ -21,6 +21,8 @@
 		FA94237425C0FB030072D0EE /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = FA94237325C0FB030072D0EE /* Realm */; };
 		FA94237625C0FB030072D0EE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FA94237525C0FB030072D0EE /* RealmSwift */; };
 		FA9CF39225C0FDB500E66C07 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CF39125C0FDB500E66C07 /* Test.swift */; };
+		FA9CF39525C1234C00E66C07 /* StudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CF39425C1234C00E66C07 /* StudentView.swift */; };
+		FA9CF39925C1277100E66C07 /* StudentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CF39825C1277100E66C07 /* StudentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		FA94236C25C0FA5E0072D0EE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		FA94236F25C0FA940072D0EE /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		FA9CF39125C0FDB500E66C07 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		FA9CF39425C1234C00E66C07 /* StudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentView.swift; sourceTree = "<group>"; };
+		FA9CF39825C1277100E66C07 /* StudentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				FA94236F25C0FA940072D0EE /* HomeViewModel.swift */,
+				FA9CF39825C1277100E66C07 /* StudentViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -144,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				FA9CF39125C0FDB500E66C07 /* Test.swift */,
+				FA9CF39425C1234C00E66C07 /* StudentView.swift */,
 			);
 			path = MyClass;
 			sourceTree = "<group>";
@@ -245,7 +251,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA9CF39925C1277100E66C07 /* StudentViewModel.swift in Sources */,
 				FA94234725C0F8710072D0EE /* ContentView.swift in Sources */,
+				FA9CF39525C1234C00E66C07 /* StudentView.swift in Sources */,
 				FA94237025C0FA940072D0EE /* HomeViewModel.swift in Sources */,
 				FA94235F25C0F9B40072D0EE /* Home02.swift in Sources */,
 				FA94236225C0F9D00072D0EE /* Student01.swift in Sources */,
