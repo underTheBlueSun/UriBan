@@ -2,8 +2,8 @@
 //  UriBanApp.swift
 //  UriBan
 //
-//  Created by macbook on 2021/01/27.
-//
+//  Created by underTheBlueSun on 2021/01/22.
+// ... 
 
 import SwiftUI
 
@@ -11,7 +11,8 @@ import SwiftUI
 struct UriBanApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainTabView()
+//            SearchDefaultRealm()
         }
     }
 }
