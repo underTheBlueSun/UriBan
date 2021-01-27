@@ -9,35 +9,53 @@ import SwiftUI
 
 struct StudentView: View {
     
+//    var date: Date
+//    var studentModelData: StudentViewModel
+    
 
-    var modelData: StudentViewModel
 
     
-    init(school: String) {
-        self.modelData = StudentViewModel(school: school)
-    }
+//    init(school: String) {
+//        self.studentModelData = StudentViewModel(school: school)
+//    }
     
 //    init(date: Date) {
-//        self.modelData = StudentViewModel(date: date)
+//        print("init")
+//        self.date = date
+//        self.studentModelData = StudentViewModel(date: date)
 //    }
+    
+    init() {
+        print("init")
+    }
+    
+
+    
     
     
  
     var body: some View {
-        NavigationView {
-            Text("111" + modelData.date)
-//            ForEach(modelData.students) { student in
-//                Text(student.name)
-//
-//            } // ForEach
             
-        } // LazyVGrid
+            ScrollView {
+//                ForEach(studentModelData.students) { student in
+//                    Text(student.school)
+//
+//                } // ForEach
+                
+            }
+//            .onAppear(perform: {
+//                print("onappear")
+//            })
+
+            
+            
+
         
     }
 }
 
 //struct StudentView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        StudentView(home: Home02())
+//        StudentView(date: Date())
 //    }
 //}

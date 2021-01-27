@@ -10,8 +10,8 @@ import RealmSwift
 
 class StudentViewModel: ObservableObject {
     
-    var date = ""
-    var school: String = ""
+    var date: Date
+//    var school: String
     
 //    var year = ""
 //    @Published var school = ""
@@ -21,65 +21,58 @@ class StudentViewModel: ObservableObject {
     // 스윗한 스위프트 p302 는 조금 다름
 //    @Published var openNewPage = false
     
-    // Fetched Data
-//    var students: [Student01] = []
-//    @Published var students: [Student01] = []
-    var students: [Student01] = []
+    @Published var students: [Student01] = []
     
-    // Data Updation
-//    @Published var updateObject: Student01?
-    
-//    init(date: Date) {
-//        fetchData(date: date)
-//    }
-    
-    init(school: String) {
-//        fetchData(school: school)
-        addData(school: school)
+    init(date: Date) {
+        print("111")
+        self.date = date
+        fetchData(date: date)
+//        addData(date: date)
+        print("222")
     }
     
-//    init(date: Date) {
-////        fetchData(date: date)
-//        addData(date: date)
-//    }
+    func aaa(date1: Date) {
+        print(date1)
+    }
     
-
+    
     // Fetching Data
-//    func fetchData(date: Date) {
-//    func fetchData(date: Date) {
-//
-//
-//        guard let dbRef = try? Realm() else { return }
-////        let results = dbRef.objects(Card.self).filter("title = '\(title)'")
-//
-//        let results = dbRef.objects(Student01.self).filter("date == %@", date)
-////        let results = dbRef.objects(Student01.self)
-//
-//        // Displaying results
-//        self.students = results.compactMap({ (student) -> Student01? in
-//            return student
-//        })
-//    }
-    
-//    func addData(date: Date) {
-    func addData(school: String) {
+    func fetchData(date: Date) {
+        print("333")
+//    func fetchData(school: String) {
 
-        let student = Student01()
-//        student.date = date
-        student.school = school
-
-            // Getting Reference
         guard let dbRef = try? Realm() else { return }
 
-            // Writing Data
-            try? dbRef.write {
+//        let results = dbRef.objects(Student01.self).filter("school == %@", school)
+        let results = dbRef.objects(Student01.self).filter("date == %@", date)
+//        let results = dbRef.objects(Student01.self)
 
-                    dbRef.add(student)
-
-            }
-
-
-    } // addData
+        // Displaying results
+        self.students = results.compactMap({ (student) -> Student01? in return student })
+        
+        print("444")
+    }
+    
+//    func addData(date: Date) {
+//        print("333")
+////    func addData(school: String) {
+//
+//        let student = Student01()
+//        student.date = date
+////        student.school = school
+//
+//            // Getting Reference
+//        guard let dbRef = try? Realm() else { return }
+//
+//            // Writing Data
+//            try? dbRef.write {
+//
+//                    dbRef.add(student)
+//                print("444")
+//
+//            }
+//
+//    } // addData
         
         
     

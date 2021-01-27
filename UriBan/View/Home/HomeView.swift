@@ -57,35 +57,40 @@ struct HomeView: View {
     }
     
     var body: some View {
-            
+
         NavigationView {
 
+//            ScrollView {
             ScrollView {
 
                 LazyVGrid(columns: columns, spacing: 15) {
-                    
+
                     ForEach(modelData.homes) { home in
 
+
                         ZStack {
+
                             VStack {
 //                                NavigationLink(destination: StudentView(date: home.date)) {
-                                NavigationLink(destination: StudentView(school: home.school)) {
+//                                NavigationLink(destination: StudentView(home: home)) {
+                                NavigationLink(destination: StudentView()) {
                                         Image(home.image)
                                             .resizable()
                                             .frame(width: 150, height: 100)
                                             .cornerRadius(15)
 
-                                    } // NavigationLink
+                                } // NavigationLink
 
                                     Text(home.year + "학년도")
                                     Text(home.school)
                                     Text(home.className)
 
+
                             } // VStack
                             .padding()
-                            
+
                             VStack {
-                                
+
 //                                Button(action: {  }) {
                                 Button(action: { loadArray(home: home) }) {
                                     Image(systemName: "pencil.circle.fill").foregroundColor(.white).frame(height: 30).padding()
@@ -98,10 +103,10 @@ struct HomeView: View {
                                                  buttons: self.buttonsArray as! [ActionSheet.Button]
                                     )
                                 } // actionSheet
-                                
+
                                 Spacer()
-                                
-                            }
+
+                            } // VStack
                             .frame(width: 170, alignment: .trailing)
 //                            .contextMenu(menuItems: {
 //                                //modelData.deleteData(class) 에러 남
@@ -114,12 +119,12 @@ struct HomeView: View {
 //                                    Text("수정하기")
 //                                })
 //                            }) // contextMenu
-                            
+
                         } // ZStack
 
 
                     } // ForEach
-                    
+
                 } // LazyVGrid
 
             } // ScrollView
@@ -133,7 +138,7 @@ struct HomeView: View {
                 AddHomePageView()
                     .environmentObject(modelData)
             }
-            
+
 
         } // NavigationView
         .background(Color.red)

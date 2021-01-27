@@ -10,7 +10,7 @@ import SwiftUI
 import RealmSwift
 
 class Student01: Object,Identifiable {
-    @objc dynamic var date: Date = Date()
+    @objc dynamic var date = Date()
     @objc dynamic var year = ""
     @objc dynamic var school = ""
     @objc dynamic var className = ""
