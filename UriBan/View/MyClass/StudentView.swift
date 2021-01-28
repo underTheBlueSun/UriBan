@@ -9,40 +9,44 @@ import SwiftUI
 
 struct StudentView: View {
     
-//    var date: Date
-//    var studentModelData: StudentViewModel
+    var date: Date
+    var studentViewModelData: StudentViewModel
     
 
 
     
 //    init(school: String) {
-//        self.studentModelData = StudentViewModel(school: school)
+//        self.studentViewModelData = StudentViewModel(school: school)
 //    }
     
-//    init(date: Date) {
-//        print("init")
-//        self.date = date
-//        self.studentModelData = StudentViewModel(date: date)
-//    }
-    
-    init() {
-        print("init")
+    init(date: Date) {
+        self.date = date
+        self.studentViewModelData = StudentViewModel(date: date)
     }
     
+//    init() {
+//        print("init")
+//    }
+    
 
-    
-    
-    
- 
     var body: some View {
             
+        VStack {
+            
             ScrollView {
-//                ForEach(studentModelData.students) { student in
-//                    Text(student.school)
-//
-//                } // ForEach
-                
+    //                ForEach(studentViewModelData.students) { student in
+    //                    Text(student.school)
+    //
+    //                } // ForEach
+                    
             }
+            
+        } // VStack
+//        .edgesIgnoringSafeArea(.top)
+        .toolbar {
+//            Image(systemName: "plus.circle.fill").font(.title2).foregroundColor(.white)
+            Button(action: {studentViewModelData.openNewPage.toggle()}) { Image(systemName: "plus.circle.fill").font(.title2).foregroundColor(.white) }
+        }
 //            .onAppear(perform: {
 //                print("onappear")
 //            })

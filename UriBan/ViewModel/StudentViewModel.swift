@@ -19,7 +19,7 @@ class StudentViewModel: ObservableObject {
 //    @Published var showMyClass = false
     
     // 스윗한 스위프트 p302 는 조금 다름
-//    @Published var openNewPage = false
+    @Published var openNewPage = false
     
     @Published var students: [Student01] = []
     

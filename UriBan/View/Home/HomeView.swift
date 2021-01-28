@@ -11,7 +11,7 @@ import SwiftUI
 struct HomeView: View {
     
     // fetch..
-    @StateObject var modelData = HomeViewModel()
+    @StateObject var homeViewModelData = HomeViewModel()
     
     
     var columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 2)
@@ -34,14 +34,14 @@ struct HomeView: View {
         
         // 수정하기
         let button0: ActionSheet.Button = .default(Text(self.titles[0])) {
-            modelData.updateObject = home
-            modelData.openNewPage.toggle()
+            homeViewModelData.updateObject = home
+            homeViewModelData.openNewPage.toggle()
             
         }
         
         // 삭제하기
         let button1: ActionSheet.Button = .default(Text(self.titles[1])) {
-            modelData.deleteData(object: home)
+            homeViewModelData.deleteData(object: home)
             
         }
         
@@ -56,6 +56,7 @@ struct HomeView: View {
 //            self.buttonsArray[1] = .default(Text("삭제하기"))
     }
     
+    
     var body: some View {
 
         NavigationView {
@@ -65,25 +66,30 @@ struct HomeView: View {
 
                 LazyVGrid(columns: columns, spacing: 15) {
 
-                    ForEach(modelData.homes) { home in
+                    ForEach(homeViewModelData.homes) { home in
 
 
                         ZStack {
 
                             VStack {
-//                                NavigationLink(destination: StudentView(date: home.date)) {
-//                                NavigationLink(destination: StudentView(home: home)) {
-                                NavigationLink(destination: StudentView()) {
-                                        Image(home.image)
-                                            .resizable()
-                                            .frame(width: 150, height: 100)
-                                            .cornerRadius(15)
 
+                                NavigationLink(destination: StudentView(date: home.date)) {
+//                                  NavigationLink( destination: StudentView(),isActive: $selectedImage) {
+                                    
+                                    Image(home.image)
+                                        .resizable()
+                                        .frame(width: 150, height: 100)
+                                        .cornerRadius(15)
+//                                        .onTapGesture {
+//                                            selectedImage.toggle()
+//                                        }
                                 } // NavigationLink
-
+                                
                                     Text(home.year + "학년도")
                                     Text(home.school)
                                     Text(home.className)
+                                    
+
 
 
                             } // VStack
@@ -109,19 +115,18 @@ struct HomeView: View {
                             } // VStack
                             .frame(width: 170, alignment: .trailing)
 //                            .contextMenu(menuItems: {
-//                                //modelData.deleteData(class) 에러 남
-//                                Button(action: {modelData.deleteData(object: home)}, label: {
+//                                //homeViewModelData.deleteData(class) 에러 남
+//                                Button(action: {homeViewModelData.deleteData(object: home)}, label: {
 //                                    Text("삭제하기")
 //                                })
 //                                Button(action: {
-//                                    modelData.updateObject = home
-//                                    modelData.openNewPage.toggle()}, label: {
+//                                    homeViewModelData.updateObject = home
+//                                    homeViewModelData.openNewPage.toggle()}, label: {
 //                                    Text("수정하기")
 //                                })
 //                            }) // contextMenu
 
                         } // ZStack
-
 
                     } // ForEach
 
@@ -130,13 +135,13 @@ struct HomeView: View {
             } // ScrollView
             .navigationBarTitle("홈", displayMode: .inline)
             .navigationBarColor(backgroundColor: .systemTeal, tintColor: .white)
-            .navigationBarItems(trailing: Button(action: {modelData.openNewPage.toggle()}) {
+            .navigationBarItems(trailing: Button(action: {homeViewModelData.openNewPage.toggle()}) {
                 Image(systemName: "plus.circle.fill")
                     .font(.title2)
             })
-            .sheet(isPresented: $modelData.openNewPage) {
+            .sheet(isPresented: $homeViewModelData.openNewPage) {
                 AddHomePageView()
-                    .environmentObject(modelData)
+                    .environmentObject(homeViewModelData)
             }
 
 
