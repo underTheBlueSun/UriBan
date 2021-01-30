@@ -133,6 +133,7 @@ struct HomeView: View {
                 } // LazyVGrid
 
             } // ScrollView
+            .background(Color.systemTeal)
             .navigationBarTitle("홈", displayMode: .inline)
             .navigationBarColor(backgroundColor: .systemTeal, tintColor: .white)
             .navigationBarItems(trailing: Button(action: {homeViewModelData.openNewPage.toggle()}) {
@@ -146,7 +147,6 @@ struct HomeView: View {
 
 
         } // NavigationView
-        .background(Color.red)
 
     }
 }
