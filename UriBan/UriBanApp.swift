@@ -11,9 +11,9 @@ import SwiftUI
 struct UriBanApp: App {
     var body: some Scene {
         WindowGroup {
-//            MainTabView()
+            MainTabView()
 //            SearchDefaultRealm()
-            SwiftUIView()
+//            MultipleSelectionList02()
         }
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct StudentView: View {
     
-    var date: Date
+    var uuid: String
     var studentViewModelData: StudentViewModel
     
 
@@ -19,9 +19,9 @@ struct StudentView: View {
 //        self.studentViewModelData = StudentViewModel(school: school)
 //    }
     
-    init(date: Date) {
-        self.date = date
-        self.studentViewModelData = StudentViewModel(date: date)
+    init(uuid: String) {
+        self.uuid = uuid
+        self.studentViewModelData = StudentViewModel(uuid: uuid)
     }
     
 //    init() {

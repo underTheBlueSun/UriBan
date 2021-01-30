@@ -10,7 +10,7 @@ import RealmSwift
 
 class StudentViewModel: ObservableObject {
     
-    var date: Date
+    var uuid: String
 //    var school: String
     
 //    var year = ""
@@ -21,34 +21,34 @@ class StudentViewModel: ObservableObject {
     // 스윗한 스위프트 p302 는 조금 다름
     @Published var openNewPage = false
     
-    @Published var students: [Student01] = []
+    @Published var students: [Student02] = []
     
-    init(date: Date) {
+    init(uuid: String) {
         print("111")
-        self.date = date
-        fetchData(date: date)
+        self.uuid = uuid
+        fetchData(uuid: uuid)
 //        addData(date: date)
         print("222")
     }
     
-    func aaa(date1: Date) {
-        print(date1)
+    func aaa(uuid1: String) {
+        print(uuid1)
     }
     
     
     // Fetching Data
-    func fetchData(date: Date) {
+    func fetchData(uuid: String) {
         print("333")
 //    func fetchData(school: String) {
 
         guard let dbRef = try? Realm() else { return }
 
 //        let results = dbRef.objects(Student01.self).filter("school == %@", school)
-        let results = dbRef.objects(Student01.self).filter("date == %@", date)
+        let results = dbRef.objects(Student02.self).filter("uuid == %@", uuid)
 //        let results = dbRef.objects(Student01.self)
 
         // Displaying results
-        self.students = results.compactMap({ (student) -> Student01? in return student })
+        self.students = results.compactMap({ (student) -> Student02? in return student })
         
         print("444")
     }

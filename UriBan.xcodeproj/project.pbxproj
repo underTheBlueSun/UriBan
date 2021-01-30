@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		155024CA25C4E0A200AD2006 /* Home03.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155024C925C4E0A200AD2006 /* Home03.swift */; };
+		155024CD25C4E9C700AD2006 /* Student02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155024CC25C4E9C700AD2006 /* Student02.swift */; };
 		156B640125C43B7700DA8D07 /* MultipleSelectionList01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156B640025C43B7700DA8D07 /* MultipleSelectionList01.swift */; };
 		156B640425C44C0400DA8D07 /* MultipleSelectionList02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156B640325C44C0400DA8D07 /* MultipleSelectionList02.swift */; };
 		FA94234525C0F8710072D0EE /* UriBanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA94234425C0F8710072D0EE /* UriBanApp.swift */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		155024C925C4E0A200AD2006 /* Home03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home03.swift; sourceTree = "<group>"; };
+		155024CC25C4E9C700AD2006 /* Student02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student02.swift; sourceTree = "<group>"; };
 		156B640025C43B7700DA8D07 /* MultipleSelectionList01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionList01.swift; sourceTree = "<group>"; };
 		156B640325C44C0400DA8D07 /* MultipleSelectionList02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionList02.swift; sourceTree = "<group>"; };
 		FA94234125C0F8710072D0EE /* UriBan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UriBan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +132,8 @@
 			children = (
 				FA94235E25C0F9B40072D0EE /* Home02.swift */,
 				FA94236125C0F9D00072D0EE /* Student01.swift */,
+				155024C925C4E0A200AD2006 /* Home03.swift */,
+				155024CC25C4E9C700AD2006 /* Student02.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -258,7 +264,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA9CF39925C1277100E66C07 /* StudentViewModel.swift in Sources */,
+				155024CA25C4E0A200AD2006 /* Home03.swift in Sources */,
 				FA94234725C0F8710072D0EE /* ContentView.swift in Sources */,
+				155024CD25C4E9C700AD2006 /* Student02.swift in Sources */,
 				FA9CF39525C1234C00E66C07 /* StudentView.swift in Sources */,
 				FA94237025C0FA940072D0EE /* HomeViewModel.swift in Sources */,
 				FA94235F25C0F9B40072D0EE /* Home02.swift in Sources */,

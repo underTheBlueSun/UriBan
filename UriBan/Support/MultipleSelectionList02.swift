@@ -10,7 +10,7 @@ import SwiftUI
 
 
 
-struct SwiftUIView: View {
+struct MultipleSelectionList02: View {
     
     @State var recordArray: [String] = ["Apples", "Oranges", "Bananas", "Pears", "Mangos"]
     @State var selectedItems: Array = []
@@ -37,8 +37,8 @@ struct SwiftUIView: View {
 }
 
 
-struct SwiftUIView_Previews: PreviewProvider {
+struct MultipleSelectionList02_Previews: PreviewProvider {
     static var previews: some View {
-        SwiftUIView()
+        MultipleSelectionList02()
     }
 }

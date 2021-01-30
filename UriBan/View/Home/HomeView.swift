@@ -21,7 +21,7 @@ struct HomeView: View {
     var titles: [String] = ["수정하기", "삭제하기", "취소하기"]
     var buttonsArray: NSMutableArray = NSMutableArray()
     
-    func loadArray(home: Home02) {
+    func loadArray(home: Home03) {
         self.showingActionSheet = true
         
 //            for i in 0..<self.titles.count {
@@ -73,7 +73,7 @@ struct HomeView: View {
 
                             VStack {
 
-                                NavigationLink(destination: StudentView(date: home.date)) {
+                                NavigationLink(destination: StudentView(uuid: home.uuid)) {
 //                                  NavigationLink( destination: StudentView(),isActive: $selectedImage) {
                                     
                                     Image(home.image)

@@ -21,10 +21,10 @@ class HomeViewModel: ObservableObject {
     @Published var openNewPage = false
     
     // Fetched Data
-    @Published var homes: [Home02] = []
+    @Published var homes: [Home03] = []
     
     // Data Updation
-    @Published var updateObject: Home02?
+    @Published var updateObject: Home03?
     
     init() {
         fetchData()
@@ -37,10 +37,10 @@ class HomeViewModel: ObservableObject {
         guard let dbRef = try? Realm() else { return }
 //        let results = dbRef.objects(Card.self).filter("title = '\(title)'")
         
-        let results = dbRef.objects(Home02.self)
+        let results = dbRef.objects(Home03.self)
         
         // Displaying results
-        self.homes = results.compactMap({ (home) -> Home02? in
+        self.homes = results.compactMap({ (home) -> Home03? in
             return home
         })
     }
@@ -48,8 +48,8 @@ class HomeViewModel: ObservableObject {
     // Add new data
     func addData(thisYear: String, presentation: Binding<PresentationMode>) {
         
-        let home = Home02()
-        home.date = Date()
+        let home = Home03()
+//        home.date = Date()
         home.year = thisYear
         home.school = school
         home.className = className
@@ -68,7 +68,7 @@ class HomeViewModel: ObservableObject {
                 
                 // 추가일 때 우리반을 체크하면 이전 우리반 true를 false로 수정
                 if home.myClass == true {
-                    guard let beforeTrue = dbRef.objects(Home02.self).filter("myClass == true").first else {
+                    guard let beforeTrue = dbRef.objects(Home03.self).filter("myClass == true").first else {
                         dbRef.add(home)
                         return
                     }
@@ -81,7 +81,7 @@ class HomeViewModel: ObservableObject {
             
             // 수정할 때 우리반을 체크하면 기존의 우리반 체크된 것을 false로 수정
             if showMyClass == true {
-                guard let beforeTrue = dbRef.objects(Home02.self).filter("myClass == true").first else {
+                guard let beforeTrue = dbRef.objects(Home03.self).filter("myClass == true").first else {
                     availableObject.year = year
                     availableObject.school = school
                     availableObject.className = className
@@ -113,7 +113,7 @@ class HomeViewModel: ObservableObject {
     } // addData
     
     // Deleting Data
-    func deleteData(object: Home02) {
+    func deleteData(object: Home03) {
         guard let dbRef = try? Realm() else { return }
         try? dbRef.write {
             

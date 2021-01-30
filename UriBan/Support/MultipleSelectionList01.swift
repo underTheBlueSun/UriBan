@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MultipleSelectionList: View {
+struct MultipleSelectionList01: View {
     @State var items: [String] = ["Apples", "Oranges", "Bananas", "Pears", "Mangos"]
     @State var selections: [String] = []
 
@@ -27,9 +27,9 @@ struct MultipleSelectionList: View {
     }
 }
 
-struct MultipleSelectionList_Previews: PreviewProvider {
+struct MultipleSelectionList01_Previews: PreviewProvider {
     static var previews: some View {
-        MultipleSelectionList()
+        MultipleSelectionList01()
     }
 }
 
