@@ -9,6 +9,9 @@ import SwiftUI
 
 @main
 struct UriBanApp: App {
+    
+
+    
     var body: some Scene {
         WindowGroup {
             MainTabView()

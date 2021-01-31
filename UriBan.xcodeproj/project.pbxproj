@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1535D8D825C6419300BC7E81 /* AddStudentPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1535D8D725C6419300BC7E81 /* AddStudentPageView.swift */; };
 		155024CA25C4E0A200AD2006 /* Home03.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155024C925C4E0A200AD2006 /* Home03.swift */; };
 		155024CD25C4E9C700AD2006 /* Student02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155024CC25C4E9C700AD2006 /* Student02.swift */; };
 		155024D125C548D900AD2006 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155024D025C548D900AD2006 /* ColorExtension.swift */; };
 		156B640125C43B7700DA8D07 /* MultipleSelectionList01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156B640025C43B7700DA8D07 /* MultipleSelectionList01.swift */; };
 		156B640425C44C0400DA8D07 /* MultipleSelectionList02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156B640325C44C0400DA8D07 /* MultipleSelectionList02.swift */; };
+		1590449525C62C840069BF2A /* NavigationBarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1590449425C62C840069BF2A /* NavigationBarColor.swift */; };
+		1590449825C62D060069BF2A /* NavigationLazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1590449725C62D060069BF2A /* NavigationLazyView.swift */; };
 		FA94234525C0F8710072D0EE /* UriBanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA94234425C0F8710072D0EE /* UriBanApp.swift */; };
 		FA94234725C0F8710072D0EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA94234625C0F8710072D0EE /* ContentView.swift */; };
 		FA94234925C0F8740072D0EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA94234825C0F8740072D0EE /* Assets.xcassets */; };
@@ -25,17 +28,19 @@
 		FA94237025C0FA940072D0EE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA94236F25C0FA940072D0EE /* HomeViewModel.swift */; };
 		FA94237425C0FB030072D0EE /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = FA94237325C0FB030072D0EE /* Realm */; };
 		FA94237625C0FB030072D0EE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FA94237525C0FB030072D0EE /* RealmSwift */; };
-		FA9CF39225C0FDB500E66C07 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CF39125C0FDB500E66C07 /* Test.swift */; };
 		FA9CF39525C1234C00E66C07 /* StudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CF39425C1234C00E66C07 /* StudentView.swift */; };
 		FA9CF39925C1277100E66C07 /* StudentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CF39825C1277100E66C07 /* StudentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1535D8D725C6419300BC7E81 /* AddStudentPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentPageView.swift; sourceTree = "<group>"; };
 		155024C925C4E0A200AD2006 /* Home03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home03.swift; sourceTree = "<group>"; };
 		155024CC25C4E9C700AD2006 /* Student02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student02.swift; sourceTree = "<group>"; };
 		155024D025C548D900AD2006 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		156B640025C43B7700DA8D07 /* MultipleSelectionList01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionList01.swift; sourceTree = "<group>"; };
 		156B640325C44C0400DA8D07 /* MultipleSelectionList02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionList02.swift; sourceTree = "<group>"; };
+		1590449425C62C840069BF2A /* NavigationBarColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarColor.swift; sourceTree = "<group>"; };
+		1590449725C62D060069BF2A /* NavigationLazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLazyView.swift; sourceTree = "<group>"; };
 		FA94234125C0F8710072D0EE /* UriBan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UriBan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA94234425C0F8710072D0EE /* UriBanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UriBanApp.swift; sourceTree = "<group>"; };
 		FA94234625C0F8710072D0EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -49,7 +54,6 @@
 		FA94236925C0FA460072D0EE /* AddHomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHomePageView.swift; sourceTree = "<group>"; };
 		FA94236C25C0FA5E0072D0EE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		FA94236F25C0FA940072D0EE /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		FA9CF39125C0FDB500E66C07 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		FA9CF39425C1234C00E66C07 /* StudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentView.swift; sourceTree = "<group>"; };
 		FA9CF39825C1277100E66C07 /* StudentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,6 +120,8 @@
 				FA94236725C0FA0B0072D0EE /* Counsel */,
 				FA94236825C0FA130072D0EE /* Page */,
 				FA94235B25C0F9860072D0EE /* MainTabView.swift */,
+				1590449425C62C840069BF2A /* NavigationBarColor.swift */,
+				1590449725C62D060069BF2A /* NavigationLazyView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -163,8 +169,8 @@
 		FA94236525C0F9F70072D0EE /* MyClass */ = {
 			isa = PBXGroup;
 			children = (
-				FA9CF39125C0FDB500E66C07 /* Test.swift */,
 				FA9CF39425C1234C00E66C07 /* StudentView.swift */,
+				1535D8D725C6419300BC7E81 /* AddStudentPageView.swift */,
 			);
 			path = MyClass;
 			sourceTree = "<group>";
@@ -276,10 +282,12 @@
 				FA94235F25C0F9B40072D0EE /* Home02.swift in Sources */,
 				FA94236225C0F9D00072D0EE /* Student01.swift in Sources */,
 				FA94235925C0F94A0072D0EE /* SearchDefaultRealm.swift in Sources */,
+				1535D8D825C6419300BC7E81 /* AddStudentPageView.swift in Sources */,
 				FA94234525C0F8710072D0EE /* UriBanApp.swift in Sources */,
 				156B640425C44C0400DA8D07 /* MultipleSelectionList02.swift in Sources */,
 				FA94236D25C0FA5E0072D0EE /* HomeView.swift in Sources */,
-				FA9CF39225C0FDB500E66C07 /* Test.swift in Sources */,
+				1590449525C62C840069BF2A /* NavigationBarColor.swift in Sources */,
+				1590449825C62D060069BF2A /* NavigationLazyView.swift in Sources */,
 				FA94236A25C0FA460072D0EE /* AddHomePageView.swift in Sources */,
 				156B640125C43B7700DA8D07 /* MultipleSelectionList01.swift in Sources */,
 				FA94235C25C0F9860072D0EE /* MainTabView.swift in Sources */,

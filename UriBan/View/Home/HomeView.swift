@@ -4,15 +4,13 @@
 //
 //  Created by underTheBlueSun on 2021/01/18.
 //  Copyright © 2021 underTheBlueSun. All rights reserved.
-// ㅃㅃㅃㅂ
 
 import SwiftUI
 
 struct HomeView: View {
-    
-    // fetch..
+
+    // fetch.
     @StateObject var homeViewModelData = HomeViewModel()
-    
     
     var columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 2)
     
@@ -56,7 +54,6 @@ struct HomeView: View {
 //            self.buttonsArray[1] = .default(Text("삭제하기"))
     }
     
-    
     var body: some View {
 
         NavigationView {
@@ -73,7 +70,8 @@ struct HomeView: View {
 
                             VStack {
 
-                                NavigationLink(destination: StudentView(uuid: home.uuid)) {
+//                                NavigationLink(destination: StudentView(uuid: home.uuid)) {
+                                NavigationLink(destination: NavigationLazyView(StudentView(uuid: home.uuid))) { 
 //                                  NavigationLink( destination: StudentView(),isActive: $selectedImage) {
                                     
                                     Image(home.image)
@@ -133,7 +131,7 @@ struct HomeView: View {
                 } // LazyVGrid
 
             } // ScrollView
-            .background(Color.systemTeal)
+            .background(Color.white)
             .navigationBarTitle("홈", displayMode: .inline)
             .navigationBarColor(backgroundColor: .systemTeal, tintColor: .white)
             .navigationBarItems(trailing: Button(action: {homeViewModelData.openNewPage.toggle()}) {
@@ -159,30 +157,40 @@ struct HomeView_Previews: PreviewProvider {
     }
 }
 
-struct NavigationBarColor: ViewModifier {
+//struct NavigationBarColor: ViewModifier {
+//
+//  init(backgroundColor: UIColor, tintColor: UIColor) {
+//    let coloredAppearance = UINavigationBarAppearance()
+//    coloredAppearance.configureWithOpaqueBackground()
+//    coloredAppearance.backgroundColor = backgroundColor
+//    coloredAppearance.titleTextAttributes = [.foregroundColor: tintColor]
+//    coloredAppearance.largeTitleTextAttributes = [.foregroundColor: tintColor]
+//                   
+//    UINavigationBar.appearance().standardAppearance = coloredAppearance
+//    UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
+//    UINavigationBar.appearance().compactAppearance = coloredAppearance
+//    UINavigationBar.appearance().tintColor = tintColor
+//  }
+//
+//  func body(content: Content) -> some View {
+//    content
+//  }
+//}
+//
+//extension View {
+//  func navigationBarColor(backgroundColor: UIColor, tintColor: UIColor) -> some View {
+//    self.modifier(NavigationBarColor(backgroundColor: backgroundColor, tintColor: tintColor))
+//  }
+//}
 
-  init(backgroundColor: UIColor, tintColor: UIColor) {
-    let coloredAppearance = UINavigationBarAppearance()
-    coloredAppearance.configureWithOpaqueBackground()
-    coloredAppearance.backgroundColor = backgroundColor
-    coloredAppearance.titleTextAttributes = [.foregroundColor: tintColor]
-    coloredAppearance.largeTitleTextAttributes = [.foregroundColor: tintColor]
-                   
-    UINavigationBar.appearance().standardAppearance = coloredAppearance
-    UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
-    UINavigationBar.appearance().compactAppearance = coloredAppearance
-    UINavigationBar.appearance().tintColor = tintColor
-  }
-
-  func body(content: Content) -> some View {
-    content
-  }
-}
-
-extension View {
-  func navigationBarColor(backgroundColor: UIColor, tintColor: UIColor) -> some View {
-    self.modifier(NavigationBarColor(backgroundColor: backgroundColor, tintColor: tintColor))
-  }
-}
+//struct NavigationLazyView<Content: View>: View {
+//    let build: () -> Content
+//    init(_ build: @autoclosure @escaping () -> Content) {
+//        self.build = build
+//    }
+//    var body: Content {
+//        build()
+        //    }
+//}
 
 
