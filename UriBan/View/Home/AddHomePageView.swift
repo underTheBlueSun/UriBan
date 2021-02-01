@@ -68,7 +68,11 @@ struct AddHomePageView: View {
                     })
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {modelData.addData(thisYear: thisYear, presentation: presentaion)}, label: {
+                    Button(action: {
+                        modelData.year = thisYear
+                        modelData.addData(presentation: presentaion)
+                        
+                    }, label: {
                         Text("완료")
                     })
                 }

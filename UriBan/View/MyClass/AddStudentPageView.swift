@@ -12,62 +12,44 @@ struct AddStudentPageView: View {
 //    스윗한 스위프트 p303 참고
     @Environment(\.presentationMode) var presentaion
     
-//    @State private var showMyClass = true
-    
-    // 오늘 날짜 가져오기
-//    private func getDate(format: String) -> String {
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = format
-//        let date = Date()
-//        let today = dateFormatter.string(from: date)
-//        return today
-//    }
-//
-//    var thisYear: String = ""
-//
-//    init() {
-//        thisYear = self.getDate(format: "yyyy")
-//    }
+    var uuid: String = ""
+    var year: String = ""
+    var school: String = ""
+    var className: String = ""
+    var myClass: Bool = false
+
+    init(uuid: String, year: String, school: String, className: String, myClass: Bool) {
+        self.uuid = uuid
+        self.year = year
+        self.school = school
+        self.className = className
+        self.myClass = myClass
+    }
     
     
     
     var body: some View {
-        NavigationView {
+        VStack {
+            Text(uuid)
+            Text(year)
+            Text(String(myClass))
             
             List {
-                
-                HStack {
-                    Image(systemName: "building.columns.fill").frame(width: 30)
-                    TextField("학교명을 입력하세요", text: $studentViewModelData.school)
-                    
-                }
-                
-                HStack {
-                    Image(systemName: "person.2.fill").frame(width: 30)
-                    TextField("학반을 입력하세요", text: $studentViewModelData.className)
-                }
-                
-                Toggle(isOn: $studentViewModelData.showMyClass) {
-                    Text("우리반")
-                }
+                Text("aaaa")
 
-            }
-//            .navigationBarTitle(thisYear + "학년도", displayMode: .inline)
-            // 추가인지 수정인지에 따라 타이틀 선택
-            .navigationBarTitle(studentViewModelData.updateObject == nil ? "Add Data" : "Update", displayMode: .inline)
+            } // List
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-//                  스윗한 스위프트 p303 참고 (조금 다름)
                     Button(action: {
                             studentViewModelData.updateObject = nil
                             presentaion.wrappedValue.dismiss()
-                        
+
                     }, label: {
                         Text("취소")
                     })
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {studentViewModelData.addData(thisYear: thisYear, presentation: presentaion)}, label: {
+                    Button(action: {studentViewModelData.addData(presentation: presentaion)}, label: {
                         Text("완료")
                     })
                 }
@@ -76,15 +58,14 @@ struct AddStudentPageView: View {
         .onAppear(perform: studentViewModelData.setUpInitialData)
         .onDisappear(perform: studentViewModelData.deInitData)
         
-//        이게 원래 정석인데
-//        .onDisappear(perform: { studentViewModelData.deInitData() })
+
         
     }
 }
 
 struct AddStudentPageView_Previews: PreviewProvider {
     static var previews: some View {
-        AddStudentPageView()
+        AddStudentPageView(uuid: "", year: "", school: "", className: "", myClass: false)
             .environmentObject(StudentViewModel())
     }
 }

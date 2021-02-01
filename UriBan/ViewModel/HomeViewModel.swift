@@ -12,7 +12,7 @@ import RealmSwift
 class HomeViewModel: ObservableObject {
     
 //    @Published var date = ""
-    var year = ""
+    @Published var year = ""
     @Published var school = ""
     @Published var className = ""
     @Published var showMyClass = false
@@ -46,11 +46,11 @@ class HomeViewModel: ObservableObject {
     }
     
     // Add new data
-    func addData(thisYear: String, presentation: Binding<PresentationMode>) {
+    func addData(presentation: Binding<PresentationMode>) {
         
         let home = Home03()
 //        home.date = Date()
-        home.year = thisYear
+        home.year = year
         home.school = school
         home.className = className
         home.myClass = showMyClass

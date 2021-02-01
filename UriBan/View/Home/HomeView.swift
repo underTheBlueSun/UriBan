@@ -71,7 +71,7 @@ struct HomeView: View {
                             VStack {
 
 //                                NavigationLink(destination: StudentView(uuid: home.uuid)) {
-                                NavigationLink(destination: NavigationLazyView(StudentView(uuid: home.uuid))) { 
+                                NavigationLink(destination: NavigationLazyView(StudentView(uuid: home.uuid, year: home.year, school: home.school, className: home.className, myClass: home.myClass))) {
 //                                  NavigationLink( destination: StudentView(),isActive: $selectedImage) {
                                     
                                     Image(home.image)
