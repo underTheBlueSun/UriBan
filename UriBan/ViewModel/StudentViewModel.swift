@@ -10,11 +10,11 @@ import RealmSwift
 
 class StudentViewModel: ObservableObject {
     
-    @Published var uuid: String = ""
-    @Published var year = ""
-    @Published var school = ""
-    @Published var className = ""
-    @Published var myClass = false
+    var uuid: String = ""
+    var year = ""
+    var school = ""
+    var className = ""
+    var myClass = false
     @Published var number = ""
     @Published var name = ""
     @Published var sex = ""
@@ -30,10 +30,10 @@ class StudentViewModel: ObservableObject {
     
     @Published var updateObject: Student02?
     
-    init() {
-        
-        fetchData(uuid: uuid)
-    }
+//    init() {
+//
+//        fetchData(uuid: uuid)
+//    }
     
 //    init(uuid: String) {
 //        self.uuid = uuid
@@ -81,6 +81,7 @@ class StudentViewModel: ObservableObject {
         student.school = school
         student.className = className
         student.myClass = myClass
+        student.name = name
 
         // Getting Reference
         guard let dbRef = try? Realm() else { return }
@@ -128,7 +129,7 @@ class StudentViewModel: ObservableObject {
     // Setting and Clearing Data
     func setUpInitialData() {
 
-        guard let updateData = updateObject else { return }
+//        guard let updateData = updateObject else { return }
 
 //        year = updateData.year
 //        school = updateData.school

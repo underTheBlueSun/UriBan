@@ -52,7 +52,7 @@ struct AddHomePageView: View {
                     Text("우리반")
                 }
 
-            }
+            } // List
 //            .navigationBarTitle(thisYear + "학년도", displayMode: .inline)
             // 추가인지 수정인지에 따라 타이틀 선택
             .navigationBarTitle(modelData.updateObject == nil ? "Add Data" : "Update", displayMode: .inline)

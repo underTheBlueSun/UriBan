@@ -29,15 +29,19 @@ struct AddStudentPageView: View {
     
     
     var body: some View {
-        VStack {
-            Text(uuid)
-            Text(year)
-            Text(String(myClass))
-            
-            List {
-                Text("aaaa")
 
+        NavigationView {
+            List {
+//                Text(uuid)
+//                Text(year)
+//                Text(String(myClass))
+                Image(systemName: "building.columns.fill").frame(width: 30)
+                TextField("이름을 입력하세요", text: $studentViewModelData.name)
+
+
+                
             } // List
+            .navigationBarTitle("우리반", displayMode: .inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
@@ -53,11 +57,11 @@ struct AddStudentPageView: View {
                         Text("완료")
                     })
                 }
-            }
-        } // NavigationView
-        .onAppear(perform: studentViewModelData.setUpInitialData)
-        .onDisappear(perform: studentViewModelData.deInitData)
+            } // toolbar
+            .onAppear(perform: studentViewModelData.setUpInitialData)
+            .onDisappear(perform: studentViewModelData.deInitData)
         
+        } // NavigationView
 
         
     }

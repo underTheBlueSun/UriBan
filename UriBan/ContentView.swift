@@ -7,10 +7,23 @@
 
 import SwiftUI
 
+class SampleObject: ObservableObject {
+    @Published var id: Int = 0
+}
+
 struct ContentView: View {
+    @StateObject private var sampleObject = SampleObject()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        List {
+            Text("Identifier: \(sampleObject.id)")
+
+            
+        }
+        .onAppear() {
+            sampleObject.id = 4000
+        }
+        
     }
 }
 

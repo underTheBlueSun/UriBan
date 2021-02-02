@@ -30,12 +30,14 @@ struct StudentView: View {
         self.className = className
         self.myClass = myClass
         
+
+        
     }
     
     var body: some View {
         VStack {
             
-            Text(uuid)
+//            Text(uuid)
             Text(year)
             Text(school)
             Text(String(myClass))
@@ -53,13 +55,25 @@ struct StudentView: View {
 
 
             } // List
-            .onAppear() { studentViewModelData.uuid = self.uuid }
-            .toolbar { Button(action: {studentViewModelData.openNewPage.toggle()}) { Image(systemName: "plus.circle.fill").font(.title2).foregroundColor(.white) } }
-            .sheet(isPresented: $studentViewModelData.openNewPage) {
-                AddStudentPageView(uuid: uuid, year: year, school: school, className: className, myClass: myClass).environmentObject(studentViewModelData)
+            .onAppear() {
+                // init()에서 fetchData(uuid:)를 부르면 uuid를 못가져가서 바로 불렀음
+                studentViewModelData.fetchData(uuid: self.uuid)
+                
+                studentViewModelData.uuid = self.uuid
+                studentViewModelData.year = self.year
+                studentViewModelData.school = self.school
+                studentViewModelData.className = self.className
+                studentViewModelData.myClass = self.myClass
+                
                 
             }
-        }
+            .toolbar { Button(action: {studentViewModelData.openNewPage.toggle()}) { Image(systemName: "plus.circle.fill").font(.title2).foregroundColor(.white) } }
+            .sheet(isPresented: $studentViewModelData.openNewPage) {
+                AddStudentPageView(uuid: uuid, year: year, school: school, className: className, myClass: myClass)
+                    .environmentObject(studentViewModelData)
+//                AddStudentPageView().environmentObject(studentViewModelData)
+            }
+        } // Vstack
         
         
         
