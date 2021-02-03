@@ -138,7 +138,7 @@ struct HomeView: View {
                 Image(systemName: "plus.circle.fill")
                     .font(.title2)
             })
-            .sheet(isPresented: $homeViewModelData.openNewPage) {
+            .fullScreenCover(isPresented: $homeViewModelData.openNewPage) {
                 AddHomePageView()
                     .environmentObject(homeViewModelData)
             }

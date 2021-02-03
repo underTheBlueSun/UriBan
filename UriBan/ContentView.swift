@@ -6,26 +6,15 @@
 //
 
 import SwiftUI
-
-class SampleObject: ObservableObject {
-    @Published var id: Int = 0
-}
+import PhotosUI
 
 struct ContentView: View {
-    @StateObject private var sampleObject = SampleObject()
     
     var body: some View {
-        List {
-            Text("Identifier: \(sampleObject.id)")
-
-            
-        }
-        .onAppear() {
-            sampleObject.id = 4000
-        }
-        
+        Text("aaaa")
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

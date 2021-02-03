@@ -68,47 +68,19 @@ struct StudentView: View {
                 
             }
             .toolbar { Button(action: {studentViewModelData.openNewPage.toggle()}) { Image(systemName: "plus.circle.fill").font(.title2).foregroundColor(.white) } }
-            .sheet(isPresented: $studentViewModelData.openNewPage) {
-                AddStudentPageView(uuid: uuid, year: year, school: school, className: className, myClass: myClass)
+            .fullScreenCover(isPresented: $studentViewModelData.openNewPage) {
+//                AddStudentPageView(uuid: uuid, year: year, school: school, className: className, myClass: myClass)
+                AddStudentPageView(className: className)
                     .environmentObject(studentViewModelData)
 //                AddStudentPageView().environmentObject(studentViewModelData)
             }
         } // Vstack
         
-        
-        
-    
-//    var body: some View {
-//
-//        VStack {
-//
-//            ScrollView {
-//    //                ForEach(studentViewModelData.students) { student in
-//    //                    Text(student.school)
-//    //
-//    //                } // ForEach
-//
-//            }
-//
-//        } // VStack
-////        .edgesIgnoringSafeArea(.top)
-//        .toolbar {
-////            Image(systemName: "plus.circle.fill").font(.title2).foregroundColor(.white)
-//            Button(action: {studentViewModelData.openNewPage.toggle()}) { Image(systemName: "plus.circle.fill").font(.title2).foregroundColor(.white) }
-//        }
-////            .onAppear(perform: {
-////                print("onappear")
-////            })
-//
-//
-//
-//
-//
    } // body
 }
 
-//struct StudentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        StudentView(date: Date())
-//    }
-//}
+struct StudentView_Previews: PreviewProvider {
+    static var previews: some View {
+        StudentView(uuid: "", year: "", school: "", className: "", myClass: false)
+    }
+}

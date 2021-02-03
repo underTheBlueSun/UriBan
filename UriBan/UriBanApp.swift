@@ -17,6 +17,9 @@ struct UriBanApp: App {
             MainTabView()
 //            SearchDefaultRealm()
 //            MultipleSelectionList02()
+//            ContentView()
+//            PHPickerMultiExam()
+//            PHPickerSingleExam()
         }
     }
 }
