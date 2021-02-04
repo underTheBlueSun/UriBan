@@ -11,7 +11,11 @@ import PhotosUI
 struct ContentView: View {
     
     var body: some View {
-        Text("bbbb")
+        VStack {
+            Text("bbbb")
+            Text("aaaaa")
+        }
+        
     }
 }
 
