@@ -30,17 +30,13 @@ struct StudentView: View {
         self.className = className
         self.myClass = myClass
         
-
-        
     }
     
     var body: some View {
         VStack {
             
 //            Text(uuid)
-            Text(year)
-            Text(school)
-            Text(String(myClass))
+//            Text(String(studentViewModelData.students.count))
             
             List {
 
@@ -64,13 +60,11 @@ struct StudentView: View {
                 studentViewModelData.school = self.school
                 studentViewModelData.className = self.className
                 studentViewModelData.myClass = self.myClass
-                
-                
             }
             .toolbar { Button(action: {studentViewModelData.openNewPage.toggle()}) { Image(systemName: "plus.circle.fill").font(.title2).foregroundColor(.white) } }
             .fullScreenCover(isPresented: $studentViewModelData.openNewPage) {
 //                AddStudentPageView(uuid: uuid, year: year, school: school, className: className, myClass: myClass)
-                AddStudentPageView(className: className)
+                AddStudentPageView(className: className, studentCnt: studentViewModelData.students.count)
                     .environmentObject(studentViewModelData)
 //                AddStudentPageView().environmentObject(studentViewModelData)
             }

@@ -32,6 +32,8 @@
 		FA94237625C0FB030072D0EE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FA94237525C0FB030072D0EE /* RealmSwift */; };
 		FA9CF39525C1234C00E66C07 /* StudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CF39425C1234C00E66C07 /* StudentView.swift */; };
 		FA9CF39925C1277100E66C07 /* StudentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CF39825C1277100E66C07 /* StudentViewModel.swift */; };
+		FAC0E1E525CCD0A0003C300C /* ToggleExam.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0E1E425CCD0A0003C300C /* ToggleExam.swift */; };
+		FAC0E1E825CCD0CC003C300C /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0E1E725CCD0CC003C300C /* TabButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,8 @@
 		FA94236F25C0FA940072D0EE /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		FA9CF39425C1234C00E66C07 /* StudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentView.swift; sourceTree = "<group>"; };
 		FA9CF39825C1277100E66C07 /* StudentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewModel.swift; sourceTree = "<group>"; };
+		FAC0E1E425CCD0A0003C300C /* ToggleExam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleExam.swift; sourceTree = "<group>"; };
+		FAC0E1E725CCD0CC003C300C /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +130,7 @@
 				FA94235B25C0F9860072D0EE /* MainTabView.swift */,
 				1590449425C62C840069BF2A /* NavigationBarColor.swift */,
 				1590449725C62D060069BF2A /* NavigationLazyView.swift */,
+				FAC0E1E725CCD0CC003C300C /* TabButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -159,6 +164,7 @@
 				155024D025C548D900AD2006 /* ColorExtension.swift */,
 				FA8D1D0A25CA24EB0078662D /* PHPickerMultiExam.swift */,
 				FA8D1D0D25CA42A60078662D /* PHPickerSingleExam.swift */,
+				FAC0E1E425CCD0A0003C300C /* ToggleExam.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -298,7 +304,9 @@
 				1590449825C62D060069BF2A /* NavigationLazyView.swift in Sources */,
 				FA94236A25C0FA460072D0EE /* AddHomePageView.swift in Sources */,
 				156B640125C43B7700DA8D07 /* MultipleSelectionList01.swift in Sources */,
+				FAC0E1E525CCD0A0003C300C /* ToggleExam.swift in Sources */,
 				FA94235C25C0F9860072D0EE /* MainTabView.swift in Sources */,
+				FAC0E1E825CCD0CC003C300C /* TabButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

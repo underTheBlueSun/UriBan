@@ -11,11 +11,15 @@ struct AddStudentPageView: View {
     @EnvironmentObject var studentViewModelData: StudentViewModel
 //    스윗한 스위프트 p303 참고
     @Environment(\.presentationMode) var presentaion
+    // 남녀 토글버튼
+//    @State var tab = "남자"
+    @Namespace var animation
     
 //    var uuid: String = ""
 //    var year: String = ""
 //    var school: String = ""
     var className: String = ""
+    var studentNum: Int = 0
 //    var myClass: Bool = false
 
 //    init(uuid: String, year: String, school: String, className: String, myClass: Bool) {
@@ -26,37 +30,57 @@ struct AddStudentPageView: View {
 //        self.myClass = myClass
 //    }
     
-    init(className: String) {
+    init(className: String, studentCnt: Int) {
         self.className = className
+        self.studentNum = studentCnt + 1
+        
     }
     
     var body: some View {
 
         NavigationView {
-            List {
+            VStack {
                 HStack {
-                    Image("profile01")
+                    Image("profile02")
                         .resizable()
-                        .frame(width: 100, height: 100)
-                    
+                        .frame(width: 100, height: 120)
                     VStack {
                         HStack {
-                            Image(systemName: "number.square.fill").resizable().frame(width: 20, height: 20)
-                            TextField("번호", text: $studentViewModelData.name)
+                            Image(systemName: "number.square.fill").resizable().frame(width: 20, height: 20).foregroundColor(.gray)
+//                            Text(String(studentNum) + "번")
+                            TextField("", text: $studentViewModelData.number)
+                            Text("번")
+                            Spacer()
+                            HStack(spacing: 0) {
+                                TabButton(selected: $studentViewModelData.sex, title: "남자", animation: animation)
+                                TabButton(selected: $studentViewModelData.sex, title: "여자", animation: animation)
+                            }
+                            .frame(width: 90)
+                            .background(Color.gray.opacity(0.08))
+                            .clipShape(Capsule())
+                            .padding(.horizontal)
                         }
+                        
                         HStack {
-                            Image(systemName: "number.square.fill").resizable().frame(width: 20, height: 20)
+                            Image(systemName: "person.fill").resizable().frame(width: 20, height: 20).foregroundColor(.gray)
                             TextField("이름을 입력하세요", text: $studentViewModelData.name)
                         }
                         HStack {
-                            Image(systemName: "number.square.fill").resizable().frame(width: 20, height: 20)
-                            TextField("이름을 입력하세요", text: $studentViewModelData.name)
+                            Image(systemName: "phone.circle.fill").resizable().frame(width: 20, height: 20).foregroundColor(.gray)
+                            TextField("전호번호를 입력하세요", text: $studentViewModelData.telNo).keyboardType(.phonePad)
                         }
-                    }
+                    } // Vstack
+                } // Hstack
+                
+                HStack {
+                    Image(systemName: "house.fill").resizable().frame(width: 20, height: 20).foregroundColor(.gray)
+                    TextField("주소를 입력하세요", text: $studentViewModelData.address)
                 }
                 
-            } // List
-            .padding(.vertical, 10)
+                Spacer()
+                
+            } // Vstack
+            .padding()
             .navigationBarTitle(className, displayMode: .inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -75,7 +99,14 @@ struct AddStudentPageView: View {
                 }
             } // toolbar
 //            .onAppear(perform: studentViewModelData.setUpInitialData)
+            .onAppear(perform: {
+                // int() 에 적으면 에러남. 번호는 int로 해야 나중에 sort 유리하지 않나..
+                        studentViewModelData.number = String(studentNum)
+                
+            })
             .onDisappear(perform: studentViewModelData.deInitData)
+            
+            
         
         } // NavigationView
 
@@ -86,7 +117,7 @@ struct AddStudentPageView: View {
 struct AddStudentPageView_Previews: PreviewProvider {
     static var previews: some View {
 //        AddStudentPageView(uuid: "", year: "", school: "", className: "", myClass: false)
-        AddStudentPageView(className: "5-2반")
+        AddStudentPageView(className: "5-2반", studentCnt: 1)
             .environmentObject(StudentViewModel())
     }
 }
