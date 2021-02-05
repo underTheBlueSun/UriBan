@@ -64,7 +64,7 @@ struct StudentView: View {
             .toolbar { Button(action: {studentViewModelData.openNewPage.toggle()}) { Image(systemName: "plus.circle.fill").font(.title2).foregroundColor(.white) } }
             .fullScreenCover(isPresented: $studentViewModelData.openNewPage) {
 //                AddStudentPageView(uuid: uuid, year: year, school: school, className: className, myClass: myClass)
-                AddStudentPageView(className: className, studentCnt: studentViewModelData.students.count)
+                AddStudentPageView(uuid: uuid, className: className, studentCnt: studentViewModelData.students.count)
                     .environmentObject(studentViewModelData)
 //                AddStudentPageView().environmentObject(studentViewModelData)
             }

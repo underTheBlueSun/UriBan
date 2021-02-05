@@ -17,7 +17,7 @@ class StudentViewModel: ObservableObject {
     var myClass = false
     @Published var number = ""
     @Published var name = ""
-    @Published var sex = ""
+    @Published var sex = "남자"
     @Published var telNo = ""
     @Published var address = ""
     @Published var picture = ""
@@ -39,7 +39,8 @@ class StudentViewModel: ObservableObject {
 //        self.uuid = uuid
 //        fetchData(uuid: uuid)
 //    }
-        
+
+    
     func fetchData(uuid: String) {
         guard let dbRef = try? Realm() else { return }
 //        let results = dbRef.objects(Student01.self).filter("school == %@", school)
@@ -81,7 +82,31 @@ class StudentViewModel: ObservableObject {
         student.school = school
         student.className = className
         student.myClass = myClass
+        student.number = number
         student.name = name
+        student.sex = sex
+        student.telNo = telNo
+        student.address = address
+        student.picture = picture
+        student.memo = memo
+        
+        
+//        let data = picture.pngData()
+//        student.picture = picture.pngData()!
+        
+//        if let image = picture as? UIImage {
+//            if let data = picture.pngData() {
+//                student.picture  = data
+//            }else {
+//                print("nullllllllllll")
+//            }
+//        }
+        
+////        let data = NSData(data: UIImageJPEGRepresentation(picture,0.9))
+//        let data = NSData(data: picture.pngData()!)
+//        let imgPNG = UIImage.imageWithData(data)
+//        let dataPNGImg = NSData(data: UIImagePNGRepresentation(imgPNG))
+     
 
         // Getting Reference
         guard let dbRef = try? Realm() else { return }

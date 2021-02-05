@@ -15,6 +15,7 @@
 		156B640425C44C0400DA8D07 /* MultipleSelectionList02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156B640325C44C0400DA8D07 /* MultipleSelectionList02.swift */; };
 		1590449525C62C840069BF2A /* NavigationBarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1590449425C62C840069BF2A /* NavigationBarColor.swift */; };
 		1590449825C62D060069BF2A /* NavigationLazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1590449725C62D060069BF2A /* NavigationLazyView.swift */; };
+		FA012FF125CCF73000D580A6 /* Student03.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA012FF025CCF73000D580A6 /* Student03.swift */; };
 		FA8D1D0B25CA24EB0078662D /* PHPickerMultiExam.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D1D0A25CA24EB0078662D /* PHPickerMultiExam.swift */; };
 		FA8D1D0E25CA42A60078662D /* PHPickerSingleExam.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D1D0D25CA42A60078662D /* PHPickerSingleExam.swift */; };
 		FA94234525C0F8710072D0EE /* UriBanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA94234425C0F8710072D0EE /* UriBanApp.swift */; };
@@ -34,6 +35,7 @@
 		FA9CF39925C1277100E66C07 /* StudentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CF39825C1277100E66C07 /* StudentViewModel.swift */; };
 		FAC0E1E525CCD0A0003C300C /* ToggleExam.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0E1E425CCD0A0003C300C /* ToggleExam.swift */; };
 		FAC0E1E825CCD0CC003C300C /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0E1E725CCD0CC003C300C /* TabButton.swift */; };
+		FAC0E1EB25CCDE75003C300C /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0E1EA25CCDE75003C300C /* PhotoPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,7 @@
 		156B640325C44C0400DA8D07 /* MultipleSelectionList02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionList02.swift; sourceTree = "<group>"; };
 		1590449425C62C840069BF2A /* NavigationBarColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarColor.swift; sourceTree = "<group>"; };
 		1590449725C62D060069BF2A /* NavigationLazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLazyView.swift; sourceTree = "<group>"; };
+		FA012FF025CCF73000D580A6 /* Student03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student03.swift; sourceTree = "<group>"; };
 		FA8D1D0A25CA24EB0078662D /* PHPickerMultiExam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHPickerMultiExam.swift; sourceTree = "<group>"; };
 		FA8D1D0D25CA42A60078662D /* PHPickerSingleExam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHPickerSingleExam.swift; sourceTree = "<group>"; };
 		FA94234125C0F8710072D0EE /* UriBan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UriBan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +67,7 @@
 		FA9CF39825C1277100E66C07 /* StudentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentViewModel.swift; sourceTree = "<group>"; };
 		FAC0E1E425CCD0A0003C300C /* ToggleExam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleExam.swift; sourceTree = "<group>"; };
 		FAC0E1E725CCD0CC003C300C /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
+		FAC0E1EA25CCDE75003C300C /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +135,7 @@
 				1590449425C62C840069BF2A /* NavigationBarColor.swift */,
 				1590449725C62D060069BF2A /* NavigationLazyView.swift */,
 				FAC0E1E725CCD0CC003C300C /* TabButton.swift */,
+				FAC0E1EA25CCDE75003C300C /* PhotoPicker.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 				FA94236125C0F9D00072D0EE /* Student01.swift */,
 				155024C925C4E0A200AD2006 /* Home03.swift */,
 				155024CC25C4E9C700AD2006 /* Student02.swift */,
+				FA012FF025CCF73000D580A6 /* Student03.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -294,6 +300,7 @@
 				FA8D1D0E25CA42A60078662D /* PHPickerSingleExam.swift in Sources */,
 				155024D125C548D900AD2006 /* ColorExtension.swift in Sources */,
 				FA94235F25C0F9B40072D0EE /* Home02.swift in Sources */,
+				FA012FF125CCF73000D580A6 /* Student03.swift in Sources */,
 				FA94236225C0F9D00072D0EE /* Student01.swift in Sources */,
 				FA94235925C0F94A0072D0EE /* SearchDefaultRealm.swift in Sources */,
 				1535D8D825C6419300BC7E81 /* AddStudentPageView.swift in Sources */,
@@ -304,6 +311,7 @@
 				1590449825C62D060069BF2A /* NavigationLazyView.swift in Sources */,
 				FA94236A25C0FA460072D0EE /* AddHomePageView.swift in Sources */,
 				156B640125C43B7700DA8D07 /* MultipleSelectionList01.swift in Sources */,
+				FAC0E1EB25CCDE75003C300C /* PhotoPicker.swift in Sources */,
 				FAC0E1E525CCD0A0003C300C /* ToggleExam.swift in Sources */,
 				FA94235C25C0F9860072D0EE /* MainTabView.swift in Sources */,
 				FAC0E1E825CCD0CC003C300C /* TabButton.swift in Sources */,
