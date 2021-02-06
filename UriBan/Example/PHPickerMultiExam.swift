@@ -104,7 +104,7 @@ struct ImagePicker: UIViewControllerRepresentable {
                     // retreving the selected image.
                     img.itemProvider.loadObject(ofClass: UIImage.self) { (image, err) in
                         guard let image1 = image else {
-                            print(err)
+//                            print(err ?? <#default value#>)
                             return
                         }
                         

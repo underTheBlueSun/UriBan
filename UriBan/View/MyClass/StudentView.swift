@@ -34,22 +34,16 @@ struct StudentView: View {
     
     var body: some View {
         VStack {
-            
-//            Text(uuid)
-//            Text(String(studentViewModelData.students.count))
-            
             List {
 
                 ForEach(studentViewModelData.students) { student in
-
-
-                    Text(student.name)
-
-
-
+                    HStack {
+                        Image(systemName: String(student.number) + ".circle.fill").resizable().frame(width: 20, height: 20).foregroundColor(.systemTeal)
+//                        Text(String(student.number))
+                        Text(student.name)
+                        
+                    }
                 } // ForEach
-
-
             } // List
             .onAppear() {
                 // init()에서 fetchData(uuid:)를 부르면 uuid를 못가져가서 바로 불렀음

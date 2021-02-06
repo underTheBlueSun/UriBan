@@ -14,10 +14,10 @@ struct UriBanApp: App {
     
     var body: some Scene {
         WindowGroup {
-//            MainTabView()
+            MainTabView()
 //            SearchDefaultRealm()
 //            MultipleSelectionList02()
-            ContentView()
+//            ContentView()
 //            PHPickerMultiExam()
 //            PHPickerSingleExam()
         }

@@ -15,20 +15,20 @@ class StudentViewModel: ObservableObject {
     var school = ""
     var className = ""
     var myClass = false
-    @Published var number = ""
+    @Published var number = 0
     @Published var name = ""
     @Published var sex = "남자"
     @Published var telNo = ""
     @Published var address = ""
-    @Published var picture = ""
+    @Published var picture = UIImage()
     @Published var memo = ""
     
     
     @Published var openNewPage = false
     
-    @Published var students: [Student02] = []
+    @Published var students: [Student04] = []
     
-    @Published var updateObject: Student02?
+    @Published var updateObject: Student04?
     
 //    init() {
 //
@@ -44,39 +44,16 @@ class StudentViewModel: ObservableObject {
     func fetchData(uuid: String) {
         guard let dbRef = try? Realm() else { return }
 //        let results = dbRef.objects(Student01.self).filter("school == %@", school)
-        let results = dbRef.objects(Student02.self).filter("uuid == %@", uuid)
+        let results = dbRef.objects(Student04.self).filter("uuid == %@", uuid)
 //        let results = dbRef.objects(Student01.self)
         // Displaying results
-        self.students = results.compactMap({ (student) -> Student02? in return student })
+        self.students = results.compactMap({ (student) -> Student04? in return student })
     }
-    
-//    func addData(date: Date) {
-//        print("333")
-////    func addData(school: String) {
-//
-//        let student = Student01()
-//        student.date = date
-////        student.school = school
-//
-//            // Getting Reference
-//        guard let dbRef = try? Realm() else { return }
-//
-//            // Writing Data
-//            try? dbRef.write {
-//
-//                    dbRef.add(student)
-//                print("444")
-//
-//            }
-//
-//    } // addData
-        
-        
     
     // Add new data
     func addData(presentation: Binding<PresentationMode>) {
 
-        let student = Student02()
+        let student = Student04()
         student.uuid = uuid
         student.year = year
         student.school = school
@@ -87,27 +64,19 @@ class StudentViewModel: ObservableObject {
         student.sex = sex
         student.telNo = telNo
         student.address = address
-        student.picture = picture
+//        student.picture = picture
         student.memo = memo
         
         
-//        let data = picture.pngData()
-//        student.picture = picture.pngData()!
-        
-//        if let image = picture as? UIImage {
-//            if let data = picture.pngData() {
-//                student.picture  = data
-//            }else {
-//                print("nullllllllllll")
-//            }
-//        }
-        
-////        let data = NSData(data: UIImageJPEGRepresentation(picture,0.9))
-//        let data = NSData(data: picture.pngData()!)
-//        let imgPNG = UIImage.imageWithData(data)
-//        let dataPNGImg = NSData(data: UIImagePNGRepresentation(imgPNG))
-     
 
+        
+        if picture.pngData() != nil {
+            // 프로필 사진 이미지 용량 줄이기, 안줄이면 에러: binary too big..
+            let targetSize = CGSize(width: 100, height: 110)
+            let scaledImage = picture.resizeImage(targetSize: targetSize)
+            student.picture = NSData(data: scaledImage.pngData()!)
+        }
+        
         // Getting Reference
         guard let dbRef = try? Realm() else { return }
 
@@ -116,7 +85,6 @@ class StudentViewModel: ObservableObject {
 
             // 추가인지 수정인지 체크
             guard let availableObject = updateObject else {
-
                 dbRef.add(student)
                 return
             } // else
@@ -132,7 +100,7 @@ class StudentViewModel: ObservableObject {
         } // try? dbRef.write
 
         // Updating UI
-//        fetchData()
+        fetchData(uuid: uuid)
 
         // Closing View
         presentation.wrappedValue.dismiss()
@@ -164,10 +132,10 @@ class StudentViewModel: ObservableObject {
     }
 
     func deInitData() {
-//        year = ""
-//        school = ""
-//        className = ""
-//        showMyClass = false
+        name = ""
+        telNo = ""
+        address = ""
+        memo = ""
 
     }
 }

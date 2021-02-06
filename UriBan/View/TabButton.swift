@@ -38,7 +38,8 @@ struct TabButton: View {
                 
                 Text(title)
                     .foregroundColor(selected == title ? .black : .white)
-                    .fontWeight(.bold)
+                    .font(.system(size: 12))
+//                    .fontWeight(.bold)
             } // Zstack
         } // Button
         

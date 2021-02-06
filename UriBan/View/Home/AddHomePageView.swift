@@ -12,7 +12,9 @@ struct AddHomePageView: View {
 //    스윗한 스위프트 p303 참고
     @Environment(\.presentationMode) var presentaion
     
-//    @State private var showMyClass = true
+    // 학교명과 학반을 입력해야 완료 버튼이 활성화 되게
+    @State private var isValidSchool = false
+    @State private var isValidClass = false
     
     // 오늘 날짜 가져오기
     private func getDate(format: String) -> String {
@@ -39,18 +41,30 @@ struct AddHomePageView: View {
                 
                 HStack {
                     Image(systemName: "building.columns.fill").frame(width: 30)
-                    TextField("학교명을 입력하세요", text: $modelData.school)
+//                    TextField("학교명을 입력하세요", text: $modelData.school)
+                    TextField("학교명", text: $modelData.school, onEditingChanged: { editing in self.isValidSchool = editing ? false : !modelData.school.isEmpty}, onCommit: { modelData.school = modelData.school.trimmingCharacters(in: .whitespaces) })
                     
                 }
                 
                 HStack {
                     Image(systemName: "person.2.fill").frame(width: 30)
-                    TextField("학반을 입력하세요", text: $modelData.className)
+//                    TextField("학반을 입력하세요", text: $modelData.className)
+                    TextField("학반", text: $modelData.className, onEditingChanged: { editing in self.isValidClass = editing ? false : !modelData.className.isEmpty}, onCommit: { modelData.className = modelData.className.trimmingCharacters(in: .whitespaces) })
                 }
                 
                 Toggle(isOn: $modelData.showMyClass) {
                     Text("우리반")
                 }
+                
+                HStack {
+                    Spacer()
+                    Text("✳︎ 입력후 엔터키").frame(height: 100).foregroundColor(.gray).opacity(0.5)
+                    Image(systemName: "return").foregroundColor(.gray).opacity(0.5)
+                    Text("를 누르세요").frame(height: 100).foregroundColor(.gray).opacity(0.5)
+                    Spacer()
+                }
+
+
 
             } // List
 //            .navigationBarTitle(thisYear + "학년도", displayMode: .inline)
@@ -68,15 +82,19 @@ struct AddHomePageView: View {
                     })
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        modelData.year = thisYear
-                        modelData.addData(presentation: presentaion)
-                        
-                    }, label: {
-                        Text("완료")
-                    })
+                    if isValidSchool && isValidClass {
+                        Button(action: {
+                            modelData.year = thisYear
+                            modelData.addData(presentation: presentaion)
+                            
+                        }, label: {
+                            Text("완료")
+                        })
+                    }
+
                 }
             }
+            
         } // NavigationView
         .onAppear(perform: modelData.setUpInitialData)
         .onDisappear(perform: modelData.deInitData)
