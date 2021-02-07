@@ -146,13 +146,12 @@
 		FA94235425C0F8D70072D0EE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FA94235B25C0F9860072D0EE /* MainTabView.swift */,
 				FA94236425C0F9EE0072D0EE /* Home */,
 				FA94236525C0F9F70072D0EE /* MyClass */,
 				FA94236625C0FA030072D0EE /* Subject */,
 				FA94236725C0FA0B0072D0EE /* Counsel */,
 				FA94236825C0FA130072D0EE /* Page */,
-				FA94235B25C0F9860072D0EE /* MainTabView.swift */,
-				FAC0E1E725CCD0CC003C300C /* TabButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -184,6 +183,7 @@
 			children = (
 				FA94234825C0F8740072D0EE /* Assets.xcassets */,
 				FA94234D25C0F8740072D0EE /* Info.plist */,
+				FAC0E1E725CCD0CC003C300C /* TabButton.swift */,
 				1590449725C62D060069BF2A /* NavigationLazyView.swift */,
 				15894CC025CD4B53001C2AB8 /* PhotoPicker.swift */,
 				1590449425C62C840069BF2A /* NavigationBarColor.swift */,

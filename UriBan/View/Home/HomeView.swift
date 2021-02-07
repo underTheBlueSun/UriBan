@@ -49,9 +49,9 @@ struct HomeView: View {
                                         .frame(width: 150, height: 100)
                                         .cornerRadius(15)
                                 } // NavigationLink
-                                    Text(home.year + "학년도")
-                                    Text(home.school)
-                                    Text(home.className)
+                                Text(home.year + ". " + home.school).font(.system(size: 14))
+//                                    Text(home.school).font(.system(size: 14))
+                                    Text(home.className).font(.system(size: 14))
                             } // VStack
                             .padding()
                             VStack {
@@ -59,9 +59,7 @@ struct HomeView: View {
                                     Image(systemName: "pencil.circle.fill").foregroundColor(.white).frame(height: 30).padding()
                                 }
                                 .actionSheet( isPresented: $showingActionSheet ) {
-                                    ActionSheet( title: Text("Title"), message: Text("message"),
-                                                 buttons: self.buttonsArray as! [ActionSheet.Button]
-                                    )
+                                    ActionSheet( title: Text("홈"), buttons: self.buttonsArray as! [ActionSheet.Button] )
                                 } // actionSheet
                                 Spacer()
                             } // VStack
