@@ -35,14 +35,14 @@ struct StudentView: View {
     var body: some View {
         VStack {
             List {
-
                 ForEach(studentViewModelData.students) { student in
-                    HStack {
-                        Image(systemName: String(student.number) + ".circle.fill").resizable().frame(width: 20, height: 20).foregroundColor(.systemTeal)
-//                        Text(String(student.number))
-                        Text(student.name)
-                        
-                    }
+//                    NavigationLink(destination: DetailStudentView(uuid: student.uuid, className: <#T##String#>, studentCnt: <#T##Int#>)) {
+                    NavigationLink(destination: ContentView(pictureData: student.picture as Data)) {
+                        HStack {
+                            Image(systemName: String(student.number) + ".circle.fill").resizable().frame(width: 20, height: 20).foregroundColor(.systemTeal)
+                            Text(student.name)
+                        } // Hstack
+                    } // NavigationView
                 } // ForEach
             } // List
             .onAppear() {
@@ -57,10 +57,8 @@ struct StudentView: View {
             }
             .toolbar { Button(action: {studentViewModelData.openNewPage.toggle()}) { Image(systemName: "plus.circle.fill").font(.title2).foregroundColor(.white) } }
             .fullScreenCover(isPresented: $studentViewModelData.openNewPage) {
-//                AddStudentPageView(uuid: uuid, year: year, school: school, className: className, myClass: myClass)
-                AddStudentPageView(uuid: uuid, className: className, studentCnt: studentViewModelData.students.count)
+                AddStudentView(uuid: uuid, className: className, studentCnt: studentViewModelData.students.count)
                     .environmentObject(studentViewModelData)
-//                AddStudentPageView().environmentObject(studentViewModelData)
             }
         } // Vstack
         

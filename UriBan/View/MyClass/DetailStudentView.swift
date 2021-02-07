@@ -1,14 +1,15 @@
 //
-//  AddStudentPageView.swift
+//  DetailStudentView.swift
 //  UriBan
 //
-//  Created by underTheBlueSun on 2021/01/31.
+//  Created by underTheBlueSun on 2021/02/07.
 //
+
 
 import SwiftUI
 import PhotosUI
 
-struct AddStudentPageView: View {
+struct DetailStudentView: View {
     @EnvironmentObject var studentViewModelData: StudentViewModel
 //    스윗한 스위프트 p303 참고
     @Environment(\.presentationMode) var presentaion
@@ -165,10 +166,9 @@ struct AddStudentPageView: View {
     }
 }
 
-struct AddStudentPageView_Previews: PreviewProvider {
+struct DetailStudentView_Previews: PreviewProvider {
     static var previews: some View {
-//        AddStudentPageView(uuid: "", year: "", school: "", className: "", myClass: false)
-        AddStudentPageView(uuid: "", className: "5-2반", studentCnt: 23)
+        DetailStudentView(uuid: "", className: "5-2반", studentCnt: 23)
             .environmentObject(StudentViewModel())
     }
 }

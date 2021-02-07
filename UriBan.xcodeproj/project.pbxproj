@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1535D8D825C6419300BC7E81 /* AddStudentPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1535D8D725C6419300BC7E81 /* AddStudentPageView.swift */; };
+		1535D8D825C6419300BC7E81 /* AddStudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1535D8D725C6419300BC7E81 /* AddStudentView.swift */; };
 		1546373D25CE36E600763674 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546373C25CE36E600763674 /* UIImageExtension.swift */; };
 		155024CA25C4E0A200AD2006 /* Home03.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155024C925C4E0A200AD2006 /* Home03.swift */; };
 		155024CD25C4E9C700AD2006 /* Student02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155024CC25C4E9C700AD2006 /* Student02.swift */; };
 		155024D125C548D900AD2006 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155024D025C548D900AD2006 /* ColorExtension.swift */; };
+		15575E6A25CF6CB7007510C4 /* DetailStudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15575E6925CF6CB7007510C4 /* DetailStudentView.swift */; };
+		15575E6D25CF784B007510C4 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15575E6C25CF784B007510C4 /* SwiftUIView.swift */; };
 		156B640125C43B7700DA8D07 /* MultipleSelectionList01Exam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156B640025C43B7700DA8D07 /* MultipleSelectionList01Exam.swift */; };
 		156B640425C44C0400DA8D07 /* MultipleSelectionList02Exam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156B640325C44C0400DA8D07 /* MultipleSelectionList02Exam.swift */; };
 		15894CC125CD4B53001C2AB8 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15894CC025CD4B53001C2AB8 /* PhotoPicker.swift */; };
@@ -41,11 +43,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1535D8D725C6419300BC7E81 /* AddStudentPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentPageView.swift; sourceTree = "<group>"; };
+		1535D8D725C6419300BC7E81 /* AddStudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentView.swift; sourceTree = "<group>"; };
 		1546373C25CE36E600763674 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		155024C925C4E0A200AD2006 /* Home03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home03.swift; sourceTree = "<group>"; };
 		155024CC25C4E9C700AD2006 /* Student02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student02.swift; sourceTree = "<group>"; };
 		155024D025C548D900AD2006 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		15575E6925CF6CB7007510C4 /* DetailStudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailStudentView.swift; sourceTree = "<group>"; };
+		15575E6C25CF784B007510C4 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		156B640025C43B7700DA8D07 /* MultipleSelectionList01Exam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionList01Exam.swift; sourceTree = "<group>"; };
 		156B640325C44C0400DA8D07 /* MultipleSelectionList02Exam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionList02Exam.swift; sourceTree = "<group>"; };
 		15894CC025CD4B53001C2AB8 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
@@ -118,15 +122,14 @@
 		FA94234325C0F8710072D0EE /* UriBan */ = {
 			isa = PBXGroup;
 			children = (
-				15575E6125CE8BE1007510C4 /* Example */,
-				FA94235725C0F92E0072D0EE /* Support */,
-				FA94235625C0F8E70072D0EE /* Model */,
-				FA94235525C0F8DF0072D0EE /* ViewModel */,
-				FA94235425C0F8D70072D0EE /* View */,
 				FA94234425C0F8710072D0EE /* UriBanApp.swift */,
 				FA94234625C0F8710072D0EE /* ContentView.swift */,
-				FA94234825C0F8740072D0EE /* Assets.xcassets */,
-				FA94234D25C0F8740072D0EE /* Info.plist */,
+				15575E6C25CF784B007510C4 /* SwiftUIView.swift */,
+				FA94235425C0F8D70072D0EE /* View */,
+				FA94235525C0F8DF0072D0EE /* ViewModel */,
+				FA94235625C0F8E70072D0EE /* Model */,
+				FA94235725C0F92E0072D0EE /* Support */,
+				15575E6125CE8BE1007510C4 /* Example */,
 				FA94234A25C0F8740072D0EE /* Preview Content */,
 			);
 			path = UriBan;
@@ -149,10 +152,7 @@
 				FA94236725C0FA0B0072D0EE /* Counsel */,
 				FA94236825C0FA130072D0EE /* Page */,
 				FA94235B25C0F9860072D0EE /* MainTabView.swift */,
-				1590449425C62C840069BF2A /* NavigationBarColor.swift */,
-				1590449725C62D060069BF2A /* NavigationLazyView.swift */,
 				FAC0E1E725CCD0CC003C300C /* TabButton.swift */,
-				15894CC025CD4B53001C2AB8 /* PhotoPicker.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -182,6 +182,11 @@
 		FA94235725C0F92E0072D0EE /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				FA94234825C0F8740072D0EE /* Assets.xcassets */,
+				FA94234D25C0F8740072D0EE /* Info.plist */,
+				1590449725C62D060069BF2A /* NavigationLazyView.swift */,
+				15894CC025CD4B53001C2AB8 /* PhotoPicker.swift */,
+				1590449425C62C840069BF2A /* NavigationBarColor.swift */,
 				155024D025C548D900AD2006 /* ColorExtension.swift */,
 				FA94235825C0F94A0072D0EE /* SearchDefaultRealm.swift */,
 				1546373C25CE36E600763674 /* UIImageExtension.swift */,
@@ -202,7 +207,8 @@
 			isa = PBXGroup;
 			children = (
 				FA9CF39425C1234C00E66C07 /* StudentView.swift */,
-				1535D8D725C6419300BC7E81 /* AddStudentPageView.swift */,
+				1535D8D725C6419300BC7E81 /* AddStudentView.swift */,
+				15575E6925CF6CB7007510C4 /* DetailStudentView.swift */,
 			);
 			path = MyClass;
 			sourceTree = "<group>";
@@ -318,17 +324,19 @@
 				FA012FF125CCF73000D580A6 /* Student03.swift in Sources */,
 				FA94236225C0F9D00072D0EE /* Student01.swift in Sources */,
 				FA94235925C0F94A0072D0EE /* SearchDefaultRealm.swift in Sources */,
-				1535D8D825C6419300BC7E81 /* AddStudentPageView.swift in Sources */,
+				1535D8D825C6419300BC7E81 /* AddStudentView.swift in Sources */,
 				FA94234525C0F8710072D0EE /* UriBanApp.swift in Sources */,
 				156B640425C44C0400DA8D07 /* MultipleSelectionList02Exam.swift in Sources */,
 				FA94236D25C0FA5E0072D0EE /* HomeView.swift in Sources */,
 				1590449525C62C840069BF2A /* NavigationBarColor.swift in Sources */,
+				15575E6A25CF6CB7007510C4 /* DetailStudentView.swift in Sources */,
 				1590449825C62D060069BF2A /* NavigationLazyView.swift in Sources */,
 				FA94236A25C0FA460072D0EE /* AddHomePageView.swift in Sources */,
 				156B640125C43B7700DA8D07 /* MultipleSelectionList01Exam.swift in Sources */,
 				1546373D25CE36E600763674 /* UIImageExtension.swift in Sources */,
 				FAC0E1E525CCD0A0003C300C /* ToggleExam.swift in Sources */,
 				FA94235C25C0F9860072D0EE /* MainTabView.swift in Sources */,
+				15575E6D25CF784B007510C4 /* SwiftUIView.swift in Sources */,
 				15894CC125CD4B53001C2AB8 /* PhotoPicker.swift in Sources */,
 				FAC0E1E825CCD0CC003C300C /* TabButton.swift in Sources */,
 			);
@@ -462,7 +470,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"UriBan/Preview Content\"";
 				DEVELOPMENT_TEAM = 27963V74Z7;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = UriBan/Info.plist;
+				INFOPLIST_FILE = UriBan/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -484,7 +492,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"UriBan/Preview Content\"";
 				DEVELOPMENT_TEAM = 27963V74Z7;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = UriBan/Info.plist;
+				INFOPLIST_FILE = UriBan/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

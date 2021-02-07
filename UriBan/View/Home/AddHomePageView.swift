@@ -35,8 +35,6 @@ struct AddHomePageView: View {
     
     var body: some View {
         NavigationView {
-            
-            
             List {
                 
                 HStack {
