@@ -72,6 +72,9 @@ struct HomeView: View {
             .navigationBarTitle("홈", displayMode: .inline)
             .navigationBarColor(backgroundColor: .systemTeal, tintColor: .white)
             .navigationBarItems(trailing: Button(action: {homeViewModelData.openNewPage.toggle()}) {
+                if homeViewModelData.homes.count > 10 {
+                    
+                }
                 Image(systemName: "plus.circle.fill")
                     .font(.title2)
             })

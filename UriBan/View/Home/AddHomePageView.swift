@@ -88,9 +88,9 @@ struct AddHomePageView: View {
                         }, label: {
                             Text("완료")
                         })
-                    }
+                    } // if
 
-                }
+                } // ToolbarItem
             }
             
         } // NavigationView

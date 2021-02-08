@@ -36,8 +36,8 @@ struct StudentView: View {
         VStack {
             List {
                 ForEach(studentViewModelData.students) { student in
-//                    NavigationLink(destination: DetailStudentView(uuid: student.uuid, className: <#T##String#>, studentCnt: <#T##Int#>)) {
-                    NavigationLink(destination: ContentView(pictureData: student.picture as Data)) {
+                    NavigationLink(destination: DetailStudentView(student: student).environmentObject(StudentViewModel)) {
+//                    NavigationLink(destination: ContentView(pictureData: student.picture as Data)) {
                         HStack {
                             Image(systemName: String(student.number) + ".circle.fill").resizable().frame(width: 20, height: 20).foregroundColor(.systemTeal)
                             Text(student.name)

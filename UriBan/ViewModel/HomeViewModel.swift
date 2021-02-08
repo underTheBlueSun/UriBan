@@ -54,7 +54,7 @@ class HomeViewModel: ObservableObject {
         home.school = school
         home.className = className
         home.myClass = showMyClass
-        home.image = "classImage0" + String(self.homes.count + 1)
+        home.image = "classImage" + String(self.homes.count + 1)
         
         // Getting Reference
         guard let dbRef = try? Realm() else { return }
