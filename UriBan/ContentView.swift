@@ -16,6 +16,7 @@ struct ContentView: View {
         
         VStack {
             Text("aaaaaaa")
+                
             
             let pictureImg = UIImage(data: pictureData)
             

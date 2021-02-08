@@ -14,18 +14,18 @@ struct DetailStudentView: View {
 //    스윗한 스위프트 p303 참고
     @Environment(\.presentationMode) var presentaion
     
-    homeViewModelData.updateObject = home
+//    homeViewModelData.updateObject = home
     
     // 남녀 토글버튼
 //    @State var tab = "남자"
     @Namespace var animation
     
-//    var uuid: String = ""
-//    var year: String = ""
-//    var school: String = ""
-//    var className: String = ""
-//    var studentNum: Int = 0
-//    var myClass: Bool = false
+    var uuid: String = ""
+    var year: String = ""
+    var school: String = ""
+    var className: String = ""
+    var studentNum: Int = 0
+    var myClass: Bool = false
     
     // 프로필 사진
     @State var images: [UIImage] = []

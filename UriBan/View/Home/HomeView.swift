@@ -48,7 +48,12 @@ struct HomeView: View {
                                         .resizable()
                                         .frame(width: 150, height: 100)
                                         .cornerRadius(15)
+                                        
                                 } // NavigationLink
+                                .simultaneousGesture(TapGesture().onEnded {
+                                                    print("TAPPED")
+                                })
+                                
                                 Text(home.year + ". " + home.school).font(.system(size: 14))
 //                                    Text(home.school).font(.system(size: 14))
                                     Text(home.className).font(.system(size: 14))
