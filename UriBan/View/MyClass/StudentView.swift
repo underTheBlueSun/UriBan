@@ -36,8 +36,8 @@ struct StudentView: View {
         VStack {
             List {
                 ForEach(studentViewModelData.students) { student in
-//                    NavigationLink(destination: DetailStudentView(student: student).environmentObject(StudentViewModel)) {
-                    NavigationLink(destination: ContentView(pictureData: student.picture as Data)) {
+                    NavigationLink(destination: DetailStudentView(student: student).environmentObject(studentViewModelData)) {
+//                    NavigationLink(destination: ContentView(pictureData: student.picture as Data)) {
                         HStack {
                             Image(systemName: String(student.number) + ".circle.fill").resizable().frame(width: 20, height: 20).foregroundColor(.systemTeal)
                             Text(student.name)
@@ -49,11 +49,11 @@ struct StudentView: View {
                 // init()에서 fetchData(uuid:)를 부르면 uuid를 못가져가서 바로 불렀음
                 studentViewModelData.fetchData(uuid: self.uuid)
                 
-//                studentViewModelData.uuid = self.uuid
-//                studentViewModelData.year = self.year
-//                studentViewModelData.school = self.school
-//                studentViewModelData.className = self.className
-//                studentViewModelData.myClass = self.myClass
+                studentViewModelData.uuid = self.uuid
+                studentViewModelData.year = self.year
+                studentViewModelData.school = self.school
+                studentViewModelData.className = self.className
+                studentViewModelData.myClass = self.myClass
             }
             .toolbar { Button(action: {studentViewModelData.openNewPage.toggle()}) { Image(systemName: "plus.circle.fill").font(.title2).foregroundColor(.white) } }
             .fullScreenCover(isPresented: $studentViewModelData.openNewPage) {

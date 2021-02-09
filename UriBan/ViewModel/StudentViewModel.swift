@@ -121,13 +121,16 @@ class StudentViewModel: ObservableObject {
     // AddPageView.onAppear() 될때
     // Setting and Clearing Data
     func setUpInitialData() {
-
-//        guard let updateData = updateObject else { return }
-
-//        year = updateData.year
-//        school = updateData.school
-//        className = updateData.className
-//        showMyClass = updateData.myClass
+        guard let updateData = updateObject else { return }
+        number = updateData.number
+        name = updateData.name
+        sex = updateData.sex
+        telNo = updateData.telNo
+        address = updateData.address
+//        picture = updateData.picture
+        picture = UIImage(data: updateData.picture as Data) ?? UIImage(imageLiteralResourceName: "profile02")
+        memo = updateData.memo
+        
 
     }
 

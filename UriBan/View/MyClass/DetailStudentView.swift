@@ -11,21 +11,18 @@ import PhotosUI
 
 struct DetailStudentView: View {
     @EnvironmentObject var studentViewModelData: StudentViewModel
-//    스윗한 스위프트 p303 참고
     @Environment(\.presentationMode) var presentaion
     
-//    homeViewModelData.updateObject = home
-    
-    // 남녀 토글버튼
-//    @State var tab = "남자"
     @Namespace var animation
     
-    var uuid: String = ""
-    var year: String = ""
-    var school: String = ""
-    var className: String = ""
-    var studentNum: Int = 0
-    var myClass: Bool = false
+//    var uuid: String = ""
+//    var year: String = ""
+//    var school: String = ""
+//    var className: String = ""
+//    var studentNum: Int = 0
+//    var myClass: Bool = false
+    
+    var student: Student04
     
     // 프로필 사진
     @State var images: [UIImage] = []
@@ -34,52 +31,26 @@ struct DetailStudentView: View {
     // 성명을 입력해야 완료 버튼이 활성화 되게
     @State private var isValidName = false
     
-    init(uuid: String, className: String, studentCnt: Int) {
-        self.uuid = uuid
-        self.className = className
-        self.studentNum = studentCnt + 1
-        
-    }
+//    init(student: Student04) {
+        // 에러 나서 onAppear 에 적음
+//        studentViewModelData.updateObject = student
+//    }
     
     var body: some View {
 
         NavigationView {
             VStack {
                 HStack {
-//                    Image("profile02")
-//                        .resizable()
-//                        .frame(width: 100, height: 120)
-                    
-                    if !images.isEmpty {
-                        Button(action: {isPresented.toggle()}, label: {
-//                            Image(uiImage: images[0])
-                            // 프로필 사진 선택후 다시 선택할때
-                            Image(uiImage: images[images.endIndex-1])
-                                .resizable()
-                                .frame(width: 100, height: 110)
-                        })
-                    }
-                    else {
-                        Button(action: {isPresented.toggle()}, label: {
-                            Image("profile02")
-                                .resizable()
-                                .frame(width: 100, height: 110)
-                        })
-                    }
-
+                    Button(action: {isPresented.toggle()}, label: {
+                        let pictureImg = UIImage(data: student.picture as Data)
+                        Image(uiImage: (pictureImg ?? UIImage(imageLiteralResourceName: "profile02")))
+                            .resizable()
+                            .frame(width: 100, height: 110)
+                    })
                     VStack {
                         HStack(spacing: 6) {
-                            Image(systemName: String(studentNum) + ".circle.fill").resizable().frame(width: 20, height: 20).foregroundColor(.systemTeal)
-                            
-//                            TextField("", text: $studentViewModelData.number).frame(width: 21).padding(.leading)
-//                            Text(String(studentNum))
-//                            Text("번")
+                            Image(systemName: String(student.number) + ".circle.fill").resizable().frame(width: 20, height: 20).foregroundColor(.systemTeal)
                             TextField("성명", text: $studentViewModelData.name, onEditingChanged: { editing in self.isValidName = editing ? false : !studentViewModelData.name.isEmpty}, onCommit: { studentViewModelData.name = studentViewModelData.name.trimmingCharacters(in: .whitespaces) })
-                               
-                            
-                            
-                            
-//                            TextField("성명", text: $studentViewModelData.name)
                             Spacer()
                             HStack(spacing: 0) {
                                 TabButton(selected: $studentViewModelData.sex, title: "남자", animation: animation)
@@ -90,11 +61,6 @@ struct DetailStudentView: View {
                             .clipShape(Capsule())
                             .padding(.horizontal)
                         }
-                        
-//                        HStack {
-//                            Image(systemName: "person.fill").resizable().frame(width: 17, height: 17).foregroundColor(.gray)
-//                            TextField("성명", text: $studentViewModelData.name)
-//                        }
                         HStack {
                             Image(systemName: "phone.circle.fill").resizable().frame(width: 17, height: 17).foregroundColor(.gray)
                             TextField("전호번호", text: $studentViewModelData.telNo).keyboardType(.phonePad)
@@ -128,7 +94,7 @@ struct DetailStudentView: View {
                 
             } // Vstack
             .padding()
-            .navigationBarTitle(className, displayMode: .inline)
+            .navigationBarTitle(studentViewModelData.className, displayMode: .inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
@@ -157,8 +123,8 @@ struct DetailStudentView: View {
             } // toolbar
 //            .onAppear(perform: studentViewModelData.setUpInitialData)
             .onAppear(perform: {
-                        studentViewModelData.number = studentNum
-                
+                studentViewModelData.updateObject = student
+                studentViewModelData.setUpInitialData()
             })
             .onDisappear(perform: studentViewModelData.deInitData)
         
@@ -168,9 +134,9 @@ struct DetailStudentView: View {
     }
 }
 
-struct DetailStudentView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailStudentView(uuid: "", className: "5-2반", studentCnt: 23)
-            .environmentObject(StudentViewModel())
-    }
-}
+//struct DetailStudentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DetailStudentView(uuid: "", className: "5-2반", studentCnt: 23)
+//            .environmentObject(StudentViewModel())
+//    }
+//}

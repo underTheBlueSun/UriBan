@@ -13,8 +13,6 @@ struct AddStudentView: View {
 //    스윗한 스위프트 p303 참고
     @Environment(\.presentationMode) var presentaion
     
-    // 남녀 토글버튼
-//    @State var tab = "남자"
     @Namespace var animation
     
     var uuid: String = ""
