@@ -51,8 +51,8 @@ class HomeViewModel: ObservableObject {
         let home = Home03()
 //        home.date = Date()
         home.year = year
-        home.school = school
-        home.className = className
+        home.school = school.trimmingCharacters(in: .whitespaces)
+        home.className = className.trimmingCharacters(in: .whitespaces)
         home.myClass = showMyClass
         home.image = "classImage" + String(self.homes.count + 1)
         

@@ -69,7 +69,8 @@ struct AddStudentView: View {
 //                            TextField("", text: $studentViewModelData.number).frame(width: 21).padding(.leading)
 //                            Text(String(studentNum))
 //                            Text("번")
-                            TextField("성명", text: $studentViewModelData.name, onEditingChanged: { editing in self.isValidName = editing ? false : !studentViewModelData.name.isEmpty}, onCommit: { studentViewModelData.name = studentViewModelData.name.trimmingCharacters(in: .whitespaces) })
+                            TextField("성명", text: $studentViewModelData.name, onEditingChanged: { editing in self.isValidName = true})
+//                            TextField("성명", text: $studentViewModelData.name, onEditingChanged: { editing in self.isValidName = editing ? false : !studentViewModelData.name.isEmpty}, onCommit: { studentViewModelData.name = studentViewModelData.name.trimmingCharacters(in: .whitespaces) })
                                
                             
                             
@@ -139,7 +140,8 @@ struct AddStudentView: View {
                     if isValidName {
                         Button(action: {
                             if !images.isEmpty {
-                                studentViewModelData.picture = images[0]
+    //                        studentViewModelData.picture = images[0]
+                                studentViewModelData.picture = images[images.endIndex-1]
                             }
                             studentViewModelData.addData(presentation: presentaion)
                             

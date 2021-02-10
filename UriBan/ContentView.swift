@@ -6,31 +6,31 @@
 //
 
 import SwiftUI
-import PhotosUI
+
 
 struct ContentView: View {
     
-    var pictureData: Data
+  
     
     var body: some View {
         
         VStack {
-            Text("aaaaaaa")
+            Button(action: {
+                print("aaaaaa")
+            }, label: {
+                Text("Button")
+            })
                 
-            
-            let pictureImg = UIImage(data: pictureData)
-            
-            Image(uiImage: (pictureImg ?? UIImage(imageLiteralResourceName: "profile02")))
-            
-//            guard let aaa =  pictureImg else {return}
-            
-//            Image(uiImage: UIImage(data: pictureData))
-            
-            
-            
+
         }
         
         
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }
 
