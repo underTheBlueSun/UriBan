@@ -25,20 +25,20 @@ struct TabButton: View {
                 // Capsule and Sliding Effect.
                 Capsule()
                     .fill(Color.clear)
-                    .frame(height: 20)
+                    .frame(height: 22)
                 
                 if selected == title {
                     Capsule()
                         .fill(Color.systemTeal)
-                        .frame(height: 20)
+                        .frame(height: 22)
                     // Mathced Geometry Effect.
                         .matchedGeometryEffect(id: "Tab", in: animation)
                     
                 }
                 
                 Text(title)
-                    .foregroundColor(selected == title ? .black : .white)
-                    .font(.system(size: 12))
+                    .foregroundColor(selected == title ? .white : .white)
+                    .font(.system(size: 14))
 //                    .fontWeight(.bold)
             } // Zstack
         } // Button

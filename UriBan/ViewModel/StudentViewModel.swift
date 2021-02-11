@@ -11,10 +11,11 @@ import RealmSwift
 class StudentViewModel: ObservableObject {
     
     var uuid: String = ""
-    var year = ""
-    var school = ""
-    var className = ""
-    var myClass = false
+//    var year = ""
+//    var school = ""
+//    var className = ""
+//    var myClass = false
+    
     @Published var number = 0
     @Published var name = ""
     @Published var sex = "남자"
@@ -26,9 +27,9 @@ class StudentViewModel: ObservableObject {
     
     @Published var openNewPage = false
     
-    @Published var students: [Student04] = []
+    @Published var students: [Student05] = []
     
-    @Published var updateObject: Student04?
+    @Published var updateObject: Student05?
     
 //    init() {
 //
@@ -40,24 +41,46 @@ class StudentViewModel: ObservableObject {
 //        fetchData(uuid: uuid)
 //    }
 
-    
+    // 홈,우리반에서 부를때
     func fetchData(uuid: String) {
+        self.uuid = uuid
         guard let dbRef = try? Realm() else { return }
 //        let results = dbRef.objects(Student01.self).filter("school == %@", school)
-        let results = dbRef.objects(Student04.self).filter("uuid == %@", uuid)
+        let results = dbRef.objects(Student05.self).filter("uuid == %@", uuid)
 //        let results = dbRef.objects(Student01.self)
         // Displaying results
-        self.students = results.compactMap({ (student) -> Student04? in return student })
+        self.students = results.compactMap({ (student) -> Student05? in return student })
     }
+    
+    // 우리반에서 부를때
+//    func fetchData() {
+//        guard let dbRef = try? Realm() else { return }
+////        let results = dbRef.objects(Student01.self).filter("school == %@", school)
+//        let results = dbRef.objects(Student05.self).filter("uuid == true")
+////        let results = dbRef.objects(Student01.self)
+//        // Displaying results
+//        self.students = results.compactMap({ (student) -> Student05? in return student })
+//
+////        let uuid = dbRef.objects(Student05.self).filter("myClass == true").distinct(by: ["uuid"])
+////        self.students = uuid.compactMap({ (student) -> Student05? in return student })
+//
+//        guard let firstTrue = dbRef.objects(Home03.self).filter("myClass == true").first else {return}
+//        self.uuid = firstTrue.uuid
+//        self.year = firstTrue.year
+//        self.school = firstTrue.school
+//        self.className = firstTrue.className
+//        self.myClass = firstTrue.myClass
+//
+//    }
     
     // Add new data
     func addData(presentation: Binding<PresentationMode>) {
-        let student = Student04()
+        let student = Student05()
         student.uuid = uuid
-        student.year = year
-        student.school = school
-        student.className = className
-        student.myClass = myClass
+//        student.year = year
+//        student.school = school
+//        student.className = className
+//        student.myClass = myClass
         student.number = number
         student.name = name.trimmingCharacters(in: .whitespaces)
         student.sex = sex
@@ -108,7 +131,7 @@ class StudentViewModel: ObservableObject {
     } // addData
     
     func updData(presentation: Binding<PresentationMode>) {
-//        let student = Student04()
+//        let student = Student05()
 //        student.uuid = uuid
 //        student.year = year
 //        student.school = school

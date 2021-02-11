@@ -10,7 +10,8 @@ import SwiftUI
 struct HomeView: View {
 
     // 초기화 하면서 fetch 한다
-    @StateObject var homeViewModelData = HomeViewModel()
+//    @StateObject var homeViewModelData = HomeViewModel()
+    @EnvironmentObject var homeViewModelData: HomeViewModel
     
     var columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 2)
     @State var showingActionSheet = false
@@ -43,7 +44,8 @@ struct HomeView: View {
                     ForEach(homeViewModelData.homes) { home in
                         ZStack {
                             VStack {
-                                NavigationLink(destination: NavigationLazyView(StudentView(uuid: home.uuid, year: home.year, school: home.school, className: home.className, myClass: home.myClass))) {
+//                                NavigationLink(destination: NavigationLazyView(StudentView(uuid: home.uuid, year: home.year, school: home.school, className: home.className, myClass: home.myClass))) {
+                                NavigationLink(destination: NavigationLazyView(StudentView(uribanID: home.uuid, uribanClassName: home.className))) {
                                     Image(home.image)
                                         .resizable()
                                         .frame(width: 150, height: 100)
@@ -77,9 +79,9 @@ struct HomeView: View {
             .navigationBarTitle("홈", displayMode: .inline)
             .navigationBarColor(backgroundColor: .systemTeal, tintColor: .white)
             .navigationBarItems(trailing: Button(action: {homeViewModelData.openNewPage.toggle()}) {
-                if homeViewModelData.homes.count > 10 {
-                    
-                }
+//                if homeViewModelData.homes.count > 10 {
+//                    
+//                }
                 Image(systemName: "plus.circle.fill")
                     .font(.title2)
             })

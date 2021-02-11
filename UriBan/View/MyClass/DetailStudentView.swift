@@ -22,7 +22,9 @@ struct DetailStudentView: View {
 //    var studentNum: Int = 0
 //    var myClass: Bool = false
     
-    var student: Student04
+    var student: Student05
+//    var uribanID: String
+    var uribanClassName: String
     
     // 프로필 사진
     @State var images: [UIImage] = []
@@ -78,8 +80,9 @@ struct DetailStudentView: View {
                 VStack {
                     HStack(spacing: 6) {
                         Image(systemName: String(student.number) + ".circle.fill").resizable().frame(width: 20, height: 20).foregroundColor(.systemTeal)
+                        // 메모에는 어떻게 onEditingChanged를 붙힐지 몰라서 완료버튼 풀어버림.
 //                        TextField("성명", text: $studentViewModelData.name, onEditingChanged: { editing in self.isValidName = editing ? false : !studentViewModelData.name.isEmpty},
-                        TextField("성명", text: $studentViewModelData.name)
+                        TextField("성명", text: $studentViewModelData.name).font(.system(size: 23))
                         Spacer()
                         HStack(spacing: 0) {
                             TabButton(selected: $studentViewModelData.sex, title: "남자", animation: animation)
@@ -91,12 +94,12 @@ struct DetailStudentView: View {
                         .padding(.horizontal)
                     }
                     HStack {
-                        Image(systemName: "phone.circle.fill").resizable().frame(width: 17, height: 17).foregroundColor(.gray)
-                        TextField("전호번호", text: $studentViewModelData.telNo).keyboardType(.phonePad)
+//                        Image(systemName: "phone.circle.fill").resizable().frame(width: 17, height: 17).foregroundColor(.gray)
+                        TextField("전호번호", text: $studentViewModelData.telNo).keyboardType(.phonePad).font(.system(size: 15)).foregroundColor(.gray)
                     }
                     HStack {
-                        Image(systemName: "house.fill").resizable().frame(width: 20, height: 20).foregroundColor(.gray)
-                        TextField("주소", text: $studentViewModelData.address)
+//                        Image(systemName: "house.fill").resizable().frame(width: 20, height: 20).foregroundColor(.gray)
+                        TextField("주소", text: $studentViewModelData.address).font(.system(size: 15)).foregroundColor(.gray)
                     }
                 } // Vstack
             } // Hstack
@@ -111,7 +114,8 @@ struct DetailStudentView: View {
                     Spacer()
                 }
                 HStack {
-                    TextEditor(text: $studentViewModelData.memo).fixedSize(horizontal: false, vertical: true)
+//                    TextEditor(text: $studentViewModelData.memo).fixedSize(horizontal: false, vertical: true).font(.system(size: 20))
+                    TextEditor(text: $studentViewModelData.memo).font(.system(size: 20)).frame(height: 100)
                 
                     
                 }
@@ -124,7 +128,7 @@ struct DetailStudentView: View {
             
         } // Vstack
         .padding()
-        .navigationBarTitle(studentViewModelData.className, displayMode: .inline)
+        .navigationBarTitle(uribanClassName, displayMode: .inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {

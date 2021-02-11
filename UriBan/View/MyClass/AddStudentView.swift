@@ -15,12 +15,14 @@ struct AddStudentView: View {
     
     @Namespace var animation
     
-    var uuid: String = ""
+//    var uuid: String = ""
 //    var year: String = ""
 //    var school: String = ""
-    var className: String = ""
-    var studentNum: Int = 0
+//    var className: String = ""
 //    var myClass: Bool = false
+    
+    var studentNum: Int = 0
+    var uribanClassName: String = ""
     
     // 프로필 사진
     @State var images: [UIImage] = []
@@ -29,10 +31,12 @@ struct AddStudentView: View {
     // 성명을 입력해야 완료 버튼이 활성화 되게
     @State private var isValidName = false
     
-    init(uuid: String, className: String, studentCnt: Int) {
-        self.uuid = uuid
-        self.className = className
+//    init(uuid: String, className: String, studentCnt: Int) {
+    init(studentCnt: Int, uribanClassName: String) {
+//        self.uuid = uuid
+//        self.className = className
         self.studentNum = studentCnt + 1
+        self.uribanClassName = uribanClassName
         
     }
     
@@ -64,12 +68,12 @@ struct AddStudentView: View {
 
                     VStack {
                         HStack(spacing: 6) {
-                            Image(systemName: String(studentNum) + ".circle.fill").resizable().frame(width: 20, height: 20).foregroundColor(.systemTeal)
+                            Image(systemName: String(studentNum) + ".circle.fill").resizable().frame(width: 25, height: 25).foregroundColor(.systemTeal)
                             
 //                            TextField("", text: $studentViewModelData.number).frame(width: 21).padding(.leading)
 //                            Text(String(studentNum))
 //                            Text("번")
-                            TextField("성명", text: $studentViewModelData.name, onEditingChanged: { editing in self.isValidName = true})
+                            TextField("성명", text: $studentViewModelData.name, onEditingChanged: { editing in self.isValidName = true}).font(.system(size: 23))
 //                            TextField("성명", text: $studentViewModelData.name, onEditingChanged: { editing in self.isValidName = editing ? false : !studentViewModelData.name.isEmpty}, onCommit: { studentViewModelData.name = studentViewModelData.name.trimmingCharacters(in: .whitespaces) })
                                
                             
@@ -84,7 +88,7 @@ struct AddStudentView: View {
                             .frame(width: 80)
                             .background(Color.gray.opacity(0.3))
                             .clipShape(Capsule())
-                            .padding(.horizontal)
+//                            .padding(.horizontal)
                         }
                         
 //                        HStack {
@@ -92,12 +96,16 @@ struct AddStudentView: View {
 //                            TextField("성명", text: $studentViewModelData.name)
 //                        }
                         HStack {
-                            Image(systemName: "phone.circle.fill").resizable().frame(width: 17, height: 17).foregroundColor(.gray)
-                            TextField("전호번호", text: $studentViewModelData.telNo).keyboardType(.phonePad)
+//                            Image(systemName: "phone.circle.fill").resizable().frame(width: 17, height: 17).foregroundColor(.gray)
+                            TextField("전화번호", text: $studentViewModelData.telNo).keyboardType(.phonePad)
+                                .font(.system(size: 15))
+                                .foregroundColor(.gray)
                         }
                         HStack {
-                            Image(systemName: "house.fill").resizable().frame(width: 20, height: 20).foregroundColor(.gray)
+//                            Image(systemName: "house.fill").resizable().frame(width: 20, height: 20).foregroundColor(.gray)
                             TextField("주소", text: $studentViewModelData.address)
+                                .font(.system(size: 15))
+                                .foregroundColor(.gray)
                         }
                     } // Vstack
                 } // Hstack
@@ -112,7 +120,7 @@ struct AddStudentView: View {
                         Spacer()
                     }
                     HStack {
-                        TextEditor(text: $studentViewModelData.memo).fixedSize(horizontal: false, vertical: true)
+                        TextEditor(text: $studentViewModelData.memo).fixedSize(horizontal: false, vertical: true).font(.system(size: 20))
                     
                         
                     }
@@ -124,7 +132,7 @@ struct AddStudentView: View {
                 
             } // Vstack
             .padding()
-            .navigationBarTitle(className, displayMode: .inline)
+            .navigationBarTitle(uribanClassName, displayMode: .inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
@@ -167,7 +175,7 @@ struct AddStudentView: View {
 
 struct AddStudentView_Previews: PreviewProvider {
     static var previews: some View {
-        AddStudentView(uuid: "", className: "5-2반", studentCnt: 23)
+        AddStudentView(studentCnt: 23, uribanClassName: "5-2반")
             .environmentObject(StudentViewModel())
     }
 }

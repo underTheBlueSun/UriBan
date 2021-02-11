@@ -12,6 +12,8 @@
 		155024CA25C4E0A200AD2006 /* Home03.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155024C925C4E0A200AD2006 /* Home03.swift */; };
 		155024CD25C4E9C700AD2006 /* Student02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155024CC25C4E9C700AD2006 /* Student02.swift */; };
 		155024D125C548D900AD2006 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155024D025C548D900AD2006 /* ColorExtension.swift */; };
+		1550EEE025D4C5CA00D09882 /* UriBanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1550EEDF25D4C5CA00D09882 /* UriBanView.swift */; };
+		1550EEE325D510E000D09882 /* Student05.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1550EEE225D510E000D09882 /* Student05.swift */; };
 		15575E6A25CF6CB7007510C4 /* DetailStudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15575E6925CF6CB7007510C4 /* DetailStudentView.swift */; };
 		15575E6D25CF784B007510C4 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15575E6C25CF784B007510C4 /* SwiftUIView.swift */; };
 		156B640125C43B7700DA8D07 /* MultipleSelectionList01Exam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156B640025C43B7700DA8D07 /* MultipleSelectionList01Exam.swift */; };
@@ -48,6 +50,8 @@
 		155024C925C4E0A200AD2006 /* Home03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home03.swift; sourceTree = "<group>"; };
 		155024CC25C4E9C700AD2006 /* Student02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student02.swift; sourceTree = "<group>"; };
 		155024D025C548D900AD2006 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		1550EEDF25D4C5CA00D09882 /* UriBanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UriBanView.swift; sourceTree = "<group>"; };
+		1550EEE225D510E000D09882 /* Student05.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student05.swift; sourceTree = "<group>"; };
 		15575E6925CF6CB7007510C4 /* DetailStudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailStudentView.swift; sourceTree = "<group>"; };
 		15575E6C25CF784B007510C4 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		156B640025C43B7700DA8D07 /* MultipleSelectionList01Exam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSelectionList01Exam.swift; sourceTree = "<group>"; };
@@ -174,6 +178,7 @@
 				155024CC25C4E9C700AD2006 /* Student02.swift */,
 				FA012FF025CCF73000D580A6 /* Student03.swift */,
 				15894CC625CE1C98001C2AB8 /* Student04.swift */,
+				1550EEE225D510E000D09882 /* Student05.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 				FA9CF39425C1234C00E66C07 /* StudentView.swift */,
 				1535D8D725C6419300BC7E81 /* AddStudentView.swift */,
 				15575E6925CF6CB7007510C4 /* DetailStudentView.swift */,
+				1550EEDF25D4C5CA00D09882 /* UriBanView.swift */,
 			);
 			path = MyClass;
 			sourceTree = "<group>";
@@ -321,6 +327,7 @@
 				FA8D1D0E25CA42A60078662D /* PHPickerSingleExam.swift in Sources */,
 				155024D125C548D900AD2006 /* ColorExtension.swift in Sources */,
 				FA94235F25C0F9B40072D0EE /* Home02.swift in Sources */,
+				1550EEE025D4C5CA00D09882 /* UriBanView.swift in Sources */,
 				FA012FF125CCF73000D580A6 /* Student03.swift in Sources */,
 				FA94236225C0F9D00072D0EE /* Student01.swift in Sources */,
 				FA94235925C0F94A0072D0EE /* SearchDefaultRealm.swift in Sources */,
@@ -330,6 +337,7 @@
 				FA94236D25C0FA5E0072D0EE /* HomeView.swift in Sources */,
 				1590449525C62C840069BF2A /* NavigationBarColor.swift in Sources */,
 				15575E6A25CF6CB7007510C4 /* DetailStudentView.swift in Sources */,
+				1550EEE325D510E000D09882 /* Student05.swift in Sources */,
 				1590449825C62D060069BF2A /* NavigationLazyView.swift in Sources */,
 				FA94236A25C0FA460072D0EE /* AddHomePageView.swift in Sources */,
 				156B640125C43B7700DA8D07 /* MultipleSelectionList01Exam.swift in Sources */,

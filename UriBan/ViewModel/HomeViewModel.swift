@@ -26,6 +26,10 @@ class HomeViewModel: ObservableObject {
     // Data Updation
     @Published var updateObject: Home03?
     
+    // 처음 앱이 활성화 되면 우리반 uuid, 학반을 변수에 저장
+    @Published var uribanID = ""
+    @Published var uribanClassName = ""
+    
     init() {
         fetchData()
     }
@@ -43,6 +47,14 @@ class HomeViewModel: ObservableObject {
         self.homes = results.compactMap({ (home) -> Home03? in
             return home
         })
+    }
+    
+    // 처음 앱이 활성화 되면 우리반 uuid, 학반을 변수에 저장
+    func fetchUriBanData() {
+        guard let dbRef = try? Realm() else { return }
+        guard let firstTrue = dbRef.objects(Home03.self).filter("myClass == true").first else {return}
+        self.uribanID = firstTrue.uuid
+        self.uribanClassName = firstTrue.className
     }
     
     // Add new data
@@ -72,7 +84,15 @@ class HomeViewModel: ObservableObject {
                         dbRef.add(home)
                         return
                     }
+                    
                     beforeTrue.myClass = false
+                    
+                    // 반 추가할때 우리반을 클릭하면 기존의 우리반이었던 학생 모두 false
+                    for beforeTrueStudent in dbRef.objects(Student04.self).filter("myClass == true") {
+                        beforeTrueStudent.myClass = false
+                    }
+                    
+                    
                 }
                 
                 dbRef.add(home)
@@ -91,7 +111,19 @@ class HomeViewModel: ObservableObject {
                     updateObject = nil
                     return
                 }
+                
                 beforeTrue.myClass = false
+                
+                // 반 수정할때 우리반을 클릭하면 기존의 우리반이었던 학생 모두 false
+                for beforeTrueStudent in dbRef.objects(Student04.self).filter("myClass == true") {
+                    beforeTrueStudent.myClass = false
+                }
+                
+                // 반 수정할때 우리반을 클릭하면 새로 우리반이 된 모든 학생 true
+                for beforeFalseStudent in dbRef.objects(Student04.self).filter("uuid == %@", availableObject.uuid) {
+                    beforeFalseStudent.myClass = true
+                }
+                
             }
             
             availableObject.year = year
