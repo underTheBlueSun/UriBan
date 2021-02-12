@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1500B0BE25D6843400E0EF04 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1500B0BD25D6843400E0EF04 /* Test.swift */; };
 		15199EE725D5F57300A35ECF /* PopRootViewExam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15199EE625D5F57300A35ECF /* PopRootViewExam.swift */; };
 		1535D8D825C6419300BC7E81 /* AddStudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1535D8D725C6419300BC7E81 /* AddStudentView.swift */; };
 		1546373D25CE36E600763674 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546373C25CE36E600763674 /* UIImageExtension.swift */; };
@@ -47,7 +46,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1500B0BD25D6843400E0EF04 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Test.swift; path = ../../../../Documents/Test.swift; sourceTree = "<group>"; };
 		15199EE625D5F57300A35ECF /* PopRootViewExam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopRootViewExam.swift; sourceTree = "<group>"; };
 		1535D8D725C6419300BC7E81 /* AddStudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentView.swift; sourceTree = "<group>"; };
 		1546373C25CE36E600763674 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
@@ -158,9 +156,6 @@
 				FA94235B25C0F9860072D0EE /* MainTabView.swift */,
 				FA94236425C0F9EE0072D0EE /* Home */,
 				FA94236525C0F9F70072D0EE /* MyClass */,
-				FA94236625C0FA030072D0EE /* Subject */,
-				FA94236725C0FA0B0072D0EE /* Counsel */,
-				FA94236825C0FA130072D0EE /* Page */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -222,28 +217,6 @@
 				1550EEDF25D4C5CA00D09882 /* UriBanView.swift */,
 			);
 			path = MyClass;
-			sourceTree = "<group>";
-		};
-		FA94236625C0FA030072D0EE /* Subject */ = {
-			isa = PBXGroup;
-			children = (
-				1500B0BD25D6843400E0EF04 /* Test.swift */,
-			);
-			path = Subject;
-			sourceTree = "<group>";
-		};
-		FA94236725C0FA0B0072D0EE /* Counsel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Counsel;
-			sourceTree = "<group>";
-		};
-		FA94236825C0FA130072D0EE /* Page */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Page;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,7 +300,6 @@
 				155024CA25C4E0A200AD2006 /* Home03.swift in Sources */,
 				FA8D1D0B25CA24EB0078662D /* PHPickerMultiExam.swift in Sources */,
 				FA94234725C0F8710072D0EE /* ContentView.swift in Sources */,
-				1500B0BE25D6843400E0EF04 /* Test.swift in Sources */,
 				155024CD25C4E9C700AD2006 /* Student02.swift in Sources */,
 				FA9CF39525C1234C00E66C07 /* StudentView.swift in Sources */,
 				FA94237025C0FA940072D0EE /* HomeViewModel.swift in Sources */,
