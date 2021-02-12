@@ -45,7 +45,14 @@ struct UriBanView: View {
             .navigationBarTitle(uribanClassName, displayMode: .inline)
 //            .navigationBarTitle(homeViewModelData.uribanClassName, displayMode: .inline)
             .navigationBarColor(backgroundColor: .systemTeal, tintColor: .white)
-            .toolbar { Button(action: {studentViewModelData.openNewPage.toggle()}) { Image(systemName: "plus.circle.fill").font(.title2).foregroundColor(.white) } }
+            .toolbar { Button(action: {studentViewModelData.openNewPage.toggle()}) {
+                if uribanID != "" {
+                    Image(systemName: "plus.circle.fill").font(.title2).foregroundColor(.white)
+                }
+                
+                
+            }
+            }
         } // NavigationView
         .fullScreenCover(isPresented: $studentViewModelData.openNewPage) {
             AddStudentView(studentCnt: studentViewModelData.students.count, uribanClassName: uribanClassName).environmentObject(studentViewModelData)
@@ -54,7 +61,7 @@ struct UriBanView: View {
         }
         .onAppear() {
             // init()에서 fetchData(uuid:)를 부르면 uuid를 못가져가서 바로 불렀음
-            studentViewModelData.fetchData(uuid: uribanID)
+//            studentViewModelData.fetchData(uuid: uribanID)
         }
    } // body
 }

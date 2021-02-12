@@ -12,6 +12,7 @@ struct HomeView: View {
     // 초기화 하면서 fetch 한다
 //    @StateObject var homeViewModelData = HomeViewModel()
     @EnvironmentObject var homeViewModelData: HomeViewModel
+    @EnvironmentObject var studentViewModelData: StudentViewModel
     
     var columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 2)
     @State var showingActionSheet = false
@@ -88,6 +89,7 @@ struct HomeView: View {
             .fullScreenCover(isPresented: $homeViewModelData.openNewPage) {
                 AddHomePageView()
                     .environmentObject(homeViewModelData)
+                    .environmentObject(studentViewModelData)
             }
         } // NavigationView
 
