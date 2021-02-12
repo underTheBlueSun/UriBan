@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15199EE725D5F57300A35ECF /* PopRootViewExam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15199EE625D5F57300A35ECF /* PopRootViewExam.swift */; };
 		1535D8D825C6419300BC7E81 /* AddStudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1535D8D725C6419300BC7E81 /* AddStudentView.swift */; };
 		1546373D25CE36E600763674 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546373C25CE36E600763674 /* UIImageExtension.swift */; };
 		155024CA25C4E0A200AD2006 /* Home03.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155024C925C4E0A200AD2006 /* Home03.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15199EE625D5F57300A35ECF /* PopRootViewExam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopRootViewExam.swift; sourceTree = "<group>"; };
 		1535D8D725C6419300BC7E81 /* AddStudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentView.swift; sourceTree = "<group>"; };
 		1546373C25CE36E600763674 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		155024C925C4E0A200AD2006 /* Home03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home03.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				FA8D1D0A25CA24EB0078662D /* PHPickerMultiExam.swift */,
 				FA8D1D0D25CA42A60078662D /* PHPickerSingleExam.swift */,
 				FAC0E1E425CCD0A0003C300C /* ToggleExam.swift */,
+				15199EE625D5F57300A35ECF /* PopRootViewExam.swift */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				FA9CF39525C1234C00E66C07 /* StudentView.swift in Sources */,
 				FA94237025C0FA940072D0EE /* HomeViewModel.swift in Sources */,
 				FA8D1D0E25CA42A60078662D /* PHPickerSingleExam.swift in Sources */,
+				15199EE725D5F57300A35ECF /* PopRootViewExam.swift in Sources */,
 				155024D125C548D900AD2006 /* ColorExtension.swift in Sources */,
 				FA94235F25C0F9B40072D0EE /* Home02.swift in Sources */,
 				1550EEE025D4C5CA00D09882 /* UriBanView.swift in Sources */,

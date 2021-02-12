@@ -1,11 +1,18 @@
+//
+//  PopRootViewExam.swift
+//  UriBan
+//
+//  Created by underTheBlueSun on 2021/02/12.
+//
+
 import SwiftUI
 
-struct ContentView: View {
+struct PopRootViewExam: View {
     @State var isActive : Bool = false
 
     var body: some View {
         NavigationView {
-            NavigationLink(destination: ContentView2(rootIsActive: self.$isActive), isActive: self.$isActive) {
+            NavigationLink(destination: PopRootViewExamDetail(rootIsActive: self.$isActive), isActive: self.$isActive) {
                 Text("Hello, World!")
             }
 //            .isDetailLink(false)
@@ -14,13 +21,13 @@ struct ContentView: View {
     }
 }
 
-struct ContentView2: View {
+struct PopRootViewExamDetail: View {
     @Binding var rootIsActive : Bool
 
     var body: some View {
         VStack {
             Button (action: { self.rootIsActive = false } ){
-                Text("루트로 가즈k....")
+                Text("루트로 가즈아....")
             }
         }.navigationBarTitle("둘")
     }
@@ -28,8 +35,8 @@ struct ContentView2: View {
 
 
 
-struct ContentView_Previews: PreviewProvider {
+struct PopRootViewExam_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        PopRootViewExam()
     }
 }

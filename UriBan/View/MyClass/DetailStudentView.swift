@@ -13,6 +13,7 @@ struct DetailStudentView: View {
     @EnvironmentObject var studentViewModelData: StudentViewModel
     @Environment(\.presentationMode) var presentaion
     
+    
     @Namespace var animation
     
 //    var uuid: String = ""
@@ -26,6 +27,8 @@ struct DetailStudentView: View {
 //    var uribanID: String
     var uribanClassName: String
     
+//    @Binding var rootIsActive : Bool
+    
     // 프로필 사진
     @State var images: [UIImage] = []
     @State private var isPresented: Bool = false
@@ -33,18 +36,23 @@ struct DetailStudentView: View {
     // 성명을 입력해야 완료 버튼이 활성화 되게
     @State private var isValidName = false
     
-//    init(student: Student04) {
-//         // 에러 나서 onAppear 에 적음
-////        studentViewModelData.updateObject = student
-//
-//    }
+//    init(student: Student05, uribanClassName: String, rootIsActive: Bool) {
+    init(student: Student05, uribanClassName: String) {
+         
+        self.student = student
+        // 에러 나서 onAppear 에 적음
+//        studentViewModelData.updateObject = self.student
+        self.uribanClassName = uribanClassName
+//        self.rootIsActive = rootIsActive
+        
+
+    }
 
     
     var body: some View {
         
         VStack {
             HStack {
-                
 //                Button(action: {isPresented.toggle()}, label: {
 //                    // 프로필 사진 선택후 다시 선택할때
 //                    Image(uiImage: images[images.endIndex-1])
@@ -154,13 +162,18 @@ struct DetailStudentView: View {
         } // toolbar
 //            .onAppear(perform: studentViewModelData.setUpInitialData)
         .onAppear(perform: {
-            studentViewModelData.updateObject = student
+            studentViewModelData.updateObject = self.student
 //            images[0] = UIImage(data: student.picture as Data) ?? UIImage(imageLiteralResourceName: "profile02")
 //            images[0] = UIImage(systemName: "pencil")!
             images.append(UIImage(data: student.picture as Data) ?? UIImage(imageLiteralResourceName: "profile02"))
             studentViewModelData.setUpInitialData()
         })
-        .onDisappear(perform: studentViewModelData.deInitData)
+        .onDisappear(perform: {
+            // 상세화면에 있다가 다른 곳 탭한후 다시 탭하면 rootview로 돌아가려고
+            presentaion.wrappedValue.dismiss()
+            
+//            studentViewModelData.deInitData()
+        })
 
     }
 }

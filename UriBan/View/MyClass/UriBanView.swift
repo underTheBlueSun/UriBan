@@ -27,9 +27,10 @@ struct UriBanView: View {
         self.uribanClassName = uribanClassName
     }
     
-
+    @State private var resetNavigationID = UUID()
     
     var body: some View {
+        
         NavigationView {
             List {
                 ForEach(studentViewModelData.students) { student in
@@ -39,7 +40,7 @@ struct UriBanView: View {
                             Image(systemName: String(student.number) + ".circle.fill").resizable().frame(width: 20, height: 20).foregroundColor(.systemTeal)
                             Text(student.name)
                         } // Hstack
-                    } // NavigationView
+                    } // NavigationLink
                 } // ForEach
             } // List
             .background(Color.white)
@@ -56,8 +57,8 @@ struct UriBanView: View {
         .onAppear() {
             // init()에서 fetchData(uuid:)를 부르면 uuid를 못가져가서 바로 불렀음
             studentViewModelData.fetchData(uuid: uribanID)
+            print("-----------uriban---------")
         }
-        
    } // body
 }
 

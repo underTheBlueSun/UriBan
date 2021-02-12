@@ -95,8 +95,8 @@ struct AddHomePageView: View {
                             modelData.addData(presentation: presentaion)
 //                            // 우리반이 바뀌면 우리반id를 변수에 저장
                             modelData.fetchUriBanData()
-                            print("----------addhome------------")
-                            print(modelData.uribanID)
+//                            print("----------addhome------------")
+//                            print(modelData.uribanID)
                         }, label: {
                             Text("완료")
                         })

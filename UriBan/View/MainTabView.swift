@@ -20,13 +20,12 @@ struct MainTabView: View {
         UITabBar.appearance().unselectedItemTintColor = UIColor.white
     }
     
-  private enum Tabs {
-    case home, myclass, growth, subject, counsel
-  }
-  
-  @State private var selectedTab: Tabs = .home
+    private enum Tabs {
+      case home, myclass, growth, subject, counsel
+    }
+
+    @State private var selectedTab: Tabs = .home
     
-  
   var body: some View {
     
     TabView(selection: $selectedTab) {
@@ -64,13 +63,17 @@ private extension MainTabView {
     
   var myclass: some View {
     
+    
+    
     UriBanView(uribanID: homeViewModelData.uribanID, uribanClassName: homeViewModelData.uribanClassName)
+    // 이렇게 하면 우리반 탭을 눌러도 onAppear가 바로바로 안되는 기현상 발생(특히 홈에서 추가버튼 누르고 나서 다시 우리반 누르면 반응 없음)
 //    UriBanView().environmentObject(homeViewModelData)
       .tag(Tabs.myclass)
       .tabItem {
         Image(systemName: "person.2.fill")
         Text("우리반")
        }
+      
   }
     
     var growth: some View {

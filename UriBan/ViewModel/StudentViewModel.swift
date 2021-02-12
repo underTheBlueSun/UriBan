@@ -224,8 +224,6 @@ class StudentViewModel: ObservableObject {
         address = ""
         memo = ""
         picture = UIImage()
-        
-        
     }
 }
 
