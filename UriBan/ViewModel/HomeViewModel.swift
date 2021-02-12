@@ -50,7 +50,7 @@ class HomeViewModel: ObservableObject {
     }
     
     // 처음 앱이 활성화 되면 우리반 uuid, 학반을 변수에 저장
-    func fetchUriBanData() {
+    func setUriBanID() {
         guard let dbRef = try? Realm() else { return }
         guard let firstTrue = dbRef.objects(Home03.self).filter("myClass == true").first else {return}
         self.uribanID = firstTrue.uuid

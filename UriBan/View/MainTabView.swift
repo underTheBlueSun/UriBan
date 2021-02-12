@@ -12,6 +12,7 @@ struct MainTabView: View {
     
     // 앱이 활성화 되면 우리반 uuid를 변수에 저장
     @StateObject var homeViewModelData = HomeViewModel()
+    @StateObject var studentViewModelData: StudentViewModel = StudentViewModel()
     
     init() {
         // 탭바 배경 색깔 변경. 2021.1월 iOS 14.3 버그로 추정
@@ -43,7 +44,10 @@ struct MainTabView: View {
     .edgesIgnoringSafeArea(.top)
     .onAppear(perform: {
         // 앱이 활성화 되면 우리반 uuid를 변수에 저장
-        homeViewModelData.fetchUriBanData()
+        homeViewModelData.setUriBanID()
+        // UriBanView에서 @StateObject var studentViewModelData: StudentViewModel = StudentViewModel()
+        // 이렇게 하면 학반추가버튼 누르면 UriBanView의 onAppear 정상 작동 안함
+//        studentViewModelData.fetchData(uuid: homeViewModelData.uribanID)
     })
   }
 }
@@ -60,20 +64,16 @@ private extension MainTabView {
          }
     }
     
-    
   var myclass: some View {
     
-    
-    
+//    UriBanView(uribanID: homeViewModelData.uribanID, uribanClassName: homeViewModelData.uribanClassName)
     UriBanView(uribanID: homeViewModelData.uribanID, uribanClassName: homeViewModelData.uribanClassName)
-    // 이렇게 하면 우리반 탭을 눌러도 onAppear가 바로바로 안되는 기현상 발생(특히 홈에서 추가버튼 누르고 나서 다시 우리반 누르면 반응 없음)
-//    UriBanView().environmentObject(homeViewModelData)
-      .tag(Tabs.myclass)
-      .tabItem {
-        Image(systemName: "person.2.fill")
-        Text("우리반")
-       }
-      
+        .environmentObject(studentViewModelData)
+        .tag(Tabs.myclass)
+        .tabItem {
+            Image(systemName: "person.2.fill")
+            Text("우리반")
+        }
   }
     
     var growth: some View {
@@ -105,26 +105,8 @@ private extension MainTabView {
     
 }
 
-
-// MARK: - View Extension
-
-//fileprivate extension View {
-//  func tabItem(image: String, text: String) -> some View {
-//    self.tabItem {
-//      Symbol(image, scale: .large)
-//        .font(Font.system(size: 17, weight: .light))
-//      Text(text)
-//    }
-//  }
-//}
-
-
-// MARK: - Preview
-
 struct MainTabView_Previews: PreviewProvider {
   static var previews: some View {
-//    Preview(source: MainTabView())
-//      .environmentObject(Store())
     MainTabView()
   }
 }

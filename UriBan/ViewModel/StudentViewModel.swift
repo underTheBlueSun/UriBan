@@ -10,11 +10,7 @@ import RealmSwift
 
 class StudentViewModel: ObservableObject {
     
-    var uuid: String = ""
-//    var year = ""
-//    var school = ""
-//    var className = ""
-//    var myClass = false
+    @Published var uuid: String = ""
     
     @Published var number = 0
     @Published var name = ""
@@ -41,9 +37,11 @@ class StudentViewModel: ObservableObject {
 //        fetchData(uuid: uuid)
 //    }
 
-    // 홈,우리반에서 부를때
+    // 우리반에서 부를때
     func fetchData(uuid: String) {
+        // 탭뷰, 학반생성에서 우리반 아이디 넘김
         self.uuid = uuid
+        
         guard let dbRef = try? Realm() else { return }
 //        let results = dbRef.objects(Student01.self).filter("school == %@", school)
         let results = dbRef.objects(Student05.self).filter("uuid == %@", uuid)

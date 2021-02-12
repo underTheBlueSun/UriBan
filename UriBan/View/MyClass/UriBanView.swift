@@ -14,8 +14,8 @@ struct UriBanView: View {
     var uribanID: String
     var uribanClassName: String
 
-//    @EnvironmentObject var homeViewModelData: HomeViewModel
-    @StateObject var studentViewModelData: StudentViewModel = StudentViewModel()
+//    @StateObject var studentViewModelData: StudentViewModel = StudentViewModel()
+    @EnvironmentObject var studentViewModelData: StudentViewModel
     
     // StateObject() 쓰지말고 .onAppear() 이거 쓰란 말도 있음. stackoverflow 참조 : Initialize @StateObject with a parameter in SwiftUI
 //    init(uuid: String) {
@@ -26,8 +26,6 @@ struct UriBanView: View {
         self.uribanID = uribanID
         self.uribanClassName = uribanClassName
     }
-    
-    @State private var resetNavigationID = UUID()
     
     var body: some View {
         
@@ -57,7 +55,6 @@ struct UriBanView: View {
         .onAppear() {
             // init()에서 fetchData(uuid:)를 부르면 uuid를 못가져가서 바로 불렀음
             studentViewModelData.fetchData(uuid: uribanID)
-            print("-----------uriban---------")
         }
    } // body
 }
