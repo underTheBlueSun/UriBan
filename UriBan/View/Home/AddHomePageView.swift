@@ -95,9 +95,9 @@ struct AddHomePageView: View {
                         Button(action: {
                             modelData.year = thisYear
                             modelData.addData(presentation: presentaion)
-//                            // 우리반이 바뀌면 우리반id를 변수에 저장
+//                          // 우리반이 바뀌면 우리반id를 변수에 저장
                             modelData.setUriBanID()
-//                            print("id = " + modelData.uribanID)
+//                          // 우리반 배열을 만듬
                             studentViewModelData.fetchData(uuid: modelData.uribanID)
                         }, label: {
                             Text("완료")

@@ -27,51 +27,18 @@ class StudentViewModel: ObservableObject {
     
     @Published var updateObject: Student05?
     
-//    init() {
-//
-//        fetchData(uuid: uuid)
-//    }
-    
-//    init(uuid: String) {
-//        self.uuid = uuid
-//        fetchData(uuid: uuid)
-//    }
-
-    // 우리반에서 부를때
     func fetchData(uuid: String) {
         // 탭뷰, 학반생성에서 우리반 아이디 넘김
         self.uuid = uuid
         
         guard let dbRef = try? Realm() else { return }
 //        let results = dbRef.objects(Student01.self).filter("school == %@", school)
-        let results = dbRef.objects(Student05.self).filter("uuid == %@", uuid)
+        let results = dbRef.objects(Student05.self).filter("uuid == %@", uuid)        
 //        let results = dbRef.objects(Student01.self)
         // Displaying results
         self.students = results.compactMap({ (student) -> Student05? in return student })
     }
     
-    // 우리반에서 부를때
-//    func fetchData() {
-//        guard let dbRef = try? Realm() else { return }
-////        let results = dbRef.objects(Student01.self).filter("school == %@", school)
-//        let results = dbRef.objects(Student05.self).filter("uuid == true")
-////        let results = dbRef.objects(Student01.self)
-//        // Displaying results
-//        self.students = results.compactMap({ (student) -> Student05? in return student })
-//
-////        let uuid = dbRef.objects(Student05.self).filter("myClass == true").distinct(by: ["uuid"])
-////        self.students = uuid.compactMap({ (student) -> Student05? in return student })
-//
-//        guard let firstTrue = dbRef.objects(Home03.self).filter("myClass == true").first else {return}
-//        self.uuid = firstTrue.uuid
-//        self.year = firstTrue.year
-//        self.school = firstTrue.school
-//        self.className = firstTrue.className
-//        self.myClass = firstTrue.myClass
-//
-//    }
-    
-    // Add new data
     func addData(presentation: Binding<PresentationMode>) {
         let student = Student05()
         student.uuid = uuid
@@ -87,7 +54,6 @@ class StudentViewModel: ObservableObject {
 //        student.picture = picture
         student.memo = memo
 
-        
         if picture.pngData() != nil {
             // 프로필 사진 이미지 용량 줄이기, 안줄이면 에러: binary too big..
             let targetSize = CGSize(width: 100, height: 110)
@@ -214,8 +180,7 @@ class StudentViewModel: ObservableObject {
 
     }
 
-    func deInitData() {
-        
+    func deInitData() {        
         name = ""
         sex = "남자"
         telNo = ""

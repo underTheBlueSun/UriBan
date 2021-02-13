@@ -12,7 +12,8 @@ struct MainTabView: View {
     
     // 앱이 활성화 되면 우리반 uuid를 변수에 저장
     @StateObject var homeViewModelData = HomeViewModel()
-    @StateObject var studentViewModelData: StudentViewModel = StudentViewModel()
+    @StateObject var studentViewModelData = StudentViewModel()
+    @StateObject var growthViewModelData = GrowthViewModel()
     
     init() {
         // 탭바 배경 색깔 변경. 2021.1월 iOS 14.3 버그로 추정
@@ -83,19 +84,20 @@ private extension MainTabView {
     var growth: some View {
         GrowthView(uribanID: homeViewModelData.uribanID, uribanClassName: homeViewModelData.uribanClassName)
             .environmentObject(studentViewModelData)
+            .environmentObject(growthViewModelData)
         .tag(Tabs.growth)
           .tabItem {
               Image(systemName: "rectangle.stack.person.crop.fill")
-              Text("행발")
+              Text("관찰")
           }
     }
   
   var subject: some View {
-    Text("과제")
+    Text("체크")
       .tag(Tabs.subject)
         .tabItem {
             Image(systemName: "text.badge.checkmark")
-            Text("과제")
+            Text("체크")
         }
   }
   

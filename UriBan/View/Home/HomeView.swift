@@ -15,6 +15,7 @@ struct HomeView: View {
     @EnvironmentObject var studentViewModelData: StudentViewModel
     
     var columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 2)
+    
     @State var showingActionSheet = false
     var titles: [String] = ["수정하기", "삭제하기", "취소하기"]
     var buttonsArray: NSMutableArray = NSMutableArray()
@@ -99,6 +100,8 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+            .environmentObject(HomeViewModel())
+            .environmentObject(StudentViewModel())
     }
 }
 

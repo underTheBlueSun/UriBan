@@ -12,14 +12,22 @@ struct MultipleSelectionList01: View {
     @State var selections: [String] = []
 
     var body: some View {
-        List {
-            ForEach(self.items, id: \.self) { item in
-                MultipleSelectionRow(title: item, isSelected: self.selections.contains(item)) {
-                    if self.selections.contains(item) {
-                        self.selections.removeAll(where: { $0 == item })
-                    }
-                    else {
-                        self.selections.append(item)
+
+        
+        VStack {
+            Button(action: { print(self.selections.joined(separator: "/")) }, label: {
+                Text("Button")
+            })
+            
+            List {
+                ForEach(self.items, id: \.self) { item in
+                    MultipleSelectionRow(title: item, isSelected: self.selections.contains(item)) {
+                        if self.selections.contains(item) {
+                            self.selections.removeAll(where: { $0 == item })
+                        }
+                        else {
+                            self.selections.append(item)
+                        }
                     }
                 }
             }
@@ -42,11 +50,21 @@ struct MultipleSelectionRow: View {
         Button(action: self.action) {
             HStack {
                 Text(self.title)
-                if self.isSelected {
-                    Spacer()
-                    Image(systemName: "checkmark")
-                }
-            }
+                Spacer()
+                ZStack {
+                    Circle()
+                        .stroke(self.isSelected ? Color.green : Color.gray,lineWidth: 2)
+                        .frame(width: 25, height: 25)
+                    
+                    if self.isSelected {
+                        Image(systemName: "checkmark.circle.fill")
+                            .font(.system(size: 25))
+                            .foregroundColor(Color.green)
+                            .frame(width: 25, height: 25)
+                    }
+                    
+                } // Zstack
+            } // Hstack
         }
     }
 }

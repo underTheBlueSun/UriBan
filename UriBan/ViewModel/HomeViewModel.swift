@@ -15,7 +15,7 @@ class HomeViewModel: ObservableObject {
     @Published var year = ""
     @Published var school = ""
     @Published var className = ""
-    @Published var showMyClass = false
+    @Published var showMyClass = true
     
     // 스윗한 스위프트 p302 는 조금 다름
     @Published var openNewPage = false

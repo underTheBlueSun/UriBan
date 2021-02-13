@@ -120,7 +120,7 @@ struct AddStudentView: View {
                         Spacer()
                     }
                     HStack {
-                        TextEditor(text: $studentViewModelData.memo).fixedSize(horizontal: false, vertical: true).font(.system(size: 20))
+                        TextEditor(text: $studentViewModelData.memo).fixedSize(horizontal: false, vertical: true).font(.system(size: 15))
                     
                         
                     }
