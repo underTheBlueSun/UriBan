@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import PhotosUI
 
 struct AddGrowthView: View {
     @EnvironmentObject var studentViewModelData: StudentViewModel
@@ -22,7 +21,7 @@ struct AddGrowthView: View {
     // 성명을 입력해야 완료 버튼이 활성화 되게
     @State private var isValidName = false
     
-    var columns = Array(repeating: GridItem(.flexible(), spacing: 25), count: 10)
+    var columns = Array(repeating: GridItem(.flexible(), spacing: 20), count: 10)
     
     init(uribanClassName: String) {
         self.uribanClassName = uribanClassName
@@ -32,26 +31,37 @@ struct AddGrowthView: View {
         
         NavigationView {
             VStack {
-                VStack(spacing: 0) {
+                VStack {
                     HStack {
                         Text("관찰기록").foregroundColor(.gray)
                         Spacer()
+                        
+                        HStack(spacing: 0) {
+                            TabButton(selected: $growthViewModelData.status, title: "긍정", animation: animation, gubun: 1)
+                            TabButton(selected: $growthViewModelData.status, title: "부정", animation: animation, gubun: 2)
+                        }
+                        .frame(width: 80)
+                        .background(Color.gray.opacity(0.3))
+                        .clipShape(Capsule())
+                        
                     }
                     HStack {
-                        TextEditor(text: $growthViewModelData.content).frame(height:100)
+//                        TextEditor(text: $growthViewModelData.content).frame(height:150)
+                        FirstResponderTextEditor(text: $growthViewModelData.content).frame(height:150)
                     }
-                }
+                } // VStack
+                .padding()
+                
                 Divider()
-                Button(action: { print(self.selections.joined(separator: "/")) }, label: {
-                                Text("Button")
-                            })
-//                List {
-                    
-                    LazyHGrid(rows: columns, spacing: 15) {
+                
+                VStack {
+                    LazyHGrid(rows: columns, spacing: 0) {
                         ForEach(studentViewModelData.students, id: \.self) { student in
                             HStack {
-                                Image(systemName: String(student.number) + ".circle.fill").resizable().frame(width: 20, height: 20).foregroundColor(.systemTeal)
-                                Text(student.name)
+                                Image(systemName: String(student.number) + ".circle.fill").resizable().frame(width: 17, height: 17, alignment: .leading).foregroundColor(.systemTeal)
+                                // Text frame width 값을 정해줘야 글자수가 3개가 아니더라도 줄이 맞음
+                                Text(student.name).font(.system(size: 16)).frame(width: 45, alignment: .leading)
+
                                 let number = String(student.number)
                                 MultiSelectRow(title: number, isSelected: self.selections.contains(number)) {
                                     if self.selections.contains(number) {
@@ -62,44 +72,46 @@ struct AddGrowthView: View {
                                     }
                                 } // MultiSelectRow
                             } // HStack
-    //
                         } // ForEach
-                        
-                    }
+                        .padding()
+                    } // LazyHGrid
+                    .navigationBarTitle(uribanClassName, displayMode: .inline)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            Button(action: {
+            //                        studentViewModelData.updateObject = nil
+                                    presentaion.wrappedValue.dismiss()
 
-                    
-
-
-                    
-//                } // List
+                            }, label: {
+                                Text("취소")
+                            })
+                        }
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button(action: {
+                                // Growth03 만들어서 number를 String으로 바꾼후 growthViewModelData.number 로 고쳐야 함
+                                growthViewModelData.name = self.selections.joined(separator: "/")
+                                growthViewModelData.addData(presentation: presentaion)
+                                
+                            }, label: {
+                                Text("완료")
+                            })
+                        } // ToolbarItem
+                    } // toolbar
+                    .onAppear(perform: {
+            //            studentViewModelData.updateObject = self.student
+            //            studentViewModelData.setUpInitialData()
+                    })
+                    .onDisappear(perform: {
+                        // 상세화면에 있다가 다른 곳 탭한후 다시 탭하면 rootview로 돌아가려고
+                        presentaion.wrappedValue.dismiss()
+                    })
+                } // Vstack
                 .padding()
-                .navigationBarTitle(uribanClassName, displayMode: .inline)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button(action: {
-        //                        studentViewModelData.updateObject = nil
-                                presentaion.wrappedValue.dismiss()
-
-                        }, label: {
-                            Text("취소")
-                        })
-                    }
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: { growthViewModelData.updData(presentation: presentaion) }, label: {
-                            Text("완료")
-                        })
-                    } // ToolbarItem
-                } // toolbar
-                .onAppear(perform: {
-        //            studentViewModelData.updateObject = self.student
-        //            studentViewModelData.setUpInitialData()
-                })
-                .onDisappear(perform: {
-                    // 상세화면에 있다가 다른 곳 탭한후 다시 탭하면 rootview로 돌아가려고
-                    presentaion.wrappedValue.dismiss()
-                })
+                
+                Spacer()
             } // Vstack
-            .padding()
+//            .padding()
+
             
         } // NavigationView
         

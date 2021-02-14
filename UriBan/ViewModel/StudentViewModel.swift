@@ -28,8 +28,8 @@ class StudentViewModel: ObservableObject {
     @Published var updateObject: Student05?
     
     func fetchData(uuid: String) {
-        // 탭뷰, 학반생성에서 우리반 아이디 넘김
-        self.uuid = uuid
+        // 탭뷰에서 우리반, 관찰쪽으로 우리반id 넘기는걸로 수정해서 주석처리함
+//        self.uuid = uuid
         
         guard let dbRef = try? Realm() else { return }
 //        let results = dbRef.objects(Student01.self).filter("school == %@", school)

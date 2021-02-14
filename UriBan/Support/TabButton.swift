@@ -12,6 +12,7 @@ struct TabButton: View {
     @Binding var selected: String
     var title: String
     var animation: Namespace.ID
+    var gubun: Int
     
     var body: some View {
         
@@ -28,11 +29,22 @@ struct TabButton: View {
                     .frame(height: 22)
                 
                 if selected == title {
-                    Capsule()
-                        .fill(Color.systemTeal)
-                        .frame(height: 22)
-                    // Mathced Geometry Effect.
-                        .matchedGeometryEffect(id: "Tab", in: animation)
+                    
+                    if gubun == 1 {
+                        Capsule()
+                            .fill(Color.systemTeal)
+                            .frame(height: 22)
+                            .matchedGeometryEffect(id: "Tab", in: animation)
+                        
+                    } else {
+                        Capsule()
+                            .fill(Color.tabButtonRed)
+                            .frame(height: 22)
+                            .matchedGeometryEffect(id: "Tab", in: animation)
+                        
+                    }
+                    
+                    
                     
                 }
                 

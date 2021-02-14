@@ -93,8 +93,8 @@ struct DetailStudentView: View {
                         TextField("성명", text: $studentViewModelData.name).font(.system(size: 23))
                         Spacer()
                         HStack(spacing: 0) {
-                            TabButton(selected: $studentViewModelData.sex, title: "남자", animation: animation)
-                            TabButton(selected: $studentViewModelData.sex, title: "여자", animation: animation)
+                            TabButton(selected: $studentViewModelData.sex, title: "남자", animation: animation, gubun: 1)
+                            TabButton(selected: $studentViewModelData.sex, title: "여자", animation: animation, gubun: 2)
                         }
                         .frame(width: 80)
                         .background(Color.gray.opacity(0.3))
@@ -169,10 +169,9 @@ struct DetailStudentView: View {
             studentViewModelData.setUpInitialData()
         })
         .onDisappear(perform: {
+            studentViewModelData.deInitData()
             // 상세화면에 있다가 다른 곳 탭한후 다시 탭하면 rootview로 돌아가려고
-            presentaion.wrappedValue.dismiss()
-            
-//            studentViewModelData.deInitData()
+            presentaion.wrappedValue.dismiss()            
         })
 
     }

@@ -14,9 +14,9 @@ class GrowthViewModel: ObservableObject {
 //    @Published var growthid: String = ""
     @Published var yymmdd: Date = Date()
     @Published var number = 0
-//    @Published var name = ""
+    @Published var name = ""
     @Published var content = ""
-    @Published var status = ""
+    @Published var status = "긍정"
     
     @Published var openNewPage = false
     
@@ -46,7 +46,9 @@ class GrowthViewModel: ObservableObject {
         let growth = Growth02()
         growth.uuid = uuid
         growth.yymmdd = Date()
-        growth.number = number
+        // Growth03 만들어서 number를 String으로 바꾼후 growth.name = name 대신 growth.number = number 로 변경해야 함
+//        growth.number = number
+        growth.name = name
         growth.content = content
         growth.status = status
         

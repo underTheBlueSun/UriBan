@@ -15,6 +15,7 @@ struct UriBanApp: App {
     var body: some Scene {
         WindowGroup {
             MainTabView()
+//            SwiftUIView()
 //            SearchDefaultRealm()
 //            MultipleSelectionList01()
 //            ContentView()

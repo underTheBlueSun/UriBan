@@ -13,6 +13,7 @@ extension Color {
   static let primaryShadow = Color.primary.opacity(0.2)
   static let secondaryText = Color(hex: "#6e6e6e")
   static let background = Color(UIColor.systemGray6)
+  static let tabButtonRed = Color(hex: "#FF6559")
 }
 
 extension Color {

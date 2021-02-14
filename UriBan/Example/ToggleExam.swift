@@ -19,8 +19,8 @@ struct ToggleExam: View {
             Spacer()
             TextField("",text: $tab)
             HStack(spacing: 0) {
-                TabButton(selected: $tab, title: "남자", animation: animation)
-                TabButton(selected: $tab, title: "여자", animation: animation)
+                TabButton(selected: $tab, title: "남자", animation: animation, gubun: 1)
+                TabButton(selected: $tab, title: "여자", animation: animation, gubun: 2)
             }
             .frame(width: 130)
             .background(Color.gray.opacity(0.08))

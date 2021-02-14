@@ -69,21 +69,16 @@ struct AddStudentView: View {
                     VStack {
                         HStack(spacing: 6) {
                             Image(systemName: String(studentNum) + ".circle.fill").resizable().frame(width: 25, height: 25).foregroundColor(.systemTeal)
-                            
-//                            TextField("", text: $studentViewModelData.number).frame(width: 21).padding(.leading)
-//                            Text(String(studentNum))
-//                            Text("번")
-                            TextField("성명", text: $studentViewModelData.name, onEditingChanged: { editing in self.isValidName = true}).font(.system(size: 23))
-//                            TextField("성명", text: $studentViewModelData.name, onEditingChanged: { editing in self.isValidName = editing ? false : !studentViewModelData.name.isEmpty}, onCommit: { studentViewModelData.name = studentViewModelData.name.trimmingCharacters(in: .whitespaces) })
-                               
-                            
-                            
-                            
-//                            TextField("성명", text: $studentViewModelData.name)
+//                            TextField("성명", text: $studentViewModelData.name, onEditingChanged: { editing in self.isValidName = true})
+//                                .font(.system(size: 23))
+                            // 성명 텍스트필드에 포커싱 주기
+                            FirstResponderTextField(text: $studentViewModelData.name, placeholder: " 성명")
+                                .font(.system(size: 23))
+                                .frame(height: 30)
                             Spacer()
                             HStack(spacing: 0) {
-                                TabButton(selected: $studentViewModelData.sex, title: "남자", animation: animation)
-                                TabButton(selected: $studentViewModelData.sex, title: "여자", animation: animation)
+                                TabButton(selected: $studentViewModelData.sex, title: "남자", animation: animation, gubun: 1)
+                                TabButton(selected: $studentViewModelData.sex, title: "여자", animation: animation, gubun: 2)
                             }
                             .frame(width: 80)
                             .background(Color.gray.opacity(0.3))
@@ -145,7 +140,7 @@ struct AddStudentView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     // 성명을 입력해야 완료 버튼 활성화
-                    if isValidName {
+//                    if isValidName {
                         Button(action: {
                             if !images.isEmpty {
     //                        studentViewModelData.picture = images[0]
@@ -156,7 +151,7 @@ struct AddStudentView: View {
                         }, label: {
                             Text("완료")
                         })
-                    }
+//                    }
 
                 }
             } // toolbar

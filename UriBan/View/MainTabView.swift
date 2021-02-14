@@ -50,6 +50,8 @@ struct MainTabView: View {
         // 위처럼 하면 학반추가버튼 누르면 UriBanView의 onAppear 정상 작동 안함
         // students배열을 저장해 놓고 우리반,행발,과제,상담에서 탭 할때마다 fetchData 하는게 아니라
         // students 배열 미리 만들어 놓고 쓰기위해 (우리반 토글이 바뀌면 다시 students 배열 만듬)
+        studentViewModelData.uuid = homeViewModelData.uribanID
+        growthViewModelData.uuid = homeViewModelData.uribanID
         studentViewModelData.fetchData(uuid: homeViewModelData.uribanID)
     })
   }

@@ -44,15 +44,15 @@ struct AddHomePageView: View {
                 
                 HStack {
                     Image(systemName: "building.columns.fill").frame(width: 30)
-//                    TextField("학교명을 입력하세요", text: $modelData.school)
-//                    TextField("학교명", text: $modelData.school, onEditingChanged: { editing in self.isValidSchool = editing ? false : !modelData.school.isEmpty}, onCommit: { modelData.school = modelData.school.trimmingCharacters(in: .whitespaces) })
-                    TextField("학교명", text: $modelData.school, onEditingChanged: { editing in self.isValid = true})
+//                    TextField("학교명", text: $modelData.school, onEditingChanged: { editing in self.isValid = true})
+                    // 학교명에 포커싱 주기
+                    FirstResponderTextField(text: $modelData.school, placeholder: " 학교명").frame(height: 30)
                     
                 }
                 
                 HStack {
                     Image(systemName: "person.2.fill").frame(width: 30)
-                    TextField("학반", text: $modelData.className, onEditingChanged: { editing in self.isValid = true})
+                    TextField(" 학반", text: $modelData.className, onEditingChanged: { editing in self.isValid = true})
 //                    TextField("학반을 입력하세요", text: $modelData.className)
 //                    TextField("학반", text: $modelData.className, onEditingChanged: { editing in self.isValidClass = editing ? false : !modelData.className.isEmpty}, onCommit: { modelData.className = modelData.className.trimmingCharacters(in: .whitespaces) })
                 }
