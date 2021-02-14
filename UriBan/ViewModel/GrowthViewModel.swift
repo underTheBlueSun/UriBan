@@ -107,19 +107,15 @@ class GrowthViewModel: ObservableObject {
     func setUpInitialData() {
         guard let updateData = updateObject else { return }
 //        number = updateData.number
-//        name = updateData.name
-//        sex = updateData.sex
-//        telNo = updateData.telNo
-//        address = updateData.address
+        name = updateData.name
+        content = updateData.content
+        status = updateData.status
     }
 
     func deInitData() {
-//        name = ""
-//        sex = "남자"
-//        telNo = ""
-//        address = ""
-//        memo = ""
-//        picture = UIImage()
+        name = ""
+        content = ""
+        status = "긍정"
     }
 }
 

@@ -54,8 +54,7 @@ struct GrowthView: View {
                 .environmentObject(growthViewModelData)
         }
         .onAppear() {
-            // init()에서 fetchData(uuid:)를 부르면 uuid를 못가져가서 바로 불렀음
-//            studentViewModelData.fetchData(uuid: uribanID)
+            growthViewModelData.fetchData(uuid: uribanID)
         }
    } // body
 }

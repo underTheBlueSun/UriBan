@@ -14,12 +14,16 @@ struct DetailGrowthView: View {
     @Environment(\.presentationMode) var presentaion
     
     @Namespace var animation
+    // 체크리스트 배열
+    @State var selections: [String] = []
     
     var growth: Growth02
     var uribanClassName: String
         
     // 성명을 입력해야 완료 버튼이 활성화 되게
     @State private var isValidName = false
+    
+    var columns = Array(repeating: GridItem(.flexible(), spacing: 20), count: 10)
     
     init(growth: Growth02, uribanClassName: String) {
          
@@ -33,38 +37,90 @@ struct DetailGrowthView: View {
     var body: some View {
         
         VStack {
+            VStack {
+                HStack {
+                    Text("관찰기록").foregroundColor(.gray)
+                    Spacer()
+                    
+                    HStack(spacing: 0) {
+                        TabButton(selected: $growthViewModelData.status, title: "긍정", animation: animation, gubun: 1)
+                        TabButton(selected: $growthViewModelData.status, title: "부정", animation: animation, gubun: 2)
+                    }
+                    .frame(width: 80)
+                    .background(Color.gray.opacity(0.3))
+                    .clipShape(Capsule())
+                    
+                }
+                HStack {
+                    TextEditor(text: $growthViewModelData.content).frame(height:150).fixedSize(horizontal: false, vertical: true)
+//                        FirstResponderTextEditor(text: $growthViewModelData.content).frame(height:150).fixedSize(horizontal: false, vertical: true)
+                }
+            } // VStack
+            .padding()
             
-            TextField("성명", text: $growthViewModelData.content).font(.system(size: 23))
+            Divider()
+            
+            VStack {
+                LazyHGrid(rows: columns, spacing: 0) {
+                    ForEach(studentViewModelData.students, id: \.self) { student in
+                        HStack {
+                            Image(systemName: String(student.number) + ".circle.fill").resizable().frame(width: 17, height: 17, alignment: .leading).foregroundColor(.systemTeal)
+                            // Text frame width 값을 정해줘야 글자수가 3개가 아니더라도 줄이 맞음
+                            Text(student.name).font(.system(size: 16)).frame(width: 45, alignment: .leading)
 
-        }
-        .padding()
-        .navigationBarTitle(uribanClassName, displayMode: .inline)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button(action: {
-//                        studentViewModelData.updateObject = nil
-                        presentaion.wrappedValue.dismiss()
+                            let number = String(student.number)
+                            MultiSelectRow(title: number, isSelected: self.selections.contains(number)) {
+                                if self.selections.contains(number) {
+                                    self.selections.removeAll(where: { $0 == number })
+                                }
+                                else {
+                                    self.selections.append(number)
+                                }
+                            } // MultiSelectRow
+                        } // HStack
+                    } // ForEach
+                    .padding()
+                } // LazyHGrid
+                .navigationBarTitle(uribanClassName, displayMode: .inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(action: {
+        //                        studentViewModelData.updateObject = nil
+                                presentaion.wrappedValue.dismiss()
 
-                }, label: {
-                    Text("")
+                        }, label: {
+                            Text("")
+                        })
+                    }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: {
+                            // Growth03 만들어서 number를 String으로 바꾼후 growthViewModelData.number 로 고쳐야 함
+                            growthViewModelData.name = self.selections.joined(separator: "/")
+                            growthViewModelData.addData(presentation: presentaion)
+                            
+                        }, label: {
+                            Text("완료")
+                        })
+                    } // ToolbarItem
+                } // toolbar
+                .onAppear(perform: {
+                    growthViewModelData.updateObject = self.growth
+                    growthViewModelData.setUpInitialData()
+                    self.selections = self.growth.name.components(separatedBy: "/")
                 })
-            }
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: { growthViewModelData.updData(presentation: presentaion) }, label: {
-                    Text("완료")
+                .onDisappear(perform: {
+                    growthViewModelData.deInitData()
+                    // 상세화면에 있다가 다른 곳 탭한후 다시 탭하면 rootview로 돌아가려고
+                    presentaion.wrappedValue.dismiss()
                 })
-            } // ToolbarItem
-        } // toolbar
-        .onAppear(perform: {
-//            studentViewModelData.updateObject = self.student
-//            images.append(UIImage(data: student.picture as Data) ?? UIImage(imageLiteralResourceName: "profile02"))
-//            studentViewModelData.setUpInitialData()
-        })
-        .onDisappear(perform: {
-            // 상세화면에 있다가 다른 곳 탭한후 다시 탭하면 rootview로 돌아가려고
-            presentaion.wrappedValue.dismiss()
-        })
+            } // Vstack
+            .padding()
+            
+            Spacer()
+        } // Vstack
+//            .padding()
 
+            
     }
 }
 

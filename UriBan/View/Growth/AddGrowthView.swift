@@ -47,7 +47,7 @@ struct AddGrowthView: View {
                     }
                     HStack {
 //                        TextEditor(text: $growthViewModelData.content).frame(height:150)
-                        FirstResponderTextEditor(text: $growthViewModelData.content).frame(height:150)
+                        FirstResponderTextEditor(text: $growthViewModelData.content).frame(height:150).fixedSize(horizontal: false, vertical: true)
                     }
                 } // VStack
                 .padding()
