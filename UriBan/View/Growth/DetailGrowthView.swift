@@ -68,7 +68,10 @@ struct DetailGrowthView: View {
                             // Text frame width 값을 정해줘야 글자수가 3개가 아니더라도 줄이 맞음
                             Text(student.name).font(.system(size: 16)).frame(width: 45, alignment: .leading)
 
-                            let number = String(student.number)
+//                                let number = String(student.number)
+                            //// 1 -> 01 로 집어 넣어야 1번 조회할때 11~19번이 안딸려옴
+                            let number = String(format: "%02d", student.number)
+
                             MultiSelectRow(title: number, isSelected: self.selections.contains(number)) {
                                 if self.selections.contains(number) {
                                     self.selections.removeAll(where: { $0 == number })
@@ -96,7 +99,7 @@ struct DetailGrowthView: View {
                         Button(action: {
                             // Growth03 만들어서 number를 String으로 바꾼후 growthViewModelData.number 로 고쳐야 함
                             growthViewModelData.name = self.selections.joined(separator: "/")
-                            growthViewModelData.addData(presentation: presentaion)
+                            growthViewModelData.updData(presentation: presentaion)
                             
                         }, label: {
                             Text("완료")

@@ -38,7 +38,7 @@ class GrowthViewModel: ObservableObject {
     func fetchData(uuid: String) {
         guard let dbRef = try? Realm() else { return }
         let results = dbRef.objects(Growth02.self).filter("uuid == %@", uuid)
-//        let results = dbRef.objects(Student05.self).filter("uuid = 'CD33A3C0-EDBB-4F28-8A3E-512A74C6512A' and name CONTAINS '윤'")
+//        let results = dbRef.objects(Growth02.self).filter("uuid = '3457F0C5-4517-48DD-8689-990BACF4E455' and name CONTAINS '/1/'")
         self.growths = results.compactMap({ (growth) -> Growth02? in return growth })
     }
     
@@ -74,10 +74,8 @@ class GrowthViewModel: ObservableObject {
                 return
             }
             availableObject.content = content
-//            availableObject.sex = sex
-//            availableObject.telNo = telNo
-//            availableObject.address = address
-//            availableObject.memo = memo
+//            availableObject.number = number
+            availableObject.name = name
             
             updateObject = nil
 

@@ -8,28 +8,27 @@
 import SwiftUI
 
 struct SwiftUIView: View {
-    @State private var text = ""
-    
-//    let aaa = "1/2/3"
     
     
-  
     
     var body: some View {
         
-        let fullName = "First"
+//        var array = ["1", "2"]
+//        var arrayZero = String(format: "%02d", array)
         
-        var fullNameArr = fullName.split{$0 == "/"}.map(String.init)
-        var aaa = fullName.components(separatedBy: "/")
+        let string = "/1/"
+        let array = string.components(separatedBy: "/")
+//        str.components(separatedBy: ["~","!","@",","]).joined()
+
         
         VStack {
             Button(action: {
-                print(fullNameArr)
-                print(aaa)
+                print(String(format: "%02d", 1))
             }, label: {
-                Text("Button")
+//                Text(array.joined(separator:"/") + "/")
+                Text(String(format: "%02d", 2))
             })
-                
+            
         }
         
     }
