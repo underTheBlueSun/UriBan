@@ -59,7 +59,6 @@ struct GrowthView: View {
                 .environmentObject(homeViewModelData)
         }
         .onAppear() {
-            print("aaaaaaa")
             growthViewModelData.fetchData(uuid: homeViewModelData.uribanID)
         }
 

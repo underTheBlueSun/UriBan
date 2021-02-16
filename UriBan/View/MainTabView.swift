@@ -88,9 +88,9 @@ private extension MainTabView {
     
     var growth: some View {
         GrowthView()
-            .environmentObject(studentViewModelData)
-            .environmentObject(growthViewModelData)
             .environmentObject(homeViewModelData)
+            .environmentObject(studentViewModelData)
+            .environmentObject(growthViewModelData)            
         .tag(Tabs.growth)
           .tabItem {
               Image(systemName: "rectangle.stack.person.crop.fill")

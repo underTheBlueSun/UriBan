@@ -44,9 +44,9 @@ struct AddHomePageView: View {
                 
                 HStack {
                     Image(systemName: "building.columns.fill").frame(width: 30)
-//                    TextField("학교명", text: $modelData.school, onEditingChanged: { editing in self.isValid = true})
-                    // 학교명에 포커싱 주기
-                    FirstResponderTextField(text: $modelData.school, placeholder: " 학교명").frame(height: 30)
+                    TextField("학교명", text: $modelData.school, onEditingChanged: { editing in self.isValid = true})
+                    // 학교명에 포커싱 주기 but 에러 : 수정 누르면 학교명이 사라져 있음 ㅠㅠ
+//                    FirstResponderTextField(text: $modelData.school, placeholder: " 학교명").frame(height: 30)
                     
                 }
                 

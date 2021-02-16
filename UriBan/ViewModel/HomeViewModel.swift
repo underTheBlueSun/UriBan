@@ -105,9 +105,10 @@ class HomeViewModel: ObservableObject {
                 return
             } // else
             
-            // 수정할 때 우리반을 체크하면 기존의 우리반 체크된 것을 false로 수정
+            // 반 수정할때 우리반을 클릭하면 이전의 우리반 체크된 것을 false로 수정
             if showMyClass == true {
                 guard let beforeTrue = dbRef.objects(Home03.self).filter("myClass == true").first else {
+                    // 이전 우리반이 없으면
                     availableObject.year = year
                     availableObject.school = school
                     availableObject.className = className
@@ -120,7 +121,7 @@ class HomeViewModel: ObservableObject {
                 
                 beforeTrue.myClass = false
                 
-                // 반 수정할때 우리반을 클릭하면 기존의 우리반이었던 학생 모두 false
+                // 반 수정할때 우리반을 클릭하면 이전의 우리반이었던 학생 모두 false
                 for beforeTrueStudent in dbRef.objects(Student04.self).filter("myClass == true") {
                     beforeTrueStudent.myClass = false
                 }
