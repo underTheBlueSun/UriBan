@@ -29,9 +29,12 @@
 		15894CC725CE1C98001C2AB8 /* Student04.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15894CC625CE1C98001C2AB8 /* Student04.swift */; };
 		1590449525C62C840069BF2A /* NavigationBarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1590449425C62C840069BF2A /* NavigationBarColor.swift */; };
 		1590449825C62D060069BF2A /* NavigationLazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1590449725C62D060069BF2A /* NavigationLazyView.swift */; };
-		15D7D5A225D8F301007E7B20 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D7D5A125D8F301007E7B20 /* SwiftUIView.swift */; };
+		15D7D5A225D8F301007E7B20 /* ItemByMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D7D5A125D8F301007E7B20 /* ItemByMonthView.swift */; };
 		15D7D5A625D8FB5C007E7B20 /* FirstResponderTextFIeld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D7D5A525D8FB5C007E7B20 /* FirstResponderTextFIeld.swift */; };
 		15D7D5A925D90375007E7B20 /* FirstResponderTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D7D5A825D90375007E7B20 /* FirstResponderTextEditor.swift */; };
+		15D7D5AE25DA5388007E7B20 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 15D7D5AD25DA5388007E7B20 /* SwiftUICharts */; };
+		15D7D5B125DB6B93007E7B20 /* CountByMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D7D5B025DB6B93007E7B20 /* CountByMonthView.swift */; };
+		15D7D5B525DBA72E007E7B20 /* HomeChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D7D5B425DBA72E007E7B20 /* HomeChartView.swift */; };
 		FA012FF125CCF73000D580A6 /* Student03.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA012FF025CCF73000D580A6 /* Student03.swift */; };
 		FA8D1D0B25CA24EB0078662D /* PHPickerMultiExam.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D1D0A25CA24EB0078662D /* PHPickerMultiExam.swift */; };
 		FA8D1D0E25CA42A60078662D /* PHPickerSingleExam.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D1D0D25CA42A60078662D /* PHPickerSingleExam.swift */; };
@@ -76,9 +79,11 @@
 		15894CC625CE1C98001C2AB8 /* Student04.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student04.swift; sourceTree = "<group>"; };
 		1590449425C62C840069BF2A /* NavigationBarColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarColor.swift; sourceTree = "<group>"; };
 		1590449725C62D060069BF2A /* NavigationLazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLazyView.swift; sourceTree = "<group>"; };
-		15D7D5A125D8F301007E7B20 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		15D7D5A125D8F301007E7B20 /* ItemByMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemByMonthView.swift; sourceTree = "<group>"; };
 		15D7D5A525D8FB5C007E7B20 /* FirstResponderTextFIeld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstResponderTextFIeld.swift; sourceTree = "<group>"; };
 		15D7D5A825D90375007E7B20 /* FirstResponderTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstResponderTextEditor.swift; sourceTree = "<group>"; };
+		15D7D5B025DB6B93007E7B20 /* CountByMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountByMonthView.swift; sourceTree = "<group>"; };
+		15D7D5B425DBA72E007E7B20 /* HomeChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeChartView.swift; sourceTree = "<group>"; };
 		FA012FF025CCF73000D580A6 /* Student03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student03.swift; sourceTree = "<group>"; };
 		FA8D1D0A25CA24EB0078662D /* PHPickerMultiExam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHPickerMultiExam.swift; sourceTree = "<group>"; };
 		FA8D1D0D25CA42A60078662D /* PHPickerSingleExam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHPickerSingleExam.swift; sourceTree = "<group>"; };
@@ -105,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15D7D5AE25DA5388007E7B20 /* SwiftUICharts in Frameworks */,
 				FA94237625C0FB030072D0EE /* RealmSwift in Frameworks */,
 				FA94237425C0FB030072D0EE /* Realm in Frameworks */,
 			);
@@ -156,7 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				FA94234425C0F8710072D0EE /* UriBanApp.swift */,
-				15D7D5A125D8F301007E7B20 /* SwiftUIView.swift */,
+				15D7D5A125D8F301007E7B20 /* ItemByMonthView.swift */,
+				15D7D5B025DB6B93007E7B20 /* CountByMonthView.swift */,
 				FA94235425C0F8D70072D0EE /* View */,
 				FA94235525C0F8DF0072D0EE /* ViewModel */,
 				FA94235625C0F8E70072D0EE /* Model */,
@@ -236,6 +243,7 @@
 			children = (
 				FA94236C25C0FA5E0072D0EE /* HomeView.swift */,
 				FA94236925C0FA460072D0EE /* AddHomePageView.swift */,
+				15D7D5B425DBA72E007E7B20 /* HomeChartView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -270,6 +278,7 @@
 			packageProductDependencies = (
 				FA94237325C0FB030072D0EE /* Realm */,
 				FA94237525C0FB030072D0EE /* RealmSwift */,
+				15D7D5AD25DA5388007E7B20 /* SwiftUICharts */,
 			);
 			productName = UriBan;
 			productReference = FA94234125C0F8710072D0EE /* UriBan.app */;
@@ -300,6 +309,7 @@
 			mainGroup = FA94233825C0F8710072D0EE;
 			packageReferences = (
 				FA94237225C0FB030072D0EE /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				15D7D5AC25DA5388007E7B20 /* XCRemoteSwiftPackageReference "ChartView" */,
 			);
 			productRefGroup = FA94234225C0F8710072D0EE /* Products */;
 			projectDirPath = "";
@@ -339,6 +349,7 @@
 				FA9CF39525C1234C00E66C07 /* StudentView.swift in Sources */,
 				FA94237025C0FA940072D0EE /* HomeViewModel.swift in Sources */,
 				FA8D1D0E25CA42A60078662D /* PHPickerSingleExam.swift in Sources */,
+				15D7D5B525DBA72E007E7B20 /* HomeChartView.swift in Sources */,
 				15199EE725D5F57300A35ECF /* PopRootViewExam.swift in Sources */,
 				155024D125C548D900AD2006 /* ColorExtension.swift in Sources */,
 				FA94235F25C0F9B40072D0EE /* Home02.swift in Sources */,
@@ -348,6 +359,7 @@
 				FA94236225C0F9D00072D0EE /* Student01.swift in Sources */,
 				FA94235925C0F94A0072D0EE /* SearchDefaultRealm.swift in Sources */,
 				1500B0D325D7796800E0EF04 /* AddGrowthView.swift in Sources */,
+				15D7D5B125DB6B93007E7B20 /* CountByMonthView.swift in Sources */,
 				1500B0D025D7734100E0EF04 /* DetailGrowthView.swift in Sources */,
 				1535D8D825C6419300BC7E81 /* AddStudentView.swift in Sources */,
 				FA94234525C0F8710072D0EE /* UriBanApp.swift in Sources */,
@@ -356,7 +368,7 @@
 				1590449525C62C840069BF2A /* NavigationBarColor.swift in Sources */,
 				15575E6A25CF6CB7007510C4 /* DetailStudentView.swift in Sources */,
 				1550EEE325D510E000D09882 /* Student05.swift in Sources */,
-				15D7D5A225D8F301007E7B20 /* SwiftUIView.swift in Sources */,
+				15D7D5A225D8F301007E7B20 /* ItemByMonthView.swift in Sources */,
 				1590449825C62D060069BF2A /* NavigationLazyView.swift in Sources */,
 				1500B0C425D6858400E0EF04 /* Growth01.swift in Sources */,
 				FA94236A25C0FA460072D0EE /* AddHomePageView.swift in Sources */,
@@ -557,6 +569,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		15D7D5AC25DA5388007E7B20 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.4;
+			};
+		};
 		FA94237225C0FB030072D0EE /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-cocoa";
@@ -568,6 +588,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		15D7D5AD25DA5388007E7B20 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 15D7D5AC25DA5388007E7B20 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
 		FA94237325C0FB030072D0EE /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FA94237225C0FB030072D0EE /* XCRemoteSwiftPackageReference "realm-cocoa" */;

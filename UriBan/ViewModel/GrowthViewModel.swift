@@ -24,6 +24,9 @@ class GrowthViewModel: ObservableObject {
     
     @Published var updateObject: Growth02?
     
+    @Published var grouped: [Int: Int] = [:]
+    @Published var groupedToArray: [Double] = []
+    
 //    init() {
 //
 //        fetchData(uuid: uuid)
@@ -40,12 +43,23 @@ class GrowthViewModel: ObservableObject {
         let results = dbRef.objects(Growth02.self).filter("uuid == %@", uuid)
 //        let results = dbRef.objects(Growth02.self).filter("uuid = '3457F0C5-4517-48DD-8689-990BACF4E455' and name CONTAINS '/1/'")
         self.growths = results.compactMap({ (growth) -> Growth02? in return growth })
+        
+        // 월별 group by
+        for growth in growths {
+            grouped[Calendar.current.dateComponents([.month], from: growth.yymmdd).month!, default: 0] += 1
+        }
+        for item in grouped.sorted(by: <) {
+            groupedToArray.append(Double(item.value))
+        }
     }
     
     func addData(presentation: Binding<PresentationMode>) {
         let growth = Growth02()
         growth.uuid = uuid
         growth.yymmdd = Date()
+        
+//        growth.yymmdd = Calendar.current.date(byAdding: .month, value: 1, to: Date())!
+
         // Growth03 만들어서 number를 String으로 바꾼후 growth.name = name 대신 growth.number = number 로 변경해야 함
 //        growth.number = number
         growth.name = name

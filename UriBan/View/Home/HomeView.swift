@@ -13,6 +13,7 @@ struct HomeView: View {
 //    @StateObject var homeViewModelData = HomeViewModel()
     @EnvironmentObject var homeViewModelData: HomeViewModel
     @EnvironmentObject var studentViewModelData: StudentViewModel
+    @EnvironmentObject var growthViewModelData: GrowthViewModel
     
     var columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 2)
     
@@ -46,8 +47,7 @@ struct HomeView: View {
                     ForEach(homeViewModelData.homes) { home in
                         ZStack {
                             VStack {
-//                                NavigationLink(destination: NavigationLazyView(StudentView(uuid: home.uuid, year: home.year, school: home.school, className: home.className, myClass: home.myClass))) {
-                                NavigationLink(destination: NavigationLazyView(StudentView(uribanID: home.uuid, uribanClassName: home.className))) {
+                                NavigationLink(destination: NavigationLazyView(HomeChartView(uuid: home.uuid, className: home.className).environmentObject(growthViewModelData))) {
                                     Image(home.image)
                                         .resizable()
                                         .frame(width: 150, height: 100)
@@ -55,7 +55,7 @@ struct HomeView: View {
                                         
                                 } // NavigationLink
                                 .simultaneousGesture(TapGesture().onEnded {
-                                                    print("TAPPED")
+//                                                    print("TAPPED")
                                 })
                                 
                                 Text(home.year + ". " + home.school).font(.system(size: 14))
@@ -102,6 +102,7 @@ struct HomeView_Previews: PreviewProvider {
         HomeView()
             .environmentObject(HomeViewModel())
             .environmentObject(StudentViewModel())
+            .environmentObject(GrowthViewModel())
     }
 }
 

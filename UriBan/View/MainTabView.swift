@@ -64,6 +64,7 @@ private extension MainTabView {
       HomeView()
         .environmentObject(homeViewModelData)
         .environmentObject(studentViewModelData)
+        .environmentObject(growthViewModelData)
         .tag(Tabs.home)
         .tabItem {
           Image(systemName: "house.fill")
@@ -95,11 +96,13 @@ private extension MainTabView {
     }
   
   var subject: some View {
-    Text("체크")
+//    Text("과제")
+    CountByMonthView(uribanID: homeViewModelData.uribanID, uribanClassName: homeViewModelData.uribanClassName)
+        .environmentObject(growthViewModelData)
       .tag(Tabs.subject)
         .tabItem {
             Image(systemName: "text.badge.checkmark")
-            Text("체크")
+            Text("과제")
         }
   }
   
