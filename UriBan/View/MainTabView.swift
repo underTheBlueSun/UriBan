@@ -76,7 +76,8 @@ private extension MainTabView {
     
 //    UriBanView(uribanID: homeViewModelData.uribanID, uribanClassName: homeViewModelData.uribanClassName)
 //    UriBanView(uribanID: homeViewModelData.uribanID, uribanClassName: homeViewModelData.uribanClassName)
-    UriBanView(uribanID: homeViewModelData.uribanID, uribanClassName: homeViewModelData.uribanClassName)
+    UriBanView()
+        .environmentObject(homeViewModelData)
         .environmentObject(studentViewModelData)
         .tag(Tabs.myclass)
         .tabItem {
@@ -86,9 +87,10 @@ private extension MainTabView {
   }
     
     var growth: some View {
-        GrowthView(uribanID: homeViewModelData.uribanID, uribanClassName: homeViewModelData.uribanClassName)
+        GrowthView()
             .environmentObject(studentViewModelData)
             .environmentObject(growthViewModelData)
+            .environmentObject(homeViewModelData)
         .tag(Tabs.growth)
           .tabItem {
               Image(systemName: "rectangle.stack.person.crop.fill")

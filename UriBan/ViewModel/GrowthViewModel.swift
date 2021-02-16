@@ -53,7 +53,7 @@ class GrowthViewModel: ObservableObject {
         }
     }
     
-    func addData(presentation: Binding<PresentationMode>) {
+    func addData(uuid: String, presentation: Binding<PresentationMode>) {
         let growth = Growth02()
         growth.uuid = uuid
         growth.yymmdd = Date()

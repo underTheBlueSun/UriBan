@@ -9,16 +9,19 @@ import SwiftUI
 
 struct GrowthView: View {
     
-    var uribanID: String
-    var uribanClassName: String
+//    var uribanID: String
+//    var uribanClassName: String
 
     @EnvironmentObject var studentViewModelData: StudentViewModel
     @EnvironmentObject var growthViewModelData: GrowthViewModel
+    @EnvironmentObject var homeViewModelData: HomeViewModel
     
-    init(uribanID: String, uribanClassName: String) {
-        self.uribanID = uribanID
-        self.uribanClassName = uribanClassName
-    }
+    @Environment(\.presentationMode) var presentaion
+    
+//    init(uribanID: String, uribanClassName: String) {
+//        self.uribanID = uribanID
+//        self.uribanClassName = uribanClassName
+//    }
     
     var body: some View {
         
@@ -26,7 +29,8 @@ struct GrowthView: View {
             List {
                 ForEach(growthViewModelData.growths) { growth in
                     NavigationLink(destination:
-                                    DetailGrowthView(growth: growth, uribanClassName: uribanClassName)
+                                    DetailGrowthView(growth: growth)
+                                    .environmentObject(homeViewModelData)
                                     .environmentObject(studentViewModelData)
                                     .environmentObject(growthViewModelData)) {
                         HStack {
@@ -36,11 +40,11 @@ struct GrowthView: View {
                 } // ForEach
             } // List
             .background(Color.white)
-            .navigationBarTitle(uribanClassName, displayMode: .inline)
+            .navigationBarTitle(homeViewModelData.className, displayMode: .inline)
 //            .navigationBarTitle(homeViewModelData.uribanClassName, displayMode: .inline)
             .navigationBarColor(backgroundColor: .systemTeal, tintColor: .white)
             .toolbar { Button(action: {growthViewModelData.openNewPage.toggle()}) {
-                if uribanID != "" {
+                if homeViewModelData.uribanID != "" {
                     Image(systemName: "plus.circle.fill").font(.title2).foregroundColor(.white)
                 }
                 
@@ -49,13 +53,17 @@ struct GrowthView: View {
             }
         } // NavigationView
         .fullScreenCover(isPresented: $growthViewModelData.openNewPage) {
-            AddGrowthView(uribanClassName: uribanClassName)
+            AddGrowthView()
                 .environmentObject(studentViewModelData)
                 .environmentObject(growthViewModelData)
+                .environmentObject(homeViewModelData)
         }
         .onAppear() {
-            growthViewModelData.fetchData(uuid: uribanID)
+            print("aaaaaaa")
+            growthViewModelData.fetchData(uuid: homeViewModelData.uribanID)
         }
+
+        
    } // body
 }
 

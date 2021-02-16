@@ -10,22 +10,24 @@ import SwiftUI
 struct AddGrowthView: View {
     @EnvironmentObject var studentViewModelData: StudentViewModel
     @EnvironmentObject var growthViewModelData: GrowthViewModel
+    @EnvironmentObject var homeViewModelData: HomeViewModel
+    
     @Environment(\.presentationMode) var presentaion
     
     @State var selections: [String] = []
     
     @Namespace var animation
     
-    var uribanClassName: String
+//    var uribanClassName: String
         
     // 성명을 입력해야 완료 버튼이 활성화 되게
     @State private var isValidName = false
     
     var columns = Array(repeating: GridItem(.flexible(), spacing: 20), count: 10)
     
-    init(uribanClassName: String) {
-        self.uribanClassName = uribanClassName
-    }
+//    init(uribanClassName: String) {
+//        self.uribanClassName = uribanClassName
+//    }
     
     var body: some View {
         
@@ -81,7 +83,7 @@ struct AddGrowthView: View {
                         } // ForEach
                         .padding()
                     } // LazyHGrid
-                    .navigationBarTitle(uribanClassName, displayMode: .inline)
+                    .navigationBarTitle(homeViewModelData.className, displayMode: .inline)
                     .toolbar {
                         ToolbarItem(placement: .navigationBarLeading) {
                             Button(action: {
@@ -98,7 +100,7 @@ struct AddGrowthView: View {
                                 // + "/" 을 붙힌 이유: 1을 조회하는데 11 ~19 애들이 나오면 안되니깐
 //                                growthViewModelData.name = "/" + self.selections.joined(separator: "/") + "/"
                                 growthViewModelData.name = self.selections.joined(separator: "/")
-                                growthViewModelData.addData(presentation: presentaion)
+                                growthViewModelData.addData(uuid: homeViewModelData.uribanID , presentation: presentaion)
                                 
                             }, label: {
                                 Text("완료")
@@ -130,9 +132,10 @@ struct AddGrowthView: View {
 
 struct AddGrowthView_Previews: PreviewProvider {
     static var previews: some View {
-        AddGrowthView(uribanClassName: "5-2반")
+        AddGrowthView()
             .environmentObject(StudentViewModel())
             .environmentObject(GrowthViewModel())
+            .environmentObject(HomeViewModel())
     }
 }
 

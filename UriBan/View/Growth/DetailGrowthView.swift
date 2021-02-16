@@ -11,6 +11,8 @@ import PhotosUI
 struct DetailGrowthView: View {
     @EnvironmentObject var studentViewModelData: StudentViewModel
     @EnvironmentObject var growthViewModelData: GrowthViewModel
+    @EnvironmentObject var homeViewModelData: HomeViewModel
+    
     @Environment(\.presentationMode) var presentaion
     
     @Namespace var animation
@@ -18,19 +20,19 @@ struct DetailGrowthView: View {
     @State var selections: [String] = []
     
     var growth: Growth02
-    var uribanClassName: String
+//    var uribanClassName: String
         
     // 성명을 입력해야 완료 버튼이 활성화 되게
     @State private var isValidName = false
     
     var columns = Array(repeating: GridItem(.flexible(), spacing: 20), count: 10)
     
-    init(growth: Growth02, uribanClassName: String) {
+    init(growth: Growth02) {
          
         self.growth = growth
         // 에러 나서 onAppear 에 적음
 //        studentViewModelData.updateObject = self.student
-        self.uribanClassName = uribanClassName
+//        self.uribanClassName = uribanClassName
 //        self.rootIsActive = rootIsActive
     }
     
@@ -84,7 +86,7 @@ struct DetailGrowthView: View {
                     } // ForEach
                     .padding()
                 } // LazyHGrid
-                .navigationBarTitle(uribanClassName, displayMode: .inline)
+                .navigationBarTitle(homeViewModelData.className, displayMode: .inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button(action: {

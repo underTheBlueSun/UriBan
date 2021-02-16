@@ -11,6 +11,7 @@ import PhotosUI
 
 struct DetailStudentView: View {
     @EnvironmentObject var studentViewModelData: StudentViewModel
+    @EnvironmentObject var homeViewModelData: HomeViewModel
     @Environment(\.presentationMode) var presentaion
     
     
@@ -25,7 +26,7 @@ struct DetailStudentView: View {
     
     var student: Student05
 //    var uribanID: String
-    var uribanClassName: String
+//    var uribanClassName: String
     
 //    @Binding var rootIsActive : Bool
     
@@ -37,15 +38,13 @@ struct DetailStudentView: View {
     @State private var isValidName = false
     
 //    init(student: Student05, uribanClassName: String, rootIsActive: Bool) {
-    init(student: Student05, uribanClassName: String) {
+    init(student: Student05) {
          
         self.student = student
         // 에러 나서 onAppear 에 적음
 //        studentViewModelData.updateObject = self.student
-        self.uribanClassName = uribanClassName
+//        self.uribanClassName = uribanClassName
 //        self.rootIsActive = rootIsActive
-        
-
     }
 
     
@@ -136,7 +135,7 @@ struct DetailStudentView: View {
             
         } // Vstack
         .padding()
-        .navigationBarTitle(uribanClassName, displayMode: .inline)
+        .navigationBarTitle(homeViewModelData.className, displayMode: .inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {

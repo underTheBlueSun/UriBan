@@ -10,6 +10,8 @@ import PhotosUI
 
 struct AddStudentView: View {
     @EnvironmentObject var studentViewModelData: StudentViewModel
+    @EnvironmentObject var homeViewModelData: HomeViewModel
+    
 //    스윗한 스위프트 p303 참고
     @Environment(\.presentationMode) var presentaion
     
@@ -22,7 +24,7 @@ struct AddStudentView: View {
 //    var myClass: Bool = false
     
     var studentNum: Int = 0
-    var uribanClassName: String = ""
+//    var uribanClassName: String = ""
     
     // 프로필 사진
     @State var images: [UIImage] = []
@@ -32,11 +34,11 @@ struct AddStudentView: View {
     @State private var isValidName = false
     
 //    init(uuid: String, className: String, studentCnt: Int) {
-    init(studentCnt: Int, uribanClassName: String) {
+    init(studentCnt: Int) {
 //        self.uuid = uuid
 //        self.className = className
         self.studentNum = studentCnt + 1
-        self.uribanClassName = uribanClassName
+//        self.uribanClassName = uribanClassName
         
     }
     
@@ -127,7 +129,7 @@ struct AddStudentView: View {
                 
             } // Vstack
             .padding()
-            .navigationBarTitle(uribanClassName, displayMode: .inline)
+            .navigationBarTitle(homeViewModelData.className, displayMode: .inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
@@ -146,7 +148,7 @@ struct AddStudentView: View {
     //                        studentViewModelData.picture = images[0]
                                 studentViewModelData.picture = images[images.endIndex-1]
                             }
-                            studentViewModelData.addData(presentation: presentaion)
+                            studentViewModelData.addData(uuid: homeViewModelData.uribanID, presentation: presentaion)
                             
                         }, label: {
                             Text("완료")
@@ -170,7 +172,7 @@ struct AddStudentView: View {
 
 struct AddStudentView_Previews: PreviewProvider {
     static var previews: some View {
-        AddStudentView(studentCnt: 23, uribanClassName: "5-2반")
+        AddStudentView(studentCnt: 23)
             .environmentObject(StudentViewModel())
     }
 }

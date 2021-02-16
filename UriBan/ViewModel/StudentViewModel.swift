@@ -39,7 +39,7 @@ class StudentViewModel: ObservableObject {
         self.students = results.compactMap({ (student) -> Student05? in return student })
     }
     
-    func addData(presentation: Binding<PresentationMode>) {
+    func addData(uuid: String, presentation: Binding<PresentationMode>) {
         let student = Student05()
         student.uuid = uuid
 //        student.year = year
