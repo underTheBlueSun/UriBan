@@ -32,6 +32,10 @@ struct AddGrowthView: View {
         NavigationView {
             VStack {
                 VStack {
+                    VStack {
+                        Text("aaaaa")
+                        
+                    }
                     HStack {
                         Text("관찰기록").foregroundColor(.gray)
                         Spacer()
@@ -46,7 +50,7 @@ struct AddGrowthView: View {
                         
                     }
                     HStack {
-//                        TextEditor(text: $growthViewModelData.content).frame(height:150)
+//                        TextEditor(text: $growthViewModelData.content).frame(height:150).fixedSize(horizontal: false, vertical: true)
                         FirstResponderTextEditor(text: $growthViewModelData.content).frame(height:150).fixedSize(horizontal: false, vertical: true)
                     }
                 } // VStack

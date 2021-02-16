@@ -49,7 +49,7 @@ class HomeViewModel: ObservableObject {
         })
     }
     
-    // 처음 앱이 활성화 되면 우리반 uuid, 학반을 변수에 저장
+    // 처음 앱이 활성화 되거나, 학반 추가를 할때 우리반 uuid, 학반을 변수에 저장
     func setUriBanID() {
         guard let dbRef = try? Realm() else { return }
         guard let firstTrue = dbRef.objects(Home03.self).filter("myClass == true").first else {
@@ -65,7 +65,7 @@ class HomeViewModel: ObservableObject {
     func addData(presentation: Binding<PresentationMode>) {
         
         let home = Home03()
-//        home.date = Date()
+//        home.uuid = UUID().uuidString // Home03()에서 이미 생성하니 따로 생성할 필요없다
         home.year = year
         home.school = school.trimmingCharacters(in: .whitespaces)
         home.className = className.trimmingCharacters(in: .whitespaces)
@@ -82,24 +82,26 @@ class HomeViewModel: ObservableObject {
             guard let availableObject = updateObject else {
                 
                 
-                // 추가일 때 우리반을 체크하면 이전 우리반 true를 false로 수정
+                // 반 추가할때 우리반을 클릭하면 이전 우리반 true를 false로 수정
                 if home.myClass == true {
                     guard let beforeTrue = dbRef.objects(Home03.self).filter("myClass == true").first else {
+                        // 최초 추가이거나 이전 우리반이 없으면
                         dbRef.add(home)
+                        self.uribanID = home.uuid
                         return
                     }
-                    
+                    // 이전에 우리반이 있었으면
                     beforeTrue.myClass = false
                     
-                    // 반 추가할때 우리반을 클릭하면 기존의 우리반이었던 학생 모두 false
+                    // 반 추가할때 우리반을 클릭하면 이전 우리반이었던 학생 모두 false
                     for beforeTrueStudent in dbRef.objects(Student04.self).filter("myClass == true") {
                         beforeTrueStudent.myClass = false
                     }
-                    
-                    
                 }
-                
+                                
                 dbRef.add(home)
+                self.uribanID = home.uuid  // 이전에 우리반이 있던 없던 우리반을 클릭하면 무조건 우리반id 세팅
+                
                 return
             } // else
             

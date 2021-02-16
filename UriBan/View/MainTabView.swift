@@ -75,6 +75,7 @@ private extension MainTabView {
   var myclass: some View {
     
 //    UriBanView(uribanID: homeViewModelData.uribanID, uribanClassName: homeViewModelData.uribanClassName)
+//    UriBanView(uribanID: homeViewModelData.uribanID, uribanClassName: homeViewModelData.uribanClassName)
     UriBanView(uribanID: homeViewModelData.uribanID, uribanClassName: homeViewModelData.uribanClassName)
         .environmentObject(studentViewModelData)
         .tag(Tabs.myclass)
