@@ -16,13 +16,6 @@ struct GrowthView: View {
     @EnvironmentObject var growthViewModelData: GrowthViewModel
     @EnvironmentObject var homeViewModelData: HomeViewModel
     
-    @Environment(\.presentationMode) var presentaion
-    
-//    init(uribanID: String, uribanClassName: String) {
-//        self.uribanID = uribanID
-//        self.uribanClassName = uribanClassName
-//    }
-    
     var body: some View {
         
         NavigationView {

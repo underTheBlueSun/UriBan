@@ -90,6 +90,7 @@ class GrowthViewModel: ObservableObject {
             availableObject.content = content
 //            availableObject.number = number
             availableObject.name = name
+            availableObject.status = status
             
             updateObject = nil
 
@@ -122,6 +123,8 @@ class GrowthViewModel: ObservableObject {
         name = updateData.name
         content = updateData.content
         status = updateData.status
+        // onAppear 이상작동으로 여기에 uuid를 미리 세팅해둠
+        self.uuid = updateData.uuid
     }
 
     func deInitData() {

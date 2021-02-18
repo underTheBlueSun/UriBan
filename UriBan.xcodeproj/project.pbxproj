@@ -16,6 +16,7 @@
 		1500B0D625D7CEEA00E0EF04 /* MultiSelectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1500B0D525D7CEEA00E0EF04 /* MultiSelectRow.swift */; };
 		15199EE725D5F57300A35ECF /* PopRootViewExam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15199EE625D5F57300A35ECF /* PopRootViewExam.swift */; };
 		1535D8D825C6419300BC7E81 /* AddStudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1535D8D725C6419300BC7E81 /* AddStudentView.swift */; };
+		154420C125DF21D20065885C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154420C025DF21D20065885C /* ContentView.swift */; };
 		1546373D25CE36E600763674 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546373C25CE36E600763674 /* UIImageExtension.swift */; };
 		155024CA25C4E0A200AD2006 /* Home03.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155024C925C4E0A200AD2006 /* Home03.swift */; };
 		155024CD25C4E9C700AD2006 /* Student02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155024CC25C4E9C700AD2006 /* Student02.swift */; };
@@ -66,6 +67,7 @@
 		1500B0D525D7CEEA00E0EF04 /* MultiSelectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectRow.swift; sourceTree = "<group>"; };
 		15199EE625D5F57300A35ECF /* PopRootViewExam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopRootViewExam.swift; sourceTree = "<group>"; };
 		1535D8D725C6419300BC7E81 /* AddStudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentView.swift; sourceTree = "<group>"; };
+		154420C025DF21D20065885C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1546373C25CE36E600763674 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		155024C925C4E0A200AD2006 /* Home03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home03.swift; sourceTree = "<group>"; };
 		155024CC25C4E9C700AD2006 /* Student02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student02.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				FA94235725C0F92E0072D0EE /* Support */,
 				15575E6125CE8BE1007510C4 /* Example */,
 				FA94234A25C0F8740072D0EE /* Preview Content */,
+				154420C025DF21D20065885C /* ContentView.swift */,
 			);
 			path = UriBan;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				1535D8D825C6419300BC7E81 /* AddStudentView.swift in Sources */,
 				FA94234525C0F8710072D0EE /* UriBanApp.swift in Sources */,
 				156B640425C44C0400DA8D07 /* MultipleSelectionList02Exam.swift in Sources */,
+				154420C125DF21D20065885C /* ContentView.swift in Sources */,
 				FA94236D25C0FA5E0072D0EE /* HomeView.swift in Sources */,
 				1590449525C62C840069BF2A /* NavigationBarColor.swift in Sources */,
 				15575E6A25CF6CB7007510C4 /* DetailStudentView.swift in Sources */,

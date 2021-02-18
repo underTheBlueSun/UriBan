@@ -13,7 +13,7 @@ struct DetailGrowthView: View {
     @EnvironmentObject var growthViewModelData: GrowthViewModel
     @EnvironmentObject var homeViewModelData: HomeViewModel
     
-    @Environment(\.presentationMode) var presentaion
+    @Environment(\.presentationMode) var presentation
     
     @Namespace var animation
     // 체크리스트 배열
@@ -39,7 +39,7 @@ struct DetailGrowthView: View {
     var body: some View {
         
         VStack {
-            VStack {
+            VStack(spacing: 0) {
                 HStack {
                     Text("관찰기록").foregroundColor(.gray)
                     Spacer()
@@ -54,7 +54,7 @@ struct DetailGrowthView: View {
                     
                 }
                 HStack {
-                    TextEditor(text: $growthViewModelData.content).frame(height:150).fixedSize(horizontal: false, vertical: true)
+                    TextEditor(text: $growthViewModelData.content).frame(height:100).fixedSize(horizontal: false, vertical: true)
 //                        FirstResponderTextEditor(text: $growthViewModelData.content).frame(height:150).fixedSize(horizontal: false, vertical: true)
                 }
             } // VStack
@@ -91,7 +91,7 @@ struct DetailGrowthView: View {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button(action: {
         //                        studentViewModelData.updateObject = nil
-                                presentaion.wrappedValue.dismiss()
+                                presentation.wrappedValue.dismiss()
 
                         }, label: {
                             Text("")
@@ -101,7 +101,7 @@ struct DetailGrowthView: View {
                         Button(action: {
                             // Growth03 만들어서 number를 String으로 바꾼후 growthViewModelData.number 로 고쳐야 함
                             growthViewModelData.name = self.selections.joined(separator: "/")
-                            growthViewModelData.updData(presentation: presentaion)
+                            growthViewModelData.updData(presentation: presentation)
                             
                         }, label: {
                             Text("완료")
@@ -116,7 +116,7 @@ struct DetailGrowthView: View {
                 .onDisappear(perform: {
                     growthViewModelData.deInitData()
                     // 상세화면에 있다가 다른 곳 탭한후 다시 탭하면 rootview로 돌아가려고
-                    presentaion.wrappedValue.dismiss()
+                    presentation.wrappedValue.dismiss()
                 })
             } // Vstack
             .padding()

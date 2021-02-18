@@ -91,6 +91,7 @@ struct HomeView: View {
                 AddHomePageView()
                     .environmentObject(homeViewModelData)
                     .environmentObject(studentViewModelData)
+                    .environmentObject(growthViewModelData)
             }
         } // NavigationView
 

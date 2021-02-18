@@ -12,7 +12,7 @@ struct AddGrowthView: View {
     @EnvironmentObject var growthViewModelData: GrowthViewModel
     @EnvironmentObject var homeViewModelData: HomeViewModel
     
-    @Environment(\.presentationMode) var presentaion
+    @Environment(\.presentationMode) var presentation
     
     @State var selections: [String] = []
     
@@ -34,10 +34,6 @@ struct AddGrowthView: View {
         NavigationView {
             VStack {
                 VStack {
-                    VStack {
-                        Text("aaaaa")
-                        
-                    }
                     HStack {
                         Text("관찰기록").foregroundColor(.gray)
                         Spacer()
@@ -52,8 +48,8 @@ struct AddGrowthView: View {
                         
                     }
                     HStack {
-                        TextEditor(text: $growthViewModelData.content).frame(height:150).fixedSize(horizontal: false, vertical: true)
-//                        FirstResponderTextEditor(text: $growthViewModelData.content).frame(height:150).fixedSize(horizontal: false, vertical: true)
+//                        TextEditor(text: $growthViewModelData.content).frame(height:100).fixedSize(horizontal: false, vertical: true)
+                        FirstResponderTextEditor(text: $growthViewModelData.content).frame(height:150).fixedSize(horizontal: false, vertical: true)
                     }
                 } // VStack
                 .padding()
@@ -88,7 +84,7 @@ struct AddGrowthView: View {
                         ToolbarItem(placement: .navigationBarLeading) {
                             Button(action: {
             //                        studentViewModelData.updateObject = nil
-                                    presentaion.wrappedValue.dismiss()
+                                    presentation.wrappedValue.dismiss()
 
                             }, label: {
                                 Text("취소")
@@ -100,7 +96,7 @@ struct AddGrowthView: View {
                                 // + "/" 을 붙힌 이유: 1을 조회하는데 11 ~19 애들이 나오면 안되니깐
 //                                growthViewModelData.name = "/" + self.selections.joined(separator: "/") + "/"
                                 growthViewModelData.name = self.selections.joined(separator: "/")
-                                growthViewModelData.addData(uuid: homeViewModelData.uribanID , presentation: presentaion)
+                                growthViewModelData.addData(uuid: homeViewModelData.uribanID , presentation: presentation)
                                 
                             }, label: {
                                 Text("완료")
@@ -113,7 +109,7 @@ struct AddGrowthView: View {
                     })
                     .onDisappear(perform: {
                         // 상세화면에 있다가 다른 곳 탭한후 다시 탭하면 rootview로 돌아가려고
-                        presentaion.wrappedValue.dismiss()
+                        presentation.wrappedValue.dismiss()
                     })
                 } // Vstack
                 .padding()

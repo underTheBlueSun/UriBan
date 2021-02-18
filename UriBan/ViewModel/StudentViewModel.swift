@@ -176,6 +176,8 @@ class StudentViewModel: ObservableObject {
 //        picture = updateData.picture
         picture = UIImage(data: updateData.picture as Data) ?? UIImage(imageLiteralResourceName: "profile02")
         memo = updateData.memo
+        // onAppear 이상작동으로 여기에 uuid를 미리 세팅해둠
+        self.uuid = updateData.uuid
         
 
     }
