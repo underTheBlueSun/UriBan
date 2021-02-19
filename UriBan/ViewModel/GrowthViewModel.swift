@@ -107,15 +107,15 @@ class GrowthViewModel: ObservableObject {
     } // updData
     
     // Deleting Data
-//    func deleteData(object: Home02) {
-//        guard let dbRef = try? Realm() else { return }
-//        try? dbRef.write {
-//
-//            dbRef.delete(object)
-//
-//            fetchData()
-//        }
-//    }
+    func deleteData(object: Growth02, presentation: Binding<PresentationMode>) {
+        guard let dbRef = try? Realm() else { return }
+        try? dbRef.write {
+
+            dbRef.delete(object)
+            fetchData(uuid: uuid)
+        }
+        presentation.wrappedValue.dismiss()
+    }
     
     // AddPageView.onAppear() 될때
     // Setting and Clearing Data
@@ -135,6 +135,7 @@ class GrowthViewModel: ObservableObject {
         status = "긍정"
     }
     
+    // 월별 통계
     func fetchPositiveByGroup(uuid: String) {
         
         groupedPositive.removeAll()

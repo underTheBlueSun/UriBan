@@ -128,6 +128,11 @@ struct DetailGrowthView: View {
             })
             
             Spacer()
+            
+            VStack {
+                Button(action: {growthViewModelData.deleteData(object: growth, presentation: presentation)}, label: { Text("삭제").foregroundColor(.red) })
+            }
+            .padding()
         } // Vstack
 //            .padding()
 
