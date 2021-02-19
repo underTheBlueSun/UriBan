@@ -27,20 +27,23 @@ struct HomeChartView: View {
         
         VStack {
             Button(action: {
-//                print("aaaa")
-//                print(groupedToArray)
+                print(uuid)
+                print(growthViewModelData.groupedToArrPositive)
+                print(growthViewModelData.groupedToArrNegative)
+//                print(growthViewModelData.fetchDataByGroup(uuid: uuid).map { String($0) }.joined(separator: "-"))
 
             }, label: {
                 Text("Button")
             })
             
             Text(uuid)
-            Text(growthViewModelData.groupedToArray.map { String($0) }.joined(separator: "-"))
-            MultiLineChartView(data: [(growthViewModelData.groupedToArray, GradientColors.green), ([90,99,78,111,70,60,77], GradientColors.purple), ([34,56,72,38,43,100,50], GradientColors.orngPink)], title: "Title")
+//            Text(growthViewModelData.fetchDataByGroup(uuid: uuid).map { String($0) }.joined(separator: "-"))
+            MultiLineChartView(data: [(growthViewModelData.groupedToArrPositive, GradientColors.blue), (growthViewModelData.groupedToArrNegative, GradientColors.orngPink)], title: "월별 관찰추이")
             
         } // VStack
         .onAppear(perform: {
-            growthViewModelData.fetchData(uuid: uuid)
+            growthViewModelData.fetchPositiveByGroup(uuid: uuid)
+            growthViewModelData.fetchNegativeByGroup(uuid: uuid)
             
 //            for growth in growthViewModelData.growths {
 //                grouped[Calendar.current.dateComponents([.month], from: growth.yymmdd).month!, default: 0] += 1

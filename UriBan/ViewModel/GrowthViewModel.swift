@@ -23,9 +23,12 @@ class GrowthViewModel: ObservableObject {
     @Published var growths: [Growth02] = []
     
     @Published var updateObject: Growth02?
-    
-    @Published var grouped: [Int: Int] = [:]
-    @Published var groupedToArray: [Double] = []
+    // 월별 group by
+    @Published var groupedPositive: [Int: Int] = [:]
+    @Published var groupedToArrPositive: [Double] = []
+    @Published var groupedNegative: [Int: Int] = [:]
+    @Published var groupedToArrNegative: [Double] = []
+
     
 //    init() {
 //
@@ -37,7 +40,6 @@ class GrowthViewModel: ObservableObject {
 //        fetchData(uuid: uuid)
 //    }
 
-    // 행발 탭을 누르면
     func fetchData(uuid: String) {
         guard let dbRef = try? Realm() else { return }
         let results = dbRef.objects(Growth02.self).filter("uuid == %@", uuid)
@@ -45,12 +47,12 @@ class GrowthViewModel: ObservableObject {
         self.growths = results.compactMap({ (growth) -> Growth02? in return growth })
         
         // 월별 group by
-        for growth in growths {
-            grouped[Calendar.current.dateComponents([.month], from: growth.yymmdd).month!, default: 0] += 1
-        }
-        for item in grouped.sorted(by: <) {
-            groupedToArray.append(Double(item.value))
-        }
+//        for growth in growths {
+//            grouped[Calendar.current.dateComponents([.month], from: growth.yymmdd).month!, default: 0] += 1
+//        }
+//        for item in grouped.sorted(by: <) {
+//            groupedToArray.append(Double(item.value))
+//        }
     }
     
     func addData(uuid: String, presentation: Binding<PresentationMode>) {
@@ -132,6 +134,46 @@ class GrowthViewModel: ObservableObject {
         content = ""
         status = "긍정"
     }
+    
+    func fetchPositiveByGroup(uuid: String) {
+        
+        groupedPositive.removeAll()
+        groupedToArrPositive.removeAll()
+        
+        guard let dbRef = try? Realm() else { return }
+//        let results = dbRef.objects(Growth02.self).filter("uuid == %@", uuid)
+        let results = dbRef.objects(Growth02.self).filter("uuid == '\(uuid)' and status == '긍정'")
+        self.growths = results.compactMap({ (growth) -> Growth02? in return growth })
+        
+        // 월별 group by
+        for growth in growths {
+            groupedPositive[Calendar.current.dateComponents([.month], from: growth.yymmdd).month!, default: 0] += 1
+        }
+        for item in groupedPositive.sorted(by: <) {
+            groupedToArrPositive.append(Double(item.value))
+        }
+        
+    }
+    
+    func fetchNegativeByGroup(uuid: String) {
+        
+        groupedNegative.removeAll()
+        groupedToArrNegative.removeAll()
+        
+        guard let dbRef = try? Realm() else { return }
+        let results = dbRef.objects(Growth02.self).filter("uuid == '\(uuid)' and status == '부정'")
+        self.growths = results.compactMap({ (growth) -> Growth02? in return growth })
+        
+        // 월별 group by
+        for growth in growths {
+            groupedNegative[Calendar.current.dateComponents([.month], from: growth.yymmdd).month!, default: 0] += 1
+        }
+        for item in groupedNegative.sorted(by: <) {
+            groupedToArrNegative.append(Double(item.value))
+        }
+        
+    }
+    
 }
 
 

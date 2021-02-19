@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+// 키보드 숨기는거 때문에
+import UIKit
 
 struct AddGrowthView: View {
     @EnvironmentObject var studentViewModelData: StudentViewModel
@@ -22,8 +24,10 @@ struct AddGrowthView: View {
         
     // 성명을 입력해야 완료 버튼이 활성화 되게
     @State private var isValidName = false
+    // 키보드 나타나면 텍스트에디터 위로 올림
+    @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 1)
     
-    var columns = Array(repeating: GridItem(.flexible(), spacing: 20), count: 10)
+    var columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 10)
     
 //    init(uribanClassName: String) {
 //        self.uribanClassName = uribanClassName
@@ -33,29 +37,7 @@ struct AddGrowthView: View {
         
         NavigationView {
             VStack {
-                VStack {
-                    HStack {
-                        Text("관찰기록").foregroundColor(.gray)
-                        Spacer()
-                        
-                        HStack(spacing: 0) {
-                            TabButton(selected: $growthViewModelData.status, title: "긍정", animation: animation, gubun: 1)
-                            TabButton(selected: $growthViewModelData.status, title: "부정", animation: animation, gubun: 2)
-                        }
-                        .frame(width: 80)
-                        .background(Color.gray.opacity(0.3))
-                        .clipShape(Capsule())
-                        
-                    }
-                    HStack {
-//                        TextEditor(text: $growthViewModelData.content).frame(height:100).fixedSize(horizontal: false, vertical: true)
-                        FirstResponderTextEditor(text: $growthViewModelData.content).frame(height:150).fixedSize(horizontal: false, vertical: true)
-                    }
-                } // VStack
-                .padding()
-                
-                Divider()
-                
+
                 VStack {
                     LazyHGrid(rows: columns, spacing: 0) {
                         ForEach(studentViewModelData.students, id: \.self) { student in
@@ -79,45 +61,74 @@ struct AddGrowthView: View {
                         } // ForEach
                         .padding()
                     } // LazyHGrid
-                    .navigationBarTitle(homeViewModelData.className, displayMode: .inline)
-                    .toolbar {
-                        ToolbarItem(placement: .navigationBarLeading) {
-                            Button(action: {
-            //                        studentViewModelData.updateObject = nil
-                                    presentation.wrappedValue.dismiss()
 
-                            }, label: {
-                                Text("취소")
-                            })
-                        }
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            Button(action: {
-                                // Growth03 만들어서 number를 String으로 바꾼후 growthViewModelData.number 로 고쳐야 함
-                                // + "/" 을 붙힌 이유: 1을 조회하는데 11 ~19 애들이 나오면 안되니깐
-//                                growthViewModelData.name = "/" + self.selections.joined(separator: "/") + "/"
-                                growthViewModelData.name = self.selections.joined(separator: "/")
-                                growthViewModelData.addData(uuid: homeViewModelData.uribanID , presentation: presentation)
-                                
-                            }, label: {
-                                Text("완료")
-                            })
-                        } // ToolbarItem
-                    } // toolbar
-                    .onAppear(perform: {
-            //            studentViewModelData.updateObject = self.student
-            //            studentViewModelData.setUpInitialData()
-                    })
-                    .onDisappear(perform: {
-                        // 상세화면에 있다가 다른 곳 탭한후 다시 탭하면 rootview로 돌아가려고
-                        presentation.wrappedValue.dismiss()
-                    })
                 } // Vstack
                 .padding()
+                Divider()
+                VStack(spacing:0) {
+                    HStack {
+                        Text("관찰기록").foregroundColor(.gray)
+                            .onTapGesture {
+                                hideKeyboard()
+                            }
+                        Spacer()
+                        
+                        HStack(spacing: 0) {
+                            TabButton(selected: $growthViewModelData.status, title: "긍정", animation: animation, gubun: 1)
+                            TabButton(selected: $growthViewModelData.status, title: "부정", animation: animation, gubun: 2)
+                        }
+                        .frame(width: 80)
+                        .background(Color.gray.opacity(0.3))
+                        .clipShape(Capsule())
+                        
+                    }
+                    HStack {
+                        TextEditor(text: $growthViewModelData.content).frame(height:200).fixedSize(horizontal: false, vertical: true)
+//                        FirstResponderTextEditor(text: $growthViewModelData.content).frame(height:150).fixedSize(horizontal: false, vertical: true)
+                    }
+                } // VStack
+                .offset(y: kGuardian.slide).animation(.easeInOut(duration: 1.0))
+                .onAppear { self.kGuardian.addObserver() }
+                .onDisappear { self.kGuardian.removeObserver() }
+                .padding(.horizontal)
+                .navigationBarTitle(homeViewModelData.className, displayMode: .inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(action: {
+        //                        studentViewModelData.updateObject = nil
+                                presentation.wrappedValue.dismiss()
+
+                        }, label: {
+                            Text("취소")
+                        })
+                    }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: {
+                            // Growth03 만들어서 number를 String으로 바꾼후 growthViewModelData.number 로 고쳐야 함
+                            // + "/" 을 붙힌 이유: 1을 조회하는데 11 ~19 애들이 나오면 안되니깐
+//                                growthViewModelData.name = "/" + self.selections.joined(separator: "/") + "/"
+                            growthViewModelData.name = self.selections.joined(separator: "/")
+                            growthViewModelData.addData(uuid: homeViewModelData.uribanID , presentation: presentation)
+                            
+                        }, label: {
+                            Text("완료")
+                        })
+                    } // ToolbarItem
+                } // toolbar
+                .onAppear(perform: {
+        //            studentViewModelData.updateObject = self.student
+        //            studentViewModelData.setUpInitialData()
+                })
+                .onDisappear(perform: {
+                    growthViewModelData.deInitData()
+                    // 상세화면에 있다가 다른 곳 탭한후 다시 탭하면 rootview로 돌아가려고
+                    presentation.wrappedValue.dismiss()
+                })
                 
+//                Divider()
                 Spacer()
             } // Vstack
 //            .padding()
-
             
         } // NavigationView
         
@@ -132,6 +143,12 @@ struct AddGrowthView_Previews: PreviewProvider {
             .environmentObject(StudentViewModel())
             .environmentObject(GrowthViewModel())
             .environmentObject(HomeViewModel())
+    }
+}
+
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 

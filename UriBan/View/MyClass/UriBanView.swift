@@ -46,8 +46,8 @@ struct UriBanView: View {
                 } // ForEach
             } // List
             .background(Color.white)
-            .navigationBarTitle(homeViewModelData.className, displayMode: .inline)
-//            .navigationBarTitle(homeViewModelData.uribanClassName, displayMode: .inline)
+//            .navigationBarTitle(homeViewModelData.className, displayMode: .inline)
+            .navigationBarTitle(homeViewModelData.uribanClassName, displayMode: .inline)
             .navigationBarColor(backgroundColor: .systemTeal, tintColor: .white)
             .toolbar { Button(action: {studentViewModelData.openNewPage.toggle()}) {
                 if homeViewModelData.uribanID != "" {

@@ -27,14 +27,14 @@ struct GrowthView: View {
                                     .environmentObject(studentViewModelData)
                                     .environmentObject(growthViewModelData)) {
                         HStack {
-                            Text(growth.content)
+                            Text(growth.content).frame(width: 300, height: 15, alignment: .leading)
                         } // Hstack
                     } // NavigationLink
                 } // ForEach
             } // List
             .background(Color.white)
-            .navigationBarTitle(homeViewModelData.className, displayMode: .inline)
-//            .navigationBarTitle(homeViewModelData.uribanClassName, displayMode: .inline)
+//            .navigationBarTitle(homeViewModelData.className, displayMode: .inline)
+            .navigationBarTitle(homeViewModelData.uribanClassName, displayMode: .inline)
             .navigationBarColor(backgroundColor: .systemTeal, tintColor: .white)
             .toolbar { Button(action: {growthViewModelData.openNewPage.toggle()}) {
                 if homeViewModelData.uribanID != "" {

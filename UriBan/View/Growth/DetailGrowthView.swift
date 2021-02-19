@@ -19,6 +19,9 @@ struct DetailGrowthView: View {
     // 체크리스트 배열
     @State var selections: [String] = []
     
+    // 키보드 나타나면 텍스트에디터 위로 올림
+    @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 1)
+    
     var growth: Growth02
 //    var uribanClassName: String
         
@@ -39,28 +42,6 @@ struct DetailGrowthView: View {
     var body: some View {
         
         VStack {
-            VStack(spacing: 0) {
-                HStack {
-                    Text("관찰기록").foregroundColor(.gray)
-                    Spacer()
-                    
-                    HStack(spacing: 0) {
-                        TabButton(selected: $growthViewModelData.status, title: "긍정", animation: animation, gubun: 1)
-                        TabButton(selected: $growthViewModelData.status, title: "부정", animation: animation, gubun: 2)
-                    }
-                    .frame(width: 80)
-                    .background(Color.gray.opacity(0.3))
-                    .clipShape(Capsule())
-                    
-                }
-                HStack {
-                    TextEditor(text: $growthViewModelData.content).frame(height:100).fixedSize(horizontal: false, vertical: true)
-//                        FirstResponderTextEditor(text: $growthViewModelData.content).frame(height:150).fixedSize(horizontal: false, vertical: true)
-                }
-            } // VStack
-            .padding()
-            
-            Divider()
             
             VStack {
                 LazyHGrid(rows: columns, spacing: 0) {
@@ -86,40 +67,65 @@ struct DetailGrowthView: View {
                     } // ForEach
                     .padding()
                 } // LazyHGrid
-                .navigationBarTitle(homeViewModelData.className, displayMode: .inline)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button(action: {
-        //                        studentViewModelData.updateObject = nil
-                                presentation.wrappedValue.dismiss()
-
-                        }, label: {
-                            Text("")
-                        })
-                    }
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: {
-                            // Growth03 만들어서 number를 String으로 바꾼후 growthViewModelData.number 로 고쳐야 함
-                            growthViewModelData.name = self.selections.joined(separator: "/")
-                            growthViewModelData.updData(presentation: presentation)
-                            
-                        }, label: {
-                            Text("완료")
-                        })
-                    } // ToolbarItem
-                } // toolbar
-                .onAppear(perform: {
-                    growthViewModelData.updateObject = self.growth
-                    growthViewModelData.setUpInitialData()
-                    self.selections = self.growth.name.components(separatedBy: "/")
-                })
-                .onDisappear(perform: {
-                    growthViewModelData.deInitData()
-                    // 상세화면에 있다가 다른 곳 탭한후 다시 탭하면 rootview로 돌아가려고
-                    presentation.wrappedValue.dismiss()
-                })
+                
             } // Vstack
             .padding()
+            Divider()
+            VStack(spacing:0) {
+                HStack {
+                    Text("관찰기록").foregroundColor(.gray)
+                    Spacer()
+                    
+                    HStack(spacing: 0) {
+                        TabButton(selected: $growthViewModelData.status, title: "긍정", animation: animation, gubun: 1)
+                        TabButton(selected: $growthViewModelData.status, title: "부정", animation: animation, gubun: 2)
+                    }
+                    .frame(width: 80)
+                    .background(Color.gray.opacity(0.3))
+                    .clipShape(Capsule())
+                    
+                }
+                HStack {
+                    TextEditor(text: $growthViewModelData.content).frame(height:200).fixedSize(horizontal: false, vertical: true)
+//                        FirstResponderTextEditor(text: $growthViewModelData.content).frame(height:150).fixedSize(horizontal: false, vertical: true)
+                }
+            } // VStack
+            .offset(y: kGuardian.slide).animation(.easeInOut(duration: 1.0))
+            .onAppear { self.kGuardian.addObserver() }
+            .onDisappear { self.kGuardian.removeObserver() }
+            .padding(.horizontal)
+            .navigationBarTitle(homeViewModelData.className, displayMode: .inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+    //                        studentViewModelData.updateObject = nil
+                            presentation.wrappedValue.dismiss()
+
+                    }, label: {
+                        Text("")
+                    })
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        // Growth03 만들어서 number를 String으로 바꾼후 growthViewModelData.number 로 고쳐야 함
+                        growthViewModelData.name = self.selections.joined(separator: "/")
+                        growthViewModelData.updData(presentation: presentation)
+                        
+                    }, label: {
+                        Text("완료")
+                    })
+                } // ToolbarItem
+            } // toolbar
+            .onAppear(perform: {
+                growthViewModelData.updateObject = self.growth
+                growthViewModelData.setUpInitialData()
+                self.selections = self.growth.name.components(separatedBy: "/")
+            })
+            .onDisappear(perform: {
+                growthViewModelData.deInitData()
+                // 상세화면에 있다가 다른 곳 탭한후 다시 탭하면 rootview로 돌아가려고
+                presentation.wrappedValue.dismiss()
+            })
             
             Spacer()
         } // Vstack

@@ -7,43 +7,14 @@
 
 import SwiftUI
 
-struct Background<Content: View>: View {
-    private var content: Content
-
-    init(@ViewBuilder content: @escaping () -> Content) {
-        self.content = content()
-    }
-
+struct ContentView: View {
     var body: some View {
-        Color.white
-        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-        .overlay(content)
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
-struct ContentView : View {
-    @State private var name: String = ""
-
-    var body: some View {
-        Background {
-            VStack {
-                Text("Hello \(self.name)")
-                TextField("Name...", text: self.$name) {
-                    self.endEditing()
-                }
-            }
-        }.onTapGesture {
-            self.endEditing()
-        }
-    }
-
-    private func endEditing() {
-        UIApplication.shared.endEditing()
-    }
-}
-
-extension UIApplication {
-    func endEditing() {
-        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }
