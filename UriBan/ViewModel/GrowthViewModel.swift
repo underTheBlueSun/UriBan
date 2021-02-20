@@ -32,10 +32,10 @@ class GrowthViewModel: ObservableObject {
     @Published var groupedNegative: [Int: Int] = [:]
     @Published var groupedToArrNegative: [Double] = []
     // 학생별 group by
-    @Published var groupedPositiveStudent: [String: Int] = [:]
+    @Published var groupedPositiveStudent: [(String,Int)] = [("",0)]
 //    @Published var groupedToArrPositive: [Double] = []
-    @Published var groupedNegativeStudent: [String: Int] = [:]
-//    @Published var groupedToArrNegative: [Double] = []
+//    @Published var groupedNegativeStudent: [String: Int] = [:]
+    @Published var groupedNegativeStudent: [(String,Int)] = [("",0)]
 
     
 //    init() {
@@ -191,7 +191,12 @@ class GrowthViewModel: ObservableObject {
         for i in 1...30 {
             let results = dbRef.objects(Growth02.self).filter("uuid == '\(uuid)' and status == '긍정' and name CONTAINS '\(String(format: "%02d", i))'")
             self.growthsByStudent = results.compactMap({ (growth) -> Growth02? in return growth })
-            groupedPositiveStudent[String(format: "%02d", i)] = self.growthsByStudent.count
+//            groupedPositiveStudent[String(format: "%02d", i)] = self.growthsByStudent.gscount
+//            groupedPositiveStudent[String(format: "%02d", i)] = self.growthsByStudent.count
+            if self.growthsByStudent.count != 0 {
+                groupedPositiveStudent.append((String(format: "%02d",i),self.growthsByStudent.count))
+            }
+            
         }
     }
 
@@ -203,7 +208,10 @@ class GrowthViewModel: ObservableObject {
         for i in 1...30 {
             let results = dbRef.objects(Growth02.self).filter("uuid == '\(uuid)' and status == '부정' and name CONTAINS '\(String(format: "%02d", i))'")
             self.growthsByStudent = results.compactMap({ (growth) -> Growth02? in return growth })
-            groupedNegativeStudent[String(format: "%02d", i)] = self.growthsByStudent.count
+//            groupedNegativeStudent[String(format: "%02d", i)] = self.growthsByStudent.count
+            if self.growthsByStudent.count != 0 {
+                groupedNegativeStudent.append((String(format: "%02d",i),self.growthsByStudent.count))
+            }
         }
     }
 

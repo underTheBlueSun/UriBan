@@ -11,11 +11,14 @@ import SwiftUICharts
 struct HomeChartView: View {
     
     @EnvironmentObject var growthViewModelData: GrowthViewModel
-    
+
     var uuid: String
     var className: String
     
     @State var openChartView = false
+    // 변수로 안받으면 제일 처음 막대그래프모양이 안보임.
+    @State var arrPositiveStudent: [(String,Int)] = []
+    @State var arrNegativeStudent: [(String,Int)] = []
     
     init(uuid: String, className: String) {
         self.uuid = uuid
@@ -24,22 +27,18 @@ struct HomeChartView: View {
     
     var body: some View {
         
-//        var grouped: [Int: Int] = [:]
-//        var groupedToArray: [Double] = []
-        
         VStack {
             Button(action: {
-                for (key, value) in growthViewModelData.groupedPositiveStudent where value == 0 {
-                    growthViewModelData.groupedPositiveStudent.removeValue(forKey: key)
-                }
+//                for (key, value) in growthViewModelData.groupedPositiveStudent where value == 0 {
+//                    growthViewModelData.groupedPositiveStudent.remove(at: 1)
+//                }
 
-                print("aaaaaaaa")
                 print(growthViewModelData.groupedPositiveStudent.sorted {$0.1 > $1.1})
                 print(growthViewModelData.groupedNegativeStudent.sorted {$0.1 > $1.1})
             }, label: {
                 Text("Button")
             })
-            
+
 //            Text(uuid)
             Text(growthViewModelData.groupedToArrPositive.map { String($0) }.joined(separator: "-"))
             Text(growthViewModelData.groupedToArrNegative.map { String($0) }.joined(separator: "-"))
@@ -48,10 +47,15 @@ struct HomeChartView: View {
                 MultiLineChartView(data: [(growthViewModelData.groupedToArrPositive, GradientColors.blue), (growthViewModelData.groupedToArrNegative, GradientColors.orngPink)], title: "월별관찰")
             })
 
+//            let chartStyle = ChartStyle(backgroundColor: Color.black, accentColor: Colors.OrangeStart, secondGradientColor: Colors.OrangeEnd, textColor: Color.white, legendTextColor: Color.white, dropShadowColor:Color.white)
+            
             Button(action: { self.openChartView.toggle()}, label: {
-                BarChartView(data: ChartData(values: [("2018 Q4",63150), ("2019 Q1",50900), ("2019 Q2",77550), ("2019 Q3",79600), ("2019 Q4",92550)]), title: "학생별", form: ChartForm.medium)
+                BarChartView(data: ChartData(values: arrPositiveStudent), title: "학생별(긍정)",  style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.blue, secondGradientColor: Color.blue, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Color.gray))
             })
-
+            
+            Button(action: { self.openChartView.toggle()}, label: {
+                BarChartView(data: ChartData(values: arrNegativeStudent), title: "학생별(부정)", form: ChartForm.extraLarge)
+            })
             
         } // VStack
         .fullScreenCover(isPresented: $openChartView) {
@@ -62,6 +66,9 @@ struct HomeChartView: View {
             growthViewModelData.fetchNegativeByMonth(uuid: uuid)
             growthViewModelData.fetchPositiveByStudent(uuid: uuid)
             growthViewModelData.fetchNegativeByStudent(uuid: uuid)
+            // 변수로 안받으면 제일 처음 막대그래프모양이 안보임.
+            self.arrPositiveStudent = growthViewModelData.groupedPositiveStudent.sorted {$0.1 > $1.1}
+            self.arrNegativeStudent = growthViewModelData.groupedNegativeStudent.sorted {$0.1 > $1.1}
             
 //            for growth in growthViewModelData.growths {
 //                grouped[Calendar.current.dateComponents([.month], from: growth.yymmdd).month!, default: 0] += 1
