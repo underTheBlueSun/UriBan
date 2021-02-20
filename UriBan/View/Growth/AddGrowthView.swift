@@ -25,6 +25,7 @@ struct AddGrowthView: View {
     // 키보드 나타나면 텍스트에디터 위로 올림
     @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 1)
     
+    // .fixed(30) 안하고 .flexible() 하면 세로로 꽉 채움
     var columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 10)
     
 //    init(uribanClassName: String) {
@@ -37,6 +38,7 @@ struct AddGrowthView: View {
             VStack {
 
                 VStack {
+                    // spacing: 0 은 가로로 벌리는 사이즈
                     LazyHGrid(rows: columns, spacing: 0) {
                         ForEach(studentViewModelData.students, id: \.self) { student in
                             HStack {

@@ -55,14 +55,16 @@ struct GrowthView: View {
 //            .navigationBarTitle(homeViewModelData.className, displayMode: .inline)
             .navigationBarTitle(homeViewModelData.uribanClassName, displayMode: .inline)
             .navigationBarColor(backgroundColor: .systemTeal, tintColor: .white)
-            .toolbar { Button(action: {growthViewModelData.openNewPage.toggle()}) {
-                if homeViewModelData.uribanID != "" {
-                    Image(systemName: "plus.circle.fill").font(.title2).foregroundColor(.white)
-                }
-                
-                
-            }
-            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        growthViewModelData.openNewPage.toggle()
+                    }, label: {
+                        if homeViewModelData.uribanID != "" { Image(systemName: "plus.circle.fill").font(.title2).foregroundColor(.white) }
+                    })
+                } // ToolbarItem
+            } // toolbar
+                        
         } // NavigationView
         .fullScreenCover(isPresented: $growthViewModelData.openNewPage) {
             AddGrowthView()

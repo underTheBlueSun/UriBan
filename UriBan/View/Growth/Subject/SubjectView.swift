@@ -33,14 +33,16 @@ struct SubjectView: View {
             .background(Color.white)
             .navigationBarTitle(homeViewModelData.uribanClassName, displayMode: .inline)
             .navigationBarColor(backgroundColor: .systemTeal, tintColor: .white)
-            .toolbar { Button(action: {subjectViewModelData.openNewPage.toggle()}) {
-                if homeViewModelData.uribanID != "" {
-                    Image(systemName: "plus.circle.fill").font(.title2).foregroundColor(.white)
-                }
-                
-                
-            }
-            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        subjectViewModelData.openNewPage.toggle()
+                    }, label: {
+                        if homeViewModelData.uribanID != "" { Image(systemName: "plus.circle.fill").font(.title2).foregroundColor(.white) }
+                    })
+                } // ToolbarItem
+            } // toolbar
+            
         } // NavigationView
         .fullScreenCover(isPresented: $subjectViewModelData.openNewPage) {
             AddSubjectView()

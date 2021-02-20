@@ -61,6 +61,7 @@ class GrowthViewModel: ObservableObject {
         growth.uuid = uuid
         growth.yymmdd = Date()
         
+        // 한달후 더미 데이터 집어넣기
 //        growth.yymmdd = Calendar.current.date(byAdding: .month, value: 1, to: Date())!
 
         // Growth03 만들어서 number를 String으로 바꾼후 growth.name = name 대신 growth.number = number 로 변경해야 함

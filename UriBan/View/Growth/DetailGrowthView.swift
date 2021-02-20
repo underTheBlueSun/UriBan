@@ -28,6 +28,7 @@ struct DetailGrowthView: View {
     // 성명을 입력해야 완료 버튼이 활성화 되게
     @State private var isValidName = false
     
+    // .fixed(30) 안하고 .flexible() 하면 세로로 꽉 채움
     var columns = Array(repeating: GridItem(.flexible(), spacing: 20), count: 10)
     
     init(growth: Growth02) {
@@ -44,6 +45,7 @@ struct DetailGrowthView: View {
         VStack {
             
             VStack {
+                // spacing: 0 은 가로로 벌리는 사이즈
                 LazyHGrid(rows: columns, spacing: 0) {
                     ForEach(studentViewModelData.students, id: \.self) { student in
                         HStack {

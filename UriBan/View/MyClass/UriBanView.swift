@@ -19,16 +19,6 @@ struct UriBanView: View {
     @EnvironmentObject var homeViewModelData: HomeViewModel
     @EnvironmentObject var growthViewModelData: GrowthViewModel
     
-    // StateObject() 쓰지말고 .onAppear() 이거 쓰란 말도 있음. stackoverflow 참조 : Initialize @StateObject with a parameter in SwiftUI
-//    init(uuid: String) {
-//        _studentViewModelData = StateObject(wrappedValue: StudentViewModel(uuid: uuid))
-//    }
-    
-//    init(uribanID: String, uribanClassName: String) {
-//        self.uribanID = uribanID
-//        self.uribanClassName = uribanClassName
-//    }
-    
     var body: some View {
         
         NavigationView {
@@ -39,26 +29,28 @@ struct UriBanView: View {
                                     .environmentObject(homeViewModelData)
                                     .environmentObject(growthViewModelData)
                     ) {
-//                    NavigationLink(destination: DetailStudentView(student: student, uribanClassName: homeViewModelData.uribanClassName).environmentObject(studentViewModelData)) {
                         HStack {
                             Image(systemName: String(student.number) + ".circle.fill").resizable().frame(width: 20, height: 20).foregroundColor(.systemTeal)
-                            Text(student.name)
+                            Text(student.name).foregroundColor(.black).frame(width: 70, alignment: .leading)
                         } // Hstack
                     } // NavigationLink
                 } // ForEach
+//                    .padding()
             } // List
-            .background(Color.white)
+//            .background(Color.white)
 //            .navigationBarTitle(homeViewModelData.className, displayMode: .inline)
             .navigationBarTitle(homeViewModelData.uribanClassName, displayMode: .inline)
             .navigationBarColor(backgroundColor: .systemTeal, tintColor: .white)
-            .toolbar { Button(action: {studentViewModelData.openNewPage.toggle()}) {
-                if homeViewModelData.uribanID != "" {
-                    Image(systemName: "plus.circle.fill").font(.title2).foregroundColor(.white)
-                }
-                
-                
-            }
-            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        studentViewModelData.openNewPage.toggle()
+                    }, label: {
+                        if homeViewModelData.uribanID != "" { Image(systemName: "plus.circle.fill").font(.title2).foregroundColor(.white) }
+                    })
+                } // ToolbarItem
+            } // toolbar
+            
         } // NavigationView
         .fullScreenCover(isPresented: $studentViewModelData.openNewPage) {
             AddStudentView(studentCnt: studentViewModelData.students.count)
