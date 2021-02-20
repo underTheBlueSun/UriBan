@@ -14,6 +14,7 @@ struct MainTabView: View {
     @StateObject var homeViewModelData = HomeViewModel()
     @StateObject var studentViewModelData = StudentViewModel()
     @StateObject var growthViewModelData = GrowthViewModel()
+    @StateObject var subjectViewModelData = SubjectViewModel()
     
     init() {
         // 탭바 배경 색깔 변경. 2021.1월 iOS 14.3 버그로 추정
@@ -99,9 +100,11 @@ private extension MainTabView {
     }
   
   var subject: some View {
-//    Text("과제")
-    CountByMonthView(uribanID: homeViewModelData.uribanID, uribanClassName: homeViewModelData.uribanClassName)
-        .environmentObject(growthViewModelData)
+    SubjectView()
+        .environmentObject(homeViewModelData)
+        .environmentObject(studentViewModelData)
+        .environmentObject(subjectViewModelData)
+
       .tag(Tabs.subject)
         .tabItem {
             Image(systemName: "text.badge.checkmark")

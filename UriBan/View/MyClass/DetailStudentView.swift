@@ -35,7 +35,7 @@ struct DetailStudentView: View {
     @State private var isPresented: Bool = false
     
     // 성명을 입력해야 완료 버튼이 활성화 되게
-    @State private var isValidName = false
+//    @State private var isValidName = false
     
 //    init(student: Student05, uribanClassName: String, rootIsActive: Bool) {
     init(student: Student05) {

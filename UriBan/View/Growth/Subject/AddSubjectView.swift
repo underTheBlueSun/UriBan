@@ -1,15 +1,15 @@
 //
-//  AddGrowthView.swift
+//  AddSubjectView.swift
 //  UriBan
 //
-//  Created by underTheBlueSun on 2021/02/13.
+//  Created by underTheBlueSun on 2021/02/20.
 //
 
 import SwiftUI
 
-struct AddGrowthView: View {
+struct AddSubjectView: View {
     @EnvironmentObject var studentViewModelData: StudentViewModel
-    @EnvironmentObject var growthViewModelData: GrowthViewModel
+    @EnvironmentObject var subjectViewModelData: SubjectViewModel
     @EnvironmentObject var homeViewModelData: HomeViewModel
     
     @Environment(\.presentationMode) var presentation
@@ -17,25 +17,16 @@ struct AddGrowthView: View {
     @State var selections: [String] = []
     
     @Namespace var animation
-    
-//    var uribanClassName: String
         
-    // 성명을 입력해야 완료 버튼이 활성화 되게
-    @State private var isValidName = false
     // 키보드 나타나면 텍스트에디터 위로 올림
     @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 1)
     
     var columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 10)
     
-//    init(uribanClassName: String) {
-//        self.uribanClassName = uribanClassName
-//    }
-    
     var body: some View {
         
         NavigationView {
             VStack {
-
                 VStack {
                     LazyHGrid(rows: columns, spacing: 0) {
                         ForEach(studentViewModelData.students, id: \.self) { student in
@@ -65,20 +56,11 @@ struct AddGrowthView: View {
                 Divider()
                 VStack(spacing:0) {
                     HStack {
-                        Text("관찰기록").foregroundColor(.gray)
+                        Text("과제기록").foregroundColor(.gray)
                         Spacer()
-                        
-                        HStack(spacing: 0) {
-                            TabButton(selected: $growthViewModelData.status, title: "긍정", animation: animation, gubun: 1)
-                            TabButton(selected: $growthViewModelData.status, title: "부정", animation: animation, gubun: 2)
-                        }
-                        .frame(width: 80)
-                        .background(Color.gray.opacity(0.3))
-                        .clipShape(Capsule())
-                        
                     }
                     HStack {
-                        TextEditor(text: $growthViewModelData.content).frame(height:200).fixedSize(horizontal: false, vertical: true)
+                        TextEditor(text: $subjectViewModelData.content).frame(height:200).fixedSize(horizontal: false, vertical: true)
 //                        FirstResponderTextEditor(text: $growthViewModelData.content).frame(height:150).fixedSize(horizontal: false, vertical: true)
                     }
                 } // VStack
@@ -90,20 +72,17 @@ struct AddGrowthView: View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button(action: {
-        //                        studentViewModelData.updateObject = nil
                                 presentation.wrappedValue.dismiss()
-
                         }, label: {
                             Text("취소")
                         })
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button(action: {
-                            // Growth03 만들어서 number를 String으로 바꾼후 growthViewModelData.number 로 고쳐야 함
                             // + "/" 을 붙힌 이유: 1을 조회하는데 11 ~19 애들이 나오면 안되니깐
 //                                growthViewModelData.name = "/" + self.selections.joined(separator: "/") + "/"
-                            growthViewModelData.name = self.selections.joined(separator: "/")
-                            growthViewModelData.addData(uuid: homeViewModelData.uribanID , presentation: presentation)
+                            subjectViewModelData.number = self.selections.joined(separator: "/")
+                            subjectViewModelData.addData(uuid: homeViewModelData.uribanID , presentation: presentation)
                             
                         }, label: {
                             Text("완료")
@@ -115,7 +94,7 @@ struct AddGrowthView: View {
         //            studentViewModelData.setUpInitialData()
                 })
                 .onDisappear(perform: {
-                    growthViewModelData.deInitData()
+                    subjectViewModelData.deInitData()
                     // 상세화면에 있다가 다른 곳 탭한후 다시 탭하면 rootview로 돌아가려고
                     presentation.wrappedValue.dismiss()
                 })
@@ -132,15 +111,11 @@ struct AddGrowthView: View {
     }
 }
 
-struct AddGrowthView_Previews: PreviewProvider {
+struct AddSubjectView_Previews: PreviewProvider {
     static var previews: some View {
-        AddGrowthView()
+        AddSubjectView()
             .environmentObject(StudentViewModel())
-            .environmentObject(GrowthViewModel())
+            .environmentObject(SubjectViewModel())
             .environmentObject(HomeViewModel())
     }
 }
-
-
-
-

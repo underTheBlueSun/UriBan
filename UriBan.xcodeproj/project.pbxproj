@@ -32,6 +32,11 @@
 		15C851BC25DFBE0B00F67FA4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C851BB25DFBE0B00F67FA4 /* ContentView.swift */; };
 		15C851C025E0796800F67FA4 /* GeometryGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C851BF25E0796800F67FA4 /* GeometryGetter.swift */; };
 		15C851C325E0798D00F67FA4 /* KeyboardGuardian.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C851C225E0798D00F67FA4 /* KeyboardGuardian.swift */; };
+		15C851C725E0841000F67FA4 /* SubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C851C625E0841000F67FA4 /* SubjectView.swift */; };
+		15C851CA25E0842C00F67FA4 /* DetailSubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C851C925E0842C00F67FA4 /* DetailSubjectView.swift */; };
+		15C851CD25E0844200F67FA4 /* AddSubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C851CC25E0844200F67FA4 /* AddSubjectView.swift */; };
+		15C851D025E0850300F67FA4 /* SubjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C851CF25E0850300F67FA4 /* SubjectViewModel.swift */; };
+		15C851D325E0881C00F67FA4 /* Subject01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C851D225E0881C00F67FA4 /* Subject01.swift */; };
 		15D7D5A225D8F301007E7B20 /* ItemByMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D7D5A125D8F301007E7B20 /* ItemByMonthView.swift */; };
 		15D7D5A625D8FB5C007E7B20 /* FirstResponderTextFIeld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D7D5A525D8FB5C007E7B20 /* FirstResponderTextFIeld.swift */; };
 		15D7D5A925D90375007E7B20 /* FirstResponderTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D7D5A825D90375007E7B20 /* FirstResponderTextEditor.swift */; };
@@ -85,6 +90,11 @@
 		15C851BB25DFBE0B00F67FA4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		15C851BF25E0796800F67FA4 /* GeometryGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryGetter.swift; sourceTree = "<group>"; };
 		15C851C225E0798D00F67FA4 /* KeyboardGuardian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardGuardian.swift; sourceTree = "<group>"; };
+		15C851C625E0841000F67FA4 /* SubjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectView.swift; sourceTree = "<group>"; };
+		15C851C925E0842C00F67FA4 /* DetailSubjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSubjectView.swift; sourceTree = "<group>"; };
+		15C851CC25E0844200F67FA4 /* AddSubjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubjectView.swift; sourceTree = "<group>"; };
+		15C851CF25E0850300F67FA4 /* SubjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectViewModel.swift; sourceTree = "<group>"; };
+		15C851D225E0881C00F67FA4 /* Subject01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject01.swift; sourceTree = "<group>"; };
 		15D7D5A125D8F301007E7B20 /* ItemByMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemByMonthView.swift; sourceTree = "<group>"; };
 		15D7D5A525D8FB5C007E7B20 /* FirstResponderTextFIeld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstResponderTextFIeld.swift; sourceTree = "<group>"; };
 		15D7D5A825D90375007E7B20 /* FirstResponderTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstResponderTextEditor.swift; sourceTree = "<group>"; };
@@ -131,6 +141,7 @@
 				1500B0C025D6856000E0EF04 /* GrowthView.swift */,
 				1500B0CF25D7734100E0EF04 /* DetailGrowthView.swift */,
 				1500B0D225D7796800E0EF04 /* AddGrowthView.swift */,
+				15C851C525E083E600F67FA4 /* Subject */,
 			);
 			path = Growth;
 			sourceTree = "<group>";
@@ -146,6 +157,16 @@
 				15199EE625D5F57300A35ECF /* PopRootViewExam.swift */,
 			);
 			path = Example;
+			sourceTree = "<group>";
+		};
+		15C851C525E083E600F67FA4 /* Subject */ = {
+			isa = PBXGroup;
+			children = (
+				15C851C625E0841000F67FA4 /* SubjectView.swift */,
+				15C851C925E0842C00F67FA4 /* DetailSubjectView.swift */,
+				15C851CC25E0844200F67FA4 /* AddSubjectView.swift */,
+			);
+			path = Subject;
 			sourceTree = "<group>";
 		};
 		FA94233825C0F8710072D0EE = {
@@ -206,6 +227,7 @@
 				FA94236F25C0FA940072D0EE /* HomeViewModel.swift */,
 				FA9CF39825C1277100E66C07 /* StudentViewModel.swift */,
 				1500B0C925D73DF200E0EF04 /* GrowthViewModel.swift */,
+				15C851CF25E0850300F67FA4 /* SubjectViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -222,6 +244,7 @@
 				FA012FF025CCF73000D580A6 /* Student03.swift */,
 				15894CC625CE1C98001C2AB8 /* Student04.swift */,
 				1500B0CC25D76D0000E0EF04 /* Growth02.swift */,
+				15C851D225E0881C00F67FA4 /* Subject01.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -349,12 +372,15 @@
 				15894CC725CE1C98001C2AB8 /* Student04.swift in Sources */,
 				15C851C325E0798D00F67FA4 /* KeyboardGuardian.swift in Sources */,
 				FA9CF39925C1277100E66C07 /* StudentViewModel.swift in Sources */,
+				15C851CD25E0844200F67FA4 /* AddSubjectView.swift in Sources */,
 				1500B0CD25D76D0000E0EF04 /* Growth02.swift in Sources */,
 				155024CA25C4E0A200AD2006 /* Home03.swift in Sources */,
 				FA8D1D0B25CA24EB0078662D /* PHPickerMultiExam.swift in Sources */,
+				15C851D025E0850300F67FA4 /* SubjectViewModel.swift in Sources */,
 				1500B0C125D6856000E0EF04 /* GrowthView.swift in Sources */,
 				1500B0D625D7CEEA00E0EF04 /* MultiSelectRow.swift in Sources */,
 				1500B0CA25D73DF200E0EF04 /* GrowthViewModel.swift in Sources */,
+				15C851C725E0841000F67FA4 /* SubjectView.swift in Sources */,
 				155024CD25C4E9C700AD2006 /* Student02.swift in Sources */,
 				FA9CF39525C1234C00E66C07 /* StudentView.swift in Sources */,
 				FA94237025C0FA940072D0EE /* HomeViewModel.swift in Sources */,
@@ -380,6 +406,7 @@
 				1590449525C62C840069BF2A /* NavigationBarColor.swift in Sources */,
 				15575E6A25CF6CB7007510C4 /* DetailStudentView.swift in Sources */,
 				1550EEE325D510E000D09882 /* Student05.swift in Sources */,
+				15C851D325E0881C00F67FA4 /* Subject01.swift in Sources */,
 				15D7D5A225D8F301007E7B20 /* ItemByMonthView.swift in Sources */,
 				1590449825C62D060069BF2A /* NavigationLazyView.swift in Sources */,
 				1500B0C425D6858400E0EF04 /* Growth01.swift in Sources */,
@@ -389,6 +416,7 @@
 				FAC0E1E525CCD0A0003C300C /* ToggleExam.swift in Sources */,
 				FA94235C25C0F9860072D0EE /* MainTabView.swift in Sources */,
 				15894CC125CD4B53001C2AB8 /* PhotoPicker.swift in Sources */,
+				15C851CA25E0842C00F67FA4 /* DetailSubjectView.swift in Sources */,
 				FAC0E1E825CCD0CC003C300C /* TabButton.swift in Sources */,
 				15D7D5A925D90375007E7B20 /* FirstResponderTextEditor.swift in Sources */,
 			);
