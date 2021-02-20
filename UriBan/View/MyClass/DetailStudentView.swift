@@ -130,8 +130,8 @@ struct DetailStudentView: View {
                 images.append(UIImage(data: student.picture as Data) ?? UIImage(imageLiteralResourceName: "profile02"))
                 studentViewModelData.setUpInitialData()
                 // 월별 관찰 통계
-                growthViewModelData.fetchPositiveByGroup(uuid: student.uuid)
-                growthViewModelData.fetchNegativeByGroup(uuid: student.uuid)
+                growthViewModelData.fetchPositiveByMonth(uuid: student.uuid)
+                growthViewModelData.fetchNegativeByMonth(uuid: student.uuid)
 
             })
             .onDisappear(perform: {

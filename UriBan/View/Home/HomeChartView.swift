@@ -15,6 +15,8 @@ struct HomeChartView: View {
     var uuid: String
     var className: String
     
+    @State var openChartView = false
+    
     init(uuid: String, className: String) {
         self.uuid = uuid
         self.className = className
@@ -27,23 +29,39 @@ struct HomeChartView: View {
         
         VStack {
             Button(action: {
-                print(uuid)
-                print(growthViewModelData.groupedToArrPositive)
-                print(growthViewModelData.groupedToArrNegative)
-//                print(growthViewModelData.fetchDataByGroup(uuid: uuid).map { String($0) }.joined(separator: "-"))
+                for (key, value) in growthViewModelData.groupedPositiveStudent where value == 0 {
+                    growthViewModelData.groupedPositiveStudent.removeValue(forKey: key)
+                }
 
+                print("aaaaaaaa")
+                print(growthViewModelData.groupedPositiveStudent.sorted {$0.1 > $1.1})
+                print(growthViewModelData.groupedNegativeStudent.sorted {$0.1 > $1.1})
             }, label: {
                 Text("Button")
             })
             
-            Text(uuid)
-//            Text(growthViewModelData.fetchDataByGroup(uuid: uuid).map { String($0) }.joined(separator: "-"))
-            MultiLineChartView(data: [(growthViewModelData.groupedToArrPositive, GradientColors.blue), (growthViewModelData.groupedToArrNegative, GradientColors.orngPink)], title: "월별 관찰추이")
+//            Text(uuid)
+            Text(growthViewModelData.groupedToArrPositive.map { String($0) }.joined(separator: "-"))
+            Text(growthViewModelData.groupedToArrNegative.map { String($0) }.joined(separator: "-"))
+//            Text(growthViewModelData.groupedPositiveStudent)
+            Button(action: { self.openChartView.toggle()}, label: {
+                MultiLineChartView(data: [(growthViewModelData.groupedToArrPositive, GradientColors.blue), (growthViewModelData.groupedToArrNegative, GradientColors.orngPink)], title: "월별관찰")
+            })
+
+            Button(action: { self.openChartView.toggle()}, label: {
+                BarChartView(data: ChartData(values: [("2018 Q4",63150), ("2019 Q1",50900), ("2019 Q2",77550), ("2019 Q3",79600), ("2019 Q4",92550)]), title: "학생별", form: ChartForm.medium)
+            })
+
             
         } // VStack
+        .fullScreenCover(isPresented: $openChartView) {
+            GrowthChartView()
+        } // fullScreenCover
         .onAppear(perform: {
-            growthViewModelData.fetchPositiveByGroup(uuid: uuid)
-            growthViewModelData.fetchNegativeByGroup(uuid: uuid)
+            growthViewModelData.fetchPositiveByMonth(uuid: uuid)
+            growthViewModelData.fetchNegativeByMonth(uuid: uuid)
+            growthViewModelData.fetchPositiveByStudent(uuid: uuid)
+            growthViewModelData.fetchNegativeByStudent(uuid: uuid)
             
 //            for growth in growthViewModelData.growths {
 //                grouped[Calendar.current.dateComponents([.month], from: growth.yymmdd).month!, default: 0] += 1

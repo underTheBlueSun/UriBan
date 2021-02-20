@@ -58,7 +58,7 @@ struct UriBanView: View {
                 .environmentObject(homeViewModelData)
 //            AddStudentView(studentCnt: studentViewModelData.students.count, uribanClassName: homeViewModelData.uribanClassName)
 //                .environmentObject(studentViewModelData)
-        }
+        } // fullScreenCover
         .onAppear() {
             // init()에서 fetchData(uuid:)를 부르면 uuid를 못가져가서 바로 불렀음
             studentViewModelData.fetchData(uuid: homeViewModelData.uribanID)
