@@ -16,6 +16,19 @@ struct GrowthView: View {
     @EnvironmentObject var growthViewModelData: GrowthViewModel
     @EnvironmentObject var homeViewModelData: HomeViewModel
     
+    // yyyy.mm.dd 가져오기
+    private func getDate(format: Date) -> String {
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = format
+//        let date = Date()
+//        let today = dateFormatter.string(from: date)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd"
+        let current_date_string = formatter.string(from: format)
+//        print(current_date_string)
+        return current_date_string
+    }
+    
     var body: some View {
         
         NavigationView {
@@ -27,7 +40,13 @@ struct GrowthView: View {
                                     .environmentObject(studentViewModelData)
                                     .environmentObject(growthViewModelData)) {
                         HStack {
-                            Text(growth.content).frame(width: 300, height: 15, alignment: .leading)
+                            Text(growth.content).frame(width: 220, height: 15, alignment: .leading)
+                            VStack {
+                                Text(getDate(format: growth.yymmdd)).frame(width: 80, height: 15, alignment: .trailing)
+                                    .foregroundColor(.gray)
+                                    .font(.system(size: 10))
+                                Spacer()
+                            }
                         } // Hstack
                     } // NavigationLink
                 } // ForEach

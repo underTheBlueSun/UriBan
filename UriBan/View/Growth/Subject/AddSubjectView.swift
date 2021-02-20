@@ -19,7 +19,7 @@ struct AddSubjectView: View {
     @Namespace var animation
         
     // 키보드 나타나면 텍스트에디터 위로 올림
-    @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 1)
+    @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 3)
     
     var columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 10)
     
@@ -61,10 +61,10 @@ struct AddSubjectView: View {
                     }
                     HStack {
                         TextEditor(text: $subjectViewModelData.content).frame(height:200).fixedSize(horizontal: false, vertical: true)
-//                        FirstResponderTextEditor(text: $growthViewModelData.content).frame(height:150).fixedSize(horizontal: false, vertical: true)
+//                        FirstResponderTextEditor(text: $subjectViewModelData.content).frame(height:100).fixedSize(horizontal: false, vertical: true)
                     }
                 } // VStack
-                .offset(y: kGuardian.slide).animation(.easeInOut(duration: 1.0))
+//                .offset(y: kGuardian.slide).animation(.easeInOut(duration: 1.0))
                 .onAppear { self.kGuardian.addObserver() }
                 .onDisappear { self.kGuardian.removeObserver() }
                 .padding(.horizontal)

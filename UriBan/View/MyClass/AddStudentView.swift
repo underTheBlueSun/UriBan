@@ -121,9 +121,7 @@ struct AddStudentView: View {
                     
                         
                     }
-                }
-                
-                Text("행동발달 보기")
+                }                
                 
                 Spacer()
                 

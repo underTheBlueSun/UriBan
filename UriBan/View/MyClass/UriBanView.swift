@@ -17,6 +17,7 @@ struct UriBanView: View {
 //    @StateObject var studentViewModelData: StudentViewModel = StudentViewModel()
     @EnvironmentObject var studentViewModelData: StudentViewModel
     @EnvironmentObject var homeViewModelData: HomeViewModel
+    @EnvironmentObject var growthViewModelData: GrowthViewModel
     
     // StateObject() 쓰지말고 .onAppear() 이거 쓰란 말도 있음. stackoverflow 참조 : Initialize @StateObject with a parameter in SwiftUI
 //    init(uuid: String) {
@@ -36,6 +37,7 @@ struct UriBanView: View {
                     NavigationLink(destination: DetailStudentView(student: student)
                                     .environmentObject(studentViewModelData)
                                     .environmentObject(homeViewModelData)
+                                    .environmentObject(growthViewModelData)
                     ) {
 //                    NavigationLink(destination: DetailStudentView(student: student, uribanClassName: homeViewModelData.uribanClassName).environmentObject(studentViewModelData)) {
                         HStack {

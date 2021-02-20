@@ -82,7 +82,7 @@ struct AddGrowthView: View {
 //                        FirstResponderTextEditor(text: $growthViewModelData.content).frame(height:150).fixedSize(horizontal: false, vertical: true)
                     }
                 } // VStack
-                .offset(y: kGuardian.slide).animation(.easeInOut(duration: 1.0))
+//                .offset(y: kGuardian.slide).animation(.easeInOut(duration: 1.0))
                 .onAppear { self.kGuardian.addObserver() }
                 .onDisappear { self.kGuardian.removeObserver() }
                 .padding(.horizontal)

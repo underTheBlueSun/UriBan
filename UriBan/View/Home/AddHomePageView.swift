@@ -45,12 +45,15 @@ struct AddHomePageView: View {
                 
                 HStack {
                     Image(systemName: "building.columns.fill").frame(width: 30)
-                    TextField("학교명", text: $modelData.school, onEditingChanged: { editing in self.isValid = true})
-                    // 학교명에 포커싱 주기 but 에러 : 수정 누르면 학교명이 사라져 있음 ㅠㅠ
-//                    FirstResponderTextField(text: $modelData.school, placeholder: " 학교명").frame(height: 30)
+                    // 반 추가이면
+                    if modelData.updateObject == nil {
+                        // 학교명에 포커싱 주기 but 에러 : 수정 누르면 학교명이 사라져 있음 ㅠㅠ
+                        FirstResponderTextField(text: $modelData.school, placeholder: " 학교명").frame(height: 30)
+                    } else {
+                        TextField("학교명", text: $modelData.school, onEditingChanged: { editing in self.isValid = true})
+                    }
                     
                 }
-                
                 HStack {
                     Image(systemName: "person.2.fill").frame(width: 30)
                     TextField(" 학반", text: $modelData.className, onEditingChanged: { editing in self.isValid = true})
@@ -64,21 +67,10 @@ struct AddHomePageView: View {
                 .onTapGesture(perform: {
                     self.isValid = true
                 })
-                
-//                HStack {
-//                    Spacer()
-//                    Text("✳︎ 입력후 엔터키").frame(height: 100).foregroundColor(.gray).opacity(0.5)
-//                    Image(systemName: "return").foregroundColor(.gray).opacity(0.5)
-//                    Text("를 누르세요").frame(height: 100).foregroundColor(.gray).opacity(0.5)
-//                    Spacer()
-//                }
-
-
-
             } // List
 //            .navigationBarTitle(thisYear + "학년도", displayMode: .inline)
             // 추가인지 수정인지에 따라 타이틀 선택
-            .navigationBarTitle(modelData.updateObject == nil ? "반 생성" : "반 수정", displayMode: .inline)
+            .navigationBarTitle(modelData.updateObject == nil ? "우리반 만들기" : "우리반 수정", displayMode: .inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
 //                  스윗한 스위프트 p303 참고 (조금 다름)

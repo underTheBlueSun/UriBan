@@ -29,7 +29,7 @@
 		15894CC725CE1C98001C2AB8 /* Student04.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15894CC625CE1C98001C2AB8 /* Student04.swift */; };
 		1590449525C62C840069BF2A /* NavigationBarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1590449425C62C840069BF2A /* NavigationBarColor.swift */; };
 		1590449825C62D060069BF2A /* NavigationLazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1590449725C62D060069BF2A /* NavigationLazyView.swift */; };
-		15C851BC25DFBE0B00F67FA4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C851BB25DFBE0B00F67FA4 /* ContentView.swift */; };
+		15C851BC25DFBE0B00F67FA4 /* DeleteAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C851BB25DFBE0B00F67FA4 /* DeleteAll.swift */; };
 		15C851C025E0796800F67FA4 /* GeometryGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C851BF25E0796800F67FA4 /* GeometryGetter.swift */; };
 		15C851C325E0798D00F67FA4 /* KeyboardGuardian.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C851C225E0798D00F67FA4 /* KeyboardGuardian.swift */; };
 		15C851C725E0841000F67FA4 /* SubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C851C625E0841000F67FA4 /* SubjectView.swift */; };
@@ -87,7 +87,7 @@
 		15894CC625CE1C98001C2AB8 /* Student04.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student04.swift; sourceTree = "<group>"; };
 		1590449425C62C840069BF2A /* NavigationBarColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarColor.swift; sourceTree = "<group>"; };
 		1590449725C62D060069BF2A /* NavigationLazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLazyView.swift; sourceTree = "<group>"; };
-		15C851BB25DFBE0B00F67FA4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		15C851BB25DFBE0B00F67FA4 /* DeleteAll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAll.swift; sourceTree = "<group>"; };
 		15C851BF25E0796800F67FA4 /* GeometryGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryGetter.swift; sourceTree = "<group>"; };
 		15C851C225E0798D00F67FA4 /* KeyboardGuardian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardGuardian.swift; sourceTree = "<group>"; };
 		15C851C625E0841000F67FA4 /* SubjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectView.swift; sourceTree = "<group>"; };
@@ -197,7 +197,6 @@
 				FA94235725C0F92E0072D0EE /* Support */,
 				15575E6125CE8BE1007510C4 /* Example */,
 				FA94234A25C0F8740072D0EE /* Preview Content */,
-				15C851BB25DFBE0B00F67FA4 /* ContentView.swift */,
 			);
 			path = UriBan;
 			sourceTree = "<group>";
@@ -266,6 +265,7 @@
 				15D7D5A825D90375007E7B20 /* FirstResponderTextEditor.swift */,
 				15C851BF25E0796800F67FA4 /* GeometryGetter.swift */,
 				15C851C225E0798D00F67FA4 /* KeyboardGuardian.swift */,
+				15C851BB25DFBE0B00F67FA4 /* DeleteAll.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -401,7 +401,7 @@
 				1535D8D825C6419300BC7E81 /* AddStudentView.swift in Sources */,
 				FA94234525C0F8710072D0EE /* UriBanApp.swift in Sources */,
 				156B640425C44C0400DA8D07 /* MultipleSelectionList02Exam.swift in Sources */,
-				15C851BC25DFBE0B00F67FA4 /* ContentView.swift in Sources */,
+				15C851BC25DFBE0B00F67FA4 /* DeleteAll.swift in Sources */,
 				FA94236D25C0FA5E0072D0EE /* HomeView.swift in Sources */,
 				1590449525C62C840069BF2A /* NavigationBarColor.swift in Sources */,
 				15575E6A25CF6CB7007510C4 /* DetailStudentView.swift in Sources */,

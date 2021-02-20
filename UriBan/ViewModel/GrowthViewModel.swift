@@ -42,6 +42,7 @@ class GrowthViewModel: ObservableObject {
 
     func fetchData(uuid: String) {
         guard let dbRef = try? Realm() else { return }
+//        let results = dbRef.objects(Growth02.self).filter("uuid == %@", uuid)
         let results = dbRef.objects(Growth02.self).filter("uuid == %@", uuid)
 //        let results = dbRef.objects(Growth02.self).filter("uuid = '3457F0C5-4517-48DD-8689-990BACF4E455' and name CONTAINS '/1/'")
         self.growths = results.compactMap({ (growth) -> Growth02? in return growth })

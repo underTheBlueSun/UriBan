@@ -80,6 +80,7 @@ private extension MainTabView {
     UriBanView()
         .environmentObject(homeViewModelData)
         .environmentObject(studentViewModelData)
+        .environmentObject(growthViewModelData)
         .tag(Tabs.myclass)
         .tabItem {
             Image(systemName: "person.2.fill")
