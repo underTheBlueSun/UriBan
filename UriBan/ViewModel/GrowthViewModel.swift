@@ -37,8 +37,10 @@ class GrowthViewModel: ObservableObject {
     @Published var groupedPositiveStudent: [(String,Int)] = [("",0)]
     @Published var groupedNegativeStudent: [(String,Int)] = [("",0)]
     // 개인별 group by
-    @Published var groupedPositiveIndi: [(String,Int)] = [("",0)]
-    @Published var groupedNegativeIndi: [(String,Int)] = [("",0)]
+    @Published var groupedPosiIndi: [Int: Int] = [:]
+    @Published var groupedToArrPosiIndi: [Double] = []
+    @Published var groupedNegaIndi: [Int: Int] = [:]
+    @Published var groupedToArrNegaIndi: [Double] = []
 
     
 //    init() {
@@ -223,7 +225,9 @@ class GrowthViewModel: ObservableObject {
     
     // 개인별 긍정 통계
     func fetchPositiveByIndi(uuid: String, number: Int) {
-        groupedPositiveIndi.removeAll()
+        groupedPosiIndi.removeAll()
+        groupedToArrPosiIndi.removeAll()
+        
         guard let dbRef = try? Realm() else { return }
 //        guard let studentObject = dbRef.objects(Student05.self).filter("uuid == '\(uuid)' and number == \(number)").first else { return }
         
@@ -231,16 +235,18 @@ class GrowthViewModel: ObservableObject {
         self.growthsPosiByIndi = results.compactMap({ (growth) -> Growth02? in return growth })
         // 월별 group by
         for growth in growthsPosiByIndi {
-//            groupedPositiveIndi[Calendar.current.dateComponents([.month], from: growth.yymmdd).month!, default: 0] += 1
+            groupedPosiIndi[Calendar.current.dateComponents([.month], from: growth.yymmdd).month!, default: 0] += 1
         }
-        for item in groupedPositive.sorted(by: <) {
-            groupedToArrPositive.append(Double(item.value))
+        for item in groupedPosiIndi.sorted(by: <) {
+            groupedToArrPosiIndi.append(Double(item.value))
         }
     }
 
     // 개인별 부정 통계
     func fetchNegativeByIndi(uuid: String, number: Int) {
-        groupedNegativeIndi.removeAll()
+        groupedNegaIndi.removeAll()
+        groupedToArrNegaIndi.removeAll()
+        
         guard let dbRef = try? Realm() else { return }
         
         for i in 1...30 {
@@ -249,8 +255,12 @@ class GrowthViewModel: ObservableObject {
 
             let results = dbRef.objects(Growth02.self).filter("uuid == '\(uuid)' and status == '부정' and name CONTAINS '\(String(format: "%02d", i))'")
             self.growthsByStudent = results.compactMap({ (growth) -> Growth02? in return growth })
-            if self.growthsByStudent.count != 0 {
-                groupedNegativeStudent.append((studentObject.name,self.growthsByStudent.count))
+            // 월별 group by
+            for growth in growthsPosiByIndi {
+                groupedNegaIndi[Calendar.current.dateComponents([.month], from: growth.yymmdd).month!, default: 0] += 1
+            }
+            for item in groupedNegaIndi.sorted(by: <) {
+                groupedToArrNegaIndi.append(Double(item.value))
             }
         }
     }
