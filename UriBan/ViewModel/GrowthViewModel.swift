@@ -70,7 +70,7 @@ class GrowthViewModel: ObservableObject {
         growth.yymmdd = Date()
         
         // 한달후 더미 데이터 집어넣기
-//        growth.yymmdd = Calendar.current.date(byAdding: .month, value: 1, to: Date())!
+        growth.yymmdd = Calendar.current.date(byAdding: .month, value: 5, to: Date())!
 
         // Growth03 만들어서 number를 String으로 바꾼후 growth.name = name 대신 growth.number = number 로 변경해야 함
 //        growth.number = number
@@ -189,12 +189,13 @@ class GrowthViewModel: ObservableObject {
         guard let dbRef = try? Realm() else { return }
         
         for i in 1...30 {
+            // 이름 가져오기
+            guard let studentObject = dbRef.objects(Student05.self).filter("uuid == '\(uuid)' and number == \(i)").first else { return }
+            
             let results = dbRef.objects(Growth02.self).filter("uuid == '\(uuid)' and status == '긍정' and name CONTAINS '\(String(format: "%02d", i))'")
             self.growthsByStudent = results.compactMap({ (growth) -> Growth02? in return growth })
-//            groupedPositiveStudent[String(format: "%02d", i)] = self.growthsByStudent.gscount
-//            groupedPositiveStudent[String(format: "%02d", i)] = self.growthsByStudent.count
             if self.growthsByStudent.count != 0 {
-                groupedPositiveStudent.append((String(format: "%02d",i),self.growthsByStudent.count))
+                groupedPositiveStudent.append((studentObject.name,self.growthsByStudent.count))
             }
             
         }
@@ -206,11 +207,13 @@ class GrowthViewModel: ObservableObject {
         guard let dbRef = try? Realm() else { return }
         
         for i in 1...30 {
+            // 이름 가져오기
+            guard let studentObject = dbRef.objects(Student05.self).filter("uuid == '\(uuid)' and number == \(i)").first else { return }
+
             let results = dbRef.objects(Growth02.self).filter("uuid == '\(uuid)' and status == '부정' and name CONTAINS '\(String(format: "%02d", i))'")
             self.growthsByStudent = results.compactMap({ (growth) -> Growth02? in return growth })
-//            groupedNegativeStudent[String(format: "%02d", i)] = self.growthsByStudent.count
             if self.growthsByStudent.count != 0 {
-                groupedNegativeStudent.append((String(format: "%02d",i),self.growthsByStudent.count))
+                groupedNegativeStudent.append((studentObject.name,self.growthsByStudent.count))
             }
         }
     }
