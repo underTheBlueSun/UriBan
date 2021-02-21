@@ -106,20 +106,12 @@ struct DetailStudentView: View {
                     ZStack {
                         // 월별 관찰 차트
                         BarChartView(data: ChartData(points: [8,23,54,32,12,37,7,23,43]), title: "Title", style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.blue, secondGradientColor: Color.blue, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Color.gray), form: ChartForm.small)
-                        
-                        
-                        Button(action: {
-                                    self.openChartView.toggle()
-                            
-                        }, label: {
+                        // zstack으로 이거 안달면 터치로 넘어가지가 않음
+                        Button(action: { self.openChartView.toggle() }, label: {
 //                            Rectangle().foregroundColor(Color.red).frame(width: 100, height: 100)
                             Text("터치하여 상세관찰보기").font(.system(size: 10)).foregroundColor(Color.gray)
                         })
-                        
-                        
-                        
                     }
-                    
                     
                     BarChartView(data: ChartData(points: [8,23,54,32,12,37,7,23,43]), title: "Title", style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.red, secondGradientColor: Color.red, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Color.gray), form: ChartForm.small)
                 } // Hstack
