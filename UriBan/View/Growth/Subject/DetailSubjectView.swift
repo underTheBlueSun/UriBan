@@ -26,7 +26,7 @@ struct DetailSubjectView: View {
     // 성명을 입력해야 완료 버튼이 활성화 되게
 //    @State private var isValidName = false
     
-    var columns = Array(repeating: GridItem(.flexible(), spacing: 20), count: 10)
+    var columns = Array(repeating: GridItem(.flexible(), spacing: 20), count: 10)    
     
     init(subject: Subject01) {
         self.subject = subject
