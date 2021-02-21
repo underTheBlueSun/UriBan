@@ -16,6 +16,7 @@ struct SwiftUIView: View {
         }
         .background(Color.systemGray.opacity(0.2))
         .font(.system(size: 20))
+        .frame(width: 500, height: 100, alignment: .center)
 
     }
 }

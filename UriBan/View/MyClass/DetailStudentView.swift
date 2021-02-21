@@ -59,7 +59,7 @@ struct DetailStudentView: View {
                             Image(systemName: String(student.number) + ".circle.fill").resizable().frame(width: 20, height: 20).foregroundColor(.systemTeal)
                             // 메모에는 어떻게 onEditingChanged를 붙힐지 몰라서 완료버튼 풀어버림.
     //                        TextField("성명", text: $studentViewModelData.name, onEditingChanged: { editing in self.isValidName = editing ? false : !studentViewModelData.name.isEmpty},
-                            TextField("성명", text: $studentViewModelData.name).font(.system(size: 23))
+                            TextField("성명", text: $studentViewModelData.name).font(.system(size: 23)).frame(width: 80)
                             Spacer()
                             HStack(spacing: 0) {
                                 TabButton(selected: $studentViewModelData.sex, title: "남자", animation: animation, gubun: 1)
