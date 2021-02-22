@@ -14,6 +14,7 @@ extension Color {
   static let secondaryText = Color(hex: "#6e6e6e")
   static let background = Color(UIColor.systemGray6)
   static let tabButtonRed = Color(hex: "#FF6559")
+  static let tabbarBackgroud = Color(hex: "#58585D")
 }
 
 extension Color {

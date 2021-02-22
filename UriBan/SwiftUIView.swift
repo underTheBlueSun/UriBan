@@ -14,9 +14,17 @@ struct SwiftUIView: View {
 
         
         VStack {
-            BarChartView(data: ChartData(points: [8,23,54,32,12,37,7,23,43]), title: "Title", form: ChartForm.large)
+            HStack {
+                Text("aaaaa")
+            }
+            
+            HStack {
+                Text("aaaaa")
+            }
         }
         .padding()
+        .background(Color.tabbarBackgroud)
+        
     }
 }
 
