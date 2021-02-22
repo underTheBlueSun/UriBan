@@ -15,11 +15,11 @@ struct SwiftUIView: View {
         
         VStack {
             HStack {
-                Text("aaaaa")
+                Text("111111")
             }
             
             HStack {
-                Text("aaaaa")
+                Text("1111111")
             }
         }
         .padding()
