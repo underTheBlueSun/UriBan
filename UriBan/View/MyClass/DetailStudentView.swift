@@ -104,7 +104,7 @@ struct DetailStudentView: View {
                 
                 VStack {
                     HStack {
-                        NavigationLink(destination: SwiftUIView() ) {
+                        NavigationLink(destination: GrowthChartStu(uuid: student.uuid, number: student.number) ) {
                             Image(systemName: "chart.bar.xaxis").foregroundColor(Color.red)
                             Text("관찰 누가기록 보기").foregroundColor(Color.tabbarBackgroud)
                             Spacer()
@@ -223,11 +223,8 @@ struct DetailStudentView: View {
                     })
                 } // ToolbarItem
             } // toolbar
-    //            .onAppear(perform: studentViewModelData.setUpInitialData)
             .onAppear(perform: {
                 studentViewModelData.updateObject = self.student
-    //            images[0] = UIImage(data: student.picture as Data) ?? UIImage(imageLiteralResourceName: "profile02")
-    //            images[0] = UIImage(systemName: "pencil")!
                 images.append(UIImage(data: student.picture as Data) ?? UIImage(imageLiteralResourceName: "profile02"))
                 studentViewModelData.setUpInitialData()
                 // 월별 관찰 통계
