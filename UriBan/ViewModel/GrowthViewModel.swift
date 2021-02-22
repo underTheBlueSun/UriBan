@@ -38,9 +38,9 @@ class GrowthViewModel: ObservableObject {
     @Published var groupedPositiveStudent: [(String,Int)] = [("",0)]
     @Published var groupedNegativeStudent: [(String,Int)] = [("",0)]
     // 개인별 group by
-    @Published var groupedPosiIndi: [(String,Int)] = [("",0)]
+    @Published var groupedPosiIndi: [Int: Int] = [:]
 //    @Published var groupedToArrPosiIndi: [Double] = []
-    @Published var groupedNegaIndi: [(String,Int)] = [("",0)]
+    @Published var groupedNegaIndi: [Int: Int] = [:]
 //    @Published var groupedToArrNegaIndi: [Double] = []
 
     

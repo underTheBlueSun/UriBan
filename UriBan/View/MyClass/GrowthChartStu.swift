@@ -16,8 +16,8 @@ struct GrowthChartStu: View {
     @Environment(\.presentationMode) var presentation
     
     // 변수로 안받으면 제일 처음 막대그래프모양이 안보임.
-    @State var arrPositiveStudent: [(String,Int)] = []
-    @State var arrNegativeStudent: [(String,Int)] = []
+    @State var arrPositiveIndi: [(Int,Int)] = []
+    @State var arrNegativeIndi: [(Int,Int)] = []
     
     var uuid: String
     var number: Int
@@ -29,12 +29,12 @@ struct GrowthChartStu: View {
     
     var body: some View {
         
-        NavigationView {
+//        NavigationView {
             VStack {
                 HStack {
-                    BarChartView(data: ChartData(values: arrPositiveStudent), title: "학생별(긍정)",  style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.blue, secondGradientColor: Color.blue, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Color.gray), form: ChartForm.medium)
-                    
-                    BarChartView(data: ChartData(values: arrNegativeStudent), title: "학생별(부정)", style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.red, secondGradientColor: Color.red, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Color.gray), form: ChartForm.medium)
+//                    BarChartView(data: ChartData(values: arrPositiveIndi), title: "학생별(긍정)",  style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.blue, secondGradientColor: Color.blue, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Color.gray), form: ChartForm.medium)
+//
+//                    BarChartView(data: ChartData(values: arrNegativeIndi), title: "학생별(부정)", style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.red, secondGradientColor: Color.red, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Color.gray), form: ChartForm.medium)
                 } // HStack
                 .padding()
                 
@@ -106,15 +106,21 @@ struct GrowthChartStu: View {
                     Button(action: { presentation.wrappedValue.dismiss() }, label: { Text("닫기") })
                 }
             } // toolbar
-        } // NavigationView
+//        } // NavigationView
         .onAppear(perform: {
             growthViewModelData.fetchPositiveByIndi(uuid: uuid, number: number)
             growthViewModelData.fetchNegativeByIndi(uuid: uuid, number: number)
             // 변수로 안받으면 제일 처음 막대그래프모양이 안보임.
-            self.arrPositiveStudent = growthViewModelData.groupedPositiveStudent.sorted {$0.1 > $1.1}
-            self.arrNegativeStudent = growthViewModelData.groupedNegativeStudent.sorted {$0.1 > $1.1}
-//            print("번호: " + String(number))
-//            print(arrPositiveStudent)
+            self.arrPositiveIndi = growthViewModelData.groupedPosiIndi.sorted(by: <)
+            self.arrNegativeIndi = growthViewModelData.groupedNegaIndi.sorted(by: <)
+            print(arrPositiveIndi)
+            
+            print(arrPositiveIndi.map { (String($0)+"월", Int($1)) } )
+            
+//            for growth in growthViewModelData.groupedPosiIndi.sorted(by: <) {
+//                arrPositiveIndi.append((String, Int))
+//            }
+            
         }) // onAppear()
 
         

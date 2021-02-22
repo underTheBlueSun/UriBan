@@ -14,13 +14,7 @@ struct SwiftUIView: View {
 
         
         VStack {
-            HStack {
-                Text("111111")
-            }
-            
-            HStack {
-                Text("1111111")
-            }
+            Text("aaaaa")
         }
         .padding()
         .background(Color.tabbarBackgroud)
