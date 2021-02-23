@@ -74,7 +74,7 @@ struct AddGrowthView: View {
                             TabButton(selected: $growthViewModelData.status, title: "긍정", animation: animation, gubun: 1)
                             TabButton(selected: $growthViewModelData.status, title: "부정", animation: animation, gubun: 2)
                         }
-                        .frame(width: 80)
+                        .frame(width: 100)
                         .background(Color.gray.opacity(0.3))
                         .clipShape(Capsule())
                         

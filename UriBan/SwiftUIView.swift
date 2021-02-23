@@ -6,24 +6,39 @@
 //
 
 import SwiftUI
-import SwiftUICharts
 
-struct SwiftUIView: View {
-    var body: some View {
-//        BarChartView(data: ChartData(values: [("2018 Q4",63150), ("2019 Q1",50900), ("2019 Q2",77550), ("2019 Q3",79600), ("2019 Q4",92550)]), title: "Sales", legend: "Quarterly", form: ChartForm.large)
-
-        
-        VStack {
-            Text("aaaaa")
-        }
-        .padding()
-        .background(Color.tabbarBackgroud)
-        
+enum ActiveSheetExam: Identifiable {
+    case first, second
+    
+    var id: Int {
+        hashValue
     }
 }
 
-struct SwiftUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        SwiftUIView()
+struct SwiftUIView: View {
+    @State var activeSheet: ActiveSheetExam?
+
+    var body: some View {
+        VStack {
+            Button(action: {
+                activeSheet = .first
+            }) {
+                Text("Activate first sheet")
+            }
+
+            Button(action: {
+                activeSheet = .second
+            }) {
+                Text("Activate second sheet")
+            }
+        }
+        .fullScreenCover(item: $activeSheet) { item in
+            switch item {
+            case .first:
+                SwiftUIView2()
+            case .second:
+                SwiftUIView3()
+            }
+        }
     }
 }

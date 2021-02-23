@@ -29,6 +29,8 @@
 		15894CC725CE1C98001C2AB8 /* Student04.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15894CC625CE1C98001C2AB8 /* Student04.swift */; };
 		1590449525C62C840069BF2A /* NavigationBarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1590449425C62C840069BF2A /* NavigationBarColor.swift */; };
 		1590449825C62D060069BF2A /* NavigationLazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1590449725C62D060069BF2A /* NavigationLazyView.swift */; };
+		15B8A44E25E4EB4400BEF676 /* BarChartExam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B8A44D25E4EB4400BEF676 /* BarChartExam.swift */; };
+		15B8A45225E53C9100BEF676 /* SwiftUIView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B8A45125E53C9100BEF676 /* SwiftUIView3.swift */; };
 		15C851BC25DFBE0B00F67FA4 /* DeleteAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C851BB25DFBE0B00F67FA4 /* DeleteAll.swift */; };
 		15C851C025E0796800F67FA4 /* GeometryGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C851BF25E0796800F67FA4 /* GeometryGetter.swift */; };
 		15C851C325E0798D00F67FA4 /* KeyboardGuardian.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C851C225E0798D00F67FA4 /* KeyboardGuardian.swift */; };
@@ -92,6 +94,8 @@
 		15894CC625CE1C98001C2AB8 /* Student04.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student04.swift; sourceTree = "<group>"; };
 		1590449425C62C840069BF2A /* NavigationBarColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarColor.swift; sourceTree = "<group>"; };
 		1590449725C62D060069BF2A /* NavigationLazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLazyView.swift; sourceTree = "<group>"; };
+		15B8A44D25E4EB4400BEF676 /* BarChartExam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartExam.swift; sourceTree = "<group>"; };
+		15B8A45125E53C9100BEF676 /* SwiftUIView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView3.swift; sourceTree = "<group>"; };
 		15C851BB25DFBE0B00F67FA4 /* DeleteAll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAll.swift; sourceTree = "<group>"; };
 		15C851BF25E0796800F67FA4 /* GeometryGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryGetter.swift; sourceTree = "<group>"; };
 		15C851C225E0798D00F67FA4 /* KeyboardGuardian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardGuardian.swift; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 				FAC0E1E425CCD0A0003C300C /* ToggleExam.swift */,
 				15199EE625D5F57300A35ECF /* PopRootViewExam.swift */,
 				15C851DF25E2065100F67FA4 /* DonutChartExam.swift */,
+				15B8A44D25E4EB4400BEF676 /* BarChartExam.swift */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -210,6 +215,7 @@
 				FA94234A25C0F8740072D0EE /* Preview Content */,
 				15C851DC25E1E0CC00F67FA4 /* SwiftUIView.swift */,
 				15C851E325E3E5EB00F67FA4 /* SwiftUIView2.swift */,
+				15B8A45125E53C9100BEF676 /* SwiftUIView3.swift */,
 			);
 			path = UriBan;
 			sourceTree = "<group>";
@@ -391,6 +397,7 @@
 				1500B0CD25D76D0000E0EF04 /* Growth02.swift in Sources */,
 				155024CA25C4E0A200AD2006 /* Home03.swift in Sources */,
 				FA8D1D0B25CA24EB0078662D /* PHPickerMultiExam.swift in Sources */,
+				15B8A44E25E4EB4400BEF676 /* BarChartExam.swift in Sources */,
 				15C851D025E0850300F67FA4 /* SubjectViewModel.swift in Sources */,
 				1500B0C125D6856000E0EF04 /* GrowthView.swift in Sources */,
 				15C851E825E460BD00F67FA4 /* GrowthChartStu.swift in Sources */,
@@ -418,6 +425,7 @@
 				15D7D5B125DB6B93007E7B20 /* CountByMonthView.swift in Sources */,
 				1500B0D025D7734100E0EF04 /* DetailGrowthView.swift in Sources */,
 				1535D8D825C6419300BC7E81 /* AddStudentView.swift in Sources */,
+				15B8A45225E53C9100BEF676 /* SwiftUIView3.swift in Sources */,
 				FA94234525C0F8710072D0EE /* UriBanApp.swift in Sources */,
 				156B640425C44C0400DA8D07 /* MultipleSelectionList02Exam.swift in Sources */,
 				15C851E425E3E5EB00F67FA4 /* SwiftUIView2.swift in Sources */,
