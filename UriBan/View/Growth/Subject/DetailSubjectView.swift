@@ -18,9 +18,6 @@ struct DetailSubjectView: View {
     // 체크리스트 배열
     @State var selections: [String] = []
     
-    // 키보드 나타나면 텍스트에디터 위로 올림
-    @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 1)
-    
     var subject: Subject02
         
     // 성명을 입력해야 완료 버튼이 활성화 되게
@@ -69,12 +66,9 @@ struct DetailSubjectView: View {
                     Spacer()
                 }
                 HStack {
-                    TextEditor(text: $subjectViewModelData.content).frame(height:200).fixedSize(horizontal: false, vertical: true)
+                    TextEditor(text: $subjectViewModelData.content).frame(height:110).fixedSize(horizontal: false, vertical: true)
                 }
             } // VStack
-            .offset(y: kGuardian.slide).animation(.easeInOut(duration: 1.0))
-            .onAppear { self.kGuardian.addObserver() }
-            .onDisappear { self.kGuardian.removeObserver() }
             .padding(.horizontal)
             .navigationBarTitle(homeViewModelData.className, displayMode: .inline)
             .toolbar {

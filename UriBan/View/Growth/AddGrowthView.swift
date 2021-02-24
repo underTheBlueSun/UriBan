@@ -22,9 +22,6 @@ struct AddGrowthView: View {
         
     // 성명을 입력해야 완료 버튼이 활성화 되게
     @State private var isValidName = false
-    // 키보드 나타나면 텍스트에디터 위로 올림
-    @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 1)
-    
     // .fixed(30) 안하고 .flexible() 하면 세로로 꽉 채움
     var columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 10)
     
@@ -71,22 +68,19 @@ struct AddGrowthView: View {
                         Spacer()
                         
                         HStack(spacing: 0) {
-                            TabButton(selected: $growthViewModelData.status, title: "긍정", animation: animation, gubun: 1)
-                            TabButton(selected: $growthViewModelData.status, title: "부정", animation: animation, gubun: 2)
+                            TabButton(selected: $growthViewModelData.status, title: "좋아요", animation: animation, gubun: 1)
+                            TabButton(selected: $growthViewModelData.status, title: "고쳐요", animation: animation, gubun: 2)
                         }
-                        .frame(width: 100)
+                        .frame(width: 110)
                         .background(Color.gray.opacity(0.3))
                         .clipShape(Capsule())
                         
                     }
                     HStack {
-                        TextEditor(text: $growthViewModelData.content).frame(height:200).fixedSize(horizontal: false, vertical: true)
+                        TextEditor(text: $growthViewModelData.content).frame(height:110).fixedSize(horizontal: false, vertical: true)
 //                        FirstResponderTextEditor(text: $growthViewModelData.content).frame(height:150).fixedSize(horizontal: false, vertical: true)
                     }
                 } // VStack
-//                .offset(y: kGuardian.slide).animation(.easeInOut(duration: 1.0))
-                .onAppear { self.kGuardian.addObserver() }
-                .onDisappear { self.kGuardian.removeObserver() }
                 .padding(.horizontal)
                 .navigationBarTitle(homeViewModelData.className, displayMode: .inline)
                 .toolbar {

@@ -19,9 +19,6 @@ struct DetailGrowthView: View {
     // 체크리스트 배열
     @State var selections: [String] = []
     
-    // 키보드 나타나면 텍스트에디터 위로 올림
-    @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 1)
-    
     var growth: Growth02
 //    var uribanClassName: String
         
@@ -79,22 +76,19 @@ struct DetailGrowthView: View {
                     Spacer()
                     
                     HStack(spacing: 0) {
-                        TabButton(selected: $growthViewModelData.status, title: "긍정", animation: animation, gubun: 1)
-                        TabButton(selected: $growthViewModelData.status, title: "부정", animation: animation, gubun: 2)
+                        TabButton(selected: $growthViewModelData.status, title: "좋아요", animation: animation, gubun: 1)
+                        TabButton(selected: $growthViewModelData.status, title: "고쳐요", animation: animation, gubun: 2)
                     }
-                    .frame(width: 80)
+                    .frame(width: 110)
                     .background(Color.gray.opacity(0.3))
                     .clipShape(Capsule())
                     
                 }
                 HStack {
-                    TextEditor(text: $growthViewModelData.content).frame(height:200).fixedSize(horizontal: false, vertical: true)
+                    TextEditor(text: $growthViewModelData.content).frame(height:110)
 //                        FirstResponderTextEditor(text: $growthViewModelData.content).frame(height:150).fixedSize(horizontal: false, vertical: true)
                 }
             } // VStack
-            .offset(y: kGuardian.slide).animation(.easeInOut(duration: 1.0))
-            .onAppear { self.kGuardian.addObserver() }
-            .onDisappear { self.kGuardian.removeObserver() }
             .padding(.horizontal)
             .navigationBarTitle(homeViewModelData.className, displayMode: .inline)
             .toolbar {

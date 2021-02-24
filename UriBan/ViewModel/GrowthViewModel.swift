@@ -16,7 +16,7 @@ class GrowthViewModel: ObservableObject {
     @Published var number = 0
     @Published var name = ""
     @Published var content = ""
-    @Published var status = "긍정"
+    @Published var status = "좋아요"
     
     @Published var openNewPage = false
     
@@ -125,10 +125,10 @@ class GrowthViewModel: ObservableObject {
     func deInitData() {
         name = ""
         content = ""
-        status = "긍정"
+        status = "좋아요"
     }
     
-    // 월별 긍정 통계
+    // 월별 좋아요 통계
     func fetchPositiveByMonth(uuid: String) {
         
         groupedPositive.removeAll()
@@ -136,7 +136,7 @@ class GrowthViewModel: ObservableObject {
         
         guard let dbRef = try? Realm() else { return }
 //        let results = dbRef.objects(Growth02.self).filter("uuid == %@", uuid)
-        let results = dbRef.objects(Growth02.self).filter("uuid == '\(uuid)' and status == '긍정'")
+        let results = dbRef.objects(Growth02.self).filter("uuid == '\(uuid)' and status == '좋아요'")
         self.growthsByMonth = results.compactMap({ (growth) -> Growth02? in return growth })
         
         // 월별 group by
@@ -147,14 +147,14 @@ class GrowthViewModel: ObservableObject {
             groupedToArrPositive.append(Double(item.value))
         }
     }
-    // 월별 부정 통계
+    // 월별 고쳐요 통계
     func fetchNegativeByMonth(uuid: String) {
         
         groupedNegative.removeAll()
         groupedToArrNegative.removeAll()
         
         guard let dbRef = try? Realm() else { return }
-        let results = dbRef.objects(Growth02.self).filter("uuid == '\(uuid)' and status == '부정'")
+        let results = dbRef.objects(Growth02.self).filter("uuid == '\(uuid)' and status == '고쳐요'")
         self.growthsByMonth = results.compactMap({ (growth) -> Growth02? in return growth })
         
         // 월별 group by
@@ -166,7 +166,7 @@ class GrowthViewModel: ObservableObject {
         }
     }
     
-    // 학생별 긍정 통계
+    // 학생별 좋아요 통계
     func fetchPositiveByStudent(uuid: String) {
         groupedPositiveStudent.removeAll()
         guard let dbRef = try? Realm() else { return }
@@ -175,7 +175,7 @@ class GrowthViewModel: ObservableObject {
             // 이름 가져오기
             guard let studentObject = dbRef.objects(Student05.self).filter("uuid == '\(uuid)' and number == \(i)").first else { return }
             
-            let results = dbRef.objects(Growth02.self).filter("uuid == '\(uuid)' and status == '긍정' and name CONTAINS '\(String(format: "%02d", i))'")
+            let results = dbRef.objects(Growth02.self).filter("uuid == '\(uuid)' and status == '좋아요' and name CONTAINS '\(String(format: "%02d", i))'")
             self.growthsByStudent = results.compactMap({ (growth) -> Growth02? in return growth })
             if self.growthsByStudent.count != 0 {
                 groupedPositiveStudent.append((studentObject.name,self.growthsByStudent.count))
@@ -184,7 +184,7 @@ class GrowthViewModel: ObservableObject {
         }
     }
 
-    // 학생별 부정 통계
+    // 학생별 고쳐요 통계
     func fetchNegativeByStudent(uuid: String) {
         groupedNegativeStudent.removeAll()
         guard let dbRef = try? Realm() else { return }
@@ -193,7 +193,7 @@ class GrowthViewModel: ObservableObject {
             // 이름 가져오기
             guard let studentObject = dbRef.objects(Student05.self).filter("uuid == '\(uuid)' and number == \(i)").first else { return }
 
-            let results = dbRef.objects(Growth02.self).filter("uuid == '\(uuid)' and status == '부정' and name CONTAINS '\(String(format: "%02d", i))'")
+            let results = dbRef.objects(Growth02.self).filter("uuid == '\(uuid)' and status == '고쳐요' and name CONTAINS '\(String(format: "%02d", i))'")
             self.growthsByStudent = results.compactMap({ (growth) -> Growth02? in return growth })
             if self.growthsByStudent.count != 0 {
                 groupedNegativeStudent.append((studentObject.name,self.growthsByStudent.count))
@@ -201,14 +201,14 @@ class GrowthViewModel: ObservableObject {
         }
     }
     
-    // 개인별 긍정 통계
+    // 개인별 좋아요 통계
     func fetchPositiveByIndi(uuid: String, number: Int) {
         groupedPosiIndi.removeAll()
 //        groupedToArrPosiIndi.removeAll()
         guard let dbRef = try? Realm() else { return }
 //        guard let studentObject = dbRef.objects(Student05.self).filter("uuid == '\(uuid)' and number == \(number)").first else { return }
         
-        let results = dbRef.objects(Growth02.self).filter("uuid == '\(uuid)' and status == '긍정' and name CONTAINS '\(String(format: "%02d", number))'")
+        let results = dbRef.objects(Growth02.self).filter("uuid == '\(uuid)' and status == '좋아요' and name CONTAINS '\(String(format: "%02d", number))'")
         self.growthsByIndi = results.compactMap({ (growth) -> Growth02? in return growth })
         // 월별 group by
         for growth in growthsByIndi {
@@ -216,14 +216,14 @@ class GrowthViewModel: ObservableObject {
         }
     }
 
-    // 개인별 부정 통계
+    // 개인별 고쳐요 통계
     func fetchNegativeByIndi(uuid: String, number: Int) {
         groupedNegaIndi.removeAll()
 //        groupedToArrNegaIndi.removeAll()
         
         guard let dbRef = try? Realm() else { return }
         
-        let results = dbRef.objects(Growth02.self).filter("uuid == '\(uuid)' and status == '부정' and name CONTAINS '\(String(format: "%02d", number))'")
+        let results = dbRef.objects(Growth02.self).filter("uuid == '\(uuid)' and status == '고쳐요' and name CONTAINS '\(String(format: "%02d", number))'")
         self.growthsByIndi = results.compactMap({ (growth) -> Growth02? in return growth })
         // 월별 group by
         for growth in growthsByIndi {
