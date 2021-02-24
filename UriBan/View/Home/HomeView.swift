@@ -14,6 +14,7 @@ struct HomeView: View {
     @EnvironmentObject var homeViewModelData: HomeViewModel
     @EnvironmentObject var studentViewModelData: StudentViewModel
     @EnvironmentObject var growthViewModelData: GrowthViewModel
+    @EnvironmentObject var subjectViewModelData: SubjectViewModel
     
     var columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 2)
     

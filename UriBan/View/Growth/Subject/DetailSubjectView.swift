@@ -21,14 +21,14 @@ struct DetailSubjectView: View {
     // 키보드 나타나면 텍스트에디터 위로 올림
     @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 1)
     
-    var subject: Subject01
+    var subject: Subject02
         
     // 성명을 입력해야 완료 버튼이 활성화 되게
 //    @State private var isValidName = false
     
     var columns = Array(repeating: GridItem(.flexible(), spacing: 20), count: 10)    
     
-    init(subject: Subject01) {
+    init(subject: Subject02) {
         self.subject = subject
     }
     
@@ -89,6 +89,7 @@ struct DetailSubjectView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
                         subjectViewModelData.number = self.selections.joined(separator: "/")
+                        subjectViewModelData.count = self.selections.count
                         subjectViewModelData.updData(presentation: presentation)
                     }, label: {
                         Text("완료")

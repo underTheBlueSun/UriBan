@@ -31,6 +31,8 @@
 		1590449825C62D060069BF2A /* NavigationLazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1590449725C62D060069BF2A /* NavigationLazyView.swift */; };
 		15B8A44E25E4EB4400BEF676 /* BarChartExam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B8A44D25E4EB4400BEF676 /* BarChartExam.swift */; };
 		15B8A45225E53C9100BEF676 /* SwiftUIView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B8A45125E53C9100BEF676 /* SwiftUIView3.swift */; };
+		15B8A45525E5C76000BEF676 /* Subject02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B8A45425E5C76000BEF676 /* Subject02.swift */; };
+		15B8A45825E5CEB400BEF676 /* SubjectChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B8A45725E5CEB400BEF676 /* SubjectChartView.swift */; };
 		15C851BC25DFBE0B00F67FA4 /* DeleteAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C851BB25DFBE0B00F67FA4 /* DeleteAll.swift */; };
 		15C851C025E0796800F67FA4 /* GeometryGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C851BF25E0796800F67FA4 /* GeometryGetter.swift */; };
 		15C851C325E0798D00F67FA4 /* KeyboardGuardian.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C851C225E0798D00F67FA4 /* KeyboardGuardian.swift */; };
@@ -96,6 +98,8 @@
 		1590449725C62D060069BF2A /* NavigationLazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLazyView.swift; sourceTree = "<group>"; };
 		15B8A44D25E4EB4400BEF676 /* BarChartExam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartExam.swift; sourceTree = "<group>"; };
 		15B8A45125E53C9100BEF676 /* SwiftUIView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView3.swift; sourceTree = "<group>"; };
+		15B8A45425E5C76000BEF676 /* Subject02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject02.swift; sourceTree = "<group>"; };
+		15B8A45725E5CEB400BEF676 /* SubjectChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectChartView.swift; sourceTree = "<group>"; };
 		15C851BB25DFBE0B00F67FA4 /* DeleteAll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAll.swift; sourceTree = "<group>"; };
 		15C851BF25E0796800F67FA4 /* GeometryGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryGetter.swift; sourceTree = "<group>"; };
 		15C851C225E0798D00F67FA4 /* KeyboardGuardian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardGuardian.swift; sourceTree = "<group>"; };
@@ -263,6 +267,7 @@
 				15894CC625CE1C98001C2AB8 /* Student04.swift */,
 				1500B0CC25D76D0000E0EF04 /* Growth02.swift */,
 				15C851D225E0881C00F67FA4 /* Subject01.swift */,
+				15B8A45425E5C76000BEF676 /* Subject02.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 				FA94236925C0FA460072D0EE /* AddHomePageView.swift */,
 				15D7D5B425DBA72E007E7B20 /* HomeChartView.swift */,
 				15C851D925E0FC8300F67FA4 /* GrowthChartView.swift */,
+				15B8A45725E5CEB400BEF676 /* SubjectChartView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -392,6 +398,7 @@
 			files = (
 				15894CC725CE1C98001C2AB8 /* Student04.swift in Sources */,
 				15C851C325E0798D00F67FA4 /* KeyboardGuardian.swift in Sources */,
+				15B8A45525E5C76000BEF676 /* Subject02.swift in Sources */,
 				FA9CF39925C1277100E66C07 /* StudentViewModel.swift in Sources */,
 				15C851CD25E0844200F67FA4 /* AddSubjectView.swift in Sources */,
 				1500B0CD25D76D0000E0EF04 /* Growth02.swift in Sources */,
@@ -436,6 +443,7 @@
 				1550EEE325D510E000D09882 /* Student05.swift in Sources */,
 				15C851D325E0881C00F67FA4 /* Subject01.swift in Sources */,
 				15D7D5A225D8F301007E7B20 /* ItemByMonthView.swift in Sources */,
+				15B8A45825E5CEB400BEF676 /* SubjectChartView.swift in Sources */,
 				1590449825C62D060069BF2A /* NavigationLazyView.swift in Sources */,
 				1500B0C425D6858400E0EF04 /* Growth01.swift in Sources */,
 				FA94236A25C0FA460072D0EE /* AddHomePageView.swift in Sources */,

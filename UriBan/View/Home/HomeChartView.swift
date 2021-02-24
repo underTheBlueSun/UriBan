@@ -9,8 +9,10 @@ import SwiftUI
 import SwiftUICharts
 
 struct HomeChartView: View {
-    
+    @EnvironmentObject var studentViewModelData: StudentViewModel
     @EnvironmentObject var growthViewModelData: GrowthViewModel
+    @EnvironmentObject var subjectViewModelData: SubjectViewModel
+    
     @Environment(\.presentationMode) var presentation
 
     var uuid: String
@@ -21,6 +23,10 @@ struct HomeChartView: View {
     // 변수로 안받으면 제일 처음 막대그래프모양이 안보임.
     @State var arrPositive: [(String,Int)] = []
     @State var arrNegative: [(String,Int)] = []
+    
+    // 과제 달성율
+    @State var cntGoal: CGFloat = 0
+    @State var cntCurrent: CGFloat = 0
     
     // sheet를 멀티로 띄우기 위해
     @State var activeSheet: ActiveSheet?
@@ -95,12 +101,12 @@ struct HomeChartView: View {
     //                                .frame(width: (UIScreen.main.bounds.width) / 1.3, height: (UIScreen.main.bounds.width - 600 / 2))
 
                                 Circle()
-                                    .trim(from: 0, to: ( 10 / 24) )
+                                    .trim(from: 0, to: ( cntCurrent / cntGoal) )
                                     .stroke(Color.green, style: StrokeStyle(lineWidth: 10, lineCap: .round))
                                     .frame(width: 146, height: 165)
     //                                .frame(width: (UIScreen.main.bounds.width) / 1.3, height: (UIScreen.main.bounds.width - 600 / 2))
 
-                                Text(getPercent(current: 10, goal: 24) + "%")
+                                Text(getPercent(current: cntCurrent, goal: cntGoal) + "%")
                                     .font(.system(size: 30))
                                     .rotationEffect(.init(degrees: 90))
 
@@ -138,7 +144,7 @@ struct HomeChartView: View {
                     case .second:
                         GrowthChartView(uuid: self.uuid, className: self.className)
                     case .third:
-                        GrowthChartView(uuid: self.uuid, className: self.className)
+                        SubjectChartView(uuid: self.uuid, className: self.className).environmentObject(studentViewModelData)
                     case .fourth:
                         GrowthChartView(uuid: self.uuid, className: self.className)
                     }
@@ -147,16 +153,17 @@ struct HomeChartView: View {
 //            GrowthChartView(uuid: self.uuid, className: self.className)
 //        } // fullScreenCover
         .onAppear(perform: {
+            // 관찰 월별 통계 가져오기
             growthViewModelData.fetchPositiveByMonth(uuid: uuid)
-            growthViewModelData.fetchNegativeByMonth(uuid: uuid)
-            
-//            growthViewModelData.fetchPositiveByIndi(uuid: uuid, number: number)
-//            growthViewModelData.fetchNegativeByIndi(uuid: uuid, number: number)
-//            growthViewModelData.fetchDataStu(uuid: uuid, number: number)
+            growthViewModelData.fetchNegativeByMonth(uuid: uuid)            
             // 변수로 안받으면 제일 처음 막대그래프모양이 안보임.
             self.arrPositive = growthViewModelData.groupedPositive.sorted(by: <).map { (String($0)+"월", Int($1)) }
             self.arrNegative = growthViewModelData.groupedNegative.sorted(by: <).map { (String($0)+"월", Int($1)) }
-
+            
+            // 과제목표 = 과제 총건수 * 학생수
+            subjectViewModelData.fetchSubjectTotal(uuid: uuid)
+            self.cntGoal = CGFloat(subjectViewModelData.cntGoal * studentViewModelData.students.count)
+            self.cntCurrent = CGFloat(subjectViewModelData.cntCurrent)
         }) // onAppear()
         .onDisappear(perform: {
             presentation.wrappedValue.dismiss()

@@ -82,6 +82,7 @@ struct AddSubjectView: View {
                             // + "/" 을 붙힌 이유: 1을 조회하는데 11 ~19 애들이 나오면 안되니깐
 //                                growthViewModelData.name = "/" + self.selections.joined(separator: "/") + "/"
                             subjectViewModelData.number = self.selections.joined(separator: "/")
+                            subjectViewModelData.count = self.selections.count
                             subjectViewModelData.addData(uuid: homeViewModelData.uribanID , presentation: presentation)
                             
                         }, label: {

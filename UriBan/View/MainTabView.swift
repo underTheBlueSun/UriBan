@@ -53,6 +53,7 @@ struct MainTabView: View {
         // students 배열 미리 만들어 놓고 쓰기위해 (우리반 토글이 바뀌면 다시 students 배열 만듬)
         studentViewModelData.uuid = homeViewModelData.uribanID
         growthViewModelData.uuid = homeViewModelData.uribanID
+        subjectViewModelData.uuid = homeViewModelData.uribanID
         studentViewModelData.fetchData(uuid: homeViewModelData.uribanID)
     })
   }
@@ -66,6 +67,7 @@ private extension MainTabView {
         .environmentObject(homeViewModelData)
         .environmentObject(studentViewModelData)
         .environmentObject(growthViewModelData)
+        .environmentObject(subjectViewModelData)
         .tag(Tabs.home)
         .tabItem {
           Image(systemName: "house.fill")
@@ -81,6 +83,7 @@ private extension MainTabView {
         .environmentObject(homeViewModelData)
         .environmentObject(studentViewModelData)
         .environmentObject(growthViewModelData)
+        .environmentObject(subjectViewModelData)
         .tag(Tabs.myclass)
         .tabItem {
             Image(systemName: "person.2.fill")
@@ -92,7 +95,8 @@ private extension MainTabView {
         GrowthView()
             .environmentObject(homeViewModelData)
             .environmentObject(studentViewModelData)
-            .environmentObject(growthViewModelData)            
+            .environmentObject(growthViewModelData)
+            .environmentObject(subjectViewModelData)
         .tag(Tabs.growth)
           .tabItem {
               Image(systemName: "rectangle.stack.person.crop.fill")
@@ -104,6 +108,7 @@ private extension MainTabView {
     SubjectView()
         .environmentObject(homeViewModelData)
         .environmentObject(studentViewModelData)
+        .environmentObject(growthViewModelData)
         .environmentObject(subjectViewModelData)
 
       .tag(Tabs.subject)

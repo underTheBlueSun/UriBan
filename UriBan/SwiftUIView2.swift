@@ -9,7 +9,12 @@ import SwiftUI
 
 struct SwiftUIView2: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            let aaa: Double = 1/(2*24)
+            Text(String(aaa * 100))
+            Text(String(11.111))
+        }
+        
     }
 }
 

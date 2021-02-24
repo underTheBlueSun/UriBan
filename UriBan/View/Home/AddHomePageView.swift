@@ -11,6 +11,7 @@ struct AddHomePageView: View {
     @EnvironmentObject var modelData: HomeViewModel
     @EnvironmentObject var studentViewModelData: StudentViewModel
     @EnvironmentObject var growthViewModelData: GrowthViewModel
+    @EnvironmentObject var subjectViewModelData: SubjectViewModel
     
 //    스윗한 스위프트 p303 참고
     @Environment(\.presentationMode) var presentaion
@@ -90,9 +91,10 @@ struct AddHomePageView: View {
                             modelData.addData(presentation: presentaion)
 //                          // 우리반이 바뀌면 우리반id를 변수에 저장
                             modelData.setUriBanID()
-//                          // onAppear가 이상작동하여 여기서 미리 우리반학생배열, 관찰배열을 만듬
+//                          // onAppear가 이상작동하여 여기서 미리 우리반학생배열, 관찰배열등을 만듬
                             studentViewModelData.fetchData(uuid: modelData.uribanID)
                             growthViewModelData.fetchData(uuid: modelData.uribanID)
+                            subjectViewModelData.fetchData(uuid: modelData.uribanID)
                         }, label: {
                             Text("완료")
                         })

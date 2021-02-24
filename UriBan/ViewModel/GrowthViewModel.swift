@@ -214,14 +214,6 @@ class GrowthViewModel: ObservableObject {
         for growth in growthsByIndi {
             groupedPosiIndi[Calendar.current.dateComponents([.month], from: growth.yymmdd).month!, default: 0] += 1
         }
-//        for item in groupedPosiIndi.sorted(by: <) {
-//            groupedToArrPosiIndi.append(Double(item.value))
-//        }
-        
-//        print("uuid: " + uuid)
-//        print("number: " + String(number))
-//        print(groupedPosiIndi.sorted(by: <))
-
     }
 
     // 개인별 부정 통계
