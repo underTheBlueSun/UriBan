@@ -25,6 +25,10 @@ struct DetailStudentView: View {
     @State var images: [UIImage] = []
     @State private var isPresented: Bool = false
     @State var openChartView = false
+    
+    // sheet를 멀티로 띄우기 위해
+    @State var activeSheet: ActiveSheet?
+
         
     init(student: Student05) {
         self.student = student
@@ -62,8 +66,6 @@ struct DetailStudentView: View {
                     VStack {
                         HStack(spacing: 6) {
                             Image(systemName: String(student.number) + ".circle.fill").resizable().frame(width: 20, height: 20).foregroundColor(.systemTeal)
-                            // 메모에는 어떻게 onEditingChanged를 붙힐지 몰라서 완료버튼 풀어버림.
-    //                        TextField("성명", text: $studentViewModelData.name, onEditingChanged: { editing in self.isValidName = editing ? false : !studentViewModelData.name.isEmpty},
                             TextField("성명", text: $studentViewModelData.name).font(.system(size: 23)).frame(width: 80)
                             Spacer()
                             HStack(spacing: 0) {
@@ -96,7 +98,6 @@ struct DetailStudentView: View {
                         TextEditor(text: $studentViewModelData.memo).font(.system(size: 15)).frame(height: 180)
                     }
                     
-//                    BarChartView(data: ChartData(points: [8,23,54,32,12,37,7,23,43]), title: "월별관찰현황", form: ChartForm.large)
                 } // Vstack
                 .padding(.horizontal)
                 
@@ -104,7 +105,7 @@ struct DetailStudentView: View {
                 
                 VStack {
                     HStack {
-                        NavigationLink(destination: GrowthChartStu(uuid: student.uuid, number: student.number) ) {
+                        NavigationLink(destination: GrowthChartStu(uuid: student.uuid, number: student.number, name: student.name) ) {
                             Image(systemName: "chart.bar.xaxis").foregroundColor(Color.red)
                             Text("관찰 누가기록 보기").foregroundColor(Color.tabbarBackgroud)
                             Spacer()
@@ -112,7 +113,7 @@ struct DetailStudentView: View {
                     }
                     Divider()
                     HStack {
-                        NavigationLink(destination: SwiftUIView() ) {
+                        NavigationLink(destination: SubjectChartStu(uuid: student.uuid, number: student.number, name: student.name) ) {
                             Image(systemName: "chart.pie.fill").foregroundColor(Color.orange)
                             Text("과제 누가기록 보기").foregroundColor(Color.tabbarBackgroud)
                             Spacer()
@@ -131,71 +132,6 @@ struct DetailStudentView: View {
                 }
                 .padding()
                 
-//                VStack {
-//                    HStack {
-//                        ZStack {
-//                            // 월별 관찰 차트
-//                            BarChartView(data: ChartData(points: [8,23,54,32,12,37,7,23,43]), title: "Title", style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.blue, secondGradientColor: Color.blue, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Color.gray), form: ChartForm.small)
-//                            // zstack으로 이거 안달면 터치로 넘어가지가 않음
-//                            Button(action: { self.openChartView.toggle() }, label: {
-//    //                            Rectangle().foregroundColor(Color.red).frame(width: 100, height: 100)
-//                                Text("터치하여 상세관찰보기").font(.system(size: 10)).foregroundColor(Color.gray)
-//                            })
-//                        }
-//
-//                        BarChartView(data: ChartData(points: [8,23,54,32,12,37,7,23,43]), title: "Title", style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.red, secondGradientColor: Color.red, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Color.gray), form: ChartForm.small)
-//                    } // Hstack
-////                    .background(Color.gray)
-//
-//                    HStack {
-//                        // 과제 달성율
-//                        VStack {
-//                            HStack {
-//                                Text("과제달성율").bold().font(.system(size: 16))
-//        //                        Text("터치하여 월별통계보기").font(.system(size: 10)).foregroundColor(Color.gray)
-//                                Spacer()
-//                            }
-//                            ZStack {
-//                                Circle()
-//                                    .trim(from: 0, to: 1 )
-//                                    .stroke(Color.green.opacity(0.07), lineWidth: 10)
-//                                    .frame(width: 147, height: 55)
-//    //                                .frame(width: (UIScreen.main.bounds.width) / 1.3, height: (UIScreen.main.bounds.width - 600 / 2))
-//
-//                                Circle()
-//                                    .trim(from: 0, to: ( 10 / 24) )
-//                                    .stroke(Color.green, style: StrokeStyle(lineWidth: 10, lineCap: .round))
-//                                    .frame(width: 147, height: 55)
-//    //                                .frame(width: (UIScreen.main.bounds.width) / 1.3, height: (UIScreen.main.bounds.width - 600 / 2))
-//
-//                                Text(getPercent(current: 10, goal: 24) + "%")
-//                                    .font(.system(size: 17))
-//                                    .rotationEffect(.init(degrees: 90))
-//
-//                            } // ZStack
-//                            .rotationEffect(.init(degrees: -90))
-//                        } // VStack
-//                        .padding()
-//                        .background(Color.white)
-//                        .cornerRadius(15)
-//                        .shadow(color: Color.gray.opacity(0.7), radius: 10)
-//
-//                        // 상담
-//                        Button(action: {
-//    //                                self.openChartView.toggle()
-//
-//                        }, label: {
-//                            BarChartView(data: ChartData(points: [8,23,54,32,12,37,7,23,43]), title: "Title", form: ChartForm.small)
-//                        })
-//
-//
-//                    } // HStack
-////                    .background(Color.gray)
-//
-//                    Spacer()
-//                } // VStack
-//                .padding()
-//                .background(Color.tabbarBackgroud)
                 Spacer()
             } // Vstack
             .padding()
@@ -241,12 +177,6 @@ struct DetailStudentView: View {
                                 let configuration = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
                                 PhotoPicker(images: $images, configuration: configuration, isPresented: $isPresented)
             }
-//            .fullScreenCover(isPresented: $openChartView) {
-//                GrowthChartView(uuid: self.student.uuid, className: homeViewModelData.className)
-//            } // fullScreenCover
-//        } // ScrollView
-        
-        
 
     }
 }

@@ -21,10 +21,12 @@ struct GrowthChartStu: View {
     
     var uuid: String
     var number: Int
+    var name: String
     
-    init(uuid: String, number: Int) {
+    init(uuid: String, number: Int, name: String) {
         self.uuid = uuid
         self.number = number
+        self.name = name
     }
     
     // yyyy.mm.dd 가져오기
@@ -48,25 +50,13 @@ struct GrowthChartStu: View {
                 HStack {
                     BarChartView(data: ChartData(values: arrPositiveIndi), title: "좋아요",  style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.blue, secondGradientColor: Color.blue, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Color.gray), form: ChartForm.medium)
 
-                    BarChartView(data: ChartData(values: arrNegativeIndi), title: "이건좀", style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.red, secondGradientColor: Color.red, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Color.gray), form: ChartForm.medium)
+                    BarChartView(data: ChartData(values: arrNegativeIndi), title: "고쳐요", style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.red, secondGradientColor: Color.red, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Color.gray), form: ChartForm.medium)
                 } // HStack
-                .padding()
+                .padding(5)
                 
                 Divider()
                 
                 List {
-//                    HStack {
-//                        Text("날짜")
-//                        Spacer()
-//                        Text("인원수")
-//                        Spacer()
-//                        Text("상태")
-//                    } // HStack
-//                    .font(.system(size: 15))
-//                    .padding(.horizontal)
-//                    .background(Color.systemGray.opacity(0.2))
-                                        
-//                    ForEach(growthViewModelData.groupedPositive.sorted(by: <), id: \.key) { key, value in
                     ForEach(growthViewModelData.growths) { growth in
                         HStack {
                             Text(growth.content).frame(width: 280, alignment: .leading).font(.system(size: 15))
@@ -76,7 +66,7 @@ struct GrowthChartStu: View {
                                     .font(.system(size: 10))
                                 Spacer()
                                 Text(growth.status).frame(alignment: .trailing)
-                                    .foregroundColor(growth.status == "긍정" ? .blue : .red)
+                                    .foregroundColor(growth.status == "좋아요" ? .blue : .red)
                                     .font(.system(size: 10))
                             }
                             
@@ -84,49 +74,11 @@ struct GrowthChartStu: View {
                         
                     } // ForEach
                 } // List
-//                .environment(\.defaultMinListRowHeight, 5)
-                
-//                Divider()
-                
-//                List {
-//                    HStack {
-//                        // .font(.system(size: 15))
-//                        Text("날짜")
-//                        Spacer()
-//                        Text("인원수")
-//                        Spacer()
-//                        Text("상태")
-//                    } // HStack
-//                    .font(.system(size: 15))
-//                    .padding(.horizontal)
-//                    .background(Color.systemGray.opacity(0.2))
-//
-//                    ForEach(growthViewModelData.groupedNegative.sorted(by: <), id: \.key) { key, value in
-//                        HStack {
-//                            Text(String(key) + "월")
-//                            Spacer()
-//                            Text(String(value) + "명")
-//                            Spacer()
-//                            Text("부정").foregroundColor(Color.red)
-//                        } // HStack
-//                        .font(.system(size: 15))
-//                        .padding(.horizontal)
-//                    } // ForEach
-//                } // List
-//                .environment(\.defaultMinListRowHeight, 5)
-                
-//                Spacer()
-                
+                .environment(\.defaultMinListRowHeight, 5)
+
                 
             } // VStack
-//            .padding()
-            .navigationBarTitle("학생별 관찰 통계", displayMode: .inline)
-//            .toolbar {
-//                ToolbarItem(placement: .navigationBarLeading) {
-//                    Button(action: { presentation.wrappedValue.dismiss() }, label: { Text("닫기") })
-//                }
-//            } // toolbar
-//        } // NavigationView
+            .navigationBarTitle(self.name, displayMode: .inline)
         .onAppear(perform: {
             growthViewModelData.fetchPositiveByIndi(uuid: uuid, number: number)
             growthViewModelData.fetchNegativeByIndi(uuid: uuid, number: number)
@@ -134,9 +86,6 @@ struct GrowthChartStu: View {
             // 변수로 안받으면 제일 처음 막대그래프모양이 안보임.
             self.arrPositiveIndi = growthViewModelData.groupedPosiIndi.sorted(by: <).map { (String($0)+"월", Int($1)) }
             self.arrNegativeIndi = growthViewModelData.groupedNegaIndi.sorted(by: <).map { (String($0)+"월", Int($1)) }
-
-//            }
-            
         }) // onAppear()
         .onDisappear(perform: {
             presentation.wrappedValue.dismiss()

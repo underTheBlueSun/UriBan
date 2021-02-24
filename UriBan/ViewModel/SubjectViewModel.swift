@@ -118,6 +118,8 @@ class SubjectViewModel: ObservableObject {
 
     // 전체 달성율 구하기
     func fetchSubjectTotal(uuid: String) {
+        self.cntGoal = 0
+        self.cntCurrent = 0
         guard let dbRef = try? Realm() else { return }
         // 전체 과제건수와 과제건수별 인원수 합산 구하기
 //        self.cntGoal = results.compactMap({ (subject) -> Subject02? in return subject }).count
@@ -158,7 +160,16 @@ class SubjectViewModel: ObservableObject {
             cntByMonth[Calendar.current.dateComponents([.month], from: subject.yymmdd).month!, default: 0] += 1
             achByMonth[Calendar.current.dateComponents([.month], from: subject.yymmdd).month!, default: 0] += subject.count
         }
-
+    }
+    
+    // 개인별 달성율 구하기
+    func fetchSubjectIndi(uuid: String, number: Int) {
+        self.cntGoal = 0
+        self.cntCurrent = 0
+        guard let dbRef = try? Realm() else { return }
+        // 전체 과제건수와 과제건수별 인원수 합산 구하기
+        self.cntGoal = dbRef.objects(Subject02.self).filter("uuid == '\(uuid)'").count
+        self.cntCurrent = dbRef.objects(Subject02.self).filter("uuid == '\(uuid)' and number CONTAINS '\(String(format: "%02d", number))'").count
     }
   
 }

@@ -77,6 +77,7 @@ struct HomeView: View {
                         } // ZStack
                     } // ForEach
                 } // LazyVGrid
+                
             } // ScrollView
             .background(Color.white)
             .navigationBarTitle("홈", displayMode: .inline)

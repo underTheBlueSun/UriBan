@@ -46,6 +46,7 @@
 		15C851E025E2065100F67FA4 /* DonutChartExam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C851DF25E2065100F67FA4 /* DonutChartExam.swift */; };
 		15C851E425E3E5EB00F67FA4 /* SwiftUIView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C851E325E3E5EB00F67FA4 /* SwiftUIView2.swift */; };
 		15C851E825E460BD00F67FA4 /* GrowthChartStu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C851E725E460BD00F67FA4 /* GrowthChartStu.swift */; };
+		15CC4CBD25E653F800F684C9 /* SubjectChartStu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CC4CBC25E653F800F684C9 /* SubjectChartStu.swift */; };
 		15D7D5A225D8F301007E7B20 /* ItemByMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D7D5A125D8F301007E7B20 /* ItemByMonthView.swift */; };
 		15D7D5A625D8FB5C007E7B20 /* FirstResponderTextFIeld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D7D5A525D8FB5C007E7B20 /* FirstResponderTextFIeld.swift */; };
 		15D7D5A925D90375007E7B20 /* FirstResponderTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D7D5A825D90375007E7B20 /* FirstResponderTextEditor.swift */; };
@@ -113,6 +114,7 @@
 		15C851DF25E2065100F67FA4 /* DonutChartExam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutChartExam.swift; sourceTree = "<group>"; };
 		15C851E325E3E5EB00F67FA4 /* SwiftUIView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView2.swift; sourceTree = "<group>"; };
 		15C851E725E460BD00F67FA4 /* GrowthChartStu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowthChartStu.swift; sourceTree = "<group>"; };
+		15CC4CBC25E653F800F684C9 /* SubjectChartStu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectChartStu.swift; sourceTree = "<group>"; };
 		15D7D5A125D8F301007E7B20 /* ItemByMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemByMonthView.swift; sourceTree = "<group>"; };
 		15D7D5A525D8FB5C007E7B20 /* FirstResponderTextFIeld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstResponderTextFIeld.swift; sourceTree = "<group>"; };
 		15D7D5A825D90375007E7B20 /* FirstResponderTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstResponderTextEditor.swift; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 				15575E6925CF6CB7007510C4 /* DetailStudentView.swift */,
 				1550EEDF25D4C5CA00D09882 /* UriBanView.swift */,
 				15C851E725E460BD00F67FA4 /* GrowthChartStu.swift */,
+				15CC4CBC25E653F800F684C9 /* SubjectChartStu.swift */,
 			);
 			path = MyClass;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				15D7D5A625D8FB5C007E7B20 /* FirstResponderTextFIeld.swift in Sources */,
 				1550EEE025D4C5CA00D09882 /* UriBanView.swift in Sources */,
 				15C851C025E0796800F67FA4 /* GeometryGetter.swift in Sources */,
+				15CC4CBD25E653F800F684C9 /* SubjectChartStu.swift in Sources */,
 				FA012FF125CCF73000D580A6 /* Student03.swift in Sources */,
 				FA94236225C0F9D00072D0EE /* Student01.swift in Sources */,
 				FA94235925C0F94A0072D0EE /* SearchDefaultRealm.swift in Sources */,

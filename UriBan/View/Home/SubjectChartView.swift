@@ -31,7 +31,7 @@ struct SubjectChartView: View {
         NavigationView {
             VStack {
                 HStack {
-                    BarChartView(data: ChartData(values: countByStudent), title: "과제달성",  style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.blue, secondGradientColor: Color.blue, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Color.gray), form: ChartForm.extraLarge)
+                    BarChartView(data: ChartData(values: countByStudent), title: "과제달성(건수)",  style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.blue, secondGradientColor: Color.blue, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Color.gray), form: ChartForm.extraLarge)
                     
 //                    BarChartView(data: ChartData(values: arrNegativeStudent), title: "학생별(부정)", style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.red, secondGradientColor: Color.red, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Color.gray), form: ChartForm.medium)
                 } // HStack

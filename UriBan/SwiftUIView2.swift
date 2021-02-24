@@ -9,10 +9,24 @@ import SwiftUI
 
 struct SwiftUIView2: View {
     var body: some View {
-        VStack {
-            let aaa: Double = 1/(2*24)
-            Text(String(aaa * 100))
-            Text(String(11.111))
+        NavigationView {
+            List {
+//                Text("aaaa")
+            }
+            
+            .navigationBarColor(backgroundColor: .systemTeal, tintColor: .white)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+//                        studentViewModelData.openNewPage.toggle()
+                    }, label: {
+                        Image(systemName: "plus.circle.fill").font(.title2).foregroundColor(.white)
+                    })
+                } // ToolbarItem
+            } // toolbar
+            
+            Text("bbbbb")
+            Spacer()
         }
         
     }

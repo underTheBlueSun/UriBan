@@ -11,10 +11,6 @@ import SwiftUI
 
 struct UriBanView: View {
     
-//    var uribanID: String
-//    var uribanClassName: String
-
-//    @StateObject var studentViewModelData: StudentViewModel = StudentViewModel()
     @EnvironmentObject var studentViewModelData: StudentViewModel
     @EnvironmentObject var homeViewModelData: HomeViewModel
     @EnvironmentObject var growthViewModelData: GrowthViewModel
@@ -22,6 +18,7 @@ struct UriBanView: View {
     var body: some View {
         
         NavigationView {
+            
             List {
                 ForEach(studentViewModelData.students) { student in
                     NavigationLink(destination: DetailStudentView(student: student)
@@ -35,10 +32,7 @@ struct UriBanView: View {
                         } // Hstack
                     } // NavigationLink
                 } // ForEach
-//                    .padding()
             } // List
-//            .background(Color.white)
-//            .navigationBarTitle(homeViewModelData.className, displayMode: .inline)
             .navigationBarTitle(homeViewModelData.uribanClassName, displayMode: .inline)
             .navigationBarColor(backgroundColor: .systemTeal, tintColor: .white)
             .toolbar {
