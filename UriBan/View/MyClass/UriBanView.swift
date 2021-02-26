@@ -14,6 +14,7 @@ struct UriBanView: View {
     @EnvironmentObject var studentViewModelData: StudentViewModel
     @EnvironmentObject var homeViewModelData: HomeViewModel
     @EnvironmentObject var growthViewModelData: GrowthViewModel
+    @EnvironmentObject var subjectViewModelData: SubjectViewModel
     
     var body: some View {
         
@@ -25,6 +26,7 @@ struct UriBanView: View {
                                     .environmentObject(studentViewModelData)
                                     .environmentObject(homeViewModelData)
                                     .environmentObject(growthViewModelData)
+                                    .environmentObject(subjectViewModelData)
                     ) {
                         HStack {
                             Image(systemName: String(student.number) + ".circle.fill").resizable().frame(width: 20, height: 20).foregroundColor(.systemTeal)

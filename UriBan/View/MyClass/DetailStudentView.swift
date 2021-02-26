@@ -14,6 +14,7 @@ struct DetailStudentView: View {
     @EnvironmentObject var studentViewModelData: StudentViewModel
     @EnvironmentObject var homeViewModelData: HomeViewModel
     @EnvironmentObject var growthViewModelData: GrowthViewModel
+    @EnvironmentObject var subjectViewModelData: SubjectViewModel
     
     @Environment(\.presentationMode) var presentaion
         
@@ -113,7 +114,7 @@ struct DetailStudentView: View {
                     }
                     Divider()
                     HStack {
-                        NavigationLink(destination: SubjectChartStu(uuid: student.uuid, number: student.number, name: student.name) ) {
+                        NavigationLink(destination: SubjectChartStu(uuid: student.uuid, number: student.number, name: student.name)) {
                             Image(systemName: "chart.pie.fill").foregroundColor(Color.orange)
                             Text("과제 누가기록 보기").foregroundColor(Color.tabbarBackgroud)
                             Spacer()
@@ -121,7 +122,7 @@ struct DetailStudentView: View {
                     }
                     Divider()
                     HStack {
-                        NavigationLink(destination: SwiftUIView() ) {
+                        NavigationLink(destination: CounselChartStu(uuid: student.uuid, number: student.number, name: student.name) ) {
                             Image(systemName: "chart.bar.fill").foregroundColor(Color.green)
                             Text("상담 누가기록 보기").foregroundColor(Color.tabbarBackgroud)
                             Spacer()
@@ -173,7 +174,7 @@ struct DetailStudentView: View {
                 // 상세화면에 있다가 다른 곳 탭한후 다시 탭하면 rootview로 돌아가려고
                 presentaion.wrappedValue.dismiss()
             })
-            .sheet(isPresented: $isPresented) {
+            .fullScreenCover(isPresented: $isPresented) {
                                 let configuration = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
                                 PhotoPicker(images: $images, configuration: configuration, isPresented: $isPresented)
             }

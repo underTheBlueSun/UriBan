@@ -96,6 +96,8 @@ struct HomeView: View {
                     .environmentObject(growthViewModelData)
             }
         } // NavigationView
+        // 이거 쓰면  navigationbartitle nslayoutconstraint 안생기긴 하지만 toolbar로 바꾸길 바람
+//        .navigationViewStyle(StackNavigationViewStyle())
 
     }
 }

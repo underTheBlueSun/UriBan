@@ -15,6 +15,7 @@ struct MainTabView: View {
     @StateObject var studentViewModelData = StudentViewModel()
     @StateObject var growthViewModelData = GrowthViewModel()
     @StateObject var subjectViewModelData = SubjectViewModel()
+    @StateObject var counselViewModelData = CounselViewModel()
     
     init() {
         // 탭바 배경 색깔 변경. 2021.1월 iOS 14.3 버그로 추정
@@ -54,6 +55,7 @@ struct MainTabView: View {
         studentViewModelData.uuid = homeViewModelData.uribanID
         growthViewModelData.uuid = homeViewModelData.uribanID
         subjectViewModelData.uuid = homeViewModelData.uribanID
+        counselViewModelData.uuid = homeViewModelData.uribanID
         studentViewModelData.fetchData(uuid: homeViewModelData.uribanID)
     })
   }
@@ -68,6 +70,7 @@ private extension MainTabView {
         .environmentObject(studentViewModelData)
         .environmentObject(growthViewModelData)
         .environmentObject(subjectViewModelData)
+        .environmentObject(counselViewModelData)
         .tag(Tabs.home)
         .tabItem {
           Image(systemName: "house.fill")
@@ -84,6 +87,7 @@ private extension MainTabView {
         .environmentObject(studentViewModelData)
         .environmentObject(growthViewModelData)
         .environmentObject(subjectViewModelData)
+        .environmentObject(counselViewModelData)
         .tag(Tabs.myclass)
         .tabItem {
             Image(systemName: "person.2.fill")
@@ -96,7 +100,7 @@ private extension MainTabView {
             .environmentObject(homeViewModelData)
             .environmentObject(studentViewModelData)
             .environmentObject(growthViewModelData)
-            .environmentObject(subjectViewModelData)
+//            .environmentObject(subjectViewModelData)
         .tag(Tabs.growth)
           .tabItem {
               Image(systemName: "rectangle.stack.person.crop.fill")
@@ -108,7 +112,7 @@ private extension MainTabView {
     SubjectView()
         .environmentObject(homeViewModelData)
         .environmentObject(studentViewModelData)
-        .environmentObject(growthViewModelData)
+//        .environmentObject(growthViewModelData)
         .environmentObject(subjectViewModelData)
 
       .tag(Tabs.subject)
@@ -119,7 +123,10 @@ private extension MainTabView {
   }
   
   var counsel: some View {
-    Text("상담")
+    CounselView()
+        .environmentObject(homeViewModelData)
+        .environmentObject(studentViewModelData)
+        .environmentObject(counselViewModelData)
       .tag(Tabs.counsel)
         .tabItem {
             Image(systemName: "doc.text.magnifyingglass")

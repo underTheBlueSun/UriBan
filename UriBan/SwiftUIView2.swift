@@ -9,25 +9,30 @@ import SwiftUI
 
 struct SwiftUIView2: View {
     var body: some View {
-        NavigationView {
-            List {
-//                Text("aaaa")
+        List{
+            HStack {
+                Text("aafdsfdsfds").frame(width: 280, alignment: .leading).font(.system(size: 15))
+                VStack {
+                    Text("2021.02.11")
+                        .frame(alignment: .trailing)
+                        .foregroundColor(.gray)
+                        .font(.system(size: 10))
+//                        .padding(.bottom, 1)
+                    Spacer()
+                    if "010343".contains(String(format: "%02d", 01)) == true {
+                        Image(systemName: "checkmark.circle.fill")
+                            .foregroundColor(Color.green)
+                            .font(.system(size: 12))
+    //                                        .frame(width: 10, height: 10)
+                    }
+                }
+
             }
             
-            .navigationBarColor(backgroundColor: .systemTeal, tintColor: .white)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-//                        studentViewModelData.openNewPage.toggle()
-                    }, label: {
-                        Image(systemName: "plus.circle.fill").font(.title2).foregroundColor(.white)
-                    })
-                } // ToolbarItem
-            } // toolbar
-            
-            Text("bbbbb")
-            Spacer()
         }
+//        .environment(\.defaultMinListRowHeight, 1)
+        
+        
         
     }
 }

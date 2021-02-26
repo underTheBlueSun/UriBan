@@ -5,10 +5,6 @@
 //  Created by underTheBlueSun on 2021/02/24.
 //
 
-
-
-import SwiftUI
-
 import SwiftUI
 import SwiftUICharts
 
@@ -62,18 +58,17 @@ struct SubjectChartStu: View {
             VStack {
                 VStack {
                     Text("과제달성율").bold().font(.system(size: 17)).foregroundColor(.black)
-                    Text("터치하여 월별통계보기").font(.system(size: 10)).foregroundColor(Color.gray)
                     ZStack {
                         Circle()
                             .trim(from: 0, to: 1 )
                             .stroke(Color.green.opacity(0.1), lineWidth: 10)
-                            .frame(width: 146, height: 165)
+                            .frame(width: 100, height: 100)
 //                                .frame(width: (UIScreen.main.bounds.width) / 1.3, height: (UIScreen.main.bounds.width - 600 / 2))
 
                         Circle()
                             .trim(from: 0, to: ( cntCurrent / cntGoal) )
                             .stroke(Color.green, style: StrokeStyle(lineWidth: 10, lineCap: .round))
-                            .frame(width: 146, height: 165)
+                            .frame(width: 100, height: 100)
 //                                .frame(width: (UIScreen.main.bounds.width) / 1.3, height: (UIScreen.main.bounds.width - 600 / 2))
 
                         Text(getPercent(current: cntCurrent, goal: cntGoal) + "%")
@@ -85,40 +80,47 @@ struct SubjectChartStu: View {
                 } // VStack
                 .padding()
                 .background(Color.white)
-                .cornerRadius(15)
-                .shadow(color: Color.gray.opacity(1), radius: 10)
+//                .cornerRadius(15)
+//                .shadow(color: Color.gray.opacity(1), radius: 10)
                 
                 Divider()
                 
-//                List {
-//                    ForEach(growthViewModelData.growths) { growth in
-//                        HStack {
-//                            Text(growth.content).frame(width: 280, alignment: .leading).font(.system(size: 15))
-//                            VStack {
-//                                Text(getDate(format: growth.yymmdd)).frame(alignment: .trailing)
-//                                    .foregroundColor(.gray)
-//                                    .font(.system(size: 10))
-//                                Spacer()
-//                                Text(growth.status).frame(alignment: .trailing)
-//                                    .foregroundColor(growth.status == "좋아요" ? .blue : .red)
-//                                    .font(.system(size: 10))
-//                            }
-//
-//                        }
-//
-//                    } // ForEach
-//                } // List
+                List {
+                    ForEach(subjectViewModelData.subjects) { subject in
+                        HStack {
+                            Text(subject.content).frame(width: 280, alignment: .leading).font(.system(size: 15))
+                            VStack {
+                                Text(getDate(format: subject.yymmdd))
+                                    .frame(alignment: .trailing)
+                                    .foregroundColor(.gray)
+                                    .font(.system(size: 10))
+                                Spacer()
+                                if subject.number.contains(String(format: "%02d", self.number)) == true {
+                                    Image(systemName: "checkmark.circle.fill")
+                                        .foregroundColor(Color.green)
+                                        .font(.system(size: 12))
+//                                        .frame(width: 10, height: 10)
+                                }
+                            }
+
+                        }
+
+                    } // ForEach
+                } // List
 //                .environment(\.defaultMinListRowHeight, 5)
 
                 
             } // VStack
             .navigationBarTitle(self.name, displayMode: .inline)
         .onAppear(perform: {
+            // 달성율 차트 가져오기
             subjectViewModelData.fetchSubjectIndi(uuid: uuid, number: number)
             self.cntGoal = CGFloat(subjectViewModelData.cntGoal)
             self.cntCurrent = CGFloat(subjectViewModelData.cntCurrent)
-            print(cntGoal)
-            print(cntCurrent)
+            
+            // 전체 데이터 가져오기
+            subjectViewModelData.fetchData(uuid: uuid)
+            
         }) // onAppear()
         .onDisappear(perform: {
             presentation.wrappedValue.dismiss()

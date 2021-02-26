@@ -39,6 +39,8 @@ class GrowthViewModel: ObservableObject {
     // 개인별 group by
     @Published var groupedPosiIndi: [Int: Int] = [:]
     @Published var groupedNegaIndi: [Int: Int] = [:]
+    @Published var groupedToArrPosiIndi: [Double] = []
+    @Published var groupedToArrNegaIndi: [Double] = []
 
     func fetchData(uuid: String) {
         guard let dbRef = try? Realm() else { return }
@@ -204,6 +206,7 @@ class GrowthViewModel: ObservableObject {
     // 개인별 좋아요 통계
     func fetchPositiveByIndi(uuid: String, number: Int) {
         groupedPosiIndi.removeAll()
+        groupedToArrPosiIndi.removeAll()
 //        groupedToArrPosiIndi.removeAll()
         guard let dbRef = try? Realm() else { return }
 //        guard let studentObject = dbRef.objects(Student05.self).filter("uuid == '\(uuid)' and number == \(number)").first else { return }
@@ -214,11 +217,16 @@ class GrowthViewModel: ObservableObject {
         for growth in growthsByIndi {
             groupedPosiIndi[Calendar.current.dateComponents([.month], from: growth.yymmdd).month!, default: 0] += 1
         }
+        // 화면이 작아서 스몰로 받으려고
+        for item in groupedPosiIndi.sorted(by: <) {
+            groupedToArrPosiIndi.append(Double(item.value))
+        }
     }
 
     // 개인별 고쳐요 통계
     func fetchNegativeByIndi(uuid: String, number: Int) {
         groupedNegaIndi.removeAll()
+        groupedToArrNegaIndi.removeAll()
 //        groupedToArrNegaIndi.removeAll()
         
         guard let dbRef = try? Realm() else { return }
@@ -229,9 +237,9 @@ class GrowthViewModel: ObservableObject {
         for growth in growthsByIndi {
             groupedNegaIndi[Calendar.current.dateComponents([.month], from: growth.yymmdd).month!, default: 0] += 1
         }
-//        for item in groupedNegaIndi.sorted(by: <) {
-//            groupedToArrNegaIndi.append(Double(item.value))
-//        }
+        for item in groupedNegaIndi.sorted(by: <) {
+            groupedToArrNegaIndi.append(Double(item.value))
+        }
     }
     
     // 개인별 조회
