@@ -31,9 +31,9 @@ struct CounselView: View {
                                     .environmentObject(studentViewModelData)
                                     .environmentObject(counselViewModelData)) {
                         HStack {
-                            Text(counsel.content).frame(width: 220, height: 15, alignment: .leading)
+                            Text(counsel.content).frame(width: 250, height: 20, alignment: .leading)
                             VStack {
-                                Text(getDate(format: counsel.yymmdd)).frame(width: 80, height: 15, alignment: .trailing)
+                                Text(getDate(format: counsel.yymmdd)).frame(alignment: .trailing)
                                     .foregroundColor(.gray)
                                     .font(.system(size: 10))
                                 Spacer()

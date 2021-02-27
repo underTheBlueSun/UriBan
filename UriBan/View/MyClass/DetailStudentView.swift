@@ -42,7 +42,7 @@ struct DetailStudentView: View {
     
     var body: some View {
         
-//        ScrollView {
+        ScrollView {
             VStack {
                 HStack {
                     
@@ -178,6 +178,7 @@ struct DetailStudentView: View {
                                 let configuration = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
                                 PhotoPicker(images: $images, configuration: configuration, isPresented: $isPresented)
             }
+        }
 
     }
 }

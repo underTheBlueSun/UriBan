@@ -13,20 +13,10 @@ struct ContentView: View {
     
     var body: some View {
        
-        NavigationView {
-            Text("사랑하는 은희, 예림, 민욱을 위해...")
-                .navigationBarTitle("^^", displayMode: .inline)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button(action: {
-                            presentation.wrappedValue.dismiss()
-                        }, label: {
-                            Text("취소")
-                        })
-                    }
-                } // toolbar
+//        NavigationView {
+            Text("aaaaa").frame(width: 250, height: 20, alignment: .leading).font(.system(size: 15))
              
-        }
+//        }
         
        
     }

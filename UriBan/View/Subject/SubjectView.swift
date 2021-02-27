@@ -37,9 +37,9 @@ struct SubjectView: View {
                                     .environmentObject(studentViewModelData)
                                     .environmentObject(subjectViewModelData)) {
                         HStack {
-                            Text(subject.content).frame(width: 250, alignment: .leading).font(.system(size: 15))
+                            Text(subject.content).frame(width: 250, height: 20, alignment: .leading).font(.system(size: 15))
                             VStack {
-                                Text(getDate(format: subject.yymmdd))
+                                Text(getDate(format: subject.yymmdd)).frame(alignment: .trailing)
                                     .frame(alignment: .trailing)
                                     .foregroundColor(.gray)
                                     .font(.system(size: 10))

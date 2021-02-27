@@ -40,7 +40,7 @@ struct GrowthView: View {
                                     .environmentObject(studentViewModelData)
                                     .environmentObject(growthViewModelData)) {
                         HStack {
-                            Text(growth.content).frame(width: 250, alignment: .leading).font(.system(size: 15))
+                            Text(growth.content).frame(width: 250, height: 20, alignment: .leading).font(.system(size: 15))
                             VStack(spacing:0) {
                                 Text(getDate(format: growth.yymmdd)).frame(alignment: .trailing)
                                     .foregroundColor(.gray)
