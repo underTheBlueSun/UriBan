@@ -25,9 +25,8 @@ struct AddGrowthView: View {
     // .fixed(30) 안하고 .flexible() 하면 세로로 꽉 채움
     var columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 10)
     
-//    init(uribanClassName: String) {
-//        self.uribanClassName = uribanClassName
-//    }
+    // 텍스트에디터가 키보드에 가리는거 방지
+//        @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 1)
     
     var body: some View {
         
@@ -64,7 +63,7 @@ struct AddGrowthView: View {
                 Divider()
                 VStack(spacing:0) {
                     HStack {
-                        Text("관찰기록").foregroundColor(.gray)
+                        Text("관찰기록").foregroundColor(.gray).font(.system(size: 13))
                         Spacer()
                         
                         HStack(spacing: 0) {
@@ -77,7 +76,9 @@ struct AddGrowthView: View {
                         
                     }
                     HStack {
-                        TextEditor(text: $growthViewModelData.content).frame(height:110).fixedSize(horizontal: false, vertical: true)
+                        TextEditor(text: $growthViewModelData.content).frame(height:300).fixedSize(horizontal: false, vertical: true)
+                            // 텍스트에디터가 키보드에 가리는거 방지
+//                                .background(GeometryGetter(rect: $kGuardian.rects[0]))
 //                        FirstResponderTextEditor(text: $growthViewModelData.content).frame(height:150).fixedSize(horizontal: false, vertical: true)
                     }
                 } // VStack

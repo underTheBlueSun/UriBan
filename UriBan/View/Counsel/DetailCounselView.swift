@@ -18,6 +18,10 @@ struct DetailCounselView: View {
     // 체크리스트 배열
     @State var selections: [String] = []
     
+    // 텍스트에디터가 키보드에 가리는거 방지
+//    @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 1)
+
+    
     var counsel: Counsel02
         
     var columns = Array(repeating: GridItem(.flexible(), spacing: 20), count: 10)
@@ -56,20 +60,24 @@ struct DetailCounselView: View {
                 
             } // Vstack
             .padding()
+            
             Divider()
+            
             VStack(spacing:0) {
                 HStack {
-                    Text("상담기록").foregroundColor(.gray)
+                    Text("상담기록").foregroundColor(.gray).font(.system(size: 13))
                     Spacer()
-                    
-                    HStack(spacing: 0) {
-                        TextField("상담시간", text: $counselViewModelData.time)
-                            .frame(width: 80).font(.system(size: 13))
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                    }
+                    Image(systemName: "clock.arrow.circlepath").font(.system(size: 13)).foregroundColor(.gray)
+                    TextField("상담시간", text: $counselViewModelData.time)
+                        .frame(width: 50).font(.system(size: 13))
+//                                .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
                 HStack {
-                    TextEditor(text: $counselViewModelData.content).frame(height:110).fixedSize(horizontal: false, vertical: true)
+                    // AddCounselView 와 height가 다른 이유: 300으로 하면 1번 학생 안보임
+                    TextEditor(text: $counselViewModelData.content).frame(height:200).fixedSize(horizontal: false, vertical: true)
+                        // 텍스트에디터가 키보드에 가리는거 방지
+//                        .background(GeometryGetter(rect: $kGuardian.rects[0]))
+
                 }
             } // VStack
             .padding(.horizontal)

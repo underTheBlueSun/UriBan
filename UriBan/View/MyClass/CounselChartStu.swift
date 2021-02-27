@@ -50,8 +50,8 @@ struct CounselChartStu: View {
                                 .frame(alignment: .trailing)
                                 .foregroundColor(.gray)
                                 .font(.system(size: 10))
-                            }
                         }
+                    }
 
                 } // ForEach
 

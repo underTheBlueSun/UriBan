@@ -17,6 +17,9 @@ struct AddCounselView: View {
     @State var selections: [String] = []
     
     @Namespace var animation
+    
+    // 텍스트에디터가 키보드에 가리는거 방지
+//    @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 1)
         
     var columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 10)
     
@@ -53,17 +56,17 @@ struct AddCounselView: View {
                 Divider()
                 VStack(spacing:0) {
                     HStack {
-                        Text("상담기록").foregroundColor(.gray)
+                        Text("상담기록").foregroundColor(.gray).font(.system(size: 13))
                         Spacer()
-                        
-                        HStack(spacing: 0) {
-                            TextField("상담시간", text: $counselViewModelData.time)
-                                .frame(width: 80).font(.system(size: 13))
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                        }
+                        Image(systemName: "clock.arrow.circlepath").font(.system(size: 13)).foregroundColor(.gray)
+                        TextField("상담시간", text: $counselViewModelData.time)
+                            .frame(width: 50).font(.system(size: 13))
+//                                .textFieldStyle(RoundedBorderTextFieldStyle())
                     }
                     HStack {
-                        TextEditor(text: $counselViewModelData.content).frame(height:110).fixedSize(horizontal: false, vertical: true)
+                        TextEditor(text: $counselViewModelData.content).frame(height:300).fixedSize(horizontal: false, vertical: true)
+                            // 텍스트에디터가 키보드에 가리는거 방지
+//                            .background(GeometryGetter(rect: $kGuardian.rects[0]))
 //                        FirstResponderTextEditor(text: $counselViewModelData.content).frame(height:100).fixedSize(horizontal: false, vertical: true)
                     }
                 } // VStack

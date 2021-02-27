@@ -20,10 +20,10 @@ struct DetailSubjectView: View {
     
     var subject: Subject02
         
-    // 성명을 입력해야 완료 버튼이 활성화 되게
-//    @State private var isValidName = false
+    // 텍스트에디터가 키보드에 가리는거 방지
+//    @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 1)
     
-    var columns = Array(repeating: GridItem(.flexible(), spacing: 20), count: 10)    
+    var columns = Array(repeating: GridItem(.flexible(), spacing: 20), count: 10)
     
     init(subject: Subject02) {
         self.subject = subject
@@ -62,11 +62,14 @@ struct DetailSubjectView: View {
             Divider()
             VStack(spacing:0) {
                 HStack {
-                    Text("과제기록").foregroundColor(.gray)
+                    Text("과제기록").foregroundColor(.gray).font(.system(size: 13))
                     Spacer()
                 }
                 HStack {
-                    TextEditor(text: $subjectViewModelData.content).frame(height:110).fixedSize(horizontal: false, vertical: true)
+                    // AddSubjectlView 와 height가 다른 이유: 300으로 하면 1번 학생 안보임
+                    TextEditor(text: $subjectViewModelData.content).frame(height:200).fixedSize(horizontal: false, vertical: true)
+                        // 텍스트에디터가 키보드에 가리는거 방지
+//                        .background(GeometryGetter(rect: $kGuardian.rects[0]))
                 }
             } // VStack
             .padding(.horizontal)
