@@ -66,8 +66,8 @@ struct DetailStudentView: View {
                     
                     VStack {
                         HStack(spacing: 6) {
-                            Image(systemName: String(student.number) + ".circle.fill").resizable().frame(width: 20, height: 20).foregroundColor(.systemTeal)
-                            TextField("성명", text: $studentViewModelData.name).font(.system(size: 23)).frame(width: 80)
+                            Image(systemName: String(student.number) + ".circle.fill").resizable().frame(width: 22, height: 22).foregroundColor(.systemTeal)
+                            TextField("성명", text: $studentViewModelData.name).font(.system(size: 30, weight: .heavy)).frame(width: 105)
                             Spacer()
                             HStack(spacing: 0) {
                                 TabButton(selected: $studentViewModelData.sex, title: "남자", animation: animation, gubun: 1)
@@ -76,14 +76,33 @@ struct DetailStudentView: View {
                             .frame(width: 80)
                             .background(Color.gray.opacity(0.3))
                             .clipShape(Capsule())
-                            .padding(.horizontal)
+                            .padding(.horizontal, 1)
+                        }
+                        .padding(.bottom, 2)
+                        HStack {
+                            Image(systemName: "iphone.homebutton.radiowaves.left.and.right").font(.system(size: 15))
+                            TextField("전호번호", text: $studentViewModelData.telNo)
+                                .keyboardType(.phonePad)
+                                .font(.system(size: 15))
+                                .foregroundColor(.gray)
+//                                .frame(width: 105)
+                            
+//                            Spacer()
+//                            HStack(spacing: 0) {
+//                                TabButton(selected: $studentViewModelData.sex, title: "남자", animation: animation, gubun: 1)
+//                                TabButton(selected: $studentViewModelData.sex, title: "여자", animation: animation, gubun: 2)
+//                            }
+//                            .frame(width: 80)
+//                            .background(Color.gray.opacity(0.3))
+//                            .clipShape(Capsule())
+//                            .padding(.horizontal)
                         }
                         HStack {
-                            TextField("전호번호", text: $studentViewModelData.telNo).keyboardType(.phonePad).font(.system(size: 15)).foregroundColor(.gray)
-                        }
-                        HStack {
+                            Image(systemName: "house.fill").font(.system(size: 15))
                             TextField("주소", text: $studentViewModelData.address).font(.system(size: 15)).foregroundColor(.gray)
                         }
+                        
+                        Spacer()
                     } // Vstack
                 } // Hstack
                 .padding(.horizontal)
@@ -92,7 +111,7 @@ struct DetailStudentView: View {
                 
                 VStack(spacing: 0) {
                     HStack {
-                        Text("메모").foregroundColor(.gray).font(.system(size: 15))
+                        Text("메모").foregroundColor(.gray).font(.system(size: 13))
                         Spacer()
                     }
                     HStack {

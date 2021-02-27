@@ -23,6 +23,11 @@ class CounselViewModel: ObservableObject {
     
     @Published var updateObject: Counsel02?
     
+    @Published var counselsByMonth: [Counsel02] = []
+    // 월별 group by
+    @Published var groupedCounsel: [Int: Int] = [:]
+    @Published var groupedToArrCounsel: [Double] = []
+    
     func fetchData(uuid: String) {
         guard let dbRef = try? Realm() else { return }
         let results = dbRef.objects(Counsel02.self).filter("uuid == %@", uuid)
@@ -104,6 +109,26 @@ class CounselViewModel: ObservableObject {
         count = 0
         content = ""
         time = ""
+    }
+    
+    // 월별 통계
+    func fetchByMonth(uuid: String) {
+        
+        groupedCounsel.removeAll()
+        groupedToArrCounsel.removeAll()
+        
+        guard let dbRef = try? Realm() else { return }
+//        let results = dbRef.objects(Growth02.self).filter("uuid == %@", uuid)
+        let results = dbRef.objects(Counsel02.self).filter("uuid == '\(uuid)'")
+        self.counselsByMonth = results.compactMap({ (counsel) -> Counsel02? in return counsel })
+        
+        // 월별 group by
+        for counsel in counselsByMonth {
+            groupedCounsel[Calendar.current.dateComponents([.month], from: counsel.yymmdd).month!, default: 0] += 1
+        }
+        for item in groupedCounsel.sorted(by: <) {
+            groupedToArrCounsel.append(Double(item.value))
+        }
     }
         
 }

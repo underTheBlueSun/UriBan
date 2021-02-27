@@ -116,6 +116,10 @@ struct SubjectChartStu: View {
             // 달성율 차트 가져오기
             subjectViewModelData.fetchSubjectIndi(uuid: uuid, number: number)
             self.cntGoal = CGFloat(subjectViewModelData.cntGoal)
+            // cntGoal = 0이면 nan% 라고 표시됨.
+            if self.cntGoal == 0 {
+                self.cntGoal = 1
+            }
             self.cntCurrent = CGFloat(subjectViewModelData.cntCurrent)
             
             // 전체 데이터 가져오기

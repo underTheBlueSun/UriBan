@@ -12,6 +12,7 @@ struct HomeChartView: View {
     @EnvironmentObject var studentViewModelData: StudentViewModel
     @EnvironmentObject var growthViewModelData: GrowthViewModel
     @EnvironmentObject var subjectViewModelData: SubjectViewModel
+    @EnvironmentObject var counselViewModelData: CounselViewModel
     
     @Environment(\.presentationMode) var presentation
 
@@ -27,6 +28,8 @@ struct HomeChartView: View {
     // 과제 달성율
     @State var cntGoal: CGFloat = 0
     @State var cntCurrent: CGFloat = 0
+    // 상담 월별 통계
+    @State var arrCounsel: [(String,Int)] = []
     
     // sheet를 멀티로 띄우기 위해
     @State var activeSheet: ActiveSheet?
@@ -52,15 +55,15 @@ struct HomeChartView: View {
                         BarChartView(data: ChartData(values: arrPositive), title: "좋아요",  style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.blue, secondGradientColor: Color.blue, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Color.gray), form: ChartForm.medium)
                         // BarChartView 는 버튼 액션이 안먹음
                         Button(action: { activeSheet = .first }, label: {
-                            Text("터치하여 월별통계보기").font(.system(size: 10)).foregroundColor(Color.gray).frame(height: 150, alignment: .top)
+                            Text("상세통계를 보려면 터치하세요").font(.system(size: 10)).foregroundColor(Color.gray).frame(height: 150, alignment: .top)
                         })
                     } // ZStack
                     
                     ZStack {
-                        BarChartView(data: ChartData(values: arrNegative), title: "이건좀", style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.red, secondGradientColor: Color.red, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Color.gray), form: ChartForm.medium)
+                        BarChartView(data: ChartData(values: arrNegative), title: "고쳐요", style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.red, secondGradientColor: Color.red, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Color.gray), form: ChartForm.medium)
                         // BarChartView 는 버튼 액션이 안먹음
                         Button(action: { activeSheet = .second }, label: {
-                            Text("터치하여 월별통계보기").font(.system(size: 10)).foregroundColor(Color.gray).frame(height: 150, alignment: .top)
+                            Text("상세통계를 보려면 터치하세요").font(.system(size: 10)).foregroundColor(Color.gray).frame(height: 150, alignment: .top)
                         })
                     } // ZStack
                     
@@ -74,7 +77,7 @@ struct HomeChartView: View {
                     Button(action: { activeSheet = .third }, label: {
                         VStack {
                             Text("과제달성율").bold().font(.system(size: 17)).foregroundColor(.black)
-                            Text("터치하여 월별통계보기").font(.system(size: 10)).foregroundColor(Color.gray)
+                            Text("상세통계를 보려면 터치하세요").font(.system(size: 10)).foregroundColor(Color.gray)
                             ZStack {
                                 Circle()
                                     .trim(from: 0, to: 1 )
@@ -104,11 +107,11 @@ struct HomeChartView: View {
                     
                     // 상담 차트
                     ZStack {
-                        BarChartView(data: ChartData(values: arrNegative), title: "이건좀", style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.red, secondGradientColor: Color.red, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Color.gray), form: ChartForm.medium)
+                        BarChartView(data: ChartData(values: arrNegative), title: "상담", style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.red, secondGradientColor: Color.red, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Color.gray), form: ChartForm.medium)
                         // BarChartView 는 버튼 액션이 안먹음
-                        Button(action: { activeSheet = .fourth }, label: {
-                            Text("터치하여 월별통계보기").font(.system(size: 10)).foregroundColor(Color.gray).frame(height: 150, alignment: .top)
-                        })
+//                        Button(action: { activeSheet = .fourth }, label: {
+//                            Text("터치하여 월별통계보기").font(.system(size: 10)).foregroundColor(Color.gray).frame(height: 150, alignment: .top)
+//                        })
                     } // ZStack
                     
                 } // HStack
@@ -145,7 +148,15 @@ struct HomeChartView: View {
             // 과제목표 = 과제 총건수 * 학생수
             subjectViewModelData.fetchSubjectTotal(uuid: uuid)
             self.cntGoal = CGFloat(subjectViewModelData.cntGoal * studentViewModelData.students.count)
+            // cntGoal = 0이면 nan% 라고 표시됨.
+            if self.cntGoal == 0 {
+                self.cntGoal = 1
+            }
             self.cntCurrent = CGFloat(subjectViewModelData.cntCurrent)
+            
+            // 상담 월별 통계 가져오기
+            counselViewModelData.fetchByMonth(uuid: uuid)
+            self.arrCounsel = counselViewModelData.groupedCounsel.sorted(by: <).map { (String($0)+"월", Int($1)) }
         }) // onAppear()
         .onDisappear(perform: {
             presentation.wrappedValue.dismiss()
