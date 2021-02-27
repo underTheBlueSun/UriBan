@@ -163,6 +163,7 @@ struct AddStudentView: View {
             .onDisappear(perform: studentViewModelData.deInitData)
         
         } // NavigationView
+//        .navigationViewStyle(StackNavigationViewStyle())
 
         
     }

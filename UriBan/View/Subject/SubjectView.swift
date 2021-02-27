@@ -14,6 +14,18 @@ struct SubjectView: View {
     @EnvironmentObject var homeViewModelData: HomeViewModel
     @EnvironmentObject var subjectViewModelData: SubjectViewModel
     
+    private func getDate(format: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd"
+        let current_date_string = formatter.string(from: format)
+        return current_date_string
+    }
+    
+    func getPercent(current: CGFloat, goal: CGFloat) -> String {
+        let per = (current / goal) * 100
+        return String(format: "%.1f", per)
+    }
+    
     var body: some View {
         
         NavigationView {
@@ -25,7 +37,19 @@ struct SubjectView: View {
                                     .environmentObject(studentViewModelData)
                                     .environmentObject(subjectViewModelData)) {
                         HStack {
-                            Text(subject.content).frame(width: 300, height: 15, alignment: .leading)
+                            Text(subject.content).frame(width: 250, alignment: .leading).font(.system(size: 15))
+                            VStack {
+                                Text(getDate(format: subject.yymmdd))
+                                    .frame(alignment: .trailing)
+                                    .foregroundColor(.gray)
+                                    .font(.system(size: 10))
+                                Spacer()
+                                Text(getPercent(current: CGFloat(subject.count), goal: CGFloat(studentViewModelData.students.count)) + "%")
+                                    .frame(alignment: .trailing)
+                                    .foregroundColor(.gray)
+                                    .font(.system(size: 10))
+                            }
+
                         } // Hstack
                     } // NavigationLink
                 } // ForEach
@@ -38,12 +62,13 @@ struct SubjectView: View {
                     Button(action: {
                         subjectViewModelData.openNewPage.toggle()
                     }, label: {
-                        if homeViewModelData.uribanID != "" { Image(systemName: "plus.circle.fill").font(.title2).foregroundColor(.white) }
+                        if studentViewModelData.students.count != 0 { Image(systemName: "plus.circle.fill").font(.title2).foregroundColor(.white) }
                     })
                 } // ToolbarItem
             } // toolbar
             
         } // NavigationView
+//        .navigationViewStyle(StackNavigationViewStyle())
         .fullScreenCover(isPresented: $subjectViewModelData.openNewPage) {
             AddSubjectView()
                 .environmentObject(studentViewModelData)

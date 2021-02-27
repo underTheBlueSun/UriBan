@@ -19,6 +19,10 @@ struct HomeView: View {
     var columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 2)
     
     @State var showingActionSheet = false
+    // sheet를 멀티로 띄우기 위해(백도어 ^^)
+    @State var activeSheet: ActiveSheet1?
+
+    
     var titles: [String] = ["수정하기", "삭제하기", "취소하기"]
     var buttonsArray: NSMutableArray = NSMutableArray()
     
@@ -27,11 +31,14 @@ struct HomeView: View {
         // 수정하기
         let button0: ActionSheet.Button = .default(Text(self.titles[0])) {
             homeViewModelData.updateObject = home
-            homeViewModelData.openNewPage.toggle()
+//            homeViewModelData.openNewPage.toggle()
+            activeSheet = .first
         }
         // 삭제하기
         let button1: ActionSheet.Button = .default(Text(self.titles[1])) {
             homeViewModelData.deleteData(object: home)
+            homeViewModelData.setUriBanID()
+            homeViewModelData.deInitData()
         }
         // 취소하기
         let button2: ActionSheet.Button = .cancel(Text(self.titles[2]))
@@ -82,22 +89,37 @@ struct HomeView: View {
             .background(Color.white)
             .navigationBarTitle("홈", displayMode: .inline)
             .navigationBarColor(backgroundColor: .systemTeal, tintColor: .white)
-            .navigationBarItems(trailing: Button(action: {homeViewModelData.openNewPage.toggle()}) {
+//            .navigationBarItems(trailing: Button(action: {homeViewModelData.openNewPage.toggle()}) {
+            .navigationBarItems(trailing: Button(action: { activeSheet = .first }) {
+                
 //                if homeViewModelData.homes.count > 10 {
 //                    
 //                }
                 Image(systemName: "plus.circle.fill")
                     .font(.title2)
             })
-            .fullScreenCover(isPresented: $homeViewModelData.openNewPage) {
-                AddHomePageView()
-                    .environmentObject(homeViewModelData)
-                    .environmentObject(studentViewModelData)
-                    .environmentObject(growthViewModelData)
+            .fullScreenCover(item: $activeSheet) { item in
+                    switch item {
+                    case .first:
+                        AddHomePageView()
+                            .environmentObject(homeViewModelData)
+                            .environmentObject(studentViewModelData)
+                            .environmentObject(growthViewModelData)
+                    case .second:
+                        ForYou()
+                    }
             }
+            .onLongPressGesture(minimumDuration: 1) {
+                activeSheet = .second
+            }
+//            .fullScreenCover(isPresented: $homeViewModelData.openNewPage) {
+//                AddHomePageView()
+//                    .environmentObject(homeViewModelData)
+//                    .environmentObject(studentViewModelData)
+//                    .environmentObject(growthViewModelData)
+//            }
         } // NavigationView
         // 이거 쓰면  navigationbartitle nslayoutconstraint 안생기긴 하지만 toolbar로 바꾸길 바람
-//        .navigationViewStyle(StackNavigationViewStyle())
 
     }
 }
@@ -111,6 +133,12 @@ struct HomeView_Previews: PreviewProvider {
     }
 }
 
-
+enum ActiveSheet1: Identifiable {
+    case first, second
+    
+    var id: Int {
+        hashValue
+    }
+}
 
 

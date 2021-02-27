@@ -21,6 +21,8 @@
 		15033CB725E9B4E000D98FAF /* AddCounselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15033CB625E9B4E000D98FAF /* AddCounselView.swift */; };
 		15033CBA25E9BAFC00D98FAF /* Counsel02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15033CB925E9BAFC00D98FAF /* Counsel02.swift */; };
 		15033CBD25E9BDB200D98FAF /* CounselChartStu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15033CBC25E9BDB200D98FAF /* CounselChartStu.swift */; };
+		15033CC425EA028F00D98FAF /* ForYou.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15033CC325EA028F00D98FAF /* ForYou.swift */; };
+		15033CC725EA067900D98FAF /* IfNotDream.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 15033CC625EA067900D98FAF /* IfNotDream.mp3 */; };
 		15199EE725D5F57300A35ECF /* PopRootViewExam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15199EE625D5F57300A35ECF /* PopRootViewExam.swift */; };
 		1535D8D825C6419300BC7E81 /* AddStudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1535D8D725C6419300BC7E81 /* AddStudentView.swift */; };
 		1546373D25CE36E600763674 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546373C25CE36E600763674 /* UIImageExtension.swift */; };
@@ -93,6 +95,8 @@
 		15033CB625E9B4E000D98FAF /* AddCounselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCounselView.swift; sourceTree = "<group>"; };
 		15033CB925E9BAFC00D98FAF /* Counsel02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counsel02.swift; sourceTree = "<group>"; };
 		15033CBC25E9BDB200D98FAF /* CounselChartStu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounselChartStu.swift; sourceTree = "<group>"; };
+		15033CC325EA028F00D98FAF /* ForYou.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYou.swift; sourceTree = "<group>"; };
+		15033CC625EA067900D98FAF /* IfNotDream.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = IfNotDream.mp3; sourceTree = "<group>"; };
 		15199EE625D5F57300A35ECF /* PopRootViewExam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopRootViewExam.swift; sourceTree = "<group>"; };
 		1535D8D725C6419300BC7E81 /* AddStudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentView.swift; sourceTree = "<group>"; };
 		1546373C25CE36E600763674 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
@@ -323,6 +327,8 @@
 				15D7D5B425DBA72E007E7B20 /* HomeChartView.swift */,
 				15C851D925E0FC8300F67FA4 /* GrowthChartView.swift */,
 				15B8A45725E5CEB400BEF676 /* SubjectChartView.swift */,
+				15033CC325EA028F00D98FAF /* ForYou.swift */,
+				15033CC625EA067900D98FAF /* IfNotDream.mp3 */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -407,6 +413,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15033CC725EA067900D98FAF /* IfNotDream.mp3 in Resources */,
 				FA94234C25C0F8740072D0EE /* Preview Assets.xcassets in Resources */,
 				FA94234925C0F8740072D0EE /* Assets.xcassets in Resources */,
 			);
@@ -483,6 +490,7 @@
 				15C851CA25E0842C00F67FA4 /* DetailSubjectView.swift in Sources */,
 				FAC0E1E825CCD0CC003C300C /* TabButton.swift in Sources */,
 				15D7D5A925D90375007E7B20 /* FirstResponderTextEditor.swift in Sources */,
+				15033CC425EA028F00D98FAF /* ForYou.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

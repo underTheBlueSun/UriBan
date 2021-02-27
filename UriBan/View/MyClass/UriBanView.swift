@@ -56,8 +56,16 @@ struct UriBanView: View {
 //                .environmentObject(studentViewModelData)
         } // fullScreenCover
         .onAppear() {
-            // init()에서 fetchData(uuid:)를 부르면 uuid를 못가져가서 바로 불렀음
-            studentViewModelData.fetchData(uuid: homeViewModelData.uribanID)
+            // 홈에서 삭제를 누르면 이상하게 여기 onAppear()가 불려짐. ㅠㅠ 그래서 setUriBanID() 가져옴.
+            homeViewModelData.setUriBanID()
+            
+            if homeViewModelData.uribanID == "" {
+                studentViewModelData.fetchData(uuid: "")
+            }else {
+                studentViewModelData.fetchData(uuid: homeViewModelData.uribanID)
+            }
+
+            
         }
    } // body
 }

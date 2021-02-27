@@ -72,7 +72,7 @@ struct SubjectChartStu: View {
 //                                .frame(width: (UIScreen.main.bounds.width) / 1.3, height: (UIScreen.main.bounds.width - 600 / 2))
 
                         Text(getPercent(current: cntCurrent, goal: cntGoal) + "%")
-                            .font(.system(size: 30))
+                            .font(.system(size: 27))
                             .rotationEffect(.init(degrees: 90))
 
                     } // ZStack
@@ -112,7 +112,7 @@ struct SubjectChartStu: View {
                 
             } // VStack
             .navigationBarTitle(self.name, displayMode: .inline)
-        .onAppear(perform: {
+            .onAppear(perform: {
             // 달성율 차트 가져오기
             subjectViewModelData.fetchSubjectIndi(uuid: uuid, number: number)
             self.cntGoal = CGFloat(subjectViewModelData.cntGoal)

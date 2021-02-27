@@ -40,12 +40,15 @@ struct GrowthView: View {
                                     .environmentObject(studentViewModelData)
                                     .environmentObject(growthViewModelData)) {
                         HStack {
-                            Text(growth.content).frame(width: 220, height: 15, alignment: .leading)
-                            VStack {
-                                Text(getDate(format: growth.yymmdd)).frame(width: 80, height: 15, alignment: .trailing)
+                            Text(growth.content).frame(width: 250, alignment: .leading).font(.system(size: 15))
+                            VStack(spacing:0) {
+                                Text(getDate(format: growth.yymmdd)).frame(alignment: .trailing)
                                     .foregroundColor(.gray)
                                     .font(.system(size: 10))
                                 Spacer()
+                                Text(growth.status).frame(alignment: .trailing)
+                                    .foregroundColor(growth.status == "좋아요" ? .blue : .red)
+                                    .font(.system(size: 10))
                             }
                         } // Hstack
                     } // NavigationLink
@@ -60,7 +63,7 @@ struct GrowthView: View {
                     Button(action: {
                         growthViewModelData.openNewPage.toggle()
                     }, label: {
-                        if homeViewModelData.uribanID != "" { Image(systemName: "plus.circle.fill").font(.title2).foregroundColor(.white) }
+                        if studentViewModelData.students.count != 0 { Image(systemName: "plus.circle.fill").font(.title2).foregroundColor(.white) }
                     })
                 } // ToolbarItem
             } // toolbar

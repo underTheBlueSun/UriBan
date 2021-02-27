@@ -101,7 +101,7 @@ struct DetailGrowthView: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
     //                        studentViewModelData.updateObject = nil
-                            presentation.wrappedValue.dismiss()
+//                            presentation.wrappedValue.dismiss()
 
                     }, label: {
                         Text("")

@@ -9,27 +9,26 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var aaa = ""
-
-    init() {
-            UITextView.appearance().backgroundColor = .clear
-        }
+    @Environment(\.presentationMode) var presentation
     
     var body: some View {
-        
-
-
-        VStack {
-            HStack {
-                Image(systemName: "clock.arrow.circlepath")
-                TextField("상담시간입력", text: $aaa)
-                    .font(.system(size: 13))
-                    .frame(width: 80)
-//                                .textFieldStyle(RoundedBorderTextFieldStyle())
-            }
-
+       
+        NavigationView {
+            Text("사랑하는 은희, 예림, 민욱을 위해...")
+                .navigationBarTitle("^^", displayMode: .inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(action: {
+                            presentation.wrappedValue.dismiss()
+                        }, label: {
+                            Text("취소")
+                        })
+                    }
+                } // toolbar
+             
         }
-//        .background(Color.red)
+        
+       
     }
 
 }

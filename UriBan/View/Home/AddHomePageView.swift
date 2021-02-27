@@ -101,7 +101,7 @@ struct AddHomePageView: View {
                     } // if
 
                 } // ToolbarItem
-            }
+            } // toolbar
             
         } // NavigationView
         .onAppear(perform: modelData.setUpInitialData)

@@ -13,6 +13,13 @@ struct CounselView: View {
     @EnvironmentObject var homeViewModelData: HomeViewModel
     @EnvironmentObject var counselViewModelData: CounselViewModel
     
+    private func getDate(format: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd"
+        let current_date_string = formatter.string(from: format)
+        return current_date_string
+    }
+    
     var body: some View {
         
         NavigationView {
@@ -24,7 +31,13 @@ struct CounselView: View {
                                     .environmentObject(studentViewModelData)
                                     .environmentObject(counselViewModelData)) {
                         HStack {
-                            Text(counsel.content).frame(width: 300, height: 15, alignment: .leading)
+                            Text(counsel.content).frame(width: 220, height: 15, alignment: .leading)
+                            VStack {
+                                Text(getDate(format: counsel.yymmdd)).frame(width: 80, height: 15, alignment: .trailing)
+                                    .foregroundColor(.gray)
+                                    .font(.system(size: 10))
+                                Spacer()
+                            }
                         } // Hstack
                     } // NavigationLink
                 } // ForEach
@@ -37,12 +50,13 @@ struct CounselView: View {
                     Button(action: {
                         counselViewModelData.openNewPage.toggle()
                     }, label: {
-                        if homeViewModelData.uribanID != "" { Image(systemName: "plus.circle.fill").font(.title2).foregroundColor(.white) }
+                        if studentViewModelData.students.count != 0 { Image(systemName: "plus.circle.fill").font(.title2).foregroundColor(.white) }
                     })
                 } // ToolbarItem
             } // toolbar
             
         } // NavigationView
+//        .navigationViewStyle(StackNavigationViewStyle())
         .fullScreenCover(isPresented: $counselViewModelData.openNewPage) {
             AddCounselView()
                 .environmentObject(studentViewModelData)
