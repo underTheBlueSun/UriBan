@@ -135,7 +135,15 @@ struct DetailGrowthView: View {
                 Spacer()
                 
                 VStack {
-                    Button(action: {growthViewModelData.deleteData(object: growth, presentation: presentation)}, label: { Text("삭제").foregroundColor(.red) })
+                    Text("길게 눌러 삭제하기").foregroundColor(.red)
+                        .onLongPressGesture(minimumDuration: 1) {
+                            growthViewModelData.deleteData(object: growth, presentation: presentation)
+                        }
+                    
+//                    Button(action: {
+//                            growthViewModelData.deleteData(object: growth, presentation: presentation)
+//
+//                    }, label: { Text("길게 눌러 삭제하기").foregroundColor(.red) })
                 }
                 .padding()
             } // Vstack

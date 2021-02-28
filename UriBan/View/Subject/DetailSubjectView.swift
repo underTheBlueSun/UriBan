@@ -117,7 +117,11 @@ struct DetailSubjectView: View {
                 Spacer()
                 
                 VStack {
-                    Button(action: {subjectViewModelData.deleteData(object: subject, presentation: presentation)}, label: { Text("삭제").foregroundColor(.red) })
+                    Text("길게 눌러 삭제하기").foregroundColor(.red)
+                        .onLongPressGesture(minimumDuration: 1) {
+                            subjectViewModelData.deleteData(object: subject, presentation: presentation)
+                        }
+//                    Button(action: {subjectViewModelData.deleteData(object: subject, presentation: presentation)}, label: { Text("삭제").foregroundColor(.red) })
                 }
                 .padding()
             } // Vstack
