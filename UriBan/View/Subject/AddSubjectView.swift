@@ -86,7 +86,10 @@ struct AddSubjectView: View {
                             subjectViewModelData.addData(uuid: homeViewModelData.uribanID , presentation: presentation)
                             
                         }, label: {
-                            Text("완료")
+                            if self.selections.count != 0 && subjectViewModelData.content != "" {
+                                Text("완료")
+                            }
+                            
                         })
                     } // ToolbarItem
                 } // toolbar

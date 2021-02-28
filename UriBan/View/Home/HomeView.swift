@@ -78,6 +78,12 @@ struct HomeView: View {
                                 .actionSheet( isPresented: $showingActionSheet ) {
                                     ActionSheet( title: Text("홈"), buttons: self.buttonsArray as! [ActionSheet.Button] )
                                 } // actionSheet
+//                                .popover(isPresented: $showingActionSheet) {
+//                                    VStack{
+//                                        Text("aaaa")
+//                                        Text("bbbb")
+//                                    }
+//                                  }
                                 Spacer()
                             } // VStack
                             .frame(width: 170, alignment: .trailing)
@@ -119,7 +125,7 @@ struct HomeView: View {
 //                    .environmentObject(growthViewModelData)
 //            }
         } // NavigationView
-        // 이거 쓰면  navigationbartitle nslayoutconstraint 안생기긴 하지만 toolbar로 바꾸길 바람
+        .navigationViewStyle(StackNavigationViewStyle())
 
     }
 }

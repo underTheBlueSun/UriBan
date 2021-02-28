@@ -63,6 +63,7 @@ struct GrowthChartStu: View {
                     ForEach(growthViewModelData.growths) { growth in
                         HStack {
                             Text(growth.content).frame(width: 280, alignment: .leading).font(.system(size: 15))
+                                .frame(minWidth: 0, maxWidth: 280, minHeight: 10, maxHeight: 100)
                             VStack(spacing:0) {
                                 Text(getDate(format: growth.yymmdd)).frame(alignment: .trailing)
                                     .foregroundColor(.gray)

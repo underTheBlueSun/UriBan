@@ -40,6 +40,7 @@ struct CounselChartStu: View {
                 ForEach(counselViewModelData.counsels) { counsel in
                     HStack {
                         Text(counsel.content).frame(width: 280, alignment: .leading).font(.system(size: 15))
+                            .frame(minWidth: 0, maxWidth: 280, minHeight: 10, maxHeight: 100)
                         VStack {
                             Text(getDate(format: counsel.yymmdd))
                                 .frame(alignment: .trailing)

@@ -89,7 +89,9 @@ struct AddCounselView: View {
                             counselViewModelData.addData(uuid: homeViewModelData.uribanID , presentation: presentation)
                             
                         }, label: {
-                            Text("완료")
+                            if self.selections.count != 0 && counselViewModelData.content != "" {
+                                Text("완료")
+                            }
                         })
                     } // ToolbarItem
                 } // toolbar

@@ -66,6 +66,7 @@ struct CounselView: View {
         .onAppear() {
             counselViewModelData.fetchData(uuid: homeViewModelData.uribanID)
         }
+        .navigationViewStyle(StackNavigationViewStyle())
 
         
    } // body

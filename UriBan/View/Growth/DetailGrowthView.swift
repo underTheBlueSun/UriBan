@@ -115,7 +115,9 @@ struct DetailGrowthView: View {
                             growthViewModelData.updData(presentation: presentation)
                             
                         }, label: {
-                            Text("완료")
+                            if self.selections.joined(separator: "/") != "" && growthViewModelData.content != "" {
+                                Text("완료")
+                            }
                         })
                     } // ToolbarItem
                 } // toolbar
@@ -126,8 +128,8 @@ struct DetailGrowthView: View {
                 })
                 .onDisappear(perform: {
                     growthViewModelData.deInitData()
-                    // 상세화면에 있다가 다른 곳 탭한후 다시 탭하면 rootview로 돌아가려고
-                    presentation.wrappedValue.dismiss()
+                    // .navigationViewStyle(StackNavigationViewStyle()) 이거때문. 아이패드와 같은 화면되게하려면 어쩔수없음 ㅠㅠ
+//                    presentation.wrappedValue.dismiss()
                 })
                 
                 Spacer()

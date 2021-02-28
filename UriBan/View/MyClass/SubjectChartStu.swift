@@ -89,6 +89,7 @@ struct SubjectChartStu: View {
                     ForEach(subjectViewModelData.subjects) { subject in
                         HStack {
                             Text(subject.content).frame(width: 280, alignment: .leading).font(.system(size: 15))
+                                .frame(minWidth: 0, maxWidth: 280, minHeight: 10, maxHeight: 100)
                             VStack {
                                 Text(getDate(format: subject.yymmdd))
                                     .frame(alignment: .trailing)

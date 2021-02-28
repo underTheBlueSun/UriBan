@@ -181,11 +181,12 @@ class HomeViewModel: ObservableObject {
         year = ""
         school = ""
         className = ""
-        if self.homes.count == 0 {
-            showMyClass = true
-        }else {
-            showMyClass = false
-        }
+        showMyClass = true
+//        if self.homes.count == 0 {
+//            showMyClass = true
+//        }else {
+//            showMyClass = false
+//        }
         
         
     }

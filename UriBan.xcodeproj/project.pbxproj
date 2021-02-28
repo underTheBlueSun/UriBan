@@ -23,6 +23,7 @@
 		15033CBD25E9BDB200D98FAF /* CounselChartStu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15033CBC25E9BDB200D98FAF /* CounselChartStu.swift */; };
 		15033CC425EA028F00D98FAF /* ForYou.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15033CC325EA028F00D98FAF /* ForYou.swift */; };
 		15033CC725EA067900D98FAF /* IfNotDream.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 15033CC625EA067900D98FAF /* IfNotDream.mp3 */; };
+		15033CD425EB145700D98FAF /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15033CD325EB145600D98FAF /* SwiftUIView.swift */; };
 		15199EE725D5F57300A35ECF /* PopRootViewExam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15199EE625D5F57300A35ECF /* PopRootViewExam.swift */; };
 		1535D8D825C6419300BC7E81 /* AddStudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1535D8D725C6419300BC7E81 /* AddStudentView.swift */; };
 		1546373D25CE36E600763674 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546373C25CE36E600763674 /* UIImageExtension.swift */; };
@@ -97,6 +98,7 @@
 		15033CBC25E9BDB200D98FAF /* CounselChartStu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounselChartStu.swift; sourceTree = "<group>"; };
 		15033CC325EA028F00D98FAF /* ForYou.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYou.swift; sourceTree = "<group>"; };
 		15033CC625EA067900D98FAF /* IfNotDream.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = IfNotDream.mp3; sourceTree = "<group>"; };
+		15033CD325EB145600D98FAF /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		15199EE625D5F57300A35ECF /* PopRootViewExam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopRootViewExam.swift; sourceTree = "<group>"; };
 		1535D8D725C6419300BC7E81 /* AddStudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentView.swift; sourceTree = "<group>"; };
 		1546373C25CE36E600763674 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				FA94234A25C0F8740072D0EE /* Preview Content */,
 				15C851E325E3E5EB00F67FA4 /* ContentView.swift */,
 				15B8A45125E53C9100BEF676 /* SwiftUIView3.swift */,
+				15033CD325EB145600D98FAF /* SwiftUIView.swift */,
 			);
 			path = UriBan;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 			files = (
 				15894CC725CE1C98001C2AB8 /* Student04.swift in Sources */,
 				15C851C325E0798D00F67FA4 /* KeyboardGuardian.swift in Sources */,
+				15033CD425EB145700D98FAF /* SwiftUIView.swift in Sources */,
 				15B8A45525E5C76000BEF676 /* Subject02.swift in Sources */,
 				FA9CF39925C1277100E66C07 /* StudentViewModel.swift in Sources */,
 				15C851CD25E0844200F67FA4 /* AddSubjectView.swift in Sources */,
@@ -555,6 +559,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -609,6 +614,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

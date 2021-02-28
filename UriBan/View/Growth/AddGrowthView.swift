@@ -103,7 +103,9 @@ struct AddGrowthView: View {
                             growthViewModelData.addData(uuid: homeViewModelData.uribanID , presentation: presentation)
                             
                         }, label: {
-                            Text("완료")
+                            if self.selections.joined(separator: "/") != "" && growthViewModelData.content != "" {
+                                Text("완료")
+                            }
                         })
                     } // ToolbarItem
                 } // toolbar

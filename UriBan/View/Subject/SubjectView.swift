@@ -78,6 +78,7 @@ struct SubjectView: View {
         .onAppear() {
             subjectViewModelData.fetchData(uuid: homeViewModelData.uribanID)
         }
+        .navigationViewStyle(StackNavigationViewStyle())
 
         
    } // body

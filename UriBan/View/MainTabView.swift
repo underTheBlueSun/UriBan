@@ -71,6 +71,7 @@ private extension MainTabView {
         .environmentObject(growthViewModelData)
         .environmentObject(subjectViewModelData)
         .environmentObject(counselViewModelData)
+//        ContentView()
         .tag(Tabs.home)
         .tabItem {
           Image(systemName: "house.fill")

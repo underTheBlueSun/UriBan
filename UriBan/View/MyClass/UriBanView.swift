@@ -64,9 +64,8 @@ struct UriBanView: View {
             }else {
                 studentViewModelData.fetchData(uuid: homeViewModelData.uribanID)
             }
-
-            
-        }
+        } // onAppear
+        .navigationViewStyle(StackNavigationViewStyle())
    } // body
 }
 
