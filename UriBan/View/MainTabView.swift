@@ -118,8 +118,8 @@ private extension MainTabView {
 
       .tag(Tabs.subject)
         .tabItem {
-            Image(systemName: "text.badge.checkmark")
-            Text("과제")
+            Image(systemName: "note.text.badge.plus")
+            Text("과제/안내장")
         }
   }
   
@@ -130,7 +130,7 @@ private extension MainTabView {
         .environmentObject(counselViewModelData)
       .tag(Tabs.counsel)
         .tabItem {
-            Image(systemName: "doc.text.magnifyingglass")
+            Image(systemName: "figure.stand.line.dotted.figure.stand")
             Text("상담")
         }
   }

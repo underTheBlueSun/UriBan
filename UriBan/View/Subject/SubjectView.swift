@@ -14,6 +14,9 @@ struct SubjectView: View {
     @EnvironmentObject var homeViewModelData: HomeViewModel
     @EnvironmentObject var subjectViewModelData: SubjectViewModel
     
+    @State private var selectedSubject: Bool = false
+    @State private var selectedSheet: Bool = false
+    
     private func getDate(format: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy.MM.dd"
@@ -29,7 +32,41 @@ struct SubjectView: View {
     var body: some View {
         
         NavigationView {
+            
             List {
+                
+                // Hstack에서 버튼 액션은 연달아 먹힘. 그래서 onTapGesture 사용
+                HStack {
+                    Image(systemName: "magnifyingglass").foregroundColor(.gray)
+                    .onTapGesture {
+                        self.selectedSubject = true
+                        self.selectedSheet = false
+                        subjectViewModelData.fetchData(uuid: homeViewModelData.uribanID)
+                    }
+                    Button(action: {}, label: {
+                        Text("과제").foregroundColor(selectedSubject == true ? .systemTeal : .gray).font(.system(size: 15))
+                        
+                    } )
+                    .onTapGesture {
+                        self.selectedSubject = true
+                        self.selectedSheet = false
+                        subjectViewModelData.fetchSubject(uuid: homeViewModelData.uribanID)
+                    }
+                                        
+                    Button(action: {}, label: {
+                            Text("안내장").foregroundColor(selectedSheet == true ? .systemTeal : .gray).font(.system(size: 15))
+                        
+                    } )
+                    .onTapGesture {
+                        self.selectedSubject = false
+                        self.selectedSheet = true
+                        subjectViewModelData.fetchSheet(uuid: homeViewModelData.uribanID)
+                    }
+                    .padding(.horizontal)
+
+                }
+
+                
                 ForEach(subjectViewModelData.subjects) { subject in
                     NavigationLink(destination:
                                     DetailSubjectView(subject: subject)

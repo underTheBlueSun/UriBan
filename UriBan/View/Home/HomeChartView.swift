@@ -76,7 +76,7 @@ struct HomeChartView: View {
                     // 과제 달성율 차트
                     Button(action: { activeSheet = .third }, label: {
                         VStack {
-                            Text("과제달성율").bold().font(.system(size: 17)).foregroundColor(.black)
+                            Text("과제/안내장").bold().font(.system(size: 17)).foregroundColor(.black)
                             Text("상세통계를 보려면 터치하세요").font(.system(size: 10)).foregroundColor(Color.gray)
                             ZStack {
                                 Circle()

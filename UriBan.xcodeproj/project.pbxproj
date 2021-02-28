@@ -24,6 +24,7 @@
 		15033CC425EA028F00D98FAF /* ForYou.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15033CC325EA028F00D98FAF /* ForYou.swift */; };
 		15033CC725EA067900D98FAF /* IfNotDream.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 15033CC625EA067900D98FAF /* IfNotDream.mp3 */; };
 		15033CD425EB145700D98FAF /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15033CD325EB145600D98FAF /* SwiftUIView.swift */; };
+		15033CD925EB86B500D98FAF /* Subject03.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15033CD825EB86B500D98FAF /* Subject03.swift */; };
 		15199EE725D5F57300A35ECF /* PopRootViewExam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15199EE625D5F57300A35ECF /* PopRootViewExam.swift */; };
 		1535D8D825C6419300BC7E81 /* AddStudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1535D8D725C6419300BC7E81 /* AddStudentView.swift */; };
 		1546373D25CE36E600763674 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546373C25CE36E600763674 /* UIImageExtension.swift */; };
@@ -99,6 +100,7 @@
 		15033CC325EA028F00D98FAF /* ForYou.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYou.swift; sourceTree = "<group>"; };
 		15033CC625EA067900D98FAF /* IfNotDream.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = IfNotDream.mp3; sourceTree = "<group>"; };
 		15033CD325EB145600D98FAF /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		15033CD825EB86B500D98FAF /* Subject03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject03.swift; sourceTree = "<group>"; };
 		15199EE625D5F57300A35ECF /* PopRootViewExam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopRootViewExam.swift; sourceTree = "<group>"; };
 		1535D8D725C6419300BC7E81 /* AddStudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentView.swift; sourceTree = "<group>"; };
 		1546373C25CE36E600763674 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 				15B8A45425E5C76000BEF676 /* Subject02.swift */,
 				15033CAC25E9AD5F00D98FAF /* Counsel01.swift */,
 				15033CB925E9BAFC00D98FAF /* Counsel02.swift */,
+				15033CD825EB86B500D98FAF /* Subject03.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 				15C851C025E0796800F67FA4 /* GeometryGetter.swift in Sources */,
 				15CC4CBD25E653F800F684C9 /* SubjectChartStu.swift in Sources */,
 				FA012FF125CCF73000D580A6 /* Student03.swift in Sources */,
+				15033CD925EB86B500D98FAF /* Subject03.swift in Sources */,
 				15033CAD25E9AD5F00D98FAF /* Counsel01.swift in Sources */,
 				FA94236225C0F9D00072D0EE /* Student01.swift in Sources */,
 				FA94235925C0F94A0072D0EE /* SearchDefaultRealm.swift in Sources */,

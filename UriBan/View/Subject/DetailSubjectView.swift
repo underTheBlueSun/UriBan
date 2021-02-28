@@ -18,14 +18,14 @@ struct DetailSubjectView: View {
     // 체크리스트 배열
     @State var selections: [String] = []
     
-    var subject: Subject02
+    var subject: Subject03
         
     // 텍스트에디터가 키보드에 가리는거 방지
 //    @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 1)
     
     var columns = Array(repeating: GridItem(.flexible(), spacing: 20), count: 10)
     
-    init(subject: Subject02) {
+    init(subject: Subject03) {
         self.subject = subject
     }
     
@@ -63,8 +63,15 @@ struct DetailSubjectView: View {
                 Divider()
                 VStack(spacing:0) {
                     HStack {
-                        Text("과제기록").foregroundColor(.gray).font(.system(size: 13))
+                        Text("과제/안내장기록").foregroundColor(.gray).font(.system(size: 13))
                         Spacer()
+                        HStack(spacing: 0) {
+                            TabButton(selected: $subjectViewModelData.gubun, title: "과제", animation: animation, gubun: 1)
+                            TabButton(selected: $subjectViewModelData.gubun, title: "안내장", animation: animation, gubun: 2)
+                        }
+                        .frame(width: 110)
+                        .background(Color.gray.opacity(0.3))
+                        .clipShape(Capsule())
                     }
                     HStack {
                         // AddSubjectlView 와 height가 다른 이유: 300으로 하면 1번 학생 안보임

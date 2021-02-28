@@ -56,8 +56,16 @@ struct AddSubjectView: View {
                 Divider()
                 VStack(spacing:0) {
                     HStack {
-                        Text("과제기록").foregroundColor(.gray).font(.system(size: 13))
+                        Text("과제/안내장기록").foregroundColor(.gray).font(.system(size: 13))
                         Spacer()
+                        
+                        HStack(spacing: 0) {
+                            TabButton(selected: $subjectViewModelData.gubun, title: "과제", animation: animation, gubun: 1)
+                            TabButton(selected: $subjectViewModelData.gubun, title: "안내장", animation: animation, gubun: 2)
+                        }
+                        .frame(width: 110)
+                        .background(Color.gray.opacity(0.3))
+                        .clipShape(Capsule())
                     }
                     HStack {
                         TextEditor(text: $subjectViewModelData.content).frame(height:300).fixedSize(horizontal: false, vertical: true)

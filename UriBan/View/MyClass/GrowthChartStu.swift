@@ -50,10 +50,10 @@ struct GrowthChartStu: View {
             VStack {
                 HStack {
 //                    BarChartView(data: ChartData(values: arrPositiveIndi), title: "좋아요",  style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.blue, secondGradientColor: Color.blue, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Color.gray), form: ChartForm.medium)
-                    BarChartView(data: ChartData(points: arrPositiveIndi1), title: "좋아요",  style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.blue, secondGradientColor: Color.blue, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Color.gray), form: ChartForm.small)
+                    BarChartView(data: ChartData(points: arrPositiveIndi1), title: "좋아요",  style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.blue, secondGradientColor: Color.blue, textColor: Color.gray, legendTextColor: Color.gray, dropShadowColor: Color.gray), form: ChartForm.small)
 
 //                    BarChartView(data: ChartData(values: arrNegativeIndi), title: "고쳐요", style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.red, secondGradientColor: Color.red, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Color.gray), form: ChartForm.medium)
-                    BarChartView(data: ChartData(points: arrNegativeIndi1), title: "고쳐요", style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.red, secondGradientColor: Color.red, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Color.gray), form: ChartForm.small)
+                    BarChartView(data: ChartData(points: arrNegativeIndi1), title: "고쳐요", style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.red, secondGradientColor: Color.red, textColor: Color.gray, legendTextColor: Color.gray, dropShadowColor: Color.gray), form: ChartForm.small)
                 } // HStack
                 .padding()
                 

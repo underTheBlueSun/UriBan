@@ -30,7 +30,7 @@ class CounselViewModel: ObservableObject {
     
     func fetchData(uuid: String) {
         guard let dbRef = try? Realm() else { return }
-        let results = dbRef.objects(Counsel02.self).filter("uuid == %@", uuid)
+        let results = dbRef.objects(Counsel02.self).filter("uuid == %@", uuid).sorted(byKeyPath: "yymmdd", ascending: false)
         self.counsels = results.compactMap({ (counsel) -> Counsel02? in return counsel })
     }
     

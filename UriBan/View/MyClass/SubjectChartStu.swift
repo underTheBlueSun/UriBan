@@ -57,7 +57,7 @@ struct SubjectChartStu: View {
 //        NavigationView {
             VStack {
                 VStack {
-                    Text("과제달성율").bold().font(.system(size: 17)).foregroundColor(.black)
+                    Text("과제/안내장").bold().font(.system(size: 17)).foregroundColor(.gray)
                     ZStack {
                         Circle()
                             .trim(from: 0, to: 1 )
