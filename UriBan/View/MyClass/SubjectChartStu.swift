@@ -97,10 +97,15 @@ struct SubjectChartStu: View {
                                     .font(.system(size: 10))
                                 Spacer()
                                 if subject.number.contains(String(format: "%02d", self.number)) == true {
-                                    Image(systemName: "checkmark.circle.fill")
-                                        .foregroundColor(Color.green)
+                                    Text("달성")
+                                        .foregroundColor(.blue)
                                         .font(.system(size: 12))
-//                                        .frame(width: 10, height: 10)
+                                }else{
+                                    Text("미달성")
+                                        .foregroundColor(.red)
+                                        .font(.system(size: 12))
+
+                                    
                                 }
                             }
 

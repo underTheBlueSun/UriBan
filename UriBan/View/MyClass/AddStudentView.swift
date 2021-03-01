@@ -58,6 +58,7 @@ struct AddStudentView: View {
                             Image(uiImage: images[images.endIndex-1])
                                 .resizable()
                                 .frame(width: 100, height: 110)
+                                .cornerRadius(10)
                         })
                     }
                     else {
@@ -65,6 +66,7 @@ struct AddStudentView: View {
                             Image("profile02")
                                 .resizable()
                                 .frame(width: 100, height: 110)
+                                .cornerRadius(10)
                         })
                     }
 
@@ -93,13 +95,13 @@ struct AddStudentView: View {
 //                            TextField("성명", text: $studentViewModelData.name)
 //                        }
                         HStack {
-//                            Image(systemName: "phone.circle.fill").resizable().frame(width: 17, height: 17).foregroundColor(.gray)
+                            Image(systemName: "phone.fill").resizable().frame(width: 17, height: 17).foregroundColor(.gray).padding(.horizontal,1)
                             TextField("전화번호", text: $studentViewModelData.telNo).keyboardType(.phonePad)
                                 .font(.system(size: 15))
                                 .foregroundColor(.gray)
                         }
                         HStack {
-//                            Image(systemName: "house.fill").resizable().frame(width: 20, height: 20).foregroundColor(.gray)
+                            Image(systemName: "house.fill").resizable().frame(width: 20, height: 20).foregroundColor(.gray)
                             TextField("주소", text: $studentViewModelData.address)
                                 .font(.system(size: 15))
                                 .foregroundColor(.gray)
@@ -110,6 +112,10 @@ struct AddStudentView: View {
                                     let configuration = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
                                     PhotoPicker(images: $images, configuration: configuration, isPresented: $isPresented)
                 }
+                .padding(.horizontal,2)
+                .padding(.vertical, 2)
+                
+                Divider()
                 
                 VStack(spacing: 0) {
                     HStack {

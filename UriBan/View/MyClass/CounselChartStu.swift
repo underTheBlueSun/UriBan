@@ -60,8 +60,8 @@ struct CounselChartStu: View {
         } // VStack
         .navigationBarTitle(self.name, displayMode: .inline)
         .onAppear(perform: {
-        // 전체 데이터 가져오기
-        counselViewModelData.fetchData(uuid: uuid)
+        //  데이터 가져오기
+            counselViewModelData.fetchStu(uuid: uuid, number: number)
         
         }) // onAppear()
         .onDisappear(perform: {

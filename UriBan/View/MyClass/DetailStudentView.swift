@@ -80,7 +80,7 @@ struct DetailStudentView: View {
                         }
                         .padding(.bottom, 2)
                         HStack {
-                            Image(systemName: "iphone.homebutton.radiowaves.left.and.right").font(.system(size: 15))
+                            Image(systemName: "phone.fill").font(.system(size: 15)).foregroundColor(.gray).padding(.horizontal,1)
                             TextField("전호번호", text: $studentViewModelData.telNo)
                                 .keyboardType(.phonePad)
                                 .font(.system(size: 15))
@@ -98,14 +98,15 @@ struct DetailStudentView: View {
 //                            .padding(.horizontal)
                         }
                         HStack {
-                            Image(systemName: "house.fill").font(.system(size: 15))
+                            Image(systemName: "house.fill").font(.system(size: 15)).foregroundColor(.gray)
                             TextField("주소", text: $studentViewModelData.address).font(.system(size: 15)).foregroundColor(.gray)
                         }
                         
                         Spacer()
                     } // Vstack
                 } // Hstack
-                .padding(.horizontal)
+                .padding(.horizontal,2)
+                .padding(.vertical, 2)
                 
                 Divider()
                 

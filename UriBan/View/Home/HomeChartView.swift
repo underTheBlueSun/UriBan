@@ -159,7 +159,7 @@ struct HomeChartView: View {
             self.arrCounsel = counselViewModelData.groupedCounsel.sorted(by: <).map { (String($0)+"월", Int($1)) }
         }) // onAppear()
         .onDisappear(perform: {
-            presentation.wrappedValue.dismiss()
+//            presentation.wrappedValue.dismiss()
         })
         
     } // body

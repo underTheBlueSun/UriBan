@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct SwiftUIView: View {
+    
+    @State private var downloadAmount = 11.1
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+                    ProgressView("Downloading…", value: downloadAmount, total: 100)
+                }
     }
 }
 

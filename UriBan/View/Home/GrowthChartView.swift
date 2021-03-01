@@ -42,7 +42,7 @@ struct GrowthChartView: View {
                     HStack {
                         Text("날짜")
                         Spacer()
-                        Text("인원수")
+                        Text("건수")
                         Spacer()
                         Text("상태")
                     } // HStack
@@ -54,7 +54,7 @@ struct GrowthChartView: View {
                         HStack {
                             Text(String(key) + "월")
                             Spacer()
-                            Text(String(value) + "명")
+                            Text(String(value) + "건")
                             Spacer()
                             Text("긍정").foregroundColor(Color.blue)
                         } // HStack
@@ -71,7 +71,7 @@ struct GrowthChartView: View {
                         // .font(.system(size: 15))
                         Text("날짜")
                         Spacer()
-                        Text("인원수")
+                        Text("건수")
                         Spacer()
                         Text("상태")
                     } // HStack
@@ -83,7 +83,7 @@ struct GrowthChartView: View {
                         HStack {
                             Text(String(key) + "월")
                             Spacer()
-                            Text(String(value) + "명")
+                            Text(String(value) + "건")
                             Spacer()
                             Text("부정").foregroundColor(Color.red)
                         } // HStack

@@ -34,6 +34,13 @@ class CounselViewModel: ObservableObject {
         self.counsels = results.compactMap({ (counsel) -> Counsel02? in return counsel })
     }
     
+    func fetchStu(uuid: String, number: Int) {
+        guard let dbRef = try? Realm() else { return }
+        let results = dbRef.objects(Counsel02.self).filter("uuid == '\(uuid)' and number CONTAINS '\(String(format: "%02d", number))'")
+        self.counsels = results.compactMap({ (counsel) -> Counsel02? in return counsel })
+    }
+
+    
     func addData(uuid: String, presentation: Binding<PresentationMode>) {
         let counsel = Counsel02()
         counsel.uuid = uuid

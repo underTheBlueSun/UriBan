@@ -14,6 +14,7 @@ struct SubjectView: View {
     @EnvironmentObject var homeViewModelData: HomeViewModel
     @EnvironmentObject var subjectViewModelData: SubjectViewModel
     
+    @State private var selectedTotal: Bool = false
     @State private var selectedSubject: Bool = false
     @State private var selectedSheet: Bool = false
     
@@ -38,31 +39,43 @@ struct SubjectView: View {
                 // Hstack에서 버튼 액션은 연달아 먹힘. 그래서 onTapGesture 사용
                 HStack {
                     Image(systemName: "magnifyingglass").foregroundColor(.gray)
+                    
+                    Button(action: {}, label: {
+                        Text("전체").foregroundColor(selectedTotal == true ? .systemTeal : .gray).font(.system(size: 15))
+                        
+                    } )
                     .onTapGesture {
-                        self.selectedSubject = true
+                        self.selectedTotal = true
+                        self.selectedSubject = false
                         self.selectedSheet = false
                         subjectViewModelData.fetchData(uuid: homeViewModelData.uribanID)
                     }
+                    
+                    Rectangle().frame(width: 1, height: 15).foregroundColor(.gray).opacity(0.4)
+                    
                     Button(action: {}, label: {
                         Text("과제").foregroundColor(selectedSubject == true ? .systemTeal : .gray).font(.system(size: 15))
                         
                     } )
                     .onTapGesture {
+                        self.selectedTotal = false
                         self.selectedSubject = true
                         self.selectedSheet = false
                         subjectViewModelData.fetchSubject(uuid: homeViewModelData.uribanID)
                     }
+                    
+                    Rectangle().frame(width: 1, height: 15).foregroundColor(.gray).opacity(0.4)
                                         
                     Button(action: {}, label: {
                             Text("안내장").foregroundColor(selectedSheet == true ? .systemTeal : .gray).font(.system(size: 15))
                         
                     } )
                     .onTapGesture {
+                        self.selectedTotal = false
                         self.selectedSubject = false
                         self.selectedSheet = true
                         subjectViewModelData.fetchSheet(uuid: homeViewModelData.uribanID)
                     }
-                    .padding(.horizontal)
 
                 }
 
