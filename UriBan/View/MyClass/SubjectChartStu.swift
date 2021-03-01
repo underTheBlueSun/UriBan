@@ -133,7 +133,11 @@ struct SubjectChartStu: View {
             
         }) // onAppear()
         .onDisappear(perform: {
-            presentation.wrappedValue.dismiss()
+//            presentation.wrappedValue.dismiss()
+            // DispatchQueue 이거 안쓰고 그냥 dismiss 하면 크래시 남.
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                presentation.wrappedValue.dismiss()
+            }
         })
 
         

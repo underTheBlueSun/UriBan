@@ -88,6 +88,7 @@ struct DetailGrowthView: View {
                         .clipShape(Capsule())
                         
                     }
+                    .padding(.horizontal)
                     HStack {
                         // AddGrowthlView 와 height가 다른 이유: 300으로 하면 1번 학생 안보임
                         TextEditor(text: $growthViewModelData.content).frame(height:200).fixedSize(horizontal: false, vertical: true)
@@ -95,6 +96,7 @@ struct DetailGrowthView: View {
     //                            .background(GeometryGetter(rect: $kGuardian.rects[0]))
     //                        FirstResponderTextEditor(text: $growthViewModelData.content).frame(height:150).fixedSize(horizontal: false, vertical: true)
                     }
+                    .padding(.horizontal)
                 } // VStack
                 .padding(.horizontal)
                 .navigationBarTitle(homeViewModelData.className, displayMode: .inline)
@@ -130,6 +132,10 @@ struct DetailGrowthView: View {
                     growthViewModelData.deInitData()
                     // .navigationViewStyle(StackNavigationViewStyle()) 이거때문. 아이패드와 같은 화면되게하려면 어쩔수없음 ㅠㅠ
 //                    presentation.wrappedValue.dismiss()
+                    // DispatchQueue 이거 안쓰고 그냥 dismiss 하면 크래시 남.
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        presentation.wrappedValue.dismiss()
+                    }
                 })
                 
                 Spacer()

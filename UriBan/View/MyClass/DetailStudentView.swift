@@ -16,7 +16,7 @@ struct DetailStudentView: View {
     @EnvironmentObject var growthViewModelData: GrowthViewModel
     @EnvironmentObject var subjectViewModelData: SubjectViewModel
     
-    @Environment(\.presentationMode) var presentaion
+    @Environment(\.presentationMode) var presentation
         
     @Namespace var animation
     
@@ -85,17 +85,6 @@ struct DetailStudentView: View {
                                 .keyboardType(.phonePad)
                                 .font(.system(size: 15))
                                 .foregroundColor(.gray)
-//                                .frame(width: 105)
-                            
-//                            Spacer()
-//                            HStack(spacing: 0) {
-//                                TabButton(selected: $studentViewModelData.sex, title: "남자", animation: animation, gubun: 1)
-//                                TabButton(selected: $studentViewModelData.sex, title: "여자", animation: animation, gubun: 2)
-//                            }
-//                            .frame(width: 80)
-//                            .background(Color.gray.opacity(0.3))
-//                            .clipShape(Capsule())
-//                            .padding(.horizontal)
                         }
                         HStack {
                             Image(systemName: "house.fill").font(.system(size: 15)).foregroundColor(.gray)
@@ -161,7 +150,7 @@ struct DetailStudentView: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
                             studentViewModelData.updateObject = nil
-                            presentaion.wrappedValue.dismiss()
+                            presentation.wrappedValue.dismiss()
 
                     }, label: {
                         Text("")
@@ -173,7 +162,7 @@ struct DetailStudentView: View {
     //                        studentViewModelData.picture = images[0]
                             studentViewModelData.picture = images[images.endIndex-1]
                         }
-                        studentViewModelData.updData(presentation: presentaion)
+                        studentViewModelData.updData(presentation: presentation)
                         
                     }, label: {
                         Text("완료")
@@ -193,13 +182,16 @@ struct DetailStudentView: View {
                 studentViewModelData.deInitData()
                 // 상세화면에 있다가 다른 곳 탭한후 다시 탭하면 rootview로 돌아가려고
                 // .navigationViewStyle(StackNavigationViewStyle()) 이거때문. 아이패드와 같은 화면되게하려면 어쩔수없음 ㅠㅠ
-//                presentaion.wrappedValue.dismiss()
+                // DispatchQueue 이거 안쓰고 그냥 dismiss 하면 크래시 남.
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    presentation.wrappedValue.dismiss()
+                }
             })
             .fullScreenCover(isPresented: $isPresented) {
                                 let configuration = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
                                 PhotoPicker(images: $images, configuration: configuration, isPresented: $isPresented)
             }
-        }
+        } // ScrollView
 
     }
 }

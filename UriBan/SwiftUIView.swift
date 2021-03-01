@@ -12,9 +12,10 @@ struct SwiftUIView: View {
     @State private var downloadAmount = 11.1
     
     var body: some View {
-        VStack {
-                    ProgressView("Downloading…", value: downloadAmount, total: 100)
-                }
+        Text("Hello World")
+            .frame(minWidth: 100, maxWidth: .infinity, minHeight: 100, maxHeight: .infinity)
+            .background(Color.red)
+            .ignoresSafeArea()
     }
 }
 

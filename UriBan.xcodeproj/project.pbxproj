@@ -342,13 +342,13 @@
 		FA94236525C0F9F70072D0EE /* MyClass */ = {
 			isa = PBXGroup;
 			children = (
-				FA9CF39425C1234C00E66C07 /* StudentView.swift */,
+				1550EEDF25D4C5CA00D09882 /* UriBanView.swift */,
 				1535D8D725C6419300BC7E81 /* AddStudentView.swift */,
 				15575E6925CF6CB7007510C4 /* DetailStudentView.swift */,
-				1550EEDF25D4C5CA00D09882 /* UriBanView.swift */,
 				15C851E725E460BD00F67FA4 /* GrowthChartStu.swift */,
 				15CC4CBC25E653F800F684C9 /* SubjectChartStu.swift */,
 				15033CBC25E9BDB200D98FAF /* CounselChartStu.swift */,
+				FA9CF39425C1234C00E66C07 /* StudentView.swift */,
 			);
 			path = MyClass;
 			sourceTree = "<group>";
@@ -638,7 +638,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.SwiftUI-test.UriBan";
+				PRODUCT_BUNDLE_IDENTIFIER = com.underTheBlueSun.UriBan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -660,7 +660,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.SwiftUI-test.UriBan";
+				PRODUCT_BUNDLE_IDENTIFIER = com.underTheBlueSun.UriBan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

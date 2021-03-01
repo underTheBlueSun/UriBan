@@ -68,6 +68,7 @@ struct AddSubjectView: View {
                             .background(Color.gray.opacity(0.3))
                             .clipShape(Capsule())
                         }
+                        .padding(.horizontal)
                         HStack {
                             TextEditor(text: $subjectViewModelData.content).frame(height:300).fixedSize(horizontal: false, vertical: true)
                                 // 텍스트에디터가 키보드에 가리는거 방지
@@ -75,6 +76,7 @@ struct AddSubjectView: View {
 
     //                        FirstResponderTextEditor(text: $subjectViewModelData.content).frame(height:100).fixedSize(horizontal: false, vertical: true)
                         }
+                        .padding(.horizontal)
                     } // VStack
                     .padding(.horizontal)
                     .navigationBarTitle(homeViewModelData.className, displayMode: .inline)

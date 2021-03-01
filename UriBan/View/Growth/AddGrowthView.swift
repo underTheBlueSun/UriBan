@@ -76,12 +76,14 @@ struct AddGrowthView: View {
                             .clipShape(Capsule())
                             
                         }
+                        .padding(.horizontal)
                         HStack {
                             TextEditor(text: $growthViewModelData.content).frame(height:300).fixedSize(horizontal: false, vertical: true)
                                 // 텍스트에디터가 키보드에 가리는거 방지
     //                                .background(GeometryGetter(rect: $kGuardian.rects[0]))
     //                        FirstResponderTextEditor(text: $growthViewModelData.content).frame(height:150).fixedSize(horizontal: false, vertical: true)
                         }
+                        .padding(.horizontal)
                     } // VStack
                     .padding(.horizontal)
                     .navigationBarTitle(homeViewModelData.className, displayMode: .inline)

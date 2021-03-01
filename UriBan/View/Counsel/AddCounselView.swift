@@ -64,12 +64,14 @@ struct AddCounselView: View {
                                 .frame(width: 50).font(.system(size: 13))
     //                                .textFieldStyle(RoundedBorderTextFieldStyle())
                         }
+                        .padding(.horizontal)
                         HStack {
                             TextEditor(text: $counselViewModelData.content).frame(height:300).fixedSize(horizontal: false, vertical: true)
                                 // 텍스트에디터가 키보드에 가리는거 방지
     //                            .background(GeometryGetter(rect: $kGuardian.rects[0]))
     //                        FirstResponderTextEditor(text: $counselViewModelData.content).frame(height:100).fixedSize(horizontal: false, vertical: true)
                         }
+                        .padding(.horizontal)
                     } // VStack
                     .padding(.horizontal)
                     .navigationBarTitle(homeViewModelData.className, displayMode: .inline)
