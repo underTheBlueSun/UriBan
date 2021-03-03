@@ -28,7 +28,7 @@ struct DetailStudentView: View {
     @State var openChartView = false
     
     // sheet를 멀티로 띄우기 위해
-    @State var activeSheet: ActiveSheet?
+    @State var activeSheet: ActiveSheet2?
 
         
     init(student: Student05) {
@@ -47,7 +47,12 @@ struct DetailStudentView: View {
                 HStack {
                     
                     if !images.isEmpty {
-                        Button(action: {isPresented.toggle()}, label: {
+//                        Button(action: {isPresented.toggle()}, label: {
+                        Button(action: {
+                                activeSheet = .first
+//                            isPresented.toggle()
+                            
+                        }, label: {
                             // 프로필 사진 선택후 다시 선택할때
                             Image(uiImage: images[images.endIndex-1])
                                 .resizable()
@@ -56,7 +61,11 @@ struct DetailStudentView: View {
                         })
                     }
                     else {
-                        Button(action: {isPresented.toggle()}, label: {
+//                        Button(action: {isPresented.toggle()}, label: {
+                        Button(action: {
+                                activeSheet = .first
+//                            isPresented.toggle()
+                        }, label: {
                             Image("profile02")
                                 .resizable()
                                 .cornerRadius(10)
@@ -115,27 +124,42 @@ struct DetailStudentView: View {
                 
                 VStack {
                     HStack {
-                        NavigationLink(destination: GrowthChartStu(uuid: student.uuid, number: student.number, name: student.name) ) {
+//                        NavigationLink(destination: GrowthChartStu(uuid: student.uuid, number: student.number, name: student.name) ) {
+//                            Image(systemName: "chart.bar.xaxis").foregroundColor(Color.red)
+//                            Text("관찰 누가기록 보기").foregroundColor(Color.tabbarBackgroud)
+//                            Spacer()
+//                        }
+                        Button(action: { activeSheet = .second }, label: {
                             Image(systemName: "chart.bar.xaxis").foregroundColor(Color.red)
                             Text("관찰 누가기록 보기").foregroundColor(Color.tabbarBackgroud)
                             Spacer()
-                        }
+                        })
                     }
                     Divider()
                     HStack {
-                        NavigationLink(destination: SubjectChartStu(uuid: student.uuid, number: student.number, name: student.name)) {
+//                        NavigationLink(destination: SubjectChartStu(uuid: student.uuid, number: student.number, name: student.name)) {
+//                            Image(systemName: "chart.pie.fill").foregroundColor(Color.orange)
+//                            Text("과제 누가기록 보기").foregroundColor(Color.tabbarBackgroud)
+//                            Spacer()
+//                        }
+                        Button(action: { activeSheet = .third }, label: {
                             Image(systemName: "chart.pie.fill").foregroundColor(Color.orange)
-                            Text("과제 누가기록 보기").foregroundColor(Color.tabbarBackgroud)
+                            Text("과제/알림장 누가기록 보기").foregroundColor(Color.tabbarBackgroud)
                             Spacer()
-                        }
+                        })
                     }
                     Divider()
                     HStack {
-                        NavigationLink(destination: CounselChartStu(uuid: student.uuid, number: student.number, name: student.name) ) {
+//                        NavigationLink(destination: CounselChartStu(uuid: student.uuid, number: student.number, name: student.name) ) {
+//                            Image(systemName: "chart.bar.fill").foregroundColor(Color.green)
+//                            Text("상담 누가기록 보기").foregroundColor(Color.tabbarBackgroud)
+//                            Spacer()
+//                        }
+                        Button(action: { activeSheet = .fourth }, label: {
                             Image(systemName: "chart.bar.fill").foregroundColor(Color.green)
                             Text("상담 누가기록 보기").foregroundColor(Color.tabbarBackgroud)
                             Spacer()
-                        }
+                        })
                     }
                     Divider()
 
@@ -187,10 +211,29 @@ struct DetailStudentView: View {
                     presentation.wrappedValue.dismiss()
                 }
             })
-            .fullScreenCover(isPresented: $isPresented) {
-                                let configuration = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
-                                PhotoPicker(images: $images, configuration: configuration, isPresented: $isPresented)
+//            .fullScreenCover(isPresented: $isPresented) {
+//                                let configuration = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
+//                                PhotoPicker(images: $images, configuration: configuration, isPresented: $isPresented)
+//            }
+            .fullScreenCover(item: $activeSheet) { item in
+                    switch item {
+                        case .first:
+                            let configuration = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
+                            PhotoPicker(images: $images, configuration: configuration, isPresented: $isPresented)
+                            
+                    case .second:
+                        GrowthChartStu(uuid: student.uuid, number: student.number, name: student.name)
+//                        SwiftUIView()
+                    case .third:
+                        SubjectChartStu(uuid: student.uuid, number: student.number, name: student.name)
+//                        SwiftUIView2()
+                        
+                    case .fourth:
+                        CounselChartStu(uuid: student.uuid, number: student.number, name: student.name)
+//                        SwiftUIView3()
+                    }
             }
+
         } // ScrollView
 
     }
@@ -202,3 +245,11 @@ struct DetailStudentView: View {
 //            .environmentObject(StudentViewModel())
 //    }
 //}
+
+enum ActiveSheet2: Identifiable {
+    case first, second, third, fourth
+    
+    var id: Int {
+        hashValue
+    }
+}

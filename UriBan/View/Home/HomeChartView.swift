@@ -107,7 +107,7 @@ struct HomeChartView: View {
                     
                     // 상담 차트
                     ZStack {
-                        BarChartView(data: ChartData(values: arrNegative), title: "상담", style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.red, secondGradientColor: Color.red, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Color.gray), form: ChartForm.medium)
+                        BarChartView(data: ChartData(values: arrCounsel), title: "상담", style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.red, secondGradientColor: Color.red, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Color.gray), form: ChartForm.medium)
                         // BarChartView 는 버튼 액션이 안먹음
 //                        Button(action: { activeSheet = .fourth }, label: {
 //                            Text("터치하여 월별통계보기").font(.system(size: 10)).foregroundColor(Color.gray).frame(height: 150, alignment: .top)
@@ -130,8 +130,8 @@ struct HomeChartView: View {
                     GrowthChartView(uuid: self.uuid, className: self.className)
                 case .third:
                     SubjectChartView(uuid: self.uuid, className: self.className).environmentObject(studentViewModelData)
-                case .fourth:
-                    GrowthChartView(uuid: self.uuid, className: self.className)
+//                case .fourth:
+//                    GrowthChartView(uuid: self.uuid, className: self.className)
                 }
         }
 //        .fullScreenCover(isPresented: $openChartView) {
@@ -176,7 +176,7 @@ struct HomeChartView_Previews: PreviewProvider {
 }
 
 enum ActiveSheet: Identifiable {
-    case first, second, third, fourth
+    case first, second, third
     
     var id: Int {
         hashValue

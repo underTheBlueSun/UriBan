@@ -35,43 +35,59 @@ struct CounselChartStu: View {
     
     var body: some View {
         
-        VStack {
-            List {
-                ForEach(counselViewModelData.counsels) { counsel in
-                    HStack {
-                        Text(counsel.content).frame(width: 280, alignment: .leading).font(.system(size: 15))
-                            .frame(minWidth: 0, maxWidth: 280, minHeight: 10, maxHeight: 100)
-                        VStack {
-                            Text(getDate(format: counsel.yymmdd))
-                                .frame(alignment: .trailing)
-                                .foregroundColor(.gray)
-                                .font(.system(size: 10))
-                            Spacer()
-                            Text(counsel.time)
-                                .frame(alignment: .trailing)
-                                .foregroundColor(.gray)
-                                .font(.system(size: 10))
+        NavigationView {
+            VStack {
+                List {
+                    ForEach(counselViewModelData.counsels) { counsel in
+                        HStack {
+                            Text(counsel.content).frame(width: 280, alignment: .leading).font(.system(size: 15))
+                                .frame(minWidth: 0, maxWidth: 280, minHeight: 10, maxHeight: 100)
+                            VStack {
+                                Text(getDate(format: counsel.yymmdd))
+                                    .frame(alignment: .trailing)
+                                    .foregroundColor(.gray)
+                                    .font(.system(size: 10))
+                                Spacer()
+                                Text(counsel.time)
+                                    .frame(alignment: .trailing)
+                                    .foregroundColor(.gray)
+                                    .font(.system(size: 10))
+                            }
                         }
-                    }
 
-                } // ForEach
+                    } // ForEach
 
-            } // List
-        } // VStack
-        .navigationBarTitle(self.name, displayMode: .inline)
-        .onAppear(perform: {
-        //  데이터 가져오기
-            counselViewModelData.fetchStu(uuid: uuid, number: number)
+                } // List
+            } // VStack
+            .navigationBarTitle(self.name, displayMode: .inline)
+            .onAppear(perform: {
+            //  데이터 가져오기
+                counselViewModelData.fetchStu(uuid: uuid, number: number)
+            
+            }) // onAppear()
+            .onDisappear(perform: {
+    //            presentation.wrappedValue.dismiss()
+                // DispatchQueue 이거 안쓰고 그냥 dismiss 하면 크래시 남.
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//                    presentation.wrappedValue.dismiss()
+//                }
+            })
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+//                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//                            presentation.wrappedValue.dismiss()
+//                        }
+                        presentation.wrappedValue.dismiss()
+                        
+                    }, label: { Text("닫기") })
+                }
+            } // toolbar
+
+            
+        }
         
-        }) // onAppear()
-        .onDisappear(perform: {
-//            presentation.wrappedValue.dismiss()
-            // DispatchQueue 이거 안쓰고 그냥 dismiss 하면 크래시 남.
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                presentation.wrappedValue.dismiss()
-            }
-        })
-
+        
         
     }
 }

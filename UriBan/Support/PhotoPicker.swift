@@ -14,6 +14,9 @@ struct PhotoPicker: UIViewControllerRepresentable {
 
     let configuration: PHPickerConfiguration
     @Binding var isPresented: Bool
+     
+    @Environment(\.presentationMode) var presentation
+    
     func makeUIViewController(context: Context) -> PHPickerViewController {
         let controller = PHPickerViewController(configuration: configuration)
         controller.delegate = context.coordinator
@@ -52,8 +55,11 @@ struct PhotoPicker: UIViewControllerRepresentable {
                 }
             }
 
-
-            parent.isPresented = false // Set isPresented to false because picking has finished.
+//            parent.isPresented = false
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//                self.parent.presentation.wrappedValue.dismiss()
+//            }
+            parent.presentation.wrappedValue.dismiss()
         }
     }
 }

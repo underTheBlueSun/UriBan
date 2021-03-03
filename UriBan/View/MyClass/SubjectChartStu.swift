@@ -54,7 +54,7 @@ struct SubjectChartStu: View {
     
     var body: some View {
         
-//        NavigationView {
+        NavigationView {
             VStack {
                 VStack {
                     Text("과제/안내장").bold().font(.system(size: 17)).foregroundColor(.gray)
@@ -132,15 +132,26 @@ struct SubjectChartStu: View {
             subjectViewModelData.fetchData(uuid: uuid)
             
         }) // onAppear()
-        .onDisappear(perform: {
-//            presentation.wrappedValue.dismiss()
-            // DispatchQueue 이거 안쓰고 그냥 dismiss 하면 크래시 남.
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                presentation.wrappedValue.dismiss()
+            .onDisappear(perform: {
+        //            presentation.wrappedValue.dismiss()
+                // DispatchQueue 이거 안쓰고 그냥 dismiss 하면 크래시 남.
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//                    presentation.wrappedValue.dismiss()
+//                }
+            })
+            .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: {
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//                        presentation.wrappedValue.dismiss()
+//                    }
+                    presentation.wrappedValue.dismiss()
+                    
+                }, label: { Text("닫기") })
             }
-        })
+        } // toolbar
 
-        
+        }
     }
 }
 

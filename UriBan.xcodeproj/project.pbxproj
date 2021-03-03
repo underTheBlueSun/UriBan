@@ -23,7 +23,6 @@
 		15033CBD25E9BDB200D98FAF /* CounselChartStu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15033CBC25E9BDB200D98FAF /* CounselChartStu.swift */; };
 		15033CC425EA028F00D98FAF /* ForYou.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15033CC325EA028F00D98FAF /* ForYou.swift */; };
 		15033CC725EA067900D98FAF /* IfNotDream.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 15033CC625EA067900D98FAF /* IfNotDream.mp3 */; };
-		15033CD425EB145700D98FAF /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15033CD325EB145600D98FAF /* SwiftUIView.swift */; };
 		15033CD925EB86B500D98FAF /* Subject03.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15033CD825EB86B500D98FAF /* Subject03.swift */; };
 		15199EE725D5F57300A35ECF /* PopRootViewExam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15199EE625D5F57300A35ECF /* PopRootViewExam.swift */; };
 		1535D8D825C6419300BC7E81 /* AddStudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1535D8D725C6419300BC7E81 /* AddStudentView.swift */; };
@@ -41,7 +40,6 @@
 		1590449525C62C840069BF2A /* NavigationBarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1590449425C62C840069BF2A /* NavigationBarColor.swift */; };
 		1590449825C62D060069BF2A /* NavigationLazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1590449725C62D060069BF2A /* NavigationLazyView.swift */; };
 		15B8A44E25E4EB4400BEF676 /* BarChartExam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B8A44D25E4EB4400BEF676 /* BarChartExam.swift */; };
-		15B8A45225E53C9100BEF676 /* SwiftUIView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B8A45125E53C9100BEF676 /* SwiftUIView3.swift */; };
 		15B8A45525E5C76000BEF676 /* Subject02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B8A45425E5C76000BEF676 /* Subject02.swift */; };
 		15B8A45825E5CEB400BEF676 /* SubjectChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B8A45725E5CEB400BEF676 /* SubjectChartView.swift */; };
 		15C851BC25DFBE0B00F67FA4 /* DeleteAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C851BB25DFBE0B00F67FA4 /* DeleteAll.swift */; };
@@ -54,7 +52,6 @@
 		15C851D325E0881C00F67FA4 /* Subject01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C851D225E0881C00F67FA4 /* Subject01.swift */; };
 		15C851DA25E0FC8300F67FA4 /* GrowthChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C851D925E0FC8300F67FA4 /* GrowthChartView.swift */; };
 		15C851E025E2065100F67FA4 /* DonutChartExam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C851DF25E2065100F67FA4 /* DonutChartExam.swift */; };
-		15C851E425E3E5EB00F67FA4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C851E325E3E5EB00F67FA4 /* ContentView.swift */; };
 		15C851E825E460BD00F67FA4 /* GrowthChartStu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C851E725E460BD00F67FA4 /* GrowthChartStu.swift */; };
 		15CC4CBD25E653F800F684C9 /* SubjectChartStu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CC4CBC25E653F800F684C9 /* SubjectChartStu.swift */; };
 		15D7D5A625D8FB5C007E7B20 /* FirstResponderTextFIeld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D7D5A525D8FB5C007E7B20 /* FirstResponderTextFIeld.swift */; };
@@ -99,7 +96,6 @@
 		15033CBC25E9BDB200D98FAF /* CounselChartStu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounselChartStu.swift; sourceTree = "<group>"; };
 		15033CC325EA028F00D98FAF /* ForYou.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYou.swift; sourceTree = "<group>"; };
 		15033CC625EA067900D98FAF /* IfNotDream.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = IfNotDream.mp3; sourceTree = "<group>"; };
-		15033CD325EB145600D98FAF /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		15033CD825EB86B500D98FAF /* Subject03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject03.swift; sourceTree = "<group>"; };
 		15199EE625D5F57300A35ECF /* PopRootViewExam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopRootViewExam.swift; sourceTree = "<group>"; };
 		1535D8D725C6419300BC7E81 /* AddStudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentView.swift; sourceTree = "<group>"; };
@@ -117,7 +113,6 @@
 		1590449425C62C840069BF2A /* NavigationBarColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarColor.swift; sourceTree = "<group>"; };
 		1590449725C62D060069BF2A /* NavigationLazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLazyView.swift; sourceTree = "<group>"; };
 		15B8A44D25E4EB4400BEF676 /* BarChartExam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartExam.swift; sourceTree = "<group>"; };
-		15B8A45125E53C9100BEF676 /* SwiftUIView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView3.swift; sourceTree = "<group>"; };
 		15B8A45425E5C76000BEF676 /* Subject02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject02.swift; sourceTree = "<group>"; };
 		15B8A45725E5CEB400BEF676 /* SubjectChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectChartView.swift; sourceTree = "<group>"; };
 		15C851BB25DFBE0B00F67FA4 /* DeleteAll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAll.swift; sourceTree = "<group>"; };
@@ -130,7 +125,6 @@
 		15C851D225E0881C00F67FA4 /* Subject01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject01.swift; sourceTree = "<group>"; };
 		15C851D925E0FC8300F67FA4 /* GrowthChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowthChartView.swift; sourceTree = "<group>"; };
 		15C851DF25E2065100F67FA4 /* DonutChartExam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutChartExam.swift; sourceTree = "<group>"; };
-		15C851E325E3E5EB00F67FA4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		15C851E725E460BD00F67FA4 /* GrowthChartStu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowthChartStu.swift; sourceTree = "<group>"; };
 		15CC4CBC25E653F800F684C9 /* SubjectChartStu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectChartStu.swift; sourceTree = "<group>"; };
 		15D7D5A525D8FB5C007E7B20 /* FirstResponderTextFIeld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstResponderTextFIeld.swift; sourceTree = "<group>"; };
@@ -242,9 +236,6 @@
 				FA94235725C0F92E0072D0EE /* Support */,
 				15575E6125CE8BE1007510C4 /* Example */,
 				FA94234A25C0F8740072D0EE /* Preview Content */,
-				15C851E325E3E5EB00F67FA4 /* ContentView.swift */,
-				15B8A45125E53C9100BEF676 /* SwiftUIView3.swift */,
-				15033CD325EB145600D98FAF /* SwiftUIView.swift */,
 			);
 			path = UriBan;
 			sourceTree = "<group>";
@@ -434,7 +425,6 @@
 			files = (
 				15894CC725CE1C98001C2AB8 /* Student04.swift in Sources */,
 				15C851C325E0798D00F67FA4 /* KeyboardGuardian.swift in Sources */,
-				15033CD425EB145700D98FAF /* SwiftUIView.swift in Sources */,
 				15B8A45525E5C76000BEF676 /* Subject02.swift in Sources */,
 				FA9CF39925C1277100E66C07 /* StudentViewModel.swift in Sources */,
 				15C851CD25E0844200F67FA4 /* AddSubjectView.swift in Sources */,
@@ -473,11 +463,9 @@
 				1500B0D325D7796800E0EF04 /* AddGrowthView.swift in Sources */,
 				1500B0D025D7734100E0EF04 /* DetailGrowthView.swift in Sources */,
 				1535D8D825C6419300BC7E81 /* AddStudentView.swift in Sources */,
-				15B8A45225E53C9100BEF676 /* SwiftUIView3.swift in Sources */,
 				FA94234525C0F8710072D0EE /* UriBanApp.swift in Sources */,
 				15033CAA25E9AD3300D98FAF /* CounselViewModel.swift in Sources */,
 				156B640425C44C0400DA8D07 /* MultipleSelectionList02Exam.swift in Sources */,
-				15C851E425E3E5EB00F67FA4 /* ContentView.swift in Sources */,
 				15C851BC25DFBE0B00F67FA4 /* DeleteAll.swift in Sources */,
 				FA94236D25C0FA5E0072D0EE /* HomeView.swift in Sources */,
 				1590449525C62C840069BF2A /* NavigationBarColor.swift in Sources */,
@@ -641,7 +629,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.underTheBlueSun.UriBan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -663,7 +651,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.underTheBlueSun.UriBan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

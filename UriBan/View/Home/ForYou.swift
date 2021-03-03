@@ -24,7 +24,7 @@ struct ForYou: View {
                         Button(action: {
                             presentation.wrappedValue.dismiss()
                         }, label: {
-                            Text("취소")
+                            Text("닫기")
                         })
                     }
                 }

@@ -46,7 +46,7 @@ struct GrowthChartStu: View {
     
     var body: some View {
         
-//        NavigationView {
+        NavigationView {
             VStack {
                 HStack {
 //                    BarChartView(data: ChartData(values: arrPositiveIndi), title: "좋아요",  style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.blue, secondGradientColor: Color.blue, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Color.gray), form: ChartForm.medium)
@@ -83,7 +83,7 @@ struct GrowthChartStu: View {
                 
             } // VStack
             .navigationBarTitle(self.name, displayMode: .inline)
-        .onAppear(perform: {
+            .onAppear(perform: {
             growthViewModelData.fetchPositiveByIndi(uuid: uuid, number: number)
             growthViewModelData.fetchNegativeByIndi(uuid: uuid, number: number)
             growthViewModelData.fetchDataStu(uuid: uuid, number: number)
@@ -94,14 +94,25 @@ struct GrowthChartStu: View {
             self.arrNegativeIndi1 = growthViewModelData.groupedToArrNegaIndi
             
         }) // onAppear()
-        .onDisappear(perform: {
+            .onDisappear(perform: {
 //            presentation.wrappedValue.dismiss()
             // DispatchQueue 이거 안쓰고 그냥 dismiss 하면 크래시 남.
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                presentation.wrappedValue.dismiss()
-            }
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//                presentation.wrappedValue.dismiss()
+//            }
         })
-
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+//                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//                            presentation.wrappedValue.dismiss()
+//                        }
+                        presentation.wrappedValue.dismiss()
+                        
+                    }, label: { Text("닫기") })
+                }
+            } // toolbar
+        }
         
     }
 }
