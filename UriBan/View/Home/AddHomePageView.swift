@@ -12,6 +12,7 @@ struct AddHomePageView: View {
     @EnvironmentObject var studentViewModelData: StudentViewModel
     @EnvironmentObject var growthViewModelData: GrowthViewModel
     @EnvironmentObject var subjectViewModelData: SubjectViewModel
+    @EnvironmentObject var counselViewModelData: CounselViewModel
     
 //    스윗한 스위프트 p303 참고
     @Environment(\.presentationMode) var presentaion
@@ -95,6 +96,7 @@ struct AddHomePageView: View {
                             studentViewModelData.fetchData(uuid: modelData.uribanID)
                             growthViewModelData.fetchData(uuid: modelData.uribanID)
                             subjectViewModelData.fetchData(uuid: modelData.uribanID)
+                            counselViewModelData.fetchData(uuid: modelData.uribanID)
                         }, label: {
                             Text("완료")
                         })

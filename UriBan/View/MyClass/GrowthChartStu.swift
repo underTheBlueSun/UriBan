@@ -60,7 +60,7 @@ struct GrowthChartStu: View {
 //                Divider()
                 
                 List {
-                    ForEach(growthViewModelData.growths) { growth in
+                    ForEach(growthViewModelData.growthsStu) { growth in
                         HStack {
                             Text(growth.content).frame(width: 280, alignment: .leading).font(.system(size: 15))
                                 .frame(minWidth: 0, maxWidth: 280, minHeight: 10, maxHeight: 100)

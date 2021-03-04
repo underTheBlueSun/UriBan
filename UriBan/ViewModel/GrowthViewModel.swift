@@ -21,6 +21,8 @@ class GrowthViewModel: ObservableObject {
     @Published var openNewPage = false
     
     @Published var growths: [Growth02] = []
+    // 학생별
+    @Published var growthsStu: [Growth02] = []
     
     @Published var updateObject: Growth02?
     
@@ -246,7 +248,7 @@ class GrowthViewModel: ObservableObject {
     func fetchDataStu(uuid: String, number: Int) {
         guard let dbRef = try? Realm() else { return }
         let results = dbRef.objects(Growth02.self).filter("uuid == '\(uuid)' and name CONTAINS '\(String(format: "%02d", number))'").sorted(byKeyPath: "yymmdd", ascending: false)
-        self.growths = results.compactMap({ (growth) -> Growth02? in return growth })
+        self.growthsStu = results.compactMap({ (growth) -> Growth02? in return growth })
 
     }
 

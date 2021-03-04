@@ -30,9 +30,9 @@ struct GrowthChartView: View {
         NavigationView {
             VStack {
                 HStack {
-                    BarChartView(data: ChartData(values: arrPositiveStudent), title: "학생별(긍정)",  style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.blue, secondGradientColor: Color.blue, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Color.gray), form: ChartForm.medium)
+                    BarChartView(data: ChartData(values: arrPositiveStudent), title: "학생별(좋아요)",  style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.blue, secondGradientColor: Color.blue, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Color.gray), form: ChartForm.medium)
                     
-                    BarChartView(data: ChartData(values: arrNegativeStudent), title: "학생별(부정)", style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.red, secondGradientColor: Color.red, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Color.gray), form: ChartForm.medium)
+                    BarChartView(data: ChartData(values: arrNegativeStudent), title: "학생별(고쳐요)", style: ChartStyle.init(backgroundColor: Color.white, accentColor: Color.red, secondGradientColor: Color.red, textColor: Color.black, legendTextColor: Color.black, dropShadowColor: Color.gray), form: ChartForm.medium)
                 } // HStack
                 .padding()
                 
@@ -56,7 +56,7 @@ struct GrowthChartView: View {
                             Spacer()
                             Text(String(value) + "건")
                             Spacer()
-                            Text("긍정").foregroundColor(Color.blue)
+                            Text("좋아요").foregroundColor(Color.blue)
                         } // HStack
                         .padding(.horizontal)
                         .font(.system(size: 15))
@@ -85,7 +85,7 @@ struct GrowthChartView: View {
                             Spacer()
                             Text(String(value) + "건")
                             Spacer()
-                            Text("부정").foregroundColor(Color.red)
+                            Text("고쳐요").foregroundColor(Color.red)
                         } // HStack
                         .font(.system(size: 15))
                         .padding(.horizontal)

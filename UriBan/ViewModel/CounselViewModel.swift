@@ -20,6 +20,8 @@ class CounselViewModel: ObservableObject {
     @Published var openNewPage = false
     
     @Published var counsels: [Counsel02] = []
+    // 학생별
+    @Published var counselsStu: [Counsel02] = []
     
     @Published var updateObject: Counsel02?
     
@@ -37,7 +39,7 @@ class CounselViewModel: ObservableObject {
     func fetchStu(uuid: String, number: Int) {
         guard let dbRef = try? Realm() else { return }
         let results = dbRef.objects(Counsel02.self).filter("uuid == '\(uuid)' and number CONTAINS '\(String(format: "%02d", number))'")
-        self.counsels = results.compactMap({ (counsel) -> Counsel02? in return counsel })
+        self.counselsStu = results.compactMap({ (counsel) -> Counsel02? in return counsel })
     }
 
     
