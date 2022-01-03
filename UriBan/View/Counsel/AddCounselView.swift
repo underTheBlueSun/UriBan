@@ -47,6 +47,7 @@ struct AddCounselView: View {
                                             self.selections.append(number)
                                         }
                                     } // MultiSelectRow
+                                    
                                 } // HStack
                             } // ForEach
                             .padding()

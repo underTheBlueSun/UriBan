@@ -19,7 +19,7 @@ struct MainTabView: View {
     
     init() {
         // 탭바 배경 색깔 변경. 2021.1월 iOS 14.3 버그로 추정
-//        UITabBar.appearance().backgroundColor = UIColor.black
+        UITabBar.appearance().backgroundColor = UIColor.darkGray
         UITabBar.appearance().barTintColor = UIColor.tertiaryLabel
         UITabBar.appearance().unselectedItemTintColor = UIColor.white
     }
